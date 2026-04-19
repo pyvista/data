@@ -31,7 +31,7 @@ surf = mesh.extract_surface()
 surf.clear_data()
 dec_surf = surf.decimate(0.65)
 dec_surf.points = dec_surf.points.astype(np.float32)
-dec_surf.save('/home/alex/python/vtk-data/Data/ivan-nikolov/Angle.vtp')
+dec_surf.save('/home/alex/python/pyvista/data/Data/ivan-nikolov/Angle.vtp')
 ```
 
 #### `birdBath.off`
@@ -52,7 +52,7 @@ surf.clear_data()
 # 1.8 M points for sub 50M when compressed
 dec_surf = surf.decimate((surf.n_points - 1_800_000)/surf.n_points)
 dec_surf.points = dec_surf.points.astype(np.float32)
-out_path = '/home/alex/python/vtk-data/Data/ivan-nikolov/'
+out_path = '/home/alex/python/pyvista/data/Data/ivan-nikolov/'
 filename_vtp = os.path.join(out_path, f'{base_name}.vtp')
 dec_surf.save(filename_vtp)
 filename_zip = os.path.join(out_path, f'{base_name}.zip')
@@ -92,7 +92,7 @@ bodies = dec_surf.split_bodies()
 idx = np.argmax([body.n_points for body in bodies])
 dec_surf = bodies[idx].extract_surface()
 
-out_path = '/home/alex/python/vtk-data/Data/ivan-nikolov/'
+out_path = '/home/alex/python/pyvista/data/Data/ivan-nikolov/'
 filename_vtp = os.path.join(out_path, f'{base_name}.vtp')
 dec_surf.save(filename_vtp)
 filename_zip = os.path.join(out_path, f'{base_name}.zip')

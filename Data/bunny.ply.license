@@ -1,0 +1,23 @@
+Stanford Bunny (bunny.ply)
+
+Source: Stanford 3D Scanning Repository
+URL: http://graphics.stanford.edu/data/3Dscanrep/
+
+Reference:
+    Turk, G. and Levoy, M. "Zippered Polygon Meshes from Range Images."
+    Proceedings of SIGGRAPH '94, ACM, pp. 311-318, 1994.
+
+Stanford's conditions of use:
+    You are welcome to use the data and models for research purposes. You are
+    also welcome to mirror or redistribute them for free. Such models or
+    images are not to be used for commercial purposes, nor should they appear
+    in a product for sale (with the exception of scholarly journals or books),
+    without permission from the Stanford Computer Graphics Laboratory.
+
+    The bunny and armadillo are explicitly exempted from the "inappropriate
+    uses" restrictions: "You can do anything you want to the Stanford bunny
+    or the armadillo."
+
+Required acknowledgement: credit the Stanford Computer Graphics Laboratory.
+
+SPDX-License-Identifier: LicenseRef-StanfordScanningRepository

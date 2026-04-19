@@ -1,0 +1,18 @@
+Stanford Bunny (Bunny.vtp) — decimated / re-exported version of bunny.ply.
+
+Source: Stanford 3D Scanning Repository
+URL: http://graphics.stanford.edu/data/3Dscanrep/
+
+Reference:
+    Turk, G. and Levoy, M. "Zippered Polygon Meshes from Range Images."
+    Proceedings of SIGGRAPH '94, ACM, pp. 311-318, 1994.
+
+See bunny.ply.license for the full Stanford conditions of use. In summary:
+free redistribution and research use are explicitly permitted; commercial
+use in a product-for-sale requires permission from the Stanford Computer
+Graphics Laboratory; the bunny is explicitly carved out of Stanford's
+cultural-sensitivity restrictions.
+
+Required acknowledgement: credit the Stanford Computer Graphics Laboratory.
+
+SPDX-License-Identifier: LicenseRef-StanfordScanningRepository

@@ -8,7 +8,7 @@ Used to demonstrate usage within pyminiply
 import requests, zipfile, tempfile
 import pyminiply
 
-url = "https://github.com/pyvista/vtk-data/raw/main/Data/toy-plane-point-cloud/toy-plane.zip"
+url = "https://github.com/pyvista/pyvista/data/raw/main/Data/toy-plane-point-cloud/toy-plane.zip"
 
 # download the file using requests
 with tempfile.TemporaryDirectory() as tmpdir:

@@ -1,0 +1,22 @@
+Utah Teapot (teapot.wrl)
+
+Originally modeled by Martin Newell at the University of Utah in 1975.
+
+The VRML tessellation in this file was prepared by Martin Isenburg
+(UNC Chapel Hill) and distributed alongside:
+
+    Isenburg, M. and Snoeyink, J. "Face Fixer: Compressing Polygon
+    Meshes with Properties." SIGGRAPH 2000.
+
+No formal license has ever been issued for the original Newell dataset.
+The model has been freely distributed in computer graphics software since
+the mid-1970s and is conventionally treated as public domain. This
+specific file has been redistributed as VTK test data since 2001 under
+VTK's BSD-3 license.
+
+Recommended attribution: "Utah Teapot, originally modeled by Martin
+Newell, University of Utah, 1975; tessellation by Martin Isenburg."
+
+Background: https://en.wikipedia.org/wiki/Utah_teapot
+
+SPDX-License-Identifier: LicenseRef-UtahTeapot-PublicDomainByConvention

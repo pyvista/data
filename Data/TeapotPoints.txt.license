@@ -1,0 +1,17 @@
+Utah Teapot control points (TeapotPoints.txt)
+
+Raw Bezier control-point coordinates for the Utah Teapot, originally
+modeled by Martin Newell at the University of Utah in 1975.
+
+See teapot.g.license and teapot.wrl.license for the full licensing
+context. In summary: no formal license was ever issued for the original
+Newell dataset, but the model has been freely distributed in computer
+graphics software for 50 years and is conventionally treated as public
+domain.
+
+Recommended attribution: "Utah Teapot, originally modeled by Martin
+Newell, University of Utah, 1975."
+
+Background: https://en.wikipedia.org/wiki/Utah_teapot
+
+SPDX-License-Identifier: LicenseRef-UtahTeapot-PublicDomainByConvention

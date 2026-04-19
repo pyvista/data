@@ -1,0 +1,14 @@
+Utah Teapot (vrml/teapot.wrl) — VRML format.
+
+Originally modeled by Martin Newell at the University of Utah in 1975.
+
+No formal license has ever been issued for the original Newell dataset.
+The model has been freely distributed in computer-graphics software since
+the mid-1970s and is conventionally treated as public domain.
+
+See /Data/teapot.wrl.license for additional context on the Newell
+dataset's licensing history.
+
+Background: https://en.wikipedia.org/wiki/Utah_teapot
+
+SPDX-License-Identifier: LicenseRef-UtahTeapot-PublicDomainByConvention

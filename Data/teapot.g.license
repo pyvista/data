@@ -1,0 +1,21 @@
+Utah Teapot (teapot.g)
+
+Originally modeled by Martin Newell at the University of Utah in 1975.
+
+Despite the .g extension (normally BRL-CAD format), this file is an
+ASCII triangle mesh — the same coordinate data as TeapotPoints.txt in
+VTK's legacy format. It is not a BRL-CAD database.
+
+No formal license has ever been issued for the original Newell dataset.
+The model has been freely distributed in essentially every computer
+graphics package since the mid-1970s (POV-Ray, Blender, 3ds Max, OpenGL
+GLUT, VTK, etc.) and is conventionally treated as public domain. These
+specific files have been redistributed as VTK test data since 2001
+under VTK's BSD-3 license.
+
+Recommended attribution: "Utah Teapot, originally modeled by Martin
+Newell, University of Utah, 1975."
+
+Background: https://en.wikipedia.org/wiki/Utah_teapot
+
+SPDX-License-Identifier: LicenseRef-UtahTeapot-PublicDomainByConvention

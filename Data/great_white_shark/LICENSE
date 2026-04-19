@@ -1,0 +1,22 @@
+Great White Shark 3D model (greatWhite.stl)
+
+ORIGIN AND LICENSE NOT DEFINITIVELY ESTABLISHED.
+
+This file was imported from the VTK Examples test data repository:
+https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/Testing/Data/greatWhite.stl
+
+The STL file header indicates the mesh was reprocessed through netfabb
+(http://www.netfabb.com) but embeds no origin or license metadata.
+Upstream VTK Examples commits do not reference a license or source.
+
+A plausible candidate origin is Thingiverse thing:425437 by user shraska1
+("Great White Shark", uploaded August 2014), but this has not been
+independently verified.
+
+Downstream users redistributing this file — especially in commercial
+products — should consider:
+- Contacting the VTK Examples maintainers
+  (https://gitlab.kitware.com/vtk/vtk-examples) to clarify provenance, or
+- Substituting a shark model with a clearly documented license.
+
+SPDX-License-Identifier: LicenseRef-unknown
