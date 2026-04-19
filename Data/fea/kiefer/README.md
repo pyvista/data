@@ -24,8 +24,8 @@ grid = pv.read('grid.vtu')
 arr = grid.cell_data.pop('my_array')
 grid.cell_data['Equivalent (von-Mises) Stress (psi)'] = arr.astype(np.float32)
 grid.points = grid.points.astype(np.float32)
-filename = 
-grid.save('~/vtk-data/Data/fea/kiefer/dataset.vtu')
+filename =
+grid.save('~/data/Data/fea/kiefer/dataset.vtu')
 ```
 
 #### PyVista - Load and Plot
