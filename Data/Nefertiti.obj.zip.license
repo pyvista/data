@@ -1,0 +1,22 @@
+Nefertiti bust 3D scan (Nefertiti.obj.zip)
+
+WARNING: NON-COMMERCIAL LICENSE.
+This dataset is not compatible with BSD-licensed or other permissive
+redistribution by downstream commercial users.
+
+This file is "The Other Nefertiti" (2016) by Nora Al-Badri and
+Jan Nikolai Nelles, released under Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).
+
+See nefertiti.ply.zip.license for full context. The official Neues Museum
+scan released in 2019 is also non-commercial (CC BY-NC-SA 3.0 DE); no
+CC0 or permissively licensed Nefertiti scan is currently known to exist.
+
+Original project: https://nefertitihack.alloversky.com/
+
+Required attribution: "Nora Al-Badri and Jan Nikolai Nelles,
+The Other Nefertiti (2016), CC BY-NC-SA 4.0."
+
+License URL: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+SPDX-License-Identifier: CC-BY-NC-SA-4.0

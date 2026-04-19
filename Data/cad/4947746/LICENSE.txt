@@ -1,1 +1,19 @@
-PiBoy DMG Custom Rear Case With Ventilation by downerhouse on Thingiverse: https://www.thingiverse.com/thing:4947746
+PiBoy DMG Custom Rear Case With Ventilation (Vented_Rear_Case_With_Pi_Supports.vtp)
+
+Original source: https://www.thingiverse.com/thing:4947746
+Creator: downerhouse (Thingiverse)
+
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+License URL: https://creativecommons.org/licenses/by/4.0/
+
+Required attribution:
+    "PiBoy DMG Custom Rear Case With Ventilation by downerhouse
+    (https://www.thingiverse.com/thing:4947746), licensed under CC BY 4.0."
+
+Note: The specific Creative Commons variant on the Thingiverse page has
+not been re-verified from an independent source at the time this file
+was written; the CC BY 4.0 designation was inherited from prior pyvista
+documentation. If redistributing in a commercial product, confirm the
+license variant directly from the Thingiverse page.
+
+SPDX-License-Identifier: CC-BY-4.0
