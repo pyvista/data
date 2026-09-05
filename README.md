@@ -16,6 +16,46 @@ filename = examples.download_file('my-directory/my-file.vtk')
 This assumes the file has been uploaded to the `Data` directory as
 `Data/my-directory/my-file.vtk`.
 
+### Dataset metadata
+
+[`DATASETS.toml`](DATASETS.toml) describes every file under `Data/`: what it
+is, where it came from, who made it, what licence it carries and what changed
+between the source and the copy here. PyVista reads it and publishes it in the
+[Dataset Gallery](https://docs.pyvista.org/api/examples/dataset-gallery)
+alongside each dataset.
+
+Read a single dataset's record with:
+
+```py
+import tomllib
+import urllib.request
+
+url = 'https://raw.githubusercontent.com/pyvista/data/master/DATASETS.toml'
+with urllib.request.urlopen(url) as response:
+    metadata = tomllib.loads(response.read().decode())
+
+by_name = {entry['name']: entry for entry in metadata['dataset']}
+shark = by_name['grey_nurse_shark']
+print(shark['SPDX-License-Identifier'], shark['source_url'])
+```
+
+The licensing keys follow the [REUSE specification](https://reuse.software),
+so `SPDX-License-Identifier` and `SPDX-FileCopyrightText` mean exactly what
+they mean there. Full licence texts live in [`LICENSES/`](LICENSES).
+
+### Adding new datasets
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). In short: add the files under `Data/`,
+add a `[[dataset]]` block to `DATASETS.toml`, and run
+
+```bash
+python tools/validate_datasets.py
+```
+
+`LICENSE`, `README`, `CITATION` and `.license` files are **not** accepted under
+`Data/`; that information belongs in `DATASETS.toml` where PyVista can read it.
+CI enforces both rules on every pull request.
+
 ### Adding the Example to PyVista's Downloads
 
 See the documentation within
@@ -23,51 +63,9 @@ See the documentation within
 for adding a new method to download the example file within the
 ``pyvista.examples`` module.
 
-### Adding new datasets (licensing requirements)
-
-Every dataset in this repository must have a clear, permissive license
-compatible with redistribution from a BSD-licensed project (pyvista).
-Contributors adding new data MUST:
-
-1. **Confirm the original source.** Record where the dataset came from
-   (URL, paper, repository, upload page). If you can't identify the
-   origin, do not submit it.
-
-2. **Identify the license explicitly.** Read the license at the source
-   — do not guess from context. Record the SPDX identifier where one
-   exists (e.g. `CC0-1.0`, `CC-BY-4.0`, `MIT`).
-
-3. **Verify the license allows commercial use.** Datasets under
-   non-commercial licenses (e.g. CC BY-NC, CC BY-NC-SA, CC BY-NC-ND,
-   "academic / research use only", "personal use only") are not
-   accepted unless explicitly approved by the maintainers and
-   prominently flagged.
-
-4. **Provide a license file alongside the dataset.** For a dataset that
-   has its own directory, add a `LICENSE` file inside it. For a dataset
-   that sits as a loose file in `Data/`, add a `<filename>.license`
-   companion file. The license file must contain:
-
-   - The source URL.
-   - The verbatim license statement or a link to it.
-   - The required attribution text, if any.
-   - An `SPDX-License-Identifier:` line.
-
-5. **Prefer CC0 and public-domain sources** when possible — they impose
-   no attribution or ShareAlike burden on downstream users. Good
-   sources include Smithsonian Open Access (https://3d.si.edu/cc0) and
-   US government works.
-
-6. **Be cautious with ShareAlike licenses** (CC BY-SA, ODbL). These
-   are accepted but must be clearly labeled, because downstream
-   users who derive new work from the dataset inherit the ShareAlike
-   obligation.
-
-When opening a pull request, fill in the checklist in the PR template.
-PRs without license documentation will not be merged.
-
 ### Reporting a license concern
 
-If you believe a dataset in this repository is distributed under
-incorrect or insufficient license terms, please open an issue. We take
-license compliance seriously.
+If you believe a dataset in this repository is distributed under incorrect or
+insufficient license terms, or you can identify the origin of one of the
+`LicenseRef-Unknown` entries, please open an issue. We take license compliance
+seriously.
