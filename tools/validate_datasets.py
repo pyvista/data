@@ -1,0 +1,374 @@
+#!/usr/bin/env python3
+"""Check that DATASETS.toml describes every file under Data/ and is well formed."""
+
+from __future__ import annotations
+
+import fnmatch
+import re
+import subprocess
+import sys
+import tomllib
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+DATASETS_TOML = ROOT / 'DATASETS.toml'
+LICENSES_DIR = ROOT / 'LICENSES'
+DATA_DIR = 'Data'
+SCHEMA_VERSION = 1
+
+DOCS = 'https://github.com/pyvista/data/blob/master/CONTRIBUTING.md'
+
+NAME_RE = re.compile(r'^[a-z0-9][a-z0-9_]*$')
+SPDX_RE = re.compile(r'^[A-Za-z0-9.+-]+$')
+PROVENANCE = ('verified', 'inferred', 'unknown')
+UNKNOWN_LICENSE = 'LicenseRef-Unknown'
+
+DATASET_REQUIRED = ('name', 'title', 'description', 'path', 'SPDX-License-Identifier', 'provenance')
+DATASET_OPTIONAL = (
+    'SPDX-FileCopyrightText', 'source_url', 'source_title', 'collection', 'authors',
+    'attribution', 'redistributed_from', 'modified', 'modification', 'notes', 'references',
+)
+LICENSE_REQUIRED = ('title', 'url', 'file', 'commercial_use', 'attribution_required', 'share_alike')
+COLLECTION_REQUIRED = ('title', 'url', 'description')
+
+FORBIDDEN_NAMES = {
+    'LICENSE', 'LICENCE', 'License', 'Licence', 'LICENSE.txt', 'LICENSE.md',
+    'COPYING', 'COPYRIGHT', 'NOTICE',
+    'README', 'README.md', 'README.txt', 'README.rst',
+    'CITATION', 'CITATION.txt', 'CITATION.cff',
+}
+FORBIDDEN_SUFFIXES = ('.license',)
+
+
+class Problems:
+    """Collected validation failures, printed as an actionable report."""
+
+    def __init__(self) -> None:
+        self.items: list[tuple[str, str, str]] = []
+
+    def add(self, where: str, what: str, fix: str) -> None:
+        """Record one failure with the place, the problem and the remedy."""
+        self.items.append((where, what, fix))
+
+    def report(self) -> int:
+        """Print every failure and return the process exit status."""
+        if not self.items:
+            print('DATASETS.toml is valid.')
+            return 0
+        print(f'DATASETS.toml validation failed with {len(self.items)} problem(s).\n')
+        for where, what, fix in self.items:
+            print(f'  {where}')
+            print(f'    problem: {what}')
+            for number, line in enumerate(fix.splitlines()):
+                label = '    fix:     ' if number == 0 else '             '
+                print(f'{label}{line}')
+            print()
+        print(f'See {DOCS} for the full format reference and worked examples.')
+        return 1
+
+
+def tracked_data_files() -> list[str]:
+    """List every tracked file under Data/, as a path relative to Data/."""
+    out = subprocess.run(
+        ['git', '-C', str(ROOT), 'ls-files', DATA_DIR],
+        capture_output=True, text=True, check=True,
+    ).stdout.split('\n')
+    return sorted(
+        line[len(DATA_DIR) + 1:]
+        for line in out
+        if line.startswith(DATA_DIR + '/') and not Path(line).name.startswith('.')
+    )
+
+
+def matches(pattern: str, path: str) -> bool:
+    """Match a REUSE-style path pattern against a path relative to Data/."""
+    if pattern.endswith('/**'):
+        return path.startswith(pattern[:-2])
+    return fnmatch.fnmatchcase(path, pattern)
+
+
+def license_terms(expression: str) -> list[str]:
+    """Split an SPDX license expression into the identifiers it names."""
+    return [
+        token
+        for token in re.split(r'[()\s]+', expression)
+        if token and token.upper() not in {'AND', 'OR', 'WITH'}
+    ]
+
+
+def is_forbidden(path: str) -> bool:
+    """Say whether a path is a per-dataset metadata file that DATASETS.toml replaces."""
+    name = Path(path).name
+    return name in FORBIDDEN_NAMES or name.endswith(FORBIDDEN_SUFFIXES)
+
+
+def slugify(text: str) -> str:
+    """Turn a file or directory name into a candidate dataset name."""
+    return re.sub(r'[^a-z0-9]+', '_', text.lower()).strip('_') or 'new_dataset'
+
+
+def suggested_name(parent: str, members: list[str]) -> str:
+    """Suggest a dataset name for a group of uncovered files."""
+    return slugify(parent if parent != '.' else Path(members[0]).stem)
+
+
+def suggested_path(parent: str, members: list[str]) -> str:
+    """Suggest a `path` value for a group of uncovered files."""
+    if parent != '.' and len(members) > 1:
+        return f'["{parent}/**"]'
+    return '[' + ', '.join(f'"{member}"' for member in members) + ']'
+
+
+def check_forbidden_files(files: list[str], problems: Problems) -> None:
+    """Reject per-dataset licence, readme and citation files under Data/."""
+    for path in files:
+        if is_forbidden(path):
+            problems.add(
+                f'Data/{path}',
+                'per-dataset metadata files are not allowed under Data/',
+                'Delete this file and put its content in the dataset\'s [[dataset]] block\n'
+                'in DATASETS.toml instead: the source in `source_url`, the licence in\n'
+                '`SPDX-License-Identifier`, the required credit in `attribution`, any\n'
+                'processing in `modification`, and everything else in `notes`.',
+            )
+
+
+def check_license_tables(doc: dict, problems: Problems) -> None:
+    """Check every [license.*] table and the licence text it points at."""
+    for key, table in doc.get('license', {}).items():
+        where = f'DATASETS.toml [license.{key}]'
+        if not SPDX_RE.match(key):
+            problems.add(where, f'{key!r} is not a valid licence identifier',
+                         'Use an SPDX identifier such as `CC-BY-4.0`, or a custom\n'
+                         '`LicenseRef-Something` identifier for terms SPDX does not list.')
+        for field in LICENSE_REQUIRED:
+            if field not in table:
+                problems.add(where, f'missing required key `{field}`',
+                             f'Add `{field}` to the [license.{key}] table. See '
+                             'an existing licence table for the shape.')
+        path = table.get('file')
+        if path and not (ROOT / path).is_file():
+            problems.add(where, f'`file` points at {path}, which does not exist',
+                         f'Add the full licence text at {path}. For an SPDX licence,\n'
+                         'copy it from https://github.com/spdx/license-list-data/tree/main/text.')
+
+
+def check_collection_tables(doc: dict, problems: Problems) -> None:
+    """Check every [collection.*] table."""
+    for key, table in doc.get('collection', {}).items():
+        where = f'DATASETS.toml [collection."{key}"]'
+        for field in COLLECTION_REQUIRED:
+            if field not in table:
+                problems.add(where, f'missing required key `{field}`',
+                             f'Add `{field}` to the [collection."{key}"] table.')
+
+
+def check_dataset(entry: dict, index: int, doc: dict, problems: Problems) -> None:
+    """Check one [[dataset]] block against the schema."""
+    name = entry.get('name')
+    where = f'DATASETS.toml [[dataset]] name = {name!r}' if name else (
+        f'DATASETS.toml [[dataset]] #{index + 1}'
+    )
+    for field in DATASET_REQUIRED:
+        if field not in entry:
+            problems.add(where, f'missing required key `{field}`',
+                         f'Add `{field}`. Every dataset needs: '
+                         + ', '.join(f'`{f}`' for f in DATASET_REQUIRED) + '.')
+    unknown = set(entry) - set(DATASET_REQUIRED) - set(DATASET_OPTIONAL)
+    if unknown:
+        problems.add(where, f'unknown key(s): {", ".join(sorted(unknown))}',
+                     'Remove the key or correct the spelling. Allowed keys are:\n'
+                     + ', '.join(f'`{f}`' for f in DATASET_REQUIRED + DATASET_OPTIONAL) + '.')
+
+    if name is not None and not NAME_RE.match(name):
+        problems.add(where, f'`name` {name!r} is not a valid identifier',
+                     'Use lowercase letters, digits and underscores, starting with a\n'
+                     'letter or digit, for example `grey_nurse_shark`.')
+
+    provenance = entry.get('provenance')
+    if provenance is not None and provenance not in PROVENANCE:
+        problems.add(where, f'`provenance` is {provenance!r}',
+                     'Set `provenance` to one of: '
+                     + ', '.join(f'"{p}"' for p in PROVENANCE) + '.\n'
+                     '  "verified" - you read the source page and it states the origin\n'
+                     '  "inferred" - the origin is a reasoned conclusion, not a statement\n'
+                     '  "unknown"  - the origin could not be established')
+
+    expression = entry.get('SPDX-License-Identifier', '')
+    terms = license_terms(expression)
+    known = doc.get('license', {})
+    for term in terms:
+        if term not in known:
+            problems.add(where, f'`SPDX-License-Identifier` names {term!r}, '
+                                'which has no [license.*] table',
+                         f'Add a [license.{term}] table near the top of DATASETS.toml and\n'
+                         f'add the full licence text at LICENSES/{term}.txt, or use one of\n'
+                         'the licences already declared: ' + ', '.join(sorted(known)) + '.')
+
+    needs_notes = provenance != 'verified' or UNKNOWN_LICENSE in terms
+    if needs_notes and not entry.get('notes'):
+        problems.add(where, '`notes` is required here but is missing',
+                     'A dataset whose provenance is not "verified", or whose licence is\n'
+                     f'{UNKNOWN_LICENSE}, must say in `notes` what was established, what\n'
+                     'was not, and what a downstream user should do about it.')
+
+    if provenance != 'unknown' and not entry.get('source_url'):
+        problems.add(where, '`source_url` is missing',
+                     'Record where the data came from. Only a dataset with\n'
+                     '`provenance = "unknown"` may omit `source_url`.')
+
+    requires_credit = any(known.get(t, {}).get('attribution_required') for t in terms)
+    if requires_credit and not entry.get('attribution'):
+        problems.add(where, f'`{expression}` requires attribution but `attribution` is missing',
+                     'Add the credit line the licence requires, for example:\n'
+                     'attribution = "Grey Nurse Shark by rogerpeng1, licensed under CC BY-SA."')
+
+    if entry.get('modified') and not entry.get('modification'):
+        problems.add(where, '`modified = true` but `modification` is missing',
+                     'Describe what was done to the file since it left its source, for\n'
+                     'example: modification = "Decimated to 100k triangles and cast to float32."')
+
+    collection = entry.get('collection')
+    if collection is not None and collection not in doc.get('collection', {}):
+        problems.add(where, f'`collection` is {collection!r}, which has no [collection.*] table',
+                     f'Add a [collection."{collection}"] table, or use one of: '
+                     + ', '.join(sorted(doc.get('collection', {}))) + '.')
+
+    for reference in entry.get('references', []):
+        if 'citation' not in reference:
+            problems.add(where, 'a `references` entry has no `citation`',
+                         'Every reference needs a `citation`; `doi` and `url` are optional.')
+
+
+def check_coverage(doc: dict, files: list[str], problems: Problems) -> None:
+    """Check that every file under Data/ belongs to exactly one dataset."""
+    owners: dict[str, list[str]] = {path: [] for path in files}
+    for entry in doc.get('dataset', []):
+        name = entry.get('name', '?')
+        for pattern in entry.get('path', []):
+            hits = [path for path in files if matches(pattern, path)]
+            if not hits:
+                problems.add(
+                    f'DATASETS.toml [[dataset]] name = {name!r}',
+                    f'`path` pattern {pattern!r} matches no tracked file under Data/',
+                    'Correct the pattern, or remove it if the file was deleted. Patterns\n'
+                    'are relative to Data/ and `dir/**` matches everything under `dir/`.',
+                )
+            for path in hits:
+                owners[path].append(name)
+
+    orphans = [path for path, own in owners.items() if not own and not is_forbidden(path)]
+    groups: dict[str, list[str]] = {}
+    for path in orphans:
+        groups.setdefault(str(Path(path).parent), []).append(path)
+    for parent, members in sorted(groups.items()):
+        problems.add(
+            'Data/' + (', Data/'.join(members) if len(members) < 4 else f'{parent}/ ({len(members)} files)'),
+            'not covered by any [[dataset]] in DATASETS.toml',
+            'Add a [[dataset]] block describing this data. A minimal block is:\n'
+            '\n'
+            '  [[dataset]]\n'
+            f'  name = "{suggested_name(parent, members)}"\n'
+            '  title = "Short human-readable name"\n'
+            '  description = "One or two sentences about what the data is."\n'
+            f'  path = {suggested_path(parent, members)}\n'
+            '  SPDX-License-Identifier = "CC-BY-4.0"\n'
+            '  provenance = "verified"\n'
+            '  source_url = "https://example.org/where-you-got-it"\n'
+            '  attribution = "Credit line the licence requires."\n'
+            '\n'
+            'Keep the blocks sorted by `name`.',
+        )
+
+    for path, own in owners.items():
+        if len(own) > 1:
+            problems.add(
+                f'Data/{path}',
+                'this file is claimed by more than one dataset: ' + ', '.join(sorted(own)),
+                'Narrow the `path` patterns so exactly one [[dataset]] owns each file.',
+            )
+
+
+def check_ordering_and_uniqueness(doc: dict, problems: Problems) -> None:
+    """Check that dataset names are unique and blocks are sorted by name."""
+    names = [entry.get('name') for entry in doc.get('dataset', []) if entry.get('name')]
+    seen: set[str] = set()
+    for name in names:
+        if name in seen:
+            problems.add(f'DATASETS.toml [[dataset]] name = {name!r}',
+                         'this name is used by more than one dataset',
+                         'Dataset names are the key downstream tools look up. Rename one.')
+        seen.add(name)
+    if names != sorted(names):
+        first = next(
+            (b for a, b in zip(names, names[1:]) if b < a), None
+        )
+        problems.add('DATASETS.toml', '[[dataset]] blocks are not sorted by `name`',
+                     f'Move the block named {first!r} so the file stays alphabetical.'
+                     if first else 'Sort the [[dataset]] blocks alphabetically by `name`.')
+
+
+def check_unused_tables(doc: dict, problems: Problems) -> None:
+    """Check that every declared licence and collection is actually referenced."""
+    used_licenses: set[str] = set()
+    used_collections: set[str] = set()
+    for entry in doc.get('dataset', []):
+        used_licenses.update(license_terms(entry.get('SPDX-License-Identifier', '')))
+        if entry.get('collection'):
+            used_collections.add(entry['collection'])
+    for key in doc.get('license', {}):
+        if key not in used_licenses:
+            problems.add(f'DATASETS.toml [license.{key}]', 'no dataset uses this licence',
+                         'Remove the table and its LICENSES/ text file, or point a dataset at it.')
+    for key in doc.get('collection', {}):
+        if key not in used_collections:
+            problems.add(f'DATASETS.toml [collection."{key}"]', 'no dataset uses this collection',
+                         'Remove the table, or point a dataset at it with `collection`.')
+
+
+def check_orphan_license_texts(doc: dict, problems: Problems) -> None:
+    """Check that LICENSES/ holds exactly the texts the licence tables name."""
+    declared = {table.get('file') for table in doc.get('license', {}).values()}
+    for path in sorted(LICENSES_DIR.glob('*.txt')):
+        rel = str(path.relative_to(ROOT))
+        if rel not in declared:
+            problems.add(rel, 'this licence text is not named by any [license.*] table',
+                         'Add the matching [license.*] table to DATASETS.toml, or delete the file.')
+
+
+def main() -> int:
+    """Validate DATASETS.toml and report every problem found."""
+    problems = Problems()
+    if not DATASETS_TOML.is_file():
+        print(f'{DATASETS_TOML} is missing.')
+        return 1
+    try:
+        doc = tomllib.loads(DATASETS_TOML.read_text(encoding='utf-8'))
+    except tomllib.TOMLDecodeError as error:
+        print(f'DATASETS.toml is not valid TOML: {error}')
+        print(f'\nSee {DOCS} for the format reference.')
+        return 1
+
+    if doc.get('schema_version') != SCHEMA_VERSION:
+        problems.add('DATASETS.toml', f'`schema_version` is {doc.get("schema_version")!r}',
+                     f'This checker understands schema_version = {SCHEMA_VERSION}.')
+
+    files = tracked_data_files()
+    check_forbidden_files(files, problems)
+    check_license_tables(doc, problems)
+    check_collection_tables(doc, problems)
+    for index, entry in enumerate(doc.get('dataset', [])):
+        check_dataset(entry, index, doc, problems)
+    check_ordering_and_uniqueness(doc, problems)
+    check_coverage(doc, files, problems)
+    check_unused_tables(doc, problems)
+    check_orphan_license_texts(doc, problems)
+
+    status = problems.report()
+    if status == 0:
+        print(f'{len(doc.get("dataset", []))} datasets cover {len(files)} files under Data/.')
+    return status
+
+
+if __name__ == '__main__':
+    sys.exit(main())
