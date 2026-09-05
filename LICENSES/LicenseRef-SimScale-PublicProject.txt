@@ -1,0 +1,16 @@
+SimScale Public Project Data
+
+Source: https://www.simscale.com/projects/
+Terms:  https://www.simscale.com/terms-and-conditions/
+
+Simulation results published in SimScale's public project library are
+made available for reuse under SimScale's Terms and Conditions. The
+permission recorded by the PyVista project for the datasets in this
+repository is that they may be freely and without restriction reproduced,
+distributed and published.
+
+This identifier records the terms as they applied when the data was
+retrieved. It is not an OSI-approved or Creative Commons license, and
+SimScale may revise its Terms and Conditions. Downstream users relying on
+these datasets commercially should confirm the current terms at the URL
+above.

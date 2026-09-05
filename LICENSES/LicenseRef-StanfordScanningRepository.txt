@@ -1,0 +1,26 @@
+Stanford Computer Graphics Laboratory — 3D Scanning Repository
+Conditions of Use
+
+Source: http://graphics.stanford.edu/data/3Dscanrep/
+
+The Stanford 3D Scanning Repository publishes the following conditions of
+use, quoted verbatim from the repository page:
+
+    "You are welcome to use the data and models for research purposes.
+    You are also welcome to mirror or redistribute them for free.
+    Such models or images are not to be used for commercial purposes,
+    nor should they appear in a product for sale (with the exception of
+    scholarly journals or books), without permission from the Stanford
+    Computer Graphics Laboratory."
+
+The repository additionally carves the bunny and the armadillo out of its
+cultural-sensitivity restrictions:
+
+    "You can do anything you want to the Stanford bunny or the armadillo."
+
+Required acknowledgement: credit the Stanford Computer Graphics Laboratory.
+
+This is not an OSI-approved or Creative Commons license. It permits free
+redistribution and research use but restricts commercial use, so datasets
+under these terms are not safe to embed in a product for sale without
+first contacting the Stanford Computer Graphics Laboratory.

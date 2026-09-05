@@ -1,0 +1,22 @@
+Utah Teapot — Public Domain By Convention
+
+The Utah Teapot was modeled by Martin Newell at the University of Utah in
+1975. No formal license has ever been issued for the original dataset.
+
+The model has been redistributed freely in essentially every computer
+graphics package since the mid-1970s — POV-Ray, Blender, 3ds Max, the
+OpenGL Utility Toolkit and VTK among them — and is universally treated as
+public domain by the computer graphics community. The Computer History
+Museum holds the original teapot; the dataset itself has never been
+asserted as a proprietary work.
+
+Recommended attribution:
+
+    "Utah Teapot, originally modeled by Martin Newell,
+    University of Utah, 1975."
+
+This identifier records a community convention rather than a grant of
+rights from an identified copyright holder. Downstream users who need a
+formal grant should treat the status of this dataset as undetermined.
+
+Background: https://en.wikipedia.org/wiki/Utah_teapot
