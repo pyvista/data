@@ -1787,12 +1787,12 @@ name = "frog"
 title = "Frog anatomy volume"
 description = "Segmented volume of a frog, as a MetaImage header plus compressed raw data, with a companion tissue-label volume."
 path = ["froggy/**"]
-SPDX-License-Identifier = "Apache-2.0"
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "verified"
-origin_url = "https://github.com/lorensen/VTKExamples"
-origin_title = "lorensen/VTKExamples"
-collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
+origin_url = "https://www.lbl.gov/"
+origin_title = "Lawrence Berkeley National Laboratory"
+authors = ["Lawrence Berkeley National Laboratory"]
+redistributed_from = "https://github.com/lorensen/VTKExamples"
 notes = """
 Copied in April 2019 from `src/Testing/Data/Frog` in Bill Lorensen's
 `lorensen/VTKExamples` repository, which was published under the Apache
@@ -1806,9 +1806,23 @@ links, so the repository licence Lorensen published under is what is
 recorded. Lorensen did not publish per-file provenance, so the original
 author of the data itself could not be established.
 
-The frog volume is widely attributed to the Lawrence Berkeley National
-Laboratory Whole Frog Project, but neither Lorensen's repository nor the VTK
-Data collection records that attribution, so it is not asserted here.
+The attribution is recorded upstream after all, in the VTK textbook that
+ships inside `vtk/vtk-examples` at `src/VTKBook/12Chapter12.md`:
+
+    This data was prepared at Lawrence Berkeley National Laboratories and is
+    included with their permission on the CD-ROM accompanying this book.
+
+    There are 136 slices per tissue and 15 different tissues.
+
+`frog.mhd` reads `DimSize = 500 470 136`, so it is that data. Retrieve the
+chapter with:
+
+    curl -sS "https://gitlab.kitware.com/api/v4/projects/vtk%2Fvtk-examples/repository/files/src%2FVTKBook%2F12Chapter12%2Emd/raw?ref=master"
+
+That settles the owner and, just as importantly, the scope of what was
+granted: permission to include the data on the book's CD-ROM. It is not a
+licence to redistribute, and it is not Lorensen's to widen into Apache-2.0.
+The terms for use outside that book were not established.
 """
 
 [[dataset]]
