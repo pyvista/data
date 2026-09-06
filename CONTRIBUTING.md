@@ -74,7 +74,7 @@ attribution = "Poly Haven, https://polyhaven.com/. Attribution is a courtesy, no
 | `name` | string | Unique identifier, lowercase letters, digits and underscores. Downstream tools look datasets up by this. |
 | `title` | string | Short human-readable name, shown as the gallery card heading. |
 | `description` | string | One or two sentences about what the data *is*. Describe the data, not the PyVista function that loads it. |
-| `path` | array of strings | Paths relative to `Data/`. `dir/**` matches everything under `dir/`. Every file must be claimed by exactly one dataset. |
+| `path` | array of strings | Paths relative to `Data/`. Every file must be claimed by exactly one dataset. See [Path patterns](#path-patterns). |
 | `SPDX-License-Identifier` | string | An [SPDX expression](https://spdx.org/licenses/), or a `LicenseRef-*` identifier for terms SPDX does not list. Must resolve to a `[license.*]` table. |
 | `provenance` | string | `"verified"`, `"inferred"` or `"unknown"`. See below. |
 
@@ -101,8 +101,14 @@ attribution = "Poly Haven, https://polyhaven.com/. Attribution is a courtesy, no
 
 ## Choosing a `provenance` value
 
-This field says how confident the record is, so downstream users can tell a
-researched entry from a guess.
+This field says how confident the record is about **where the data came from**.
+It says nothing about the licence: the licence's status is carried by
+`SPDX-License-Identifier`, and `LicenseRef-Unknown` is how a dataset says its
+terms could not be established. The two are independent — the Laser Design
+scans have `provenance = "verified"` and `SPDX-License-Identifier =
+"LicenseRef-Unknown"`, because the source is certain and publishes no terms.
+Anything rendering a badge from this file should take "can I use this?" from
+the licence, not from `provenance`.
 
 - **`"verified"`** — you opened the source page and it states the origin and the
   terms. Most new contributions should be this.
@@ -118,6 +124,24 @@ researched entry from a guess.
 A new dataset should not normally be `"unknown"`. The existing `"unknown"`
 entries are historical: files inherited before this repository recorded
 provenance. If you cannot establish where a dataset came from, do not add it.
+
+## Path patterns
+
+`path` values are matched against paths relative to `Data/`, with `/` as the
+only separator. Downstream tools resolve a file to its dataset with these
+rules, so they are part of the format rather than an implementation detail:
+
+| Pattern | Matches |
+| --- | --- |
+| `bunny.ply` | that one file |
+| `skybox/*.jpg` | the `.jpg` files directly in `skybox/`, not in subdirectories |
+| `skybox/**` | everything under `skybox/`, at any depth |
+| `sim_?.vtu` | one character, and never `/` |
+
+`*` and `?` stop at a separator; only `**` crosses one. Prefer an explicit file
+list when a dataset has a handful of files, and `dir/**` when it owns a whole
+directory — `dir/*` will not claim files added in a subdirectory later, and the
+validator will report them as uncovered.
 
 ## Licence requirements
 
