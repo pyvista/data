@@ -221,8 +221,9 @@ def check_shape(doc: dict, problems: Problems) -> bool:
                              f'`{field}` is a {type(value).__name__}, not a string',
                              f'Write `{field}` as a plain string:\n  {field} = "one-value"')
                 ok = False
-    for key, table in (doc.get('license') or {}).items():
-        if isinstance(doc.get('license'), dict) and not isinstance(table, dict):
+    licenses = doc.get('license')
+    for key, table in (licenses if isinstance(licenses, dict) else {}).items():
+        if not isinstance(table, dict):
             problems.add(f'DATASETS.toml [license.{key}]',
                          f'this is a {type(table).__name__}, not a table',
                          f'Write it as a table:\n  [license."{key}"]\n  title = "..."')
