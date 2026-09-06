@@ -2746,6 +2746,51 @@ attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bil
 notes = "Added in May 2013 with the commit message \"Adding baseline and data for new test (TestMultiblockDisplayProperties)\", six years before this repository was forked from VTK Data, so it carries that collection's licence. The commit message previously recorded here, \"Add reactor partitioned mesh\", belongs to `reactor.zip`, which is a different file added in 2024."
 
 [[dataset]]
+name = "nasa_plot3d_cfd"
+title = "NASA PLOT3D CFD cases"
+description = "Two NASA Ames computational fluid dynamics cases in PLOT3D format — a blunt fin on a plate and a combustor — as grid and solution pairs, with the combustor also split into three structured blocks."
+path = [
+    "bluntfinq.bin",
+    "bluntfinxyz.bin",
+    "combq.bin",
+    "combxyz.bin",
+    "multicomb_0.vts",
+    "multicomb_1.vts",
+    "multicomb_2.vts",
+    "postq.bin",
+    "postxyz.bin",
+]
+SPDX-License-Identifier = "LicenseRef-PublicDomain"
+provenance = "verified"
+origin_url = "https://ntrs.nasa.gov/citations/19900013774"
+origin_title = "NASA Ames Research Center, PLOT3D User's Manual"
+authors = ["NASA Ames Research Center"]
+notes = """
+The grid headers decode to the published dimensions and the file sizes follow
+exactly from them, which is what identifies each case:
+
+    python3 -c "import struct; print(struct.unpack('>3i', open('Data/combxyz.bin','rb').read(12)))"
+    # (57, 33, 25), and 12 + 57*33*25*3*4 = 564312 = the file size
+
+`bluntfinxyz.bin` is 40 by 32 by 32, the NASA Ames blunt-fin case of Hung and
+Buning; `combxyz.bin` is 57 by 33 by 25, the Ames combustor, and both pairs
+are named together in `Data/test.p3d`. `postxyz.bin` is 38 by 76 by 38 with
+an IBLANK array, the LOx post that the VTK textbook introduces as "a dataset
+from NASA" citing Rogers, Kwak and Kaul. The three `multicomb_*.vts` blocks
+read back through the PLOT3D reader with bounds and a density range identical
+to `combxyz.bin` and `combq.bin`, so they are that case re-blocked.
+
+Work produced by NASA employees carries no copyright under 17 U.S.C. Sec. 105.
+These files were recorded under the VTK collection notices — Kitware's for
+most of them and Lorensen's Apache-2.0 for the LOx post — neither of which
+could attach a copyright to federal work.
+
+`bluntfinq.bin` is 484 bytes longer than a single-grid solution file of these
+dimensions, so it carries something more than the plain record structure; the
+grid it pairs with is unambiguous.
+"""
+
+[[dataset]]
 name = "natural_earth_ii"
 title = "Natural Earth II"
 description = "Tom Patterson's Natural Earth II world map with bathymetry, the 4000 by 2000 page-size raster, plus a transparent variant and a downsample."
@@ -4391,8 +4436,6 @@ path = [
     "billBoard.pgm",
     "blowAttr.vtk",
     "blowGeom.vtk",
-    "bluntfinq.bin",
-    "bluntfinxyz.bin",
     "bolt.fac",
     "bore.vtk",
     "bot2.wrl",
@@ -4403,8 +4446,6 @@ path = [
     "camscene.png",
     "cellcentered.tec",
     "cellsnd.bin.inp",
-    "combq.bin",
-    "combxyz.bin",
     "cth.vtr",
     "delimited.txt",
     "delimited2.txt",
@@ -4446,9 +4487,6 @@ path = [
     "multi-bin.q",
     "multi-bin.xyz",
     "multi.p3d",
-    "multicomb_0.vts",
-    "multicomb_1.vts",
-    "multicomb_2.vts",
     "neghip.slc",
     "noise.png",
     "plate.vtk",
@@ -4537,8 +4575,6 @@ path = [
     "labels.mhd",
     "labels.raw",
     "lys.pdb",
-    "postq.bin",
-    "postxyz.bin",
     "sextant.wrl",
     "stormy.jpg",
     "t.vtk",
