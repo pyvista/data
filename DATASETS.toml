@@ -426,7 +426,7 @@ author of the data itself could not be established.
 [[dataset]]
 name = "bird_bath"
 title = "Bird bath"
-description = "Photogrammetric surface reconstruction of the bird bath from the GGG-BenchmarkSfM close-range structure-from-motion benchmark, distributed both as a zipped full-resolution mesh and as a decimated VTK XML PolyData file."
+description = "Photogrammetric surface reconstruction of the bird bath from the GGG-BenchmarkSfM close-range structure-from-motion benchmark, distributed as a zipped mesh of over a million points and as a more heavily decimated VTK XML PolyData file."
 path = ["ivan-nikolov/birdBath.zip", "ivan-nikolov/birdBath_decimated.vtp"]
 SPDX-License-Identifier = "CC-BY-4.0"
 provenance = "verified"
@@ -436,7 +436,7 @@ collection = "ggg-benchmark-sfm"
 authors = ["Ivan Nikolov", "Claus Madsen"]
 attribution = "Nikolov, I. and Madsen, C., GGG-BenchmarkSfM, Mendeley Data, CC BY 4.0."
 modified = true
-modification = "Converted from the original OFF mesh to VTK XML PolyData with float32 coordinates and decimated to roughly 1.8 million points."
+modification = "Converted from the original OFF mesh to VTK XML PolyData. The zipped mesh was decimated to 1831383 points with float32 coordinates to keep the archive under 50 MB; the `_decimated` file was reduced further, to 18796 points."
 references = [
     { citation = "Nikolov, I. and Madsen, C. \"Benchmarking Close-range Structure from Motion 3D Reconstruction Software Under Varying Capturing Conditions.\" EuroMed 2016.", doi = "10.1007/978-3-319-48496-9_2" },
 ]
@@ -444,7 +444,7 @@ references = [
 [[dataset]]
 name = "black_vase"
 title = "Black vase"
-description = "Photogrammetric surface reconstruction of the black vase from the GGG-BenchmarkSfM close-range structure-from-motion benchmark, distributed both as a zipped full-resolution mesh and as a decimated VTK XML PolyData file."
+description = "Photogrammetric surface reconstruction of the black vase from the GGG-BenchmarkSfM close-range structure-from-motion benchmark, distributed as a zipped mesh of over a million points and as a more heavily decimated VTK XML PolyData file."
 path = ["ivan-nikolov/blackVase.zip", "ivan-nikolov/blackVase_decimated.vtp"]
 SPDX-License-Identifier = "CC-BY-4.0"
 provenance = "verified"
@@ -454,7 +454,7 @@ collection = "ggg-benchmark-sfm"
 authors = ["Ivan Nikolov", "Claus Madsen"]
 attribution = "Nikolov, I. and Madsen, C., GGG-BenchmarkSfM, Mendeley Data, CC BY 4.0."
 modified = true
-modification = "Converted from the original OFF mesh to VTK XML PolyData with float32 coordinates and converted without decimation."
+modification = "Converted from the original OFF mesh to VTK XML PolyData. The zipped mesh was decimated to 1611789 points with float32 coordinates to keep the archive under 50 MB; the `_decimated` file was reduced further, to 17337 points."
 references = [
     { citation = "Nikolov, I. and Madsen, C. \"Benchmarking Close-range Structure from Motion 3D Reconstruction Software Under Varying Capturing Conditions.\" EuroMed 2016.", doi = "10.1007/978-3-319-48496-9_2" },
 ]
@@ -2025,7 +2025,7 @@ established here.
 [[dataset]]
 name = "ivan_angel"
 title = "Angel figurine"
-description = "Photogrammetric surface reconstruction of the angel figurine from the GGG-BenchmarkSfM close-range structure-from-motion benchmark, distributed both as a zipped full-resolution mesh and as a decimated VTK XML PolyData file."
+description = "Photogrammetric surface reconstruction of the angel figurine from the GGG-BenchmarkSfM close-range structure-from-motion benchmark, distributed as a zipped mesh of over a million points and as a more heavily decimated VTK XML PolyData file."
 path = ["ivan-nikolov/Angel.zip", "ivan-nikolov/Angel_decimated.vtp"]
 SPDX-License-Identifier = "CC-BY-4.0"
 provenance = "verified"
@@ -2035,7 +2035,7 @@ collection = "ggg-benchmark-sfm"
 authors = ["Ivan Nikolov", "Claus Madsen"]
 attribution = "Nikolov, I. and Madsen, C., GGG-BenchmarkSfM, Mendeley Data, CC BY 4.0."
 modified = true
-modification = "Converted from the original OFF mesh to VTK XML PolyData with float32 coordinates and decimated to keep the archive under 50 MB."
+modification = "Converted from the original OFF mesh to VTK XML PolyData. The zipped mesh was decimated to 1811531 points with float32 coordinates to keep the archive under 50 MB; the `_decimated` file was reduced further, to 18412 points."
 references = [
     { citation = "Nikolov, I. and Madsen, C. \"Benchmarking Close-range Structure from Motion 3D Reconstruction Software Under Varying Capturing Conditions.\" EuroMed 2016.", doi = "10.1007/978-3-319-48496-9_2" },
 ]
@@ -2594,7 +2594,7 @@ notes = "This is VTK's own reader test input: `Data/sphere_points.vdb`, named by
 [[dataset]]
 name = "owl"
 title = "Owl figurine"
-description = "Photogrammetric surface reconstruction of the owl figurine from the GGG-BenchmarkSfM close-range structure-from-motion benchmark, distributed both as a zipped full-resolution mesh and as a decimated VTK XML PolyData file."
+description = "Photogrammetric surface reconstruction of the owl figurine from the GGG-BenchmarkSfM close-range structure-from-motion benchmark, distributed as a zipped mesh of over a million points and as a more heavily decimated VTK XML PolyData file."
 path = ["ivan-nikolov/owl.zip", "ivan-nikolov/owl_decimated.vtp"]
 SPDX-License-Identifier = "CC-BY-4.0"
 provenance = "verified"
@@ -2604,7 +2604,7 @@ collection = "ggg-benchmark-sfm"
 authors = ["Ivan Nikolov", "Claus Madsen"]
 attribution = "Nikolov, I. and Madsen, C., GGG-BenchmarkSfM, Mendeley Data, CC BY 4.0."
 modified = true
-modification = "Converted from the original OFF mesh to VTK XML PolyData with float32 coordinates and converted to float32 coordinates."
+modification = "Converted from the original OFF mesh to VTK XML PolyData. The zipped mesh was decimated to 1221756 points with float64 coordinates to keep the archive under 50 MB; the `_decimated` file was reduced further, to 12442 points."
 references = [
     { citation = "Nikolov, I. and Madsen, C. \"Benchmarking Close-range Structure from Motion 3D Reconstruction Software Under Varying Capturing Conditions.\" EuroMed 2016.", doi = "10.1007/978-3-319-48496-9_2" },
 ]
@@ -2782,7 +2782,7 @@ notes = "`stars.jpg` is a byte-identical duplicate of `planet3d-matlab/stars.jpg
 [[dataset]]
 name = "plastic_vase"
 title = "Plastic vase"
-description = "Photogrammetric surface reconstruction of the plastic vase from the GGG-BenchmarkSfM close-range structure-from-motion benchmark, distributed both as a zipped full-resolution mesh and as a decimated VTK XML PolyData file."
+description = "Photogrammetric surface reconstruction of the plastic vase from the GGG-BenchmarkSfM close-range structure-from-motion benchmark, distributed as a zipped mesh of over a million points and as a more heavily decimated VTK XML PolyData file."
 path = ["ivan-nikolov/plasticVase.zip", "ivan-nikolov/plasticVase_decimated.vtp"]
 SPDX-License-Identifier = "CC-BY-4.0"
 provenance = "verified"
@@ -2792,7 +2792,7 @@ collection = "ggg-benchmark-sfm"
 authors = ["Ivan Nikolov", "Claus Madsen"]
 attribution = "Nikolov, I. and Madsen, C., GGG-BenchmarkSfM, Mendeley Data, CC BY 4.0."
 modified = true
-modification = "Converted from the original OFF mesh to VTK XML PolyData with float32 coordinates and decimated, then reduced to its largest connected body."
+modification = "Converted from the original OFF mesh to VTK XML PolyData. The zipped mesh was decimated to 1796805 points with float32 coordinates to keep the archive under 50 MB; the `_decimated` file was reduced further, to 18238 points. Its largest connected body was kept."
 references = [
     { citation = "Nikolov, I. and Madsen, C. \"Benchmarking Close-range Structure from Motion 3D Reconstruction Software Under Varying Capturing Conditions.\" EuroMed 2016.", doi = "10.1007/978-3-319-48496-9_2" },
 ]
@@ -3060,7 +3060,7 @@ established here.
 [[dataset]]
 name = "sea_vase"
 title = "Sea vase"
-description = "Photogrammetric surface reconstruction of the sea vase from the GGG-BenchmarkSfM close-range structure-from-motion benchmark, distributed both as a zipped full-resolution mesh and as a decimated VTK XML PolyData file."
+description = "Photogrammetric surface reconstruction of the sea vase from the GGG-BenchmarkSfM close-range structure-from-motion benchmark, distributed as a zipped mesh of over a million points and as a more heavily decimated VTK XML PolyData file."
 path = ["ivan-nikolov/seaVase.zip", "ivan-nikolov/seaVase_decimated.vtp"]
 SPDX-License-Identifier = "CC-BY-4.0"
 provenance = "verified"
@@ -3070,7 +3070,7 @@ collection = "ggg-benchmark-sfm"
 authors = ["Ivan Nikolov", "Claus Madsen"]
 attribution = "Nikolov, I. and Madsen, C., GGG-BenchmarkSfM, Mendeley Data, CC BY 4.0."
 modified = true
-modification = "Converted from the original OFF mesh to VTK XML PolyData with float32 coordinates and converted to float32 coordinates."
+modification = "Converted from the original OFF mesh to VTK XML PolyData. The zipped mesh was decimated to 1810012 points with float32 coordinates to keep the archive under 50 MB; the `_decimated` file was reduced further, to 18063 points."
 references = [
     { citation = "Nikolov, I. and Madsen, C. \"Benchmarking Close-range Structure from Motion 3D Reconstruction Software Under Varying Capturing Conditions.\" EuroMed 2016.", doi = "10.1007/978-3-319-48496-9_2" },
 ]
