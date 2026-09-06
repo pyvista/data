@@ -1,9 +1,9 @@
 # Dataset metadata for the PyVista example data repository.
 #
 # This file is the single source of truth for the provenance and licensing of
-# every file under `Data/`. It is read by `pyvista.examples` and published in
-# the PyVista Dataset Gallery, and it is checked on every pull request by
-# `tools/validate_datasets.py`.
+# every file under `Data/`. PyVista reads it through `Example.metadata` and
+# publishes it in the Dataset Gallery; this repository checks it on every pull
+# request with `tools/validate_datasets.py`.
 #
 # Read `CONTRIBUTING.md` before editing. In short:
 #

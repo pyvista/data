@@ -16,8 +16,8 @@ for the field reference.
       under `Data/`.
 - [ ] I read the licence **at the source** and recorded it in
       `SPDX-License-Identifier`. I did not guess.
-- [ ] The licence permits redistribution from a BSD-licensed project and
-      permits commercial use. (Non-commercial data needs maintainer approval
+- [ ] The licence permits redistribution from this repository (Apache-2.0)
+      and from PyVista (MIT), and permits commercial use. (Non-commercial data needs maintainer approval
       and `commercial_use = false` on its `[license.*]` table.)
 - [ ] If the licence requires credit, I filled in `attribution`.
 - [ ] If I changed the data after downloading it, I set `modified = true` and

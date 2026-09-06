@@ -47,8 +47,8 @@ jobs:
             echo
             echo 'Every file under `Data/` must be described by a `[[dataset]]` block in'
             echo '`DATASETS.toml`. Per-dataset `LICENSE`, `README` and `.license` files are'
-            echo 'not accepted -- that information belongs in `DATASETS.toml` so that'
-            echo 'PyVista can read it and publish it in the Dataset Gallery.'
+            echo 'not accepted -- that information belongs in `DATASETS.toml`, which is'
+            echo 'what PyVista reads to publish provenance in the Dataset Gallery.'
             echo
             echo 'Run the same check locally with:'
             echo

@@ -20,9 +20,10 @@ This assumes the file has been uploaded to the `Data` directory as
 
 [`DATASETS.toml`](DATASETS.toml) describes every file under `Data/`: what it
 is, where it came from, who made it, what licence it carries and what changed
-between the source and the copy here. PyVista reads it and publishes it in the
+between the source and the copy here. PyVista reads it through
+`examples.get_example(...).metadata` and publishes it in the
 [Dataset Gallery](https://docs.pyvista.org/api/examples/dataset_gallery)
-alongside each dataset.
+alongside each dataset (pyvista/pyvista#9118).
 
 Read a single dataset's record with:
 
@@ -44,8 +45,8 @@ The licensing keys borrow their names and meaning from the
 `SPDX-FileCopyrightText` mean exactly what they mean there, and full licence
 texts live in [`LICENSES/`](LICENSES) named by SPDX identifier, as REUSE
 requires. The repository is not itself REUSE-covered, though: REUSE expects
-per-file comments or `.license` sidecars, and 1258 sidecars would be
-unreviewable next to one table you can read in a single diff. No REUSE tool
+per-file comments or `.license` sidecars, and one sidecar per data file would
+be unreviewable next to one table you can read in a single diff. No REUSE tool
 reads `DATASETS.toml`.
 
 ### What the files at the repository root cover

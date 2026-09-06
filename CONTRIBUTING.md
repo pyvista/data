@@ -3,8 +3,9 @@
 Every file under `Data/` is described by exactly one `[[dataset]]` block in
 [`DATASETS.toml`](DATASETS.toml). That file is the single source of truth for
 what each dataset is, where it came from and how it may be used. PyVista reads
-it and publishes it in the [Dataset Gallery](https://docs.pyvista.org/api/examples/dataset_gallery),
-so anything you record here is shown to everyone who downloads the data.
+it through `examples.get_example(...).metadata` and publishes it in the
+[Dataset Gallery](https://docs.pyvista.org/api/examples/dataset_gallery), so
+anything you record here is shown to everyone who downloads the data.
 
 `tools/validate_datasets.py` checks the file on every pull request. Run it
 yourself before pushing:
@@ -44,10 +45,10 @@ provenance = "inferred"
 source_url = "https://www.thingiverse.com/thing:137954"
 source_title = "Thingiverse thing:137954"
 collection = "thingiverse"
-authors = ["rogerpeng1"]
-attribution = "Grey Nurse Shark by rogerpeng1 (https://www.thingiverse.com/thing:137954), licensed under CC BY-SA."
+authors = ["Autodesk"]
+attribution = "Grey Nurse Shark, uploaded by rogerpeng1 (https://www.thingiverse.com/thing:137954), licensed under CC BY-SA."
 redistributed_from = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/Testing/Data/thingiverse/Grey_Nurse_Shark.stl"
-notes = "The Thingiverse page states \"Creative Commons - Attribution - Share Alike\" without a version. CC BY-SA 3.0 is recorded here because the model was published on 22 August 2013, before CC 4.0 was finalised."
+notes = "The page's `rel=\"license\"` link names creativecommons.org/licenses/by-sa/3.0/. The uploader disclaims authorship: \"This is a scan by Autodesk obtained from the Autodesk 123D site\"."
 ```
 
 A simple one is much shorter:
@@ -110,12 +111,10 @@ scans have `provenance = "verified"` and `SPDX-License-Identifier =
 Anything rendering a badge from this file should take "can I use this?" from
 the licence, not from `provenance`.
 
-- **`"verified"`** — you opened the source page and it states the origin and the
-  terms. Most new contributions should be this.
+- **`"verified"`** — you opened the source page and it states where the data
+  came from. Most new contributions should be this.
 - **`"inferred"`** — the origin is a reasoned conclusion rather than something
-  the source states. A Thingiverse page that says "Creative Commons -
-  Attribution" without a version is inferred, not verified. Say what you
-  inferred and why in `notes`.
+  the source states, so say what you inferred and why in `notes`.
 - **`"unknown"`** — the origin could not be established. Use
   `SPDX-License-Identifier = "LicenseRef-Unknown"` with it, and say in `notes`
   what you did establish, what you could not, and what a downstream user should
@@ -145,8 +144,9 @@ validator will report them as uncovered.
 
 ## Licence requirements
 
-A new dataset needs a licence that permits redistribution from a BSD-licensed
-project, and normally one that permits commercial use. Non-commercial licences
+A new dataset needs a licence that permits redistribution from this repository,
+which is Apache-2.0, and from PyVista, which is MIT. It normally also needs to
+permit commercial use. Non-commercial licences
 (CC BY-NC and its variants, "research use only", "personal use only") are
 accepted only with explicit maintainer approval, and their `[license.*]` table
 must record `commercial_use = false` so the gallery can flag them.
@@ -154,6 +154,12 @@ must record `commercial_use = false` so the gallery can flag them.
 ShareAlike licences (CC BY-SA, ODbL) are accepted, but record
 `share_alike = true` and say so in `notes`: a downstream user who derives new
 work from the dataset inherits the obligation.
+
+Read the licence out of the page rather than off its label. A Thingiverse page
+shows a version-less "Creative Commons - Attribution", but names the version in
+its `rel="license"` link (2016-era pages) or its schema.org JSON-LD (2021 and
+later) — and the mapping changed over time, so the upload date is not a
+substitute. When the live page is a JavaScript shell, read an archived capture.
 
 Prefer CC0 and public-domain sources. [Smithsonian Open Access](https://3d.si.edu/cc0),
 [Poly Haven](https://polyhaven.com/) and US government works are all good
