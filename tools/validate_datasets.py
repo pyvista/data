@@ -187,12 +187,35 @@ def check_shape(doc: dict, problems: Problems) -> bool:
             continue
         for field in LIST_FIELDS:
             value = entry.get(field)
-            if value is not None and not isinstance(value, list):
+            if value is None:
+                continue
+            if not isinstance(value, list):
                 problems.add(f'DATASETS.toml [[dataset]] name = {entry.get("name")!r}',
                              f'`{field}` is a {type(value).__name__}, not an array',
                              f'Write `{field}` as an array, even with one element:\n'
                              f'  {field} = ["one-value"]')
                 ok = False
+                continue
+            want = dict if field == 'references' else str
+            shape = 'a table' if want is dict else 'a string'
+            for element in value:
+                if not isinstance(element, want):
+                    example = (
+                        '  references = [{ citation = "...", doi = "..." }]'
+                        if want is dict
+                        else f'  {field} = ["one-value", "another"]'
+                    )
+                    problems.add(f'DATASETS.toml [[dataset]] name = {entry.get("name")!r}',
+                                 f'`{field}` holds a {type(element).__name__}, not {shape}',
+                                 f'Every entry of `{field}` must be {shape}:\n{example}')
+                    ok = False
+                    break
+    for key, table in (doc.get('license') or {}).items():
+        if isinstance(doc.get('license'), dict) and not isinstance(table, dict):
+            problems.add(f'DATASETS.toml [license.{key}]',
+                         f'this is a {type(table).__name__}, not a table',
+                         f'Write it as a table:\n  [license."{key}"]\n  title = "..."')
+            ok = False
     return ok
 
 
@@ -309,6 +332,13 @@ def check_coverage(doc: dict, files: list[str], problems: Problems) -> None:
     for entry in doc.get('dataset', []):
         name = entry.get('name', '?')
         for pattern in entry.get('path', []):
+            if set(pattern) <= {'*', '/'}:
+                problems.add(
+                    f'DATASETS.toml [[dataset]] name = {name!r}',
+                    f'`path` pattern {pattern!r} claims every file under Data/',
+                    'Name the files or the directory this dataset owns. A wildcard-only\n'
+                    'pattern makes the coverage check meaningless.',
+                )
             hits = [path for path in files if matches(pattern, path)]
             if not hits:
                 problems.add(
@@ -349,6 +379,44 @@ def check_coverage(doc: dict, files: list[str], problems: Problems) -> None:
                 f'Data/{path}',
                 'this file is claimed by more than one dataset: ' + ', '.join(sorted(own)),
                 'Narrow the `path` patterns so exactly one [[dataset]] owns each file.',
+            )
+
+
+def check_identical_files(doc: dict, files: list[str], problems: Problems) -> None:
+    """Reject byte-identical files claimed by datasets with different licences."""
+    blobs = subprocess.run(
+        ['git', '-C', str(ROOT), 'ls-tree', '-r', 'HEAD', DATA_DIR],
+        capture_output=True, text=True, check=True,
+    ).stdout.splitlines()
+    by_blob: dict[str, list[str]] = {}
+    for line in blobs:
+        if not line.strip():
+            continue
+        meta, path = line.split('\t', 1)
+        rel = path[len(DATA_DIR) + 1:]
+        if rel in files:
+            by_blob.setdefault(meta.split()[2], []).append(rel)
+
+    owners = {
+        path: entry
+        for entry in doc.get('dataset', [])
+        for path in files
+        if any(matches(pattern, path) for pattern in entry.get('path', []))
+    }
+    for paths in by_blob.values():
+        if len(paths) < 2:
+            continue
+        licences = {
+            owners[path].get('SPDX-License-Identifier') for path in paths if path in owners
+        }
+        if len(licences) > 1:
+            named = ', '.join(sorted(licences))
+            problems.add(
+                ', '.join(f'Data/{path}' for path in sorted(paths)),
+                f'these files are byte-identical but carry different licences: {named}',
+                'The same bytes have one origin. Decide which licence applies and give\n'
+                'every copy that licence, recording the other route in\n'
+                '`redistributed_from` and the duplication in `notes`.',
             )
 
 
@@ -426,6 +494,7 @@ def main() -> int:
         check_dataset(entry, index, doc, problems)
     check_ordering_and_uniqueness(doc, problems)
     check_coverage(doc, files, problems)
+    check_identical_files(doc, files, problems)
     check_unused_tables(doc, problems)
     check_orphan_license_texts(doc, problems)
 
