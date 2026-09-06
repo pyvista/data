@@ -1972,9 +1972,14 @@ path = ["fea/hertzian_contact_cylinder/**"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "unknown"
 source_title = "OnScale Solve"
-modified = true
-modification = "Merged from a set of `.vtu` partitions with a `.pvtu` header into a single cleaned unstructured grid."
-notes = "Recorded as generated with OnScale Solve, but no source page, upload or terms of use were found for the original result file. OnScale has since been acquired and onscale.com no longer resolves, so there is nothing left to check: neither the origin nor the terms could be established."
+notes = """
+Recorded as generated with OnScale Solve, and the sixteen `.vtu` partitions
+and their `.pvtu` header inside the archive are all named for the job UUID
+`bfac9fd1-e982-4825-9a95-9e5d8c5b4d3e`, which is the shape of that product's
+output. No source page, upload or terms of use were found for it, and
+OnScale has since been acquired and onscale.com no longer resolves, so
+neither the origin nor the terms could be established.
+"""
 
 [[dataset]]
 name = "honolulu"
