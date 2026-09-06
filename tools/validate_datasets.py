@@ -210,12 +210,38 @@ def check_shape(doc: dict, problems: Problems) -> bool:
                                  f'Every entry of `{field}` must be {shape}:\n{example}')
                     ok = False
                     break
+    for entry in doc.get('dataset', []) if isinstance(doc.get('dataset'), list) else []:
+        if not isinstance(entry, dict):
+            continue
+        for field in ('name', 'title', 'description', 'SPDX-License-Identifier',
+                      'provenance', 'collection', 'source_url', 'attribution'):
+            value = entry.get(field)
+            if value is not None and not isinstance(value, str):
+                problems.add(f'DATASETS.toml [[dataset]] #{entry.get("name") or "?"}',
+                             f'`{field}` is a {type(value).__name__}, not a string',
+                             f'Write `{field}` as a plain string:\n  {field} = "one-value"')
+                ok = False
     for key, table in (doc.get('license') or {}).items():
         if isinstance(doc.get('license'), dict) and not isinstance(table, dict):
             problems.add(f'DATASETS.toml [license.{key}]',
                          f'this is a {type(table).__name__}, not a table',
                          f'Write it as a table:\n  [license."{key}"]\n  title = "..."')
             ok = False
+            continue
+        if isinstance(table, dict):
+            for field in ('commercial_use', 'attribution_required', 'share_alike'):
+                value = table.get(field)
+                if value is not None and not isinstance(value, bool):
+                    problems.add(f'DATASETS.toml [license."{key}"]',
+                                 f'`{field}` is a {type(value).__name__}, not a boolean',
+                                 f'Write `{field}` as `true` or `false`, unquoted.')
+                    ok = False
+            if 'file' in table and not isinstance(table['file'], str):
+                problems.add(f'DATASETS.toml [license."{key}"]',
+                             '`file` is not a string',
+                             '`file` is a path to the licence text, such as\n'
+                             f'  file = "LICENSES/{key}.txt"')
+                ok = False
     return ok
 
 
@@ -332,7 +358,7 @@ def check_coverage(doc: dict, files: list[str], problems: Problems) -> None:
     for entry in doc.get('dataset', []):
         name = entry.get('name', '?')
         for pattern in entry.get('path', []):
-            if set(pattern) <= {'*', '/'}:
+            if set(pattern) <= {'*', '?', '/'}:
                 problems.add(
                     f'DATASETS.toml [[dataset]] name = {name!r}',
                     f'`path` pattern {pattern!r} claims every file under Data/',
