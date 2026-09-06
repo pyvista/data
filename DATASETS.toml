@@ -2357,9 +2357,9 @@ name = "iron_protein"
 title = "Iron protein volume"
 description = "Scalar volume of an iron protein."
 path = ["StructuredPoints.vtk", "ironProt.vtk"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
-provenance = "inferred"
+SPDX-License-Identifier = "LicenseRef-Unknown"
+provenance = "verified"
+authors = ["Scripps Clinic"]
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
@@ -2863,6 +2863,35 @@ clause.
 ShareAlike propagates: a downstream work derived from this scan must be shared
 under the same licence. The original `nefertitihack.alloversky.com` host no
 longer resolves; the artists' project page carries the same statement.
+"""
+
+[[dataset]]
+name = "neghip"
+title = "Negative high-potential iron protein"
+description = "66 cubed volume of the electron probability distribution of a high-potential iron protein, the negative-potential counterpart of the `iron_protein` volume."
+path = ["neghip.slc"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
+provenance = "inferred"
+origin_url = "https://www.scripps.edu/"
+origin_title = "Scripps Clinic, La Jolla"
+authors = ["Scripps Clinic"]
+notes = """
+The VTK textbook, which ships inside `vtk/vtk-examples` at
+`src/VTKBook/07Chapter7.md`, credits the iron protein data it uses:
+
+    High potential iron protein data courtesy of Scripps Clinic, La Jolla, CA.
+
+Retrieve the chapter with:
+
+    curl -sS "https://gitlab.kitware.com/api/v4/projects/vtk%2Fvtk-examples/repository/files/src%2FVTKBook%2F07Chapter7%2Emd/raw?ref=master"
+
+Inferred rather than verified for this file: the credit is attached to the
+iron protein figures, and the name `neghip` reads as the negative-potential
+variant of the same molecule, but no upstream states that in so many words.
+See the `iron_protein` entry, which the credit covers directly.
+
+A courtesy credit names the owner; it is not a licence, and it is not
+Kitware's to widen into the collection's BSD-3-Clause.
 """
 
 [[dataset]]
@@ -4043,6 +4072,31 @@ attribution = "CadQuery, licensed under the Apache License 2.0."
 notes = "The file is `tests/testdata/red_cube_blue_cylinder.step` in the CadQuery repository, referenced from `tests/test_importers.py`, so CadQuery's Apache-2.0 licence is recorded here. It was not generated with CadQuery: the STEP header names a translation-service export path dated 2018-05-02, so CadQuery may itself be a redistributor of a model produced elsewhere."
 
 [[dataset]]
+name = "stock_prices"
+title = "Stock price series"
+description = "Daily closing prices and volumes for four publicly traded companies, quoted in eighths, as one polyline per company."
+path = ["DEC.vtk", "GE.vtk", "GM.vtk", "IBM.vtk"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
+provenance = "unknown"
+notes = """
+Not company logos, which is what the filenames suggest. Each file is headed
+`Data values for stock` and holds 345 to 348 daily closes with a `volume`
+scalar, priced in eighths — United States equity quotes from before
+decimalisation in 2001.
+
+The VTK textbook says where they came from, in `src/VTKBook/12Chapter12.md`
+inside `vtk/vtk-examples`:
+
+    We obtained our data from a public site on the World Wide Web (WWW) that
+    archives stock prices and volumes for many publicly traded stocks.
+
+So this is third-party market data of unrecorded origin, converted by the
+book's authors. A site that archives prices does not thereby license them,
+and the VTK Examples Apache-2.0 the files were recorded under is not the
+archive's to give.
+"""
+
+[[dataset]]
 name = "tango_icons"
 title = "Tango icon montage"
 description = "Montage of icons from the Tango Icon Library, used to exercise the icon glyph filter."
@@ -4364,6 +4418,33 @@ established here.
 """
 
 [[dataset]]
+name = "vase"
+title = "Vase"
+description = "Volume of a vase, 115 by 101 by 75, in one- and four-component variants; the point array is still named `SLCImage` from the format it was converted out of."
+path = ["vase.vti", "vase_1comp.vti", "vase_4comp.vti"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
+provenance = "verified"
+origin_url = "https://www.cs.stonybrook.edu/"
+origin_title = "SUNY Stony Brook"
+authors = ["SUNY Stony Brook"]
+notes = """
+The VTK textbook, which ships inside `vtk/vtk-examples` at
+`src/VTKBook/07Chapter7.md`, credits this data in a figure caption:
+
+    Vase data courtesy of SUNY Stony Brook.
+
+Retrieve the chapter with:
+
+    curl -sS "https://gitlab.kitware.com/api/v4/projects/vtk%2Fvtk-examples/repository/files/src%2FVTKBook%2F07Chapter7%2Emd/raw?ref=master"
+
+A courtesy credit in a textbook names the owner; it is not a licence, and it
+is not the redistributor's to widen. The terms for use outside that book were
+not established.
+
+`vase.vti` and `vase_1comp.vti` are byte-identical.
+"""
+
+[[dataset]]
 name = "vector_animation"
 title = "Vector field animation"
 description = "Time series of a vector field, used to exercise animation of vector data."
@@ -4489,7 +4570,6 @@ path = [
     "multi-bin.q",
     "multi-bin.xyz",
     "multi.p3d",
-    "neghip.slc",
     "noise.png",
     "plate.vtk",
     "points.txt",
@@ -4518,9 +4598,6 @@ path = [
     "track3.binary.vtk",
     "treetest.xml",
     "uniform-001371-5x5x5.vtp",
-    "vase.vti",
-    "vase_1comp.vti",
-    "vase_4comp.vti",
     "vtk.vtk",
     "vwgt.coords",
     "vwgt.graph",
@@ -4548,14 +4625,10 @@ description = "Files imported from the VTK Examples collection that are not load
 path = [
     "AttenuationArtifact.pgm",
     "ColorCells.tif",
-    "DEC.vtk",
     "DelimitedData.txt",
-    "GE.vtk",
-    "GM.vtk",
     "GitLfsInstalled",
     "Gourds.mha",
     "Hexahedron.vtu",
-    "IBM.vtk",
     "Ox.jpg",
     "QuadraticTetra.vtu",
     "QuadraticWedge.vtu",
