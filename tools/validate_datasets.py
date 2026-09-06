@@ -410,7 +410,7 @@ def check_coverage(doc: dict, files: list[str], problems: Problems) -> None:
 
 
 def check_identical_files(doc: dict, files: list[str], problems: Problems) -> None:
-    """Reject byte-identical files claimed by datasets with different licences."""
+    """Reject byte-identical files whose datasets disagree on licence or provenance."""
     blobs = subprocess.run(
         ['git', '-C', str(ROOT), 'ls-tree', '-r', 'HEAD', DATA_DIR],
         capture_output=True, text=True, check=True,
@@ -433,18 +433,30 @@ def check_identical_files(doc: dict, files: list[str], problems: Problems) -> No
     for paths in by_blob.values():
         if len(paths) < 2:
             continue
-        licences = {
-            owners[path].get('SPDX-License-Identifier') for path in paths if path in owners
-        }
-        if len(licences) > 1:
-            named = ', '.join(sorted(licences))
-            problems.add(
-                ', '.join(f'Data/{path}' for path in sorted(paths)),
-                f'these files are byte-identical but carry different licences: {named}',
-                'The same bytes have one origin. Decide which licence applies and give\n'
-                'every copy that licence, recording the other route in\n'
-                '`redistributed_from` and the duplication in `notes`.',
-            )
+        for field, label, fix in (
+            (
+                'SPDX-License-Identifier',
+                'different licences',
+                'The same bytes have one origin. Decide which licence applies and give every copy that licence,\n'
+                'recording the other route in `redistributed_from` and the\n'
+                'duplication in `notes`.',
+            ),
+            (
+                'provenance',
+                'different provenance',
+                'The same bytes have one origin, established once. Give every copy the\n'
+                'provenance that reasoning supports, and put the reasoning where\n'
+                'both can reach it rather than on one side only.',
+            ),
+        ):
+            values = {owners[path].get(field) for path in paths if path in owners}
+            if len(values) > 1:
+                named = ', '.join(sorted(str(value) for value in values))
+                problems.add(
+                    ', '.join(f'Data/{path}' for path in sorted(paths)),
+                    f'these files are byte-identical but carry {label}: {named}',
+                    fix,
+                )
 
 
 def check_ordering_and_uniqueness(doc: dict, problems: Problems) -> None:

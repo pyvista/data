@@ -1089,7 +1089,7 @@ notes = "Added in February 2020 with the commit message \"add delaunay points\".
 name = "dicom_directory"
 title = "DICOM directory sample"
 description = "Single MR slice in a DICOM directory, used to exercise directory-based DICOM reading."
-path = ["DICOMDirectory/**"]
+path = ["DICOMDirectory/**", "mr.001"]
 SPDX-License-Identifier = "BSD-3-Clause"
 SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
 provenance = "verified"
@@ -3746,8 +3746,16 @@ licence, read out of a `readme.txt` inside its own archive.
 [[dataset]]
 name = "skybox_lorensen"
 title = "Skybox from the VTK Examples"
-description = "Six-face sky cube map distributed with the VTK Examples, both loose and as a zip archive."
-path = ["skybox/**"]
+description = "Six-face sky cube map distributed with the VTK Examples, as a zip archive and as two sets of loose faces which are byte-identical to each other."
+path = [
+    "skybox-nx.jpg",
+    "skybox-ny.jpg",
+    "skybox-nz.jpg",
+    "skybox-px.jpg",
+    "skybox-py.jpg",
+    "skybox-pz.jpg",
+    "skybox/**",
+]
 SPDX-License-Identifier = "Apache-2.0"
 provenance = "verified"
 origin_url = "https://github.com/lorensen/VTKExamples"
@@ -3755,30 +3763,6 @@ origin_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-This is the `skybox1` set, which has no `readme` beside it anywhere upstream.
-The unrelated `skybox2` set turned out to be Emil Persson's under CC BY 3.0,
-so treat the Apache-2.0 here as the redistributor's licence rather than as
-evidence about who made the images.
-"""
-
-[[dataset]]
-name = "skybox_nz"
-title = "Skybox negative-z face"
-description = "Single negative-z face of a sky cube map, used on its own as a background image."
-path = ["skybox-nz.jpg"]
-SPDX-License-Identifier = "Apache-2.0"
-provenance = "inferred"
-origin_url = "https://github.com/lorensen/VTKExamples"
-origin_title = "lorensen/VTKExamples"
-collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
-notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
-
 This is the `skybox1` set, which has no `readme` beside it anywhere upstream.
 The unrelated `skybox2` set turned out to be Emil Persson's under CC BY 3.0,
 so treat the Apache-2.0 here as the redistributor's licence rather than as
@@ -4078,7 +4062,7 @@ description = "Flamingo in the Autodesk 3D Studio format, thirty-three blocks na
 path = ["iflamigm.3ds", "iflamingo.3ds"]
 SPDX-License-Identifier = "LicenseRef-Viewpoint-DataLabs"
 SPDX-FileCopyrightText = ["1992 Viewpoint Animation Engineering Inc."]
-provenance = "inferred"
+provenance = "verified"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
@@ -4391,7 +4375,6 @@ path = [
     "mbwavelet_ascii.q",
     "mbwavelet_ascii.xyz",
     "mni-surface-mesh.obj",
-    "mr.001",
     "multi-ascii.q",
     "multi-ascii.xyz",
     "multi-bin-2D.q",
@@ -4484,7 +4467,6 @@ path = [
     "VTKCellTypes.vtk",
     "Wedge.vtu",
     "Yinyang.jpg",
-    "Yinyang.png",
     "a.vtp",
     "binary.pgm",
     "bridge.wrl",
@@ -4498,11 +4480,6 @@ path = [
     "postq.bin",
     "postxyz.bin",
     "sextant.wrl",
-    "skybox-nx.jpg",
-    "skybox-ny.jpg",
-    "skybox-px.jpg",
-    "skybox-py.jpg",
-    "skybox-pz.jpg",
     "stormy.jpg",
     "t.vtk",
     "teeth.lps.vtk",
@@ -4710,7 +4687,7 @@ ones, should contact Laser Design or substitute another mesh.
 name = "yinyang"
 title = "Yin-yang binary image"
 description = "Binary image of the yin-yang symbol, used to demonstrate image filters."
-path = ["yinyang/**"]
+path = ["Yinyang.png", "yinyang/**"]
 SPDX-License-Identifier = "Apache-2.0"
 provenance = "verified"
 origin_url = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/Testing/Data/Yinyang.png"
