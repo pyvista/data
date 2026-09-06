@@ -2794,7 +2794,16 @@ notes = "The Nemesis variables — `num_processors`, `num_int_elem`, `num_bor_no
 name = "paraview_pvd"
 title = "ParaView PVD animations"
 description = "Single- and dual-sphere animations in ParaView PVD collection format, loose and zipped."
-path = ["PVD/paraview/**"]
+path = [
+    "PVD/paraview/dualSphereAnimation.clone.pvd",
+    "PVD/paraview/dualSphereAnimation.pvd",
+    "PVD/paraview/dualSphereAnimation.zip",
+    "PVD/paraview/dualSphereAnimation/**",
+    "PVD/paraview/dualSphereAnimation4.pvd",
+    "PVD/paraview/singleSphereAnimation.pvd",
+    "PVD/paraview/singleSphereAnimation.zip",
+    "PVD/paraview/singleSphereAnimation/**",
+]
 SPDX-License-Identifier = "BSD-3-Clause"
 SPDX-FileCopyrightText = ["2005-2008 Sandia Corporation, Kitware Inc."]
 provenance = "verified"
@@ -2802,6 +2811,33 @@ source_url = "https://www.paraview.org/"
 source_title = "ParaView"
 attribution = "ParaView, Sandia Corporation and Kitware Inc., BSD 3-Clause."
 notes = "Under the terms of Contract DE-AC04-94AL85000 there is a non-exclusive licence for use of this work by or on behalf of the U.S. Government."
+
+[[dataset]]
+name = "paraview_pvd_variants"
+title = "PVD reader edge cases"
+description = "Two PVD collection files written by hand to exercise reader edge cases: one with no timestep, one with no `part` attribute."
+path = ["PVD/paraview/dualSphereAnimation4NoPart.pvd", "PVD/paraview/dualSphereNoTime.pvd"]
+SPDX-License-Identifier = "MIT"
+SPDX-FileCopyrightText = ["PyVista Developers"]
+provenance = "verified"
+source_url = "https://github.com/pyvista/data/pull/24"
+source_title = "PyVista"
+attribution = "PyVista, MIT License."
+notes = """
+Neither file is ParaView's, though both sit in the `paraview` directory and
+point at ParaView's sphere animation frames. `dualSphereNoTime.pvd` says so
+on its own second line: `<!-- This file is not from paraview. -->`.
+`dualSphereAnimation4NoPart.pvd` was added by pull request 24, whose body
+describes it as "a PVD file with no `part` that can be read with Paraview but
+not Pyvista", written for a PyVista test.
+
+Neither name appears in ParaView's data repository:
+
+    curl -s "https://gitlab.kitware.com/api/v4/projects/14/repository/commits?path=Testing/Data/dualSphereNoTime.pvd.sha512&all=true"
+
+returns an empty list. The `.vtp` frames they reference stay with the
+`paraview_pvd` entry, which is where they came from.
+"""
 
 [[dataset]]
 name = "particles"
