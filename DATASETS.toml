@@ -1890,7 +1890,10 @@ redistributed_from = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/
 notes = """
 The page labels the licence "Creative Commons - Attribution - Share Alike"
 without a version in its text, but its `rel="license"` link names
-creativecommons.org/licenses/by-sa/3.0/. It was published on 22 August 2013.
+creativecommons.org/licenses/by-sa/3.0/. Thingiverse has since re-rendered
+these pages, so read it from the capture of 27 January 2017 at
+web.archive.org/web/20170127115631/http://www.thingiverse.com:80/thing:137954/
+rather than from the live page. It was published on 22 August 2013.
 ShareAlike propagates: a downstream work derived from this mesh must be shared
 under the same licence.
 
@@ -3903,7 +3906,16 @@ source_title = "Thingiverse thing:1541337"
 collection = "thingiverse"
 authors = ["Alzibiff"]
 attribution = "Victorian Goblet face illusion by Alzibiff, licensed under CC BY 3.0."
-notes = "The page labels the licence \"Creative Commons - Attribution\" without a version in its text, but its `rel=\"license\"` link names creativecommons.org/licenses/by/3.0/. Thingiverse mapped that label to 3.0 for 2016 uploads and to 4.0 by 2021, so the version is read from the link rather than inferred from the date."
+notes = """
+The page labels the licence "Creative Commons - Attribution" without a
+version in its text, but its `rel="license"` link names
+creativecommons.org/licenses/by/3.0/. Thingiverse mapped that label to 3.0
+for 2016 uploads and to 4.0 by 2021, so the version is read from the link
+rather than inferred from the date, and from a capture rather than from the
+live page, which has since been re-rendered. The captures of 7 May 2016 and
+12 January 2017 both carry the 3.0 link:
+web.archive.org/web/20160507130037/http://www.thingiverse.com:80/thing:1541337
+"""
 
 [[dataset]]
 name = "vtk_data_files"
