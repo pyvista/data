@@ -200,7 +200,7 @@ description = "Kitware's test and example data collection for the Visualization 
 [collection."vtk-examples"]
 title = "VTK Examples"
 url = "https://gitlab.kitware.com/vtk/vtk-examples"
-description = "Bill Lorensen's VTK example collection, originally hosted at github.com/lorensen/VTKExamples and now maintained by Kitware."
+description = "Bill Lorensen's VTK example collection, originally hosted at github.com/lorensen/VTKExamples and now maintained by Kitware. The repository is Apache-2.0 licensed but publishes no copyright notice: its LICENSE appendix is left as unfilled boilerplate, so no `SPDX-FileCopyrightText` is recorded for material from it."
 
 [[dataset]]
 name = "action_figure"
@@ -254,7 +254,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -275,7 +275,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -296,7 +296,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -352,7 +352,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -382,7 +382,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -403,7 +403,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = "This is VTK's own reader test input: `Data/Exodus/biplane_rms_pressure_bs.exo`, named by `IO/IOSS/Testing/CMakeLists.txt` and read by `TestIOSSExodusSetArrays.cxx`. It sits on the same footing as the rest of the VTK Data collection."
 
 [[dataset]]
@@ -412,7 +412,6 @@ title = "Biquadratic quadrilateral disc"
 description = "Disc meshed with biquadratic quadrilateral cells."
 path = ["Disc_BiQuadraticQuads_0_0.vtu"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -485,7 +484,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -506,7 +505,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -522,7 +521,6 @@ title = "Brain surface"
 description = "Surface mesh of a human brain with a scalar field."
 path = ["brain.vtk"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -631,7 +629,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -647,7 +645,6 @@ title = "Cake photograph"
 description = "Colour photograph of a cake, used as a texture and as image filter input."
 path = ["cake_easy.jpg"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -681,7 +678,7 @@ provenance = "verified"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data, VTKDataFiles-9.3.0"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 
 [[dataset]]
 name = "carburetor"
@@ -716,7 +713,6 @@ title = "Carotid artery flow"
 description = "Structured grid of blood flow velocity and vector magnitude through a carotid artery."
 path = ["carotid.vtk"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -736,7 +732,6 @@ title = "VTK cell type gallery"
 description = "One file per VTK linear cell type, in both legacy and XML unstructured grid format, used to illustrate cell connectivity."
 path = ["Cells/**"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -772,7 +767,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -793,7 +788,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -814,7 +809,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -835,7 +830,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -856,7 +851,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -872,7 +867,6 @@ title = "Cow head"
 description = "Surface mesh of a cow's head, extracted from the Viewpoint cow model."
 path = ["cowHead.vtp"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -990,7 +984,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -1053,7 +1047,6 @@ title = "Doorman character"
 description = "Textured character model with diffuse, normal and specular maps for the body, the teeth and the eyes."
 path = ["doorman/**"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -1157,7 +1150,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -1186,7 +1179,6 @@ title = "Emoji image"
 description = "Colour image of an emoji, used as a texture."
 path = ["emote.jpg"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -1234,7 +1226,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -1408,7 +1400,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -1429,7 +1421,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -1459,7 +1451,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -1480,7 +1472,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -1515,7 +1507,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -1536,7 +1528,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = "Added in April 2024 to exercise the Fluent CFF reader. These are the reader test files carried by the VTK Data collection; the Kitware collection terms are recorded here."
 
 [[dataset]]
@@ -1545,7 +1537,6 @@ title = "Foot bones and guitar"
 description = "Surface meshes of the bones of a human foot and of a Stratocaster guitar, from the Florida State University model collection."
 path = ["fsu/**"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -1570,7 +1561,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -1591,7 +1582,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -1609,7 +1600,6 @@ title = "Full head MR volume"
 description = "MetaImage header and gzip-compressed raw volume of a full human head MR scan."
 path = ["FullHead.mhd", "FullHead.raw.gz"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -1634,7 +1624,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -1655,7 +1645,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -1671,7 +1661,6 @@ title = "Interlocking gears"
 description = "Triangulated surface mesh of a set of interlocking gears."
 path = ["gears.stl"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -1696,7 +1685,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -1712,7 +1701,6 @@ title = "Gourds photograph"
 description = "Colour photograph of gourds in PNG, PNM and JPEG form, used as a texture and as image filter input."
 path = ["Gourds.png", "Gourds.pnm", "Gourds2.jpg"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -1741,7 +1729,6 @@ title = "Grasshopper"
 description = "VRML model of a grasshopper."
 path = ["grasshopper/**"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/Testing/Data/grasshop.wrl"
 source_title = "VTK Examples"
@@ -1836,7 +1823,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -1857,7 +1844,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -1887,7 +1874,6 @@ title = "Honolulu terrain"
 description = "Structured grid of the terrain around Honolulu."
 path = ["honolulu.vtk"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -1907,7 +1893,6 @@ title = "Horse"
 description = "Surface mesh of a horse, with a companion point-only version used to demonstrate surface reconstruction."
 path = ["horse.vtp", "horsePoints.vtp"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -1927,7 +1912,6 @@ title = "Human figure"
 description = "Surface mesh of a standing human figure."
 path = ["Human.vtp"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -1965,7 +1949,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -1986,7 +1970,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -2002,7 +1986,6 @@ title = "Interpolation target surface"
 description = "Triangulated surface used to demonstrate interpolating point data onto an STL mesh."
 path = ["InterpolatingOnSTL_final.stl"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -2027,7 +2010,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -2070,7 +2053,6 @@ title = "Kitchen airflow"
 description = "Structured grid of the velocity field in a kitchen, with furniture that can be split into separate blocks."
 path = ["kitchen.vtk"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -2110,7 +2092,6 @@ title = "Letter K"
 description = "Volume of the letter K, used to demonstrate volume rendering."
 path = ["k.vtk"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -2135,7 +2116,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -2276,7 +2257,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -2308,7 +2289,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -2359,7 +2340,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -2387,7 +2368,6 @@ title = "Mug Exodus mesh"
 description = "Exodus II finite element mesh of a mug."
 path = ["mug.e"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -2434,7 +2414,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = "Added in December 2024 to exercise the Nek5000 reader. These are the standard Nek5000 `eddy_uv` example outputs also carried by the VTK Data collection; the Kitware collection terms are recorded here."
 
 [[dataset]]
@@ -2468,7 +2448,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -2493,7 +2473,6 @@ title = "Oblique cone"
 description = "Surface mesh of an oblique cone."
 path = ["ObliqueCone.vtp"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -2518,7 +2497,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -2539,7 +2518,7 @@ provenance = "inferred"
 source_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7/folder/5afd932e8d777f15ebe1b183"
 source_title = "Kitware VTK Data on data.kitware.com"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -2562,7 +2541,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -2603,7 +2582,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = "This is VTK's own reader test input: `Data/sphere_points.vdb`, named by `IO/OpenVDB/Testing/CMakeLists.txt` and read by `TestOpenVDBReader.cxx`. The file's own header records `creator: Houdini/SOP_OpenVDB_Write`."
 
 [[dataset]]
@@ -2635,7 +2614,7 @@ provenance = "verified"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 
 [[dataset]]
 name = "paraview_pvd"
@@ -2661,7 +2640,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -2709,7 +2688,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -2725,7 +2704,6 @@ title = "Pileated woodpecker photograph"
 description = "Colour photograph of a pileated woodpecker, used as a texture."
 path = ["Pileated.jpg"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -2750,7 +2728,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -2766,7 +2744,6 @@ title = "Pine roots"
 description = "Triangle mesh of a pine root system, in the binary marching cubes triangle format."
 path = ["pine_root.tri"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -2818,7 +2795,6 @@ title = "Polyline"
 description = "Simple polyline used to demonstrate line filters."
 path = ["polyline.vtk"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -2843,7 +2819,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -2859,7 +2835,6 @@ title = "Prostate image"
 description = "Raw grayscale image slice of a prostate."
 path = ["prostate.img"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -2884,7 +2859,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -2954,7 +2929,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -2970,7 +2945,6 @@ title = "Quadratic pyramid"
 description = "Single quadratic pyramid cell."
 path = ["QuadraticPyramid.vtu"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -2990,7 +2964,6 @@ title = "Rectilinear grid sample"
 description = "Small rectilinear grid in VTK XML format."
 path = ["RectilinearGrid.vtr"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -3062,7 +3035,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -3101,7 +3074,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -3117,7 +3090,6 @@ title = "Sextant"
 description = "VRML model of a sextant."
 path = ["vrml/sextant.wrl"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["The VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -3147,7 +3119,6 @@ title = "Shark"
 description = "Surface mesh of a shark, used to demonstrate surface reconstruction from points."
 path = ["shark.ply"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -3183,7 +3154,6 @@ title = "Skybox from the VTK Examples"
 description = "Six-face sky cube map distributed with the VTK Examples, both loose and as a zip archive."
 path = ["skybox/**"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "verified"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -3196,7 +3166,6 @@ title = "Skybox negative-z face"
 description = "Single negative-z face of a sky cube map, used on its own as a background image."
 path = ["skybox-nz.jpg"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -3230,7 +3199,6 @@ title = "Sparse points"
 description = "Sparse scattered points with scalar values, used to demonstrate interpolation onto a grid."
 path = ["sparsePoints.txt"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -3255,7 +3223,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -3271,7 +3239,6 @@ title = "Spider"
 description = "Surface mesh of a spider."
 path = ["spider.ply"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -3296,7 +3263,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -3341,7 +3308,6 @@ title = "Structured grid sample"
 description = "Small structured grid in VTK XML format."
 path = ["StructuredGrid.vts"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -3423,7 +3389,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -3439,7 +3405,6 @@ title = "Tetrahedron"
 description = "Single tetrahedral cell."
 path = ["Tetrahedron.vtu"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -3473,7 +3438,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -3489,7 +3454,6 @@ title = "Torso"
 description = "Surface mesh of a human torso."
 path = ["Torso.vtp"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -3522,7 +3486,6 @@ title = "Triquadratic hexahedron"
 description = "Single triquadratic hexahedral cell."
 path = ["TriQuadraticHexahedron.vtu"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -3542,7 +3505,6 @@ title = "Trumpet"
 description = "Surface mesh of a trumpet, with a companion time-series export."
 path = ["trumpet.obj", "Exporttrumpet.vtp", "Exporttrumpet/**"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -3594,7 +3556,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -3615,7 +3577,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -3663,7 +3625,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -3684,7 +3646,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -3840,7 +3802,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -3921,7 +3883,6 @@ path = [
     "wintersun.jpg",
 ]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -3946,7 +3907,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -3962,7 +3923,6 @@ title = "VTK logo mesh"
 description = "Extruded surface mesh of the VTK logo."
 path = ["vtk.vtp"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -3987,7 +3947,7 @@ provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 modified = true
 modification = "Derived from `PVD/wavy.zip` and rewritten in the `.series` format."
 notes = """
@@ -4005,7 +3965,6 @@ title = "Visible Woman knee"
 description = "SLC volume of a knee from the Visible Human Project female dataset."
 path = ["vw_knee.slc"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "inferred"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
@@ -4025,7 +3984,6 @@ title = "Warping spheres VTKHDF"
 description = "Partitioned dataset of two warping spheres with spatial and temporal data, in the VTKHDF format."
 path = ["warping_spheres/**"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "verified"
 source_url = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/Testing/Data/warping_spheres.vtkhdf"
 source_title = "VTK Examples"
@@ -4097,7 +4055,6 @@ title = "Yin-yang binary image"
 description = "Binary image of the yin-yang symbol, used to demonstrate image filters."
 path = ["yinyang/**"]
 SPDX-License-Identifier = "Apache-2.0"
-SPDX-FileCopyrightText = ["Bill Lorensen and the VTK Examples contributors"]
 provenance = "verified"
 source_url = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/Testing/Data/Yinyang.png"
 source_title = "VTK Examples"
