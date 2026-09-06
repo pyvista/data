@@ -1753,6 +1753,8 @@ repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
 author of the data itself could not be established.
+
+The repository carries two byte-identical copies of this file, one from the VTK Examples import and one from the earlier VTK Data tree.
 """
 
 [[dataset]]
@@ -1787,10 +1789,21 @@ provenance = "inferred"
 source_url = "https://www.thingiverse.com/thing:137954"
 source_title = "Thingiverse thing:137954"
 collection = "thingiverse"
-authors = ["rogerpeng1"]
-attribution = "Grey Nurse Shark by rogerpeng1 (https://www.thingiverse.com/thing:137954), licensed under CC BY-SA."
+authors = ["Autodesk"]
+attribution = "Grey Nurse Shark, uploaded by rogerpeng1 (https://www.thingiverse.com/thing:137954), licensed under CC BY-SA."
 redistributed_from = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/Testing/Data/thingiverse/Grey_Nurse_Shark.stl"
-notes = "The Thingiverse page states \"Creative Commons - Attribution - Share Alike\" without a version. CC BY-SA 3.0 is recorded here because the model was published on 22 August 2013, before CC 4.0 was finalised in November. ShareAlike propagates: a downstream work derived from this mesh must be shared under the same licence."
+notes = """
+The Thingiverse page states "Creative Commons - Attribution - Share Alike"
+without a version. CC BY-SA 3.0 is recorded here because the model was
+published on 22 August 2013, before CC 4.0 was finalised in November.
+ShareAlike propagates: a downstream work derived from this mesh must be shared
+under the same licence.
+
+The uploader disclaims authorship: "This is a scan by Autodesk obtained from
+the Autodesk 123D site", linking a 123dapp.com page that no longer resolves.
+The licence recorded here is therefore the one the redistributor applied, not
+one Autodesk is known to have granted.
+"""
 
 [[dataset]]
 name = "hdr_textures"
@@ -3104,9 +3117,14 @@ name = "sextant"
 title = "Sextant"
 description = "VRML model of a sextant."
 path = ["vrml/sextant.wrl"]
-SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "unknown"
-notes = "Added in August 2022 with the commit message \"add vrml files\". No source, author or terms of use were recorded, and none could be established from the file itself."
+SPDX-License-Identifier = "Apache-2.0"
+SPDX-FileCopyrightText = ["The VTK Examples contributors"]
+provenance = "inferred"
+source_url = "https://github.com/lorensen/VTKExamples"
+source_title = "lorensen/VTKExamples"
+collection = "vtk-examples"
+attribution = "VTK Examples, licensed under the Apache License 2.0."
+notes = "Added in August 2022 with the commit message \"add vrml files\" and no recorded source, but it is byte-identical to `sextant.wrl` at the top level, which came from the VTK Examples import. It carries that collection's licence."
 
 [[dataset]]
 name = "sgems_geostatistics"
@@ -3378,7 +3396,7 @@ source_title = "Utah Teapot"
 collection = "vtk-data"
 authors = ["Martin Newell", "Martin Isenburg"]
 attribution = "Utah Teapot, originally modeled by Martin Newell, University of Utah, 1975; tessellation by Martin Isenburg."
-notes = "No formal licence was ever issued for the Newell dataset. It has been redistributed freely in computer graphics software since the mid-1970s and is treated as public domain by convention rather than by an identified grant of rights."
+notes = "No formal licence was ever issued for the Newell dataset. It has been redistributed freely in computer graphics software since the mid-1970s and is treated as public domain by convention rather than by an identified grant of rights. The repository carries two byte-identical copies of this file, one from the VTK Examples import and one from the earlier VTK Data tree."
 references = [
     { citation = "Isenburg, M. and Snoeyink, J. \"Face Fixer: Compressing Polygon Meshes with Properties.\" SIGGRAPH 2000.", doi = "10.1145/344779.344919" },
 ]
@@ -4086,3 +4104,4 @@ source_url = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/Test
 source_title = "VTK Examples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
+notes = "The repository carries two byte-identical copies of this file, one from the VTK Examples import and one from the earlier VTK Data tree."
