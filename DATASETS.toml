@@ -1733,7 +1733,19 @@ path = ["great_white_shark/**"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "unknown"
 redistributed_from = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/Testing/Data/greatWhite.stl"
-notes = "Imported from the VTK Examples test data. The STL header records only that the mesh was reprocessed through netfabb and embeds no origin or licence, and the upstream commits reference neither. A plausible candidate origin is Thingiverse thing:425437 by user shraska1, uploaded in August 2014, but that has not been independently verified. Downstream users, especially commercial ones, should ask the VTK Examples maintainers to clarify provenance or substitute a shark model with documented licensing."
+notes = """
+Imported from the VTK Examples test data. The STL header records only that the
+mesh was reprocessed through netfabb and embeds no origin or licence, and the
+upstream commits reference neither.
+
+Thingiverse thing:425437, "Great White Shark" by shraska1, published in August
+2014, is a plausible origin and is currently labelled CC BY-SA. It does not
+settle the question: that uploader's own description disclaims authorship and
+names a CGTrader page as where the model came from, so the chain runs back at
+least one step further than any page that states terms. The licence is left
+undetermined. Downstream users, especially commercial ones, should substitute
+a shark model with documented licensing.
+"""
 
 [[dataset]]
 name = "grey_nurse_shark"
