@@ -150,6 +150,14 @@ attribution_required = true
 share_alike = false
 file = "LICENSES/LicenseRef-Viewpoint-DataLabs.txt"
 
+[license."OFL-1.1"]
+title = "SIL Open Font License 1.1"
+url = "https://openfontlicense.org/"
+commercial_use = true
+attribution_required = true
+share_alike = true
+file = "LICENSES/OFL-1.1.txt"
+
 [license."MIT"]
 title = "MIT License"
 url = "https://opensource.org/licenses/MIT"
@@ -400,6 +408,18 @@ Kitware never published per-file provenance for this material, so the
 original author of the data itself is not recorded upstream and could not be
 established here.
 """
+
+[[dataset]]
+name = "bibliography"
+title = "Bibliographic exports"
+description = "Reference-manager exports in RIS and ISI formats, used to exercise the bibliographic readers."
+path = ["Infovis/eg1.ris", "Infovis/eg2.isi"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
+provenance = "inferred"
+source_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
+source_title = "VTK Data"
+collection = "vtk-data"
+notes = "Both files carry publisher copyright lines rather than the collection's: `eg1.ris` is a Scopus export whose abstract ends \"(c) 2007 Elsevier B.V. All rights reserved\", and `eg2.isi` carries \"(c) 2005 American Institute of Physics\" and \"(c) 2005 Elsevier\". Abstracts and bibliographic records belong to their publishers, so the terms are undetermined rather than the collection's."
 
 [[dataset]]
 name = "biplane"
@@ -827,6 +847,17 @@ Kitware never published per-file provenance for this material, so the
 original author of the data itself is not recorded upstream and could not be
 established here.
 """
+
+[[dataset]]
+name = "clouds"
+title = "Global cloud cover"
+description = "Stitched global cloud-cover image, 2048 pixels wide, used as an Earth overlay texture."
+path = ["clouds.jpeg"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
+provenance = "verified"
+source_url = "http://xplanet.sourceforge.net/clouds.php"
+source_title = "xplanet cloud images"
+notes = "The file's own JPEG comment records its origin: \"http://xplanet.sourceforge.net/clouds/clouds_2048.jpg created Tue Jun 9 21:53:22 UTC 2009\", and the commit that added it the same day says so too. xplanet redistributed cloud maps built from satellite imagery under no stated terms, so the licence is undetermined and is not the inherited collection's."
 
 [[dataset]]
 name = "clown"
@@ -1546,6 +1577,53 @@ attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bil
 notes = "Added in April 2024 to exercise the Fluent CFF reader. These are the reader test files carried by the VTK Data collection; the Kitware collection terms are recorded here."
 
 [[dataset]]
+name = "font_ridiculous"
+title = "Ridiculous font"
+description = "TrueType display font used to exercise text rendering."
+path = ["Infovis/martyb_-_Ridiculous.ttf"]
+SPDX-License-Identifier = "OFL-1.1"
+SPDX-FileCopyrightText = ["2008 Martin B. Brilliant"]
+provenance = "verified"
+source_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
+source_title = "VTK Data"
+collection = "vtk-data"
+attribution = "Ridiculous, Copyright 2008 Martin B. Brilliant, SIL Open Font License 1.1."
+notes = "The font states its own terms in its name table: \"Copyright 2008 Martin B. Brilliant ... Released under the Open Font License\", with Reserved Font Name \"Ridiculous\". That name may not be used by a modified version, and OFL-1.1 requires derivatives to stay under it, so the obligation is stronger than the collection licence recorded here before. Read it with a name-table dump or `strings`."
+
+[[dataset]]
+name = "fonts"
+title = "Test fonts"
+description = "Four TrueType fonts used to exercise text rendering, each reserving rights in its own name table."
+path = [
+    "Canterbury.ttf",
+    "CopyPaste.ttf",
+    "Infovis/DaveDS_-_Sketchy.ttf",
+    "Infovis/PintassilgoPrints_-_Talvez_Assim.ttf",
+]
+SPDX-License-Identifier = "LicenseRef-Unknown"
+provenance = "inferred"
+source_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
+source_title = "VTK Data"
+collection = "vtk-data"
+notes = """
+These arrived with the inherited collections but state their own terms, which
+are neither the collection's nor the same as each other:
+
+  Infovis/DaveDS_-_Sketchy.ttf   (c) 2009 David Brisbane, all rights
+                                 reserved, embedding and printing only
+  Infovis/PintassilgoPrints_-_Talvez_Assim.ttf
+                                 PintassilgoPrints, marked "Free"
+  Canterbury.ttf                 (c) Typographer Mediengestaltung, 2001,
+                                 all rights reserved
+  CopyPaste.ttf                  weknow (weknow.deviantart.com), 2012,
+                                 all rights reserved
+
+None grants redistribution, and three reserve all rights, so the set is
+recorded as undetermined. The fifth font that shipped with them,
+`Infovis/martyb_-_Ridiculous.ttf`, does grant it and has its own entry.
+"""
+
+[[dataset]]
 name = "foot_bones"
 title = "Foot bones and guitar"
 description = "Surface meshes of the bones of a human foot and of a Stratocaster guitar, from the Florida State University model collection."
@@ -1977,7 +2055,45 @@ established here.
 name = "infovis"
 title = "Information visualisation samples"
 description = "Graphs, trees, tables and delimited text files used to exercise the information visualisation readers and layouts."
-path = ["Infovis-XML-vtkclasses.xml", "Infovis-XML-vtklibrary.xml", "Infovis/**", "fsm.gml"]
+path = [
+    "Infovis-XML-vtkclasses.xml",
+    "Infovis-XML-vtklibrary.xml",
+    "Infovis/DimacsGraphs/iso_pattern.gr",
+    "Infovis/DimacsGraphs/iso_target.gr",
+    "Infovis/DimacsGraphs/maxflow.max",
+    "Infovis/Images/NE2_ps_bath.jpg",
+    "Infovis/Images/NE2_ps_bath.png",
+    "Infovis/Images/NE2_ps_bath_transparent.png",
+    "Infovis/SQLite/SmallEmailTest.db",
+    "Infovis/SQLite/SmallTestGraphs.db",
+    "Infovis/SQLite/ports_protocols.db",
+    "Infovis/SQLite/temperatures.db",
+    "Infovis/XML/smalltest.xml",
+    "Infovis/XML/vtkclasses.xml",
+    "Infovis/XML/vtkfiles.xml",
+    "Infovis/XML/vtklibrary.xml",
+    "Infovis/authors-tabletographtest.csv",
+    "Infovis/authors.csv",
+    "Infovis/classes.csv",
+    "Infovis/clustered-graph.tlp",
+    "Infovis/document-term.csv",
+    "Infovis/fruit.csv",
+    "Infovis/fsm.gml",
+    "Infovis/kcore_edges.csv",
+    "Infovis/kcore_verts.csv",
+    "Infovis/matrix.csv",
+    "Infovis/merge1.csv",
+    "Infovis/merge2.csv",
+    "Infovis/multi_tree.tre",
+    "Infovis/otu_table.biom",
+    "Infovis/person-document.csv",
+    "Infovis/publications.csv",
+    "Infovis/rep_set.tre",
+    "Infovis/small.graph",
+    "Infovis/small.tlp",
+    "Infovis/term-concept.csv",
+    "fsm.gml",
+]
 SPDX-License-Identifier = "BSD-3-Clause"
 SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
 provenance = "inferred"
@@ -2790,7 +2906,7 @@ notes = """
 All four files are byte-identical to Solar System Scope downloads:
 `stars.jpg` and `planet3d-matlab/stars.jpg` to `8k_stars.jpg`, and
 `planet3d-matlab/milkyway.jpg` and `milkyway.png` to `8k_stars_milky_way.jpg`.
-Their EXIF records Photoshop and a 2014 date, seven years before the
+Their EXIF records Photoshop CC and a 2014 date, seven years before the
 tamaskis/planet3D-MATLAB repository they reached this project through.
 
 That repository's MIT licence covers its MATLAB code, not these textures, and
@@ -2877,6 +2993,29 @@ maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
 author of the data itself could not be established.
 """
+
+[[dataset]]
+name = "protein_2j6g"
+title = "Protein 2J6G"
+description = "Crystal structure of a cell adhesion protein, PDB accession 2J6G, in Protein Data Bank format."
+path = ["2j6g.pdb"]
+SPDX-License-Identifier = "CC0-1.0"
+provenance = "verified"
+source_url = "https://www.rcsb.org/structure/2J6G"
+source_title = "RCSB Protein Data Bank"
+redistributed_from = "https://github.com/lorensen/VTKExamples"
+notes = "The filename is the accession, and the file carries the same 2130 atom records as the entry RCSB serves for 2J6G; they are not byte-identical because RCSB re-versions entries. The wwPDB usage policy releases the PDB archive under CC0, which is less restrictive than the collection licence recorded here before."
+
+[[dataset]]
+name = "protein_2lyz"
+title = "Lysozyme 2LYZ"
+description = "Crystal structure of hen egg-white lysozyme, PDB accession 2LYZ, in Protein Data Bank format."
+path = ["2LYZ.pdb"]
+SPDX-License-Identifier = "CC0-1.0"
+provenance = "verified"
+source_url = "https://www.rcsb.org/structure/2LYZ"
+source_title = "RCSB Protein Data Bank"
+notes = "The filename is the accession, and all 1102 atom records are byte-identical to the file RCSB serves for 2LYZ. The wwPDB usage policy releases the PDB archive under CC0."
 
 [[dataset]]
 name = "protein_3gqp"
@@ -3213,11 +3352,12 @@ source_title = "Solar System Scope Textures"
 collection = "solar-system-scope"
 attribution = "Textures by Solar System Scope, https://www.solarsystemscope.com/textures/, licensed under CC BY 4.0."
 notes = """
-Ten of the twelve files are byte-identical to the Solar System Scope downloads
-of the same name. Two are not: `mars.jpg` is 2000 by 1000 where Solar System
-Scope serves 2048 by 1024, and its EXIF records GIMP in 2021, so it is a
-regraded derivative rather than the published file; and Solar System Scope
-publishes no Pluto texture at all, so `pluto.jpg` cannot have come from there.
+Ten of the twelve files are byte-identical to the Solar System Scope
+downloads of the same name. Two are not: `mars.jpg` is 2000 by 1000 where
+Solar System Scope serves 2048 by 1024, and its EXIF records GIMP in 2021, so
+it is a regraded derivative rather than the published file; and Solar System
+Scope publishes no Pluto texture at all, so `pluto.jpg` cannot have come from
+there.
 
 `mars.jpg` at the top level is byte-identical to `solar_textures/mars.jpg`,
 kept for an older download path.
@@ -3709,7 +3849,6 @@ name = "vtk_data_files"
 title = "VTK Data files"
 description = "Files inherited from the VTK Data collection that are not loaded by `pyvista.examples`: reader test inputs, small meshes, volumes, images, textures, CFD results and format samples."
 path = [
-    "2LYZ.pdb",
     "2h2o.aux",
     "B.pgm",
     "BlueCircle.png",
@@ -3745,7 +3884,6 @@ path = [
     "camscene.png",
     "cellcentered.tec",
     "cellsnd.bin.inp",
-    "clouds.jpeg",
     "combq.bin",
     "combxyz.bin",
     "cth.vtr",
@@ -3854,11 +3992,8 @@ name = "vtk_examples_files"
 title = "VTK Examples data files"
 description = "Files imported from the VTK Examples collection that are not loaded by `pyvista.examples`: cell type samples, fonts, textures, small meshes, molecular structures and reader test inputs."
 path = [
-    "2j6g.pdb",
     "AttenuationArtifact.pgm",
-    "Canterbury.ttf",
     "ColorCells.tif",
-    "CopyPaste.ttf",
     "DEC.vtk",
     "DelimitedData.txt",
     "GE.vtk",
