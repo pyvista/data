@@ -136,7 +136,7 @@ file = "LICENSES/LicenseRef-StanfordScanningRepository.txt"
 
 [license."LicenseRef-TrainingImagesLibrary"]
 title = "Training Images Library, research use only"
-url = "http://www.trainingimages.org/training-images-library.html"
+url = "http://web.archive.org/web/20150509032421id_/http://www.trainingimages.org/training-images-library.html"
 commercial_use = false
 attribution_required = false
 share_alike = false
@@ -694,7 +694,20 @@ authors = ["downerhouse"]
 attribution = "PiBoy DMG Custom Rear Case With Ventilation by downerhouse (https://www.thingiverse.com/thing:4947746), licensed under CC BY 4.0."
 modified = true
 modification = "Converted to VTK XML PolyData."
-notes = "The Thingiverse page labels licences by name rather than by version, so CC BY 4.0 is read from the licence URL in the page's own structured data rather than from the label."
+notes = """
+The version is not re-checkable as recorded. Thingiverse now serves this page
+as a JavaScript shell with no Creative Commons markup in the HTML at all, so
+the "licence URL in the page's own structured data" that the version was said
+to come from cannot be found today, and the earliest capture is already the
+same shell.
+
+The date is the argument that remains. Thingiverse's version-less
+"Creative Commons - Attribution" label mapped to 3.0 for 2016 uploads and to
+4.0 by 2021, and this was uploaded in 2021, which is why 4.0 is recorded and
+why `provenance` is `inferred`. That is weaker evidence than the `rel="license"`
+link the `grey_nurse_shark` and `victorian_goblet_face_illusion` entries rest
+on. Either version is CC BY, so nothing about permitted use turns on it.
+"""
 
 [[dataset]]
 name = "caffeine"
@@ -2892,7 +2905,7 @@ origin_url = "https://github.com/gmggroup/omf"
 origin_title = "Open Mining Format"
 authors = ["Global Mining Guidelines Group"]
 attribution = "OMF test file, Copyright (c) 2019 Global Mining Guidelines Group, MIT License."
-redistributed_from = "https://github.com/pyvista/omfvista/blob/main/assets/test_file.omf"
+redistributed_from = "https://github.com/pyvista/omfvista/blob/master/assets/test_file.omf"
 notes = """
 The same file sits in `pyvista/omfvista` under `assets/`, with the same git
 blob hash `bac26dfb5e72da633390e216cc97565b42a8450e`, and that repository
@@ -3076,9 +3089,11 @@ not Pyvista", written for a PyVista test.
 
 Neither name appears in ParaView's data repository:
 
-    curl -s "https://gitlab.kitware.com/api/v4/projects/14/repository/commits?path=Testing/Data/dualSphereNoTime.pvd.sha512&all=true"
+    curl -s "https://gitlab.kitware.com/api/v4/projects/14/repository/commits?path=Testing/Data/dualSphereNoTime.pvd.sha512&ref_name=master"
 
-returns an empty list. The `.vtp` frames they reference stay with the
+returns an empty list, where the same call for `dualSphereAnimation.pvd`
+returns the commit that added it. The `ref_name` matters: with `all=true`
+instead, the endpoint returns nothing for either file and proves nothing. The `.vtp` frames they reference stay with the
 `paraview_pvd` entry, which is where they came from.
 """
 
@@ -3668,7 +3683,7 @@ path = [
 ]
 SPDX-License-Identifier = "LicenseRef-TrainingImagesLibrary"
 provenance = "verified"
-origin_url = "http://www.trainingimages.org/training-images-library.html"
+origin_url = "http://web.archive.org/web/20150509032421id_/http://www.trainingimages.org/training-images-library.html"
 origin_title = "Training Images Library"
 authors = ["Gregoire Mariethoz", "Jef Caers"]
 references = [

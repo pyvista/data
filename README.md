@@ -76,6 +76,11 @@ short: add the files under `Data/`, add a `[[dataset]]` block to
 python tools/validate_datasets.py
 ```
 
+Every file tracked under `Data/` must be claimed by exactly one `[[dataset]]`
+block. Dotfiles are the one exception: `Data/.gitattributes` configures git
+rather than describing data, and the validator skips names beginning with a
+dot for that reason.
+
 `LICENSE`, `README`, `CITATION` and `.license` files are **not** accepted as
 tracked files under `Data/`; that information belongs in `DATASETS.toml` where
 PyVista can read it. CI enforces both rules on every pull request.

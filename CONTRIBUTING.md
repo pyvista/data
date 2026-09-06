@@ -1,11 +1,12 @@
 # Contributing a dataset
 
-Every file under `Data/` is described by exactly one `[[dataset]]` block in
+Every file tracked under `Data/` is described by exactly one `[[dataset]]` block in
 [`DATASETS.toml`](DATASETS.toml). That file is the single source of truth for
-what each dataset is, where it came from and how it may be used. PyVista reads
-it through `examples.get_example(...).metadata` and publishes it in the
-[Dataset Gallery](https://docs.pyvista.org/api/examples/dataset_gallery), so
-anything you record here is shown to everyone who downloads the data.
+what each dataset is, where it came from and how it may be used. PyVista will
+read it through `examples.get_example(...)` and publish it in the
+[Dataset Gallery](https://docs.pyvista.org/api/examples/dataset_gallery) once
+pyvista/pyvista#9118 merges, so anything you record here is shown to everyone
+who downloads the data.
 
 `tools/validate_datasets.py` checks the file on every pull request. Run it
 yourself before pushing:
@@ -77,7 +78,7 @@ attribution = "Poly Haven, https://polyhaven.com/. Attribution is a courtesy, no
 | `name` | string | Unique identifier, lowercase letters, digits and underscores. Downstream tools look datasets up by this. |
 | `title` | string | Short human-readable name, shown as the gallery card heading. |
 | `description` | string | One or two sentences about what the data *is*. Describe the data, not the PyVista function that loads it. |
-| `path` | array of strings | Paths relative to `Data/`. Every file must be claimed by exactly one dataset. See [Path patterns](#path-patterns). |
+| `path` | array of strings | Paths relative to `Data/`. Every tracked file except dotfiles must be claimed by exactly one dataset. See [Path patterns](#path-patterns). |
 | `SPDX-License-Identifier` | string | An [SPDX expression](https://spdx.org/licenses/), or a `LicenseRef-*` identifier for terms SPDX does not list. Must resolve to a `[license.*]` table. |
 | `provenance` | string | `"verified"`, `"inferred"` or `"unknown"`. See below. |
 
@@ -106,8 +107,8 @@ attribution = "Poly Haven, https://polyhaven.com/. Attribution is a courtesy, no
 
 `origin_url` is the furthest upstream point you could establish: the page
 that publishes the work and states its terms. It is not where this repository
-serves the file from, and it usually is not a link to a file at all — of the
-188 entries that have one, 186 point at a page about the work.
+serves the file from, and it is usually a page about the work rather than a
+link to a file.
 
 When the copy here came through somewhere else, `redistributed_from` records
 that route and `origin_url` still names the origin. The Stanford bunny's
@@ -116,9 +117,9 @@ through the VTK Examples import, and both are written down.
 
 Where the trail runs out at a redistributor, `origin_url` names the
 redistributor and `provenance` says `inferred`, because that is genuinely as
-far back as anyone got. 116 entries are in that position today, nearly all of
-them pointing at VTK Data or the VTK Examples. Do not dress one of those up
-as an originator.
+far back as anyone got. Many entries are in that position, most of them
+pointing at VTK Data or the VTK Examples. Do not dress one of those up as an
+originator.
 
 ## Choosing a `provenance` value
 
