@@ -2283,7 +2283,7 @@ established here.
 [[dataset]]
 name = "lincoln_life_mask"
 title = "Abraham Lincoln life mask"
-description = "Photogrammetric scan of the plaster life mask of Abraham Lincoln cast by Clark Mills in February 1865, with diffuse, normal and ambient-occlusion textures."
+description = "Photogrammetric scan of a plaster life mask of Abraham Lincoln, with diffuse, normal and ambient-occlusion textures."
 path = ["lincoln_life_mask/**"]
 SPDX-License-Identifier = "CC0-1.0"
 SPDX-FileCopyrightText = ["Smithsonian Institution"]
@@ -2291,8 +2291,19 @@ provenance = "verified"
 source_url = "https://3d.si.edu/object/3d/abraham-lincoln-mills-life-mask:d8c62934-4ebc-11ea-b77f-2e728ce88125"
 source_title = "Smithsonian Open Access"
 collection = "smithsonian-open-access"
-attribution = "Abraham Lincoln Mills Life Mask (1865), Smithsonian, 3D scan released under CC0 Public Domain. Attribution is a courtesy, not a requirement."
-notes = "The Smithsonian release states: \"This media file is in the public domain (free of copyright restrictions). You can copy, modify, and distribute this work without contacting the Smithsonian.\""
+attribution = "Abraham Lincoln, cast after Clark Mills, National Portrait Gallery, Smithsonian Institution (NPG.71.26). 3D scan released under CC0. Attribution is a courtesy, not a requirement."
+notes = """
+Clark Mills took the mask from Lincoln's face on 11 February 1865, but the
+object scanned is not that original. It is the National Portrait Gallery's
+NPG.71.26, whose Smithsonian Open Access record dates it "1865 (cast c.
+1917)" and credits Mills as "Cast after" rather than as maker. The 1865
+plaster is a separate object, held by the National Museum of American
+History.
+
+The Smithsonian release states: "This media file is in the public domain
+(free of copyright restrictions). You can copy, modify, and distribute this
+work without contacting the Smithsonian."
+"""
 
 [[dataset]]
 name = "lobster"
