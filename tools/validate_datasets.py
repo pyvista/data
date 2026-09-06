@@ -68,15 +68,27 @@ class Problems:
 
 def tracked_data_files() -> list[str]:
     """List every tracked file under Data/, as a path relative to Data/."""
-    out = subprocess.run(
-        ['git', '-C', str(ROOT), 'ls-files', DATA_DIR],
-        capture_output=True, text=True, check=True,
-    ).stdout.split('\n')
     return sorted(
-        line[len(DATA_DIR) + 1:]
-        for line in out
-        if line.startswith(DATA_DIR + '/') and not Path(line).name.startswith('.')
+        path[len(DATA_DIR) + 1:]
+        for path in _index_blobs()
+        if not Path(path).name.startswith('.')
     )
+
+
+def _index_blobs() -> dict[str, str]:
+    """Map every tracked path under Data/ to its blob id, read from the index."""
+    out = subprocess.run(
+        ['git', '-C', str(ROOT), 'ls-files', '-s', '-z', DATA_DIR],
+        capture_output=True, text=True, check=True,
+    ).stdout.split('\0')
+    blobs = {}
+    for record in out:
+        if not record:
+            continue
+        meta, path = record.split('\t', 1)
+        if path.startswith(DATA_DIR + '/'):
+            blobs[path] = meta.split()[1]
+    return blobs
 
 
 def pattern_regex(pattern: str) -> re.Pattern[str]:
@@ -249,8 +261,11 @@ def check_shape(doc: dict, problems: Problems) -> bool:
 
 def check_license_tables(doc: dict, problems: Problems) -> None:
     """Check every [license.*] table and the licence text it points at."""
-    for key, table in doc.get('license', {}).items():
+    licenses = doc.get('license')
+    for key, table in (licenses if isinstance(licenses, dict) else {}).items():
         where = f'DATASETS.toml [license.{key}]'
+        if not isinstance(table, dict):
+            continue
         if not SPDX_RE.match(key):
             problems.add(where, f'{key!r} is not a valid licence identifier',
                          'Use an SPDX identifier such as `CC-BY-4.0`, or a custom\n'
@@ -273,12 +288,22 @@ def check_license_tables(doc: dict, problems: Problems) -> None:
 
 def check_collection_tables(doc: dict, problems: Problems) -> None:
     """Check every [collection.*] table."""
-    for key, table in doc.get('collection', {}).items():
+    collections = doc.get('collection')
+    for key, table in (collections if isinstance(collections, dict) else {}).items():
         where = f'DATASETS.toml [collection."{key}"]'
+        if not isinstance(table, dict):
+            problems.add(where, f'this is a {type(table).__name__}, not a table',
+                         f'Write it as a table:\n  [collection."{key}"]\n  title = "..."')
+            continue
         for field in COLLECTION_REQUIRED:
             if field not in table:
                 problems.add(where, f'missing required key `{field}`',
                              f'Add `{field}` to the [collection."{key}"] table.')
+
+
+def field_missing(value: object) -> bool:
+    """Whether a required string is absent or only whitespace."""
+    return not isinstance(value, str) or not value.strip()
 
 
 def check_dataset(entry: dict, index: int, doc: dict, problems: Problems) -> None:
@@ -313,6 +338,10 @@ def check_dataset(entry: dict, index: int, doc: dict, problems: Problems) -> Non
                      '  "unknown"  - the origin could not be established')
 
     expression = entry.get('SPDX-License-Identifier', '')
+    if isinstance(expression, str) and field_missing(expression):
+        problems.add(where, '`SPDX-License-Identifier` is empty',
+                     'Name the licence, or `LicenseRef-Unknown` when the terms could not\n'
+                     'be established. An empty value skips every licence check.')
     terms = license_terms(expression)
     known = doc.get('license', {})
     for term in terms:
@@ -416,18 +445,11 @@ def check_coverage(doc: dict, files: list[str], problems: Problems) -> None:
 
 def check_identical_files(doc: dict, files: list[str], problems: Problems) -> None:
     """Reject byte-identical files whose datasets disagree on licence or provenance."""
-    blobs = subprocess.run(
-        ['git', '-C', str(ROOT), 'ls-tree', '-r', 'HEAD', DATA_DIR],
-        capture_output=True, text=True, check=True,
-    ).stdout.splitlines()
     by_blob: dict[str, list[str]] = {}
-    for line in blobs:
-        if not line.strip():
-            continue
-        meta, path = line.split('\t', 1)
+    for path, blob in _index_blobs().items():
         rel = path[len(DATA_DIR) + 1:]
         if rel in files:
-            by_blob.setdefault(meta.split()[2], []).append(rel)
+            by_blob.setdefault(blob, []).append(rel)
 
     owners = {
         path: entry
