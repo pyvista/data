@@ -1033,18 +1033,21 @@ description = "Single MR slice in a DICOM directory, used to exercise directory-
 path = ["DICOMDirectory/**"]
 SPDX-License-Identifier = "BSD-3-Clause"
 SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
-provenance = "inferred"
+provenance = "verified"
 source_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 source_title = "VTK Data"
 collection = "vtk-data"
+redistributed_from = "https://gitlab.kitware.com/vtk/vtk-examples/-/tree/master/src/Testing/Data/DICOMDirectory"
 attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+The slice is byte-identical to the file VTK ships as `Testing/Data/mr.001`,
+whose SHA-512 content link is in the VTK source tree, so Kitware's blanket
+`Copyright.txt` notice covers it. Kitware never published per-file
+provenance for this material, so the original author is not recorded
+upstream and could not be established here.
+
+The copy here arrived in April 2019 with the files taken from
+`lorensen/VTKExamples`, not with the fork of the VTK Data repository.
 """
 
 [[dataset]]
@@ -1197,20 +1200,19 @@ name = "embryo"
 title = "Embryo volume"
 description = "SLC volume of an embryo."
 path = ["embryo.slc"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
-provenance = "inferred"
-source_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
-source_title = "VTK Data"
-collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
+SPDX-License-Identifier = "LicenseRef-Unknown"
+provenance = "unknown"
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Added in February 2020 with the commit message "add embryo" and no recorded
+source. It is not in the tree this repository was forked from, not among
+VTK's `Testing/Data` content links, not in the `vtk-examples` data
+directory, and a search of `data.kitware.com` for "embryo" returns nothing,
+so the VTK Data licence it carried has no support. Where the volume came
+from could not be established.
+
+The file is a 256 by 256 by 256 8-bit SLC volume whose run-length stream is
+one byte short on every plane, which is why PyVista reads it through a
+custom loader.
 """
 
 [[dataset]]
@@ -2674,18 +2676,18 @@ description = "Two zipped OpenFOAM cases: the lid-driven cavity tutorial solved 
 path = ["OpenFOAM.zip"]
 SPDX-License-Identifier = "BSD-3-Clause"
 SPDX-FileCopyrightText = ["1993-2015 Ken Martin, Will Schroeder, Bill Lorensen"]
-provenance = "inferred"
+provenance = "verified"
 source_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7/folder/5afd932e8d777f15ebe1b183"
 source_title = "Kitware VTK Data on data.kitware.com"
 collection = "vtk-data"
 attribution = "VTK Data. Copyright (c) 1993-2015 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Added in November 2021 with the commit message "add OpenFOAM cavity from vtk
+Data", and the contributor put VTK's `Copyright.txt` beside it in the same
+day, which is where the copyright line and licence recorded here come from.
+That file was removed when the directory was replaced by the archive a month
+later. Kitware never published per-file provenance for this material, so the
+original author of the data itself could not be established here.
 
 The case is the standard OpenFOAM cavity tutorial, which upstream is distributed with OpenFOAM under GPL-3.0-or-later. Only the Kitware redistribution terms are recorded here; a downstream user who needs to rely on the tutorial case itself should check the OpenFOAM distribution.
 """
@@ -2695,20 +2697,21 @@ name = "openfoam_ensight_case"
 title = "EnSight case archive"
 description = "Zipped EnSight Gold case used to exercise the EnSight reader."
 path = ["EnSight.zip"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
-provenance = "inferred"
-source_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
-source_title = "VTK Data"
-collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
+SPDX-License-Identifier = "LicenseRef-Unknown"
+provenance = "verified"
+source_url = "https://github.com/pyvista/pyvista/issues/722#issuecomment-629448236"
+source_title = "pyvista/pyvista#722"
+authors = ["Luca Zampieri"]
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Not VTK data. The archive is a backward-facing-step case its author solved
+in OpenFOAM and converted with `foamToEnsight`, posted to pyvista/pyvista
+issue 722 in May 2020 and put here by a maintainer three days later. In that
+comment he says he could find no EnSight sample under an open licence and so
+produced one himself, which is the whole of what is known about its terms:
+no licence was stated then or since.
+
+The twelve files inside are named `foam_case_0_0_0_0` and carry the
+turbulence fields of a RANS solution, matching that account.
 """
 
 [[dataset]]
