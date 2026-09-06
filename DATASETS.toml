@@ -2940,6 +2940,16 @@ references = [
 ]
 
 [[dataset]]
+name = "pluto_texture"
+title = "Pluto surface texture"
+description = "Equirectangular surface texture of Pluto at 5926 by 2963."
+path = ["solar_textures/pluto.jpg"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
+provenance = "unknown"
+redistributed_from = "https://github.com/tamaskis/planet3D-MATLAB"
+notes = "Byte-identical to `planet3D/pluto.png` in tamaskis/planet3D-MATLAB, and added here separately from the Solar System Scope batch. It cannot have come from Solar System Scope, which publishes no Pluto texture, and the MATLAB repository credits no source for its textures, so the origin is undetermined. 5926 by 2963 is a distinctive size worth searching on."
+
+[[dataset]]
 name = "polyline"
 title = "Polyline"
 description = "Simple polyline used to demonstrate line filters."
@@ -3347,7 +3357,20 @@ author of the data itself could not be established.
 name = "solar_textures"
 title = "Solar system surface textures"
 description = "Equirectangular surface textures for the Sun, the Moon, Pluto and every planet except Earth, with Venus in surface and atmosphere variants, plus a transparent Saturn ring texture. Used by `pyvista.examples.planets`, whose Earth texture is built in rather than downloaded."
-path = ["mars.jpg", "solar_textures/**"]
+path = [
+    "mars.jpg",
+    "solar_textures/jupiter.jpg",
+    "solar_textures/mars.jpg",
+    "solar_textures/mercury.jpg",
+    "solar_textures/moon.jpg",
+    "solar_textures/neptune.jpg",
+    "solar_textures/saturn.jpg",
+    "solar_textures/saturn_ring_alpha.png",
+    "solar_textures/sun.jpg",
+    "solar_textures/uranus.jpg",
+    "solar_textures/venus_atmosphere.jpg",
+    "solar_textures/venus_surface.jpg",
+]
 SPDX-License-Identifier = "CC-BY-4.0"
 SPDX-FileCopyrightText = ["Solar System Scope (INOVE)"]
 provenance = "verified"
@@ -3356,12 +3379,12 @@ source_title = "Solar System Scope Textures"
 collection = "solar-system-scope"
 attribution = "Textures by Solar System Scope, https://www.solarsystemscope.com/textures/, licensed under CC BY 4.0."
 notes = """
-Ten of the twelve files are byte-identical to the Solar System Scope
-downloads of the same name. Two are not: `mars.jpg` is 2000 by 1000 where
-Solar System Scope serves 2048 by 1024, and its EXIF records GIMP in 2021, so
-it is a regraded derivative rather than the published file; and Solar System
-Scope publishes no Pluto texture at all, so `pluto.jpg` cannot have come from
-there.
+Ten of the eleven files under `solar_textures/` are byte-identical to the
+Solar System Scope downloads of the same name. `mars.jpg` is not: it is 2000
+by 1000 where Solar System Scope serves 2048 by 1024, and its EXIF records
+GIMP in 2021, so it is a regraded derivative. `neptune.jpg` and `uranus.jpg`
+are byte-identical to Solar System Scope's, but also to the copies in
+tamaskis/planet3D-MATLAB, so they may have arrived by that route.
 
 `mars.jpg` at the top level is byte-identical to `solar_textures/mars.jpg`,
 kept for an older download path.
