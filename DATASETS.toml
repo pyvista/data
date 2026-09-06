@@ -3255,20 +3255,31 @@ established here.
 [[dataset]]
 name = "prostate"
 title = "Prostate image"
-description = "Raw grayscale image slice of a prostate."
+description = "Single axial CT slice through a human pelvis, 512 by 512, in DICOM despite the `.img` extension."
 path = ["prostate.img"]
-SPDX-License-Identifier = "Apache-2.0"
-provenance = "inferred"
+SPDX-License-Identifier = "LicenseRef-Unknown"
+provenance = "verified"
 origin_url = "https://github.com/lorensen/VTKExamples"
 origin_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
+authors = ["Memorial Sloan Kettering Cancer Center"]
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+This is human patient imaging, and the file says so itself. Behind the `DICM`
+magic its header records `InstitutionName` "MEML. SLOAN-KETTERING",
+`Manufacturer` "Marconi Medical Systems, Inc.", model IQXTRA, `Modality` CT,
+`BodyPartExamined` PELVIS and `StudyDate` 19980922. `PatientName` and
+`PatientID` hold the study codes `PRP02022` and `02022` rather than a name,
+and the birth date and accession number are empty, so it is pseudonymised
+rather than fully de-identified: the institution and the exact acquisition
+date remain.
+
+It arrived with the April 2019 VTK Examples import and was recorded under
+that repository's Apache-2.0. A redistributor cannot license a hospital's
+patient imaging, and no consent or release for this scan was found, so the
+terms are recorded as undetermined.
+
+The description previously called it a raw greyscale slice; it is DICOM, and
+the `.img` extension is misleading.
 """
 
 [[dataset]]
@@ -4501,18 +4512,27 @@ name = "vw_knee"
 title = "Visible Woman knee"
 description = "SLC volume of a knee from the Visible Human Project female dataset."
 path = ["vw_knee.slc"]
-SPDX-License-Identifier = "Apache-2.0"
+SPDX-License-Identifier = "LicenseRef-PublicDomain"
 provenance = "inferred"
-origin_url = "https://github.com/lorensen/VTKExamples"
-origin_title = "lorensen/VTKExamples"
-collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
+origin_url = "https://www.nlm.nih.gov/research/visible/visible_human.html"
+origin_title = "The Visible Human Project, U.S. National Library of Medicine"
+authors = ["U.S. National Library of Medicine"]
+redistributed_from = "https://github.com/lorensen/VTKExamples"
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+The entry's own title and description name the source: the Visible Human
+Project female dataset, produced by the U.S. National Library of Medicine. It
+is a work of the United States federal government, and since 2019 the NLM has
+required no licence agreement to use it, having previously issued about four
+thousand. It arrived with the April 2019 VTK Examples import and was recorded
+under that repository's Apache-2.0, which is not Lorensen's to apply to
+federal work.
+
+Inferred rather than verified: the identification rests on what this
+repository recorded when the file was added, not on a match against a file
+the NLM publishes, because the project distributes the full cryosection and
+CT series rather than this extracted knee volume.
+
+The subject consented to the use of her body for this purpose before death.
 """
 
 [[dataset]]
