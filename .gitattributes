@@ -17,3 +17,4 @@
 
 # Treat these files as binary
 *.geo binary
+*.pv binary
