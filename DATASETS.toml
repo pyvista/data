@@ -419,7 +419,7 @@ provenance = "inferred"
 source_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 source_title = "VTK Data"
 collection = "vtk-data"
-notes = "Both files carry publisher copyright lines rather than the collection's: `eg1.ris` is a Scopus export whose abstract ends \"(c) 2007 Elsevier B.V. All rights reserved\", and `eg2.isi` carries \"(c) 2005 American Institute of Physics\" and \"(c) 2005 Elsevier\". Abstracts and bibliographic records belong to their publishers, so the terms are undetermined rather than the collection's."
+notes = "Both files carry publisher copyright lines rather than the collection's. `eg2.isi` holds abstracts marked \"(C) 1996 American Institute of Physics\", \"(C) 1997 Elsevier Science B.V.\" and \"(C) 1996 by John Wiley\", among others. Abstracts and bibliographic records belong to their publishers, so the terms are undetermined rather than the collection's."
 
 [[dataset]]
 name = "biplane"
@@ -851,13 +851,15 @@ established here.
 [[dataset]]
 name = "clouds"
 title = "Global cloud cover"
-description = "Stitched global cloud-cover image, 2048 pixels wide, used as an Earth overlay texture."
+description = "Stitched global cloud-cover image, 1024 by 512, used as an Earth overlay texture."
 path = ["clouds.jpeg"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "verified"
 source_url = "http://xplanet.sourceforge.net/clouds.php"
 source_title = "xplanet cloud images"
-notes = "The file's own JPEG comment records its origin: \"http://xplanet.sourceforge.net/clouds/clouds_2048.jpg created Tue Jun 9 21:53:22 UTC 2009\", and the commit that added it the same day says so too. xplanet redistributed cloud maps built from satellite imagery under no stated terms, so the licence is undetermined and is not the inherited collection's."
+modified = true
+modification = "Downsampled from the 2048-pixel original the JPEG comment names to 1024 by 512."
+notes = "The file's own JPEG comment records its origin: \"http://xplanet.sourceforge.net/clouds/clouds_2048.jpg created Tue Jun 9 21:53:22 UTC 2009\", and the commit that added it the same day says a larger version was obtained from there. xplanet redistributed cloud maps built from satellite imagery under no stated terms, so the licence is undetermined and is not the inherited collection's."
 
 [[dataset]]
 name = "clown"
@@ -883,7 +885,7 @@ established here.
 [[dataset]]
 name = "cow"
 title = "Viewpoint cow"
-description = "Surface mesh of a cow from the Viewpoint DataLabs model collection, in OBJ and VTK XML form and as an ASCII triangle mesh, together with a 3D Studio interior scene."
+description = "Surface mesh of a cow from the Viewpoint DataLabs model collection, in OBJ and VTK XML form and as an ASCII triangle mesh, together with a 3D Studio flamingo."
 path = ["Viewpoint/**", "cow.g", "cow.obj", "cow.vtp"]
 SPDX-License-Identifier = "LicenseRef-Viewpoint-DataLabs"
 SPDX-FileCopyrightText = ["1992 Viewpoint Animation Engineering Inc."]
@@ -1927,7 +1929,7 @@ established here.
 [[dataset]]
 name = "headsq"
 title = "Head CT slice stack"
-description = "Ninety-four quarter-resolution CT slices of a human head, with a VTK volume header. One of the oldest datasets in the VTK test collection."
+description = "Ninety-three quarter-resolution CT slices of a human head, with an NRRD header describing them as a 64 by 64 by 93 volume. One of the oldest datasets in the VTK test collection."
 path = ["headsq/**"]
 SPDX-License-Identifier = "BSD-3-Clause"
 SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
@@ -3639,7 +3641,7 @@ notes = "Added in October 2020 with the commit message \"add thermal probes\" an
 [[dataset]]
 name = "three_ds_interior"
 title = "3D Studio interior scene"
-description = "Thirty-three-block scene in the Autodesk 3D Studio format, from the Viewpoint model library."
+description = "Flamingo in the Autodesk 3D Studio format, thirty-three blocks named for its body, wings, legs and eyes, from the Viewpoint model library."
 path = ["iflamigm.3ds", "iflamingo.3ds"]
 SPDX-License-Identifier = "LicenseRef-Viewpoint-DataLabs"
 SPDX-FileCopyrightText = ["1992 Viewpoint Animation Engineering Inc."]
