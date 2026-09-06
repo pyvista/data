@@ -1676,22 +1676,28 @@ name = "frog"
 title = "Frog anatomy volume"
 description = "Segmented volume of a frog, as a MetaImage header plus compressed raw data, with a companion tissue-label volume."
 path = ["froggy/**"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
-provenance = "inferred"
-source_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
-source_title = "VTK Data"
-collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
+SPDX-License-Identifier = "Apache-2.0"
+provenance = "verified"
+source_url = "https://github.com/lorensen/VTKExamples"
+source_title = "lorensen/VTKExamples"
+collection = "vtk-examples"
+attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Copied in April 2019 from `src/Testing/Data/Frog` in Bill Lorensen's
+`lorensen/VTKExamples` repository, which was published under the Apache
+License 2.0 and is now maintained by Kitware as `vtk/vtk-examples`. All four
+files here match the upstream copies by SHA-256 and size, and `Data/Frog`
+was renamed to `Data/froggy` a month later.
 
-The frog volume is widely attributed to the Lawrence Berkeley National Laboratory Whole Frog Project, but no upstream commit or file in the VTK Data collection records that attribution, so it is not asserted here.
+They are not part of the VTK Data collection this repository was forked
+from: absent from the fork point and from VTK's own `Testing/Data` content
+links, so the repository licence Lorensen published under is what is
+recorded. Lorensen did not publish per-file provenance, so the original
+author of the data itself could not be established.
+
+The frog volume is widely attributed to the Lawrence Berkeley National
+Laboratory Whole Frog Project, but neither Lorensen's repository nor the VTK
+Data collection records that attribution, so it is not asserted here.
 """
 
 [[dataset]]
@@ -2827,20 +2833,23 @@ name = "perlin_noise_shader"
 title = "Perlin noise shader"
 description = "GLSL fragment shader generating Perlin noise, used to exercise custom shader loading."
 path = ["Shaders/**"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
-provenance = "inferred"
-source_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
-source_title = "VTK Data"
-collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
+SPDX-License-Identifier = "Apache-2.0"
+provenance = "verified"
+source_url = "https://github.com/lorensen/VTKExamples"
+source_title = "lorensen/VTKExamples"
+collection = "vtk-examples"
+attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Copied in April 2019 from `src/Testing/Data/Shaders` in Bill Lorensen's
+`lorensen/VTKExamples` repository, which was published under the Apache
+License 2.0 and is now maintained by Kitware as `vtk/vtk-examples`. The copy
+here is byte-identical to that file.
+
+This file is not part of the VTK Data collection this repository was forked
+from: absent from the fork point and from VTK's own `Testing/Data` content
+links, so the repository licence Lorensen published under is what is
+recorded. Lorensen did not publish per-file provenance, so the original
+author of the data itself could not be established.
 """
 
 [[dataset]]
@@ -2867,20 +2876,23 @@ name = "pine_root_volume"
 title = "Pine root volume"
 description = "MetaImage header and volume of a pine root system."
 path = ["PineRoot/**"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
-provenance = "inferred"
-source_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
-source_title = "VTK Data"
-collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
+SPDX-License-Identifier = "Apache-2.0"
+provenance = "verified"
+source_url = "https://github.com/lorensen/VTKExamples"
+source_title = "lorensen/VTKExamples"
+collection = "vtk-examples"
+attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Copied in April 2019 from `src/Testing/Data/PineRoot` in Bill Lorensen's
+`lorensen/VTKExamples` repository, which was published under the Apache
+License 2.0 and is now maintained by Kitware as `vtk/vtk-examples`. Both
+files here match the upstream copies by SHA-256 and size.
+
+They are not part of the VTK Data collection this repository was forked
+from: absent from the fork point and from VTK's own `Testing/Data` content
+links, so the repository licence Lorensen published under is what is
+recorded. Lorensen did not publish per-file provenance, so the original
+author of the data itself could not be established.
 """
 
 [[dataset]]
@@ -3851,20 +3863,24 @@ name = "vector_animation"
 title = "Vector field animation"
 description = "Time series of a vector field, used to exercise animation of vector data."
 path = ["VectorAnimation/**"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
-provenance = "inferred"
-source_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
-source_title = "VTK Data"
-collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
+SPDX-License-Identifier = "Apache-2.0"
+provenance = "verified"
+source_url = "https://github.com/lorensen/VTKExamples"
+source_title = "lorensen/VTKExamples"
+collection = "vtk-examples"
+attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Copied in April 2019 from `src/Testing/Data/VectorAnimation` in Bill
+Lorensen's `lorensen/VTKExamples` repository, which was published under the
+Apache License 2.0 and is now maintained by Kitware as `vtk/vtk-examples`.
+The upstream directory holds the same nine files, and `vecAnim1.vtk` is
+byte-identical.
+
+They are not part of the VTK Data collection this repository was forked
+from: absent from the fork point and from VTK's own `Testing/Data` content
+links, so the repository licence Lorensen published under is what is
+recorded. Lorensen did not publish per-file provenance, so the original
+author of the data itself could not be established.
 """
 
 [[dataset]]
