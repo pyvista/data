@@ -61,13 +61,13 @@ attribution_required = true
 share_alike = false
 file = "LICENSES/CC-BY-4.0.txt"
 
-[license."CC-BY-NC-SA-4.0"]
-title = "Creative Commons Attribution Non Commercial Share Alike 4.0 International"
-url = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
-commercial_use = false
+[license."CC-BY-SA-4.0"]
+title = "Creative Commons Attribution Share Alike 4.0 International"
+url = "https://creativecommons.org/licenses/by-sa/4.0/"
+commercial_use = true
 attribution_required = true
 share_alike = true
-file = "LICENSES/CC-BY-NC-SA-4.0.txt"
+file = "LICENSES/CC-BY-SA-4.0.txt"
 
 [license."CC-BY-SA-2.5"]
 title = "Creative Commons Attribution Share Alike 2.5 Generic"
@@ -2351,13 +2351,22 @@ name = "nefertiti"
 title = "Nefertiti bust"
 description = "Scan of the bust of Nefertiti, distributed as a zipped PLY mesh and a zipped OBJ mesh."
 path = ["nefertiti.ply.zip", "Nefertiti.obj.zip"]
-SPDX-License-Identifier = "CC-BY-NC-SA-4.0"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
 provenance = "verified"
-source_url = "https://nefertitihack.alloversky.com/"
+source_url = "https://alloversky.com/puzzlepieces/the-other-nefertiti"
 source_title = "The Other Nefertiti"
 authors = ["Nora Al-Badri", "Jan Nikolai Nelles"]
-attribution = "Nora Al-Badri and Jan Nikolai Nelles, The Other Nefertiti (2016), CC BY-NC-SA 4.0."
-notes = "Non-commercial licence. This dataset is not compatible with commercial redistribution and its ShareAlike clause propagates to derivative works. The only other public scan of the bust, the 2019 Staatliche Museen zu Berlin release, is also non-commercial (CC BY-NC-SA 3.0 DE); no permissively licensed Nefertiti scan is currently known to exist."
+attribution = "Nora Al-Badri and Jan Nikolai Nelles, The Other Nefertiti (2016), CC BY-SA 4.0."
+redistributed_from = "https://nefertitihack.alloversky.com/"
+notes = """
+The artists state "The 3d data is licensed under a Creative Commons
+Attribution-ShareAlike 4.0 International License", linking
+creativecommons.org/licenses/by-sa/4.0. There is no NonCommercial clause.
+
+ShareAlike propagates: a downstream work derived from this scan must be shared
+under the same licence. The original `nefertitihack.alloversky.com` host no
+longer resolves; the artists' project page carries the same statement.
+"""
 
 [[dataset]]
 name = "nek5000_eddy"
