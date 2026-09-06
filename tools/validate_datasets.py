@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-import fnmatch
 import re
 import subprocess
 import sys
@@ -31,11 +30,8 @@ DATASET_OPTIONAL = (
 LICENSE_REQUIRED = ('title', 'url', 'file', 'commercial_use', 'attribution_required', 'share_alike')
 COLLECTION_REQUIRED = ('title', 'url', 'description')
 
-FORBIDDEN_NAMES = {
-    'LICENSE', 'LICENCE', 'License', 'Licence', 'LICENSE.txt', 'LICENSE.md',
-    'COPYING', 'COPYRIGHT', 'NOTICE',
-    'README', 'README.md', 'README.txt', 'README.rst',
-    'CITATION', 'CITATION.txt', 'CITATION.cff',
+FORBIDDEN_STEMS = {
+    'license', 'licence', 'copying', 'copyright', 'notice', 'readme', 'citation',
 }
 FORBIDDEN_SUFFIXES = ('.license',)
 
@@ -80,11 +76,30 @@ def tracked_data_files() -> list[str]:
     )
 
 
+def pattern_regex(pattern: str) -> re.Pattern[str]:
+    """Compile a path pattern, where `*` stops at a separator and `**` crosses one."""
+    out, index = [], 0
+    while index < len(pattern):
+        char = pattern[index]
+        if char == '*':
+            if pattern[index + 1:index + 2] == '*':
+                out.append('.*')
+                index += 2
+                continue
+            out.append('[^/]*')
+        elif char == '?':
+            out.append('[^/]')
+        else:
+            out.append(re.escape(char))
+        index += 1
+    return re.compile('^' + ''.join(out) + '$')
+
+
 def matches(pattern: str, path: str) -> bool:
     """Match a REUSE-style path pattern against a path relative to Data/."""
     if pattern.endswith('/**'):
         return path.startswith(pattern[:-2])
-    return fnmatch.fnmatchcase(path, pattern)
+    return bool(pattern_regex(pattern).match(path))
 
 
 def license_terms(expression: str) -> list[str]:
@@ -98,8 +113,8 @@ def license_terms(expression: str) -> list[str]:
 
 def is_forbidden(path: str) -> bool:
     """Say whether a path is a per-dataset metadata file that DATASETS.toml replaces."""
-    name = Path(path).name
-    return name in FORBIDDEN_NAMES or name.endswith(FORBIDDEN_SUFFIXES)
+    name = Path(path).name.casefold()
+    return Path(name).stem in FORBIDDEN_STEMS or name.endswith(FORBIDDEN_SUFFIXES)
 
 
 def slugify(text: str) -> str:
