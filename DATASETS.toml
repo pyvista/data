@@ -2046,6 +2046,40 @@ repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
 author of the data itself could not be established.
+
+`horse.ply` in this repository is the Cyberware scan the Georgia Tech archive
+distributes, and these two files are horses at the same scale — 33936 points
+against that scan's 48485. Whether they are decimations of it was not
+established: both store their points as appended raw data and were not
+decoded. If they are, the `horse_scan` entry's terms apply to them too.
+"""
+
+[[dataset]]
+name = "horse_scan"
+title = "Horse scan"
+description = "Range-scanned horse, 48485 vertices and 96966 faces with per-vertex confidence and colour, in binary PLY."
+path = ["horse.ply"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
+provenance = "verified"
+source_url = "https://www.cc.gatech.edu/projects/large_models/horse.html"
+source_title = "Georgia Tech Large Geometric Models Archive"
+authors = ["Cyberware, Inc."]
+redistributed_from = "https://github.com/lorensen/VTKExamples"
+notes = """
+Byte-identical to the horse the Georgia Tech Large Geometric Models Archive
+serves, which reports the same 96,966 faces and 48,485 vertices:
+
+    curl -sL "http://web.archive.org/web/2020id_/http://www-static.cc.gatech.edu/data_files/large_models/horse.ply.gz" | gunzip | shasum -a 256
+    # dfadaea01775943a75f9bf0560e6ad55aab39694af3003d9976a46e58226c4d7
+
+The archive page says only "This model appears here courtesy of Cyberware,
+Inc." That is permission for Georgia Tech to host it, not a licence granting
+anything onward, so no terms could be established for redistribution or for
+commercial use. The header's `plyop` and `flipply` comments are the Stanford
+range-scan toolchain, consistent with a Cyberware scan.
+
+It reached this repository through the VTK Examples import and was covered by
+that entry's blanket Apache-2.0, which is not Lorensen's to grant here.
 """
 
 [[dataset]]
@@ -4226,7 +4260,6 @@ path = [
     "coords.txt",
     "fineGrid.e-s002",
     "grasshop.wrl",
-    "horse.ply",
     "labels.mhd",
     "labels.raw",
     "lys.pdb",
