@@ -2776,16 +2776,30 @@ author of the data itself could not be established.
 [[dataset]]
 name = "planet3d_matlab_backgrounds"
 title = "Milky Way and star field backgrounds"
-description = "Equirectangular Milky Way and star field images used as the sky background behind the `pyvista.examples.planets` solar system scene."
+description = "Equirectangular Milky Way and star field images at 8192 by 4096, used as the sky background behind the `pyvista.examples.planets` solar system scene."
 path = ["planet3d-matlab/**", "stars.jpg"]
-SPDX-License-Identifier = "MIT"
-SPDX-FileCopyrightText = ["2021 Tamas Kis"]
+SPDX-License-Identifier = "CC-BY-4.0"
+SPDX-FileCopyrightText = ["Solar System Scope (INOVE)"]
 provenance = "verified"
-source_url = "https://github.com/tamaskis/planet3D-MATLAB"
-source_title = "tamaskis/planet3D-MATLAB"
-authors = ["Tamas Kis"]
-attribution = "Copyright (c) 2021 Tamas Kis, MIT License."
-notes = "`stars.jpg` is a byte-identical duplicate of `planet3d-matlab/stars.jpg`, kept at the top level for an older download path."
+source_url = "https://www.solarsystemscope.com/textures/"
+source_title = "Solar System Scope Textures"
+collection = "solar-system-scope"
+attribution = "Textures by Solar System Scope, https://www.solarsystemscope.com/textures/, licensed under CC BY 4.0."
+redistributed_from = "https://github.com/tamaskis/planet3D-MATLAB"
+notes = """
+All four files are byte-identical to Solar System Scope downloads:
+`stars.jpg` and `planet3d-matlab/stars.jpg` to `8k_stars.jpg`, and
+`planet3d-matlab/milkyway.jpg` and `milkyway.png` to `8k_stars_milky_way.jpg`.
+Their EXIF records Photoshop and a 2014 date, seven years before the
+tamaskis/planet3D-MATLAB repository they reached this project through.
+
+That repository's MIT licence covers its MATLAB code, not these textures, and
+it credits no source for them. The credit recorded here is the one CC BY 4.0
+requires, and it is Solar System Scope's.
+
+`milkyway.png` is a JPEG despite its extension, and byte-identical to
+`milkyway.jpg`.
+"""
 
 [[dataset]]
 name = "plastic_vase"
@@ -3198,7 +3212,18 @@ source_url = "https://www.solarsystemscope.com/textures/"
 source_title = "Solar System Scope Textures"
 collection = "solar-system-scope"
 attribution = "Textures by Solar System Scope, https://www.solarsystemscope.com/textures/, licensed under CC BY 4.0."
-notes = "`mars.jpg` is a byte-identical duplicate of `solar_textures/mars.jpg`, kept at the top level for an older download path."
+notes = """
+Ten of the twelve files are byte-identical to the Solar System Scope downloads
+of the same name. Two are not: `mars.jpg` is 2000 by 1000 where Solar System
+Scope serves 2048 by 1024, and its EXIF records GIMP in 2021, so it is a
+regraded derivative rather than the published file; and Solar System Scope
+publishes no Pluto texture at all, so `pluto.jpg` cannot have come from there.
+
+`mars.jpg` at the top level is byte-identical to `solar_textures/mars.jpg`,
+kept for an older download path.
+"""
+modified = true
+modification = "`mars.jpg` was resized to 2000 by 1000 and regraded; the other ten files are as published."
 
 [[dataset]]
 name = "sparse_points"
