@@ -2754,6 +2754,7 @@ path = [
     "bluntfinxyz.bin",
     "combq.bin",
     "combxyz.bin",
+    "StructuredGrid.vts",
     "multicomb_0.vts",
     "multicomb_1.vts",
     "multicomb_2.vts",
@@ -2774,7 +2775,9 @@ exactly from them, which is what identifies each case:
 
 `bluntfinxyz.bin` is 40 by 32 by 32, the NASA Ames blunt-fin case of Hung and
 Buning; `combxyz.bin` is 57 by 33 by 25, the Ames combustor, and both pairs
-are named together in `Data/test.p3d`. `postxyz.bin` is 38 by 76 by 38 with
+are named together in `Data/test.p3d`. `StructuredGrid.vts` is byte-identical to
+`multicomb_0.vts` and had its own entry describing it as a "small structured
+grid". `postxyz.bin` is 38 by 76 by 38 with
 an IBLANK array, the LOx post that the VTK textbook introduces as "a dataset
 from NASA" citing Rogers, Kwak and Kaul. The three `multicomb_*.vts` blocks
 read back through the PLOT3D reader with bounds and a density range identical
@@ -4024,21 +4027,6 @@ origin_url = "https://github.com/CadQuery/cadquery/blob/master/tests/testdata/re
 origin_title = "CadQuery/cadquery test data"
 attribution = "CadQuery, licensed under the Apache License 2.0."
 notes = "The file is `tests/testdata/red_cube_blue_cylinder.step` in the CadQuery repository, referenced from `tests/test_importers.py`, so CadQuery's Apache-2.0 licence is recorded here. It was not generated with CadQuery: the STEP header names a translation-service export path dated 2018-05-02, so CadQuery may itself be a redistributor of a model produced elsewhere."
-
-[[dataset]]
-name = "structured_grid"
-title = "Structured grid sample"
-description = "Small structured grid in VTK XML format."
-path = ["StructuredGrid.vts"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
-provenance = "inferred"
-origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
-origin_title = "VTK Data"
-collection = "vtk-data"
-redistributed_from = "https://github.com/lorensen/VTKExamples"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
-notes = "Byte-identical to `multicomb_0.vts`, which came from the VTK Data collection and predates the VTK Examples import that brought this copy in. Both carry VTK Data's licence."
 
 [[dataset]]
 name = "tango_icons"
