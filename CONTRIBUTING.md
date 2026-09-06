@@ -185,7 +185,7 @@ recorded.
 A filename is often an accession or catalogue number that settles the licence
 outright — `3GQP.pdb` is a Protein Data Bank accession, and the whole archive
 is CC0. Distinctive dimensions, point counts or array names are searchable
-too: `frog_tissues.vti` was matched to its source by dimensions, spacing and
+too: `froggy/frogtissue.mhd` was matched to its source by dimensions, spacing and
 array name together.
 
 ### Compare bytes against the upstream
@@ -384,6 +384,7 @@ commercial_use = true
 attribution_required = true
 share_alike = false
 file = "LICENSES/CC-BY-4.0.txt"
+text_source = "https://spdx.org/licenses/CC-BY-4.0.json"
 ```
 
 Put the full text at the path `file` names. For an SPDX licence, copy it from
