@@ -148,6 +148,42 @@ def check_forbidden_files(files: list[str], problems: Problems) -> None:
             )
 
 
+LIST_FIELDS = ('path', 'authors', 'SPDX-FileCopyrightText', 'references')
+
+
+def check_shape(doc: dict, problems: Problems) -> bool:
+    """Check the top-level shape, and say whether the deeper checks can run."""
+    ok = True
+    for key, kind, shape in (
+        ('license', dict, '[license."SPDX-Id"] tables'),
+        ('collection', dict, '[collection."name"] tables'),
+        ('dataset', list, '[[dataset]] blocks'),
+    ):
+        value = doc.get(key)
+        if value is not None and not isinstance(value, kind):
+            problems.add(f'DATASETS.toml `{key}`', f'this is a {type(value).__name__}, not {shape}',
+                         f'`{key}` is written as {shape}, not as a bare key. For example:\n'
+                         '  [license."CC-BY-4.0"]\n'
+                         '  title = "Creative Commons Attribution 4.0 International"')
+            ok = False
+    for index, entry in enumerate(doc.get('dataset', []) if isinstance(doc.get('dataset'), list) else []):
+        if not isinstance(entry, dict):
+            problems.add(f'DATASETS.toml [[dataset]] #{index + 1}',
+                         f'this is a {type(entry).__name__}, not a table',
+                         'Each dataset is a `[[dataset]]` table with `name`, `title` and the rest.')
+            ok = False
+            continue
+        for field in LIST_FIELDS:
+            value = entry.get(field)
+            if value is not None and not isinstance(value, list):
+                problems.add(f'DATASETS.toml [[dataset]] name = {entry.get("name")!r}',
+                             f'`{field}` is a {type(value).__name__}, not an array',
+                             f'Write `{field}` as an array, even with one element:\n'
+                             f'  {field} = ["one-value"]')
+                ok = False
+    return ok
+
+
 def check_license_tables(doc: dict, problems: Problems) -> None:
     """Check every [license.*] table and the licence text it points at."""
     for key, table in doc.get('license', {}).items():
@@ -370,6 +406,8 @@ def main() -> int:
 
     files = tracked_data_files()
     check_forbidden_files(files, problems)
+    if not check_shape(doc, problems):
+        return problems.report()
     check_license_tables(doc, problems)
     check_collection_tables(doc, problems)
     for index, entry in enumerate(doc.get('dataset', [])):
