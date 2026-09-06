@@ -146,6 +146,14 @@ attribution_required = true
 share_alike = false
 file = "LICENSES/MIT.txt"
 
+[license."ODbL-1.0"]
+title = "Open Data Commons Open Database License v1.0"
+url = "https://opendatacommons.org/licenses/odbl/1-0/"
+commercial_use = true
+attribution_required = true
+share_alike = true
+file = "LICENSES/ODbL-1.0.txt"
+
 [collection."ggg-benchmark-sfm"]
 title = "GGG-BenchmarkSfM"
 url = "https://data.mendeley.com/datasets/bzxk2n78s9/4"
@@ -2894,13 +2902,23 @@ name = "reservoir"
 title = "UNISIM-II-D carbonate reservoir"
 description = "Unstructured grid built from the UNISIM-II synthetic carbonate reservoir benchmark model."
 path = ["reservoir/**"]
-SPDX-License-Identifier = "LicenseRef-DbCL-1.0"
+SPDX-License-Identifier = "ODbL-1.0 AND LicenseRef-DbCL-1.0"
+SPDX-FileCopyrightText = ["2023 UNISIM-CEPETRO-Unicamp"]
 provenance = "verified"
 source_url = "https://www.unisim.cepetro.unicamp.br/benchmarks/br/unisim-ii/overview"
 source_title = "UNISIM-CEPETRO, Unicamp"
-attribution = "UNISIM-II benchmark model, UNISIM-CEPETRO-Unicamp."
+attribution = "UNISIM-II benchmark model, UNISIM-CEPETRO-Unicamp. Citing the benchmark by name is mandatory in any publication or report of a study that uses it."
 modified = true
 modification = "Converted from the benchmark reservoir model to a VTK unstructured grid."
+notes = """
+UNISIM licenses the database itself under the Open Database License and its
+contents under the Database Contents License. ShareAlike propagates from the
+ODbL half: a derived database must be shared under the same licence.
+
+The source also makes citation mandatory rather than optional, in all
+scientific publications, reports and other documents reporting studies that
+use the benchmark.
+"""
 
 [[dataset]]
 name = "room_surface_mesh"
