@@ -3541,12 +3541,12 @@ description = "Surface mesh of a goblet whose silhouette reads as two facing pro
 path = ["Victorian_Goblet_face_illusion/**"]
 SPDX-License-Identifier = "CC-BY-4.0"
 provenance = "inferred"
-source_url = "https://www.thingiverse.com/thing:1420661"
-source_title = "Thingiverse"
+source_url = "https://www.thingiverse.com/thing:1541337"
+source_title = "Thingiverse thing:1541337"
 collection = "thingiverse"
 authors = ["Alzibiff"]
 attribution = "Victorian Goblet face illusion by Alzibiff, licensed under Creative Commons - Attribution."
-notes = "The bundled licence file states only \"Creative Commons - Attribution\" with no version. CC BY 4.0 is recorded as the most likely variant. The Thingiverse thing ID was reconstructed from the model name and has not been confirmed against a live page."
+notes = "The Thingiverse page states \"Creative Commons - Attribution\" without a version. CC BY 4.0 is recorded here because the model was published on 5 May 2016, after CC 4.0 was finalised."
 
 [[dataset]]
 name = "vtk_data_files"
