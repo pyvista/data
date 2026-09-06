@@ -9,9 +9,14 @@ recorded history is a redistribution by a third party.
 
 A dataset carrying this identifier:
 
-  - has `provenance = "unknown"` in DATASETS.toml,
   - has a `notes` field describing what was and was not established, and
   - MUST NOT be assumed to be freely licensed.
+
+It says nothing about `provenance`, which records confidence in the origin
+rather than in the licence. A dataset can have a certain source and
+undetermined terms: the Laser Design scans are `provenance = "verified"`
+because the archive they came from is known, and carry this identifier
+because that archive grants no rights.
 
 Downstream users redistributing these files, especially in a commercial
 product, should establish the terms independently or substitute a dataset

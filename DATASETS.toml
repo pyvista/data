@@ -1875,12 +1875,11 @@ title = "Hertzian contact cylinder"
 description = "Finite element solution for a cylinder in Hertzian contact with a flat plane."
 path = ["fea/hertzian_contact_cylinder/**"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "inferred"
-source_url = "https://onscale.com/"
+provenance = "unknown"
 source_title = "OnScale Solve"
 modified = true
 modification = "Merged from a set of `.vtu` partitions with a `.pvtu` header into a single cleaned unstructured grid."
-notes = "Recorded as generated with OnScale Solve, but no source page, upload or terms of use were found for the original result file, and OnScale has since been acquired and its site retired. The terms under which it may be redistributed are undetermined."
+notes = "Recorded as generated with OnScale Solve, but no source page, upload or terms of use were found for the original result file. OnScale has since been acquired and onscale.com no longer resolves, so there is nothing left to check: neither the origin nor the terms could be established."
 
 [[dataset]]
 name = "honolulu"
@@ -1949,11 +1948,11 @@ description = "Probability density of a 3d hydrogen atom orbital on a regular gr
 path = ["hydrogen/**"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
-source_url = "https://www.it.uu.se/edu/course/homepage/vetvis/ht11/ComputerExercises/data/a1/hydrogen.vtk"
-source_title = "Uppsala University scientific visualization course"
+source_url = "https://github.com/pyvista/pyvista/pull/3811"
+source_title = "PyVista pull request 3811"
 modified = true
 modification = "Axes swapped so the orbital is aligned to z, and re-saved as VTK XML ImageData."
-notes = "Retrieved from a university course page that states no terms of use. Background is in https://github.com/pyvista/pyvista/pull/3811."
+notes = "Retrieved from an Uppsala University scientific visualisation course page, at it.uu.se/edu/course/homepage/vetvis/ht11/ComputerExercises/data/a1/hydrogen.vtk, which stated no terms of use and has since been taken down with no archived capture. The pull request that added it is the only surviving record."
 
 [[dataset]]
 name = "idgh_bracket"
@@ -3316,13 +3315,13 @@ description = "Positions, luminosities and colour indices of catalogued stars, w
 path = ["point-clouds/hyg-database/**"]
 SPDX-License-Identifier = "CC-BY-SA-2.5"
 provenance = "verified"
-source_url = "https://codeberg.org/astronexus/hyg"
+source_url = "https://www.astronexus.com/projects/hyg"
 source_title = "HYG Database"
 redistributed_from = "https://github.com/astronexus/HYG-Database"
 attribution = "HYG Database, https://www.astronexus.com/hyg, licensed under Creative Commons Attribution-ShareAlike 2.5."
 modified = true
 modification = "Built from `hygdata_v3.csv`, restricted to stars with a valid distance and colour index, and saved as VTK XML PolyData with a derived RGBA array."
-notes = "ShareAlike propagates: a downstream work derived from this point cloud must be shared under the same licence."
+notes = "Built from `hygdata_v3.csv`. astronexus licenses HYG by version: v3.x is CC BY-SA 2.5 and the current v4.x is CC BY-SA 4.0, so the version matters and 2.5 is the one that applies here. ShareAlike propagates: a downstream work derived from this point cloud must be shared under the same licence."
 
 [[dataset]]
 name = "step_model"
