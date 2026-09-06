@@ -227,6 +227,12 @@ Whether that boilerplate is meant to govern the sample downloads is arguable,
 but no grant of redistribution rights exists anywhere on the site, so the
 terms are recorded as undetermined. Downstream users, especially commercial
 ones, should contact Laser Design or substitute another mesh.
+
+This file is byte-identical to `cth.vtr`; the VTK Data copy predates the VTK
+Examples import, so both carry VTK Data's licence.
+
+This file is byte-identical to `multicomb_0.vts`; the VTK Data copy predates the VTK
+Examples import, so both carry VTK Data's licence.
 """
 
 [[dataset]]
@@ -844,7 +850,7 @@ established here.
 name = "cow"
 title = "Viewpoint cow"
 description = "Surface mesh of a cow from the Viewpoint DataLabs model collection, in OBJ and VTK XML form and as an ASCII triangle mesh, together with a 3D Studio interior scene."
-path = ["Viewpoint/**", "cow.vtp"]
+path = ["Viewpoint/**", "cow.g", "cow.obj", "cow.vtp"]
 SPDX-License-Identifier = "BSD-3-Clause"
 SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
 provenance = "inferred"
@@ -1963,7 +1969,7 @@ established here.
 name = "infovis"
 title = "Information visualisation samples"
 description = "Graphs, trees, tables and delimited text files used to exercise the information visualisation readers and layouts."
-path = ["Infovis/**"]
+path = ["Infovis-XML-vtkclasses.xml", "Infovis-XML-vtklibrary.xml", "Infovis/**", "fsm.gml"]
 SPDX-License-Identifier = "BSD-3-Clause"
 SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
 provenance = "inferred"
@@ -2003,7 +2009,7 @@ author of the data itself could not be established.
 name = "iron_protein"
 title = "Iron protein volume"
 description = "Scalar volume of an iron protein."
-path = ["ironProt.vtk"]
+path = ["StructuredPoints.vtk", "ironProt.vtk"]
 SPDX-License-Identifier = "BSD-3-Clause"
 SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
 provenance = "inferred"
@@ -2963,12 +2969,14 @@ name = "rectilinear_grid"
 title = "Rectilinear grid sample"
 description = "Small rectilinear grid in VTK XML format."
 path = ["RectilinearGrid.vtr"]
-SPDX-License-Identifier = "Apache-2.0"
+SPDX-License-Identifier = "BSD-3-Clause"
+SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
 provenance = "inferred"
-source_url = "https://github.com/lorensen/VTKExamples"
-source_title = "lorensen/VTKExamples"
-collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
+source_url = "https://gitlab.kitware.com/vtk/vtk-data"
+source_title = "VTK Data"
+collection = "vtk-data"
+redistributed_from = "https://github.com/lorensen/VTKExamples"
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
@@ -3307,12 +3315,14 @@ name = "structured_grid"
 title = "Structured grid sample"
 description = "Small structured grid in VTK XML format."
 path = ["StructuredGrid.vts"]
-SPDX-License-Identifier = "Apache-2.0"
+SPDX-License-Identifier = "BSD-3-Clause"
+SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
 provenance = "inferred"
-source_url = "https://github.com/lorensen/VTKExamples"
-source_title = "lorensen/VTKExamples"
-collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
+source_url = "https://gitlab.kitware.com/vtk/vtk-data"
+source_title = "VTK Data"
+collection = "vtk-data"
+redistributed_from = "https://github.com/lorensen/VTKExamples"
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
@@ -3431,7 +3441,7 @@ notes = "Added in October 2020 with the commit message \"add thermal probes\" an
 name = "three_ds_interior"
 title = "3D Studio interior scene"
 description = "Interior scene in the Autodesk 3D Studio format."
-path = ["iflamigm.3ds"]
+path = ["iflamigm.3ds", "iflamingo.3ds"]
 SPDX-License-Identifier = "BSD-3-Clause"
 SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
 provenance = "inferred"
@@ -3779,7 +3789,9 @@ path = [
     "sampleGenGrid3.nc",
     "sphere.slc",
     "test.p3d",
+    "tetra.vtu",
     "tetraMesh.vtk",
+    "texThres.vtk",
     "texThres2.vtk",
     "textureRGBA.png",
     "thio3xx.xyz",
@@ -3789,6 +3801,7 @@ path = [
     "track3.binary.vtk",
     "treetest.xml",
     "uniform-001371-5x5x5.vtp",
+    "vase.vti",
     "vase_1comp.vti",
     "vase_4comp.vti",
     "vehicle_data.csv",
@@ -3831,13 +3844,10 @@ path = [
     "Gourds.mha",
     "Hexahedron.vtu",
     "IBM.vtk",
-    "Infovis-XML-vtkclasses.xml",
-    "Infovis-XML-vtklibrary.xml",
     "Ox.jpg",
     "QuadraticTetra.vtu",
     "QuadraticWedge.vtu",
     "Ring.vtp",
-    "StructuredPoints.vtk",
     "SuperQuadric.vtp",
     "TestPattern.png",
     "Triangle.vtu",
@@ -3852,13 +3862,9 @@ path = [
     "cars.csv",
     "coarseGrid.e",
     "coords.txt",
-    "cow.g",
-    "cow.obj",
     "fineGrid.e-s002",
-    "fsm.gml",
     "grasshop.wrl",
     "horse.ply",
-    "iflamingo.3ds",
     "labels.mhd",
     "labels.raw",
     "lys.pdb",
@@ -3875,10 +3881,7 @@ path = [
     "teeth.lps.vtk",
     "teeth.ras.vtk",
     "teeth.vtk",
-    "tetra.vtu",
-    "texThres.vtk",
     "v.vtk",
-    "vase.vti",
     "vtks.pgm",
     "wintersun.jpg",
 ]
