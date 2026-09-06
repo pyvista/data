@@ -67,8 +67,10 @@ predate it and are narrower than they look:
 
 ### Adding new datasets
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). In short: add the files under `Data/`,
-add a `[[dataset]]` block to `DATASETS.toml`, and run
+See [CONTRIBUTING.md](CONTRIBUTING.md), which also documents how the
+provenance of the existing entries was established and how to check it. In
+short: add the files under `Data/`, add a `[[dataset]]` block to
+`DATASETS.toml`, and run
 
 ```bash
 python tools/validate_datasets.py
@@ -86,6 +88,10 @@ for adding a new method to download the example file within the
 ``pyvista.examples`` module.
 
 ### Reporting a license concern
+
+Every claim in `DATASETS.toml` is meant to be reproducible from the file and
+its source; [CONTRIBUTING.md](CONTRIBUTING.md#establishing-where-a-dataset-came-from)
+records how, so a claim can be re-checked rather than taken on trust.
 
 If you believe a dataset in this repository is distributed under incorrect or
 insufficient license terms, or you can identify the origin of one of the

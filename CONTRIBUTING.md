@@ -20,11 +20,13 @@ It needs Python 3.11 or newer and nothing else.
 
 1. Put the files under `Data/`. Give a dataset with more than one file its own
    directory.
-2. Add a `[[dataset]]` block to `DATASETS.toml`, in alphabetical order by
+2. Establish where the data came from and what its terms are, from the source
+   itself. See [Establishing where a dataset came from](#establishing-where-a-dataset-came-from).
+3. Add a `[[dataset]]` block to `DATASETS.toml`, in alphabetical order by
    `name`.
-3. If the licence is not already declared in the file, add a `[license.*]`
+4. If the licence is not already declared in the file, add a `[license.*]`
    table for it and put the full licence text in `LICENSES/`.
-4. Run the validator.
+5. Run the validator.
 
 Do **not** add a `LICENSE`, `README`, `CITATION` or `.license` file under
 `Data/`. Those are rejected by CI. Everything they used to hold has a field in
@@ -123,6 +125,108 @@ the licence, not from `provenance`.
 A new dataset should not normally be `"unknown"`. The existing `"unknown"`
 entries are historical: files inherited before this repository recorded
 provenance. If you cannot establish where a dataset came from, do not add it.
+
+## Establishing where a dataset came from
+
+Every claim in `DATASETS.toml` is meant to be reproducible by someone who has
+only this repository and a network connection. Record what you checked in
+`notes`, so the next person can re-run it rather than re-derive it.
+
+**The source is the source.** A licence stated in a docstring, a README, a
+sidecar file or a previous version of this table is hearsay, not evidence.
+Several entries here were wrong for years because each of those was copied
+forward without anyone opening the page: the Nefertiti scan was recorded
+non-commercial when its authors publish it under CC BY-SA 4.0, and the cow was
+recorded under the collection's BSD-3-Clause when the file itself carries a
+clause forbidding resale.
+
+These are the techniques that have actually resolved entries here, roughly in
+order of how often they work.
+
+### Read the bytes
+
+More files carry their own provenance than you would expect, and it outranks
+anything written about them:
+
+```bash
+head -c 400 Data/cow.obj                 # OBJ, PLY, STL and PDB carry comment headers
+strings Data/sphere_points.vdb | head    # creator strings in binary formats
+exiftool Data/puppy.jpg                  # camera, capture date
+python -c "from PIL import Image; print(Image.open('Data/Tango/TangoIcons.png').text)"
+unzip -l Data/OpenFOAM.zip               # archives often ship their own LICENSE or README
+```
+
+`cow.obj` states a copyright and a no-resale clause. `3GQP.pdb` names its
+depositors. `TangoIcons.png` carries its author in a PNG text chunk. The
+`nefertiti.ply` header says VTK wrote it, which is how the conversion was
+recorded.
+
+### Identify the file, not just the dataset
+
+A filename is often an accession or catalogue number that settles the licence
+outright — `3GQP.pdb` is a Protein Data Bank accession, and the whole archive
+is CC0. Distinctive dimensions, point counts or array names are searchable
+too: `frog_tissues.vti` was matched to its source by dimensions, spacing and
+array name together.
+
+### Compare bytes against the upstream
+
+Git's blob hash is the cheapest way to prove two files are the same, and it
+works across repositories without downloading either one in full:
+
+```bash
+git hash-object Data/skybox2-negx.jpg
+git -C ../VTKExamples ls-tree -r HEAD src/Testing/Data/Skyboxes/ | grep negx
+```
+
+That is how `skybox2` was traced to the VTK Examples import, and how twelve
+groups of byte-identical files were found carrying two different licences.
+`tools/validate_datasets.py` now checks the last case on every pull request.
+
+### Check a URL through an API, not a plain request
+
+Several hosts answer `403` to scripts, which looks like "blocked" and hides a
+genuine `404`. One dead `source_url` survived three review passes on 65
+entries for exactly this reason:
+
+```bash
+curl -sS -o /dev/null -w '%{http_code}
+' https://gitlab.kitware.com/vtk/vtk-data
+#   403 -- tells you nothing
+curl -sS -o /dev/null -w '%{http_code}
+' \
+  https://gitlab.kitware.com/api/v4/projects/vtk%2Fvtk-data
+#   404 -- the project does not exist
+```
+
+gitlab.kitware.com, codeberg, sketchfab, thingiverse, si.edu and zenodo all
+need either their API or a browser user-agent. When a page is gone, the
+Wayback Machine usually still has it:
+
+```bash
+curl -sS "http://archive.org/wayback/available?url=thingiverse.com/thing:1541337"
+```
+
+### Read the version out of the licence link
+
+A page that says "Creative Commons - Attribution" has not told you the
+version, and the version changes the terms. Thingiverse encodes it in
+`rel="license"` on older pages and in schema.org JSON-LD on newer ones, and
+the label-to-version mapping changed over time — the same wording meant 3.0 in
+2016 and 4.0 by 2021. Inferring from the upload date gets it wrong; reading
+the link gets it right.
+
+```bash
+curl -sSL "http://web.archive.org/web/2017/https://www.thingiverse.com/thing:1541337" \
+  | grep -o 'rel="license"[^>]*'
+```
+
+### When you cannot establish it
+
+Say so. `SPDX-License-Identifier = "LicenseRef-Unknown"` with `notes`
+describing what you did establish, what you could not, and what a downstream
+user should do is a complete, useful record. A guess dressed as a fact is not,
+and it is worse than the gap because nobody re-checks it.
 
 ## Path patterns
 
