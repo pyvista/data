@@ -1,0 +1,725 @@
+# /// script
+# requires-python = ">=3.13,<3.14"
+# dependencies = [
+#   "numpy>=2.2,<3", "scipy>=1.15,<2", "pyvista>=0.48.4,<0.50",
+#   "pyvista-zstd>=0.3.1,<0.4",
+# ]
+# ///
+"""Generate a colored 300,000-triangle cow in PyVista's native .pv format.
+
+Run ``uv run --locked generate_cow.py`` to write only ``cow.pv``.
+Use ``--preview-dir /tmp/cow-preview`` for optional hoof and full-cow renders.
+The same hoof construction is used in the isolated study and the full cow.
+"""
+
+from __future__ import annotations
+
+import argparse
+import time
+from dataclasses import dataclass
+from pathlib import Path
+
+import numpy as np
+import pyvista as pv
+from scipy.interpolate import CubicSpline
+from scipy.ndimage import gaussian_filter
+
+ROOT = Path(__file__).resolve().parent
+
+
+class ImplicitSurface:
+    """Bounded float32 SDF; each primitive updates only its local voxel box."""
+
+    def __init__(self, low, high, step):
+        self.low = np.array(low, dtype=float)
+        self.step = step
+        self.axes = [
+            np.arange(a, b + step, step, dtype=np.float32) for a, b in zip(low, high)
+        ]
+        self.field = np.full(tuple(len(a) for a in self.axes), 0.3, np.float32)
+
+    def region(self, lo, hi):
+        starts = np.maximum(
+            0, np.floor((np.array(lo) - self.low) / self.step).astype(int)
+        )
+        stops = np.minimum(
+            self.field.shape,
+            np.ceil((np.array(hi) - self.low) / self.step).astype(int) + 1,
+        )
+        slices = tuple((slice(a, b) for a, b in zip(starts, stops)))
+        xyz = [
+            self.axes[0][slices[0]][:, None, None],
+            self.axes[1][slices[1]][None, :, None],
+            self.axes[2][slices[2]][None, None, :],
+        ]
+        return (slices, xyz)
+
+    def combine(self, slices, d, blend, cut):
+        old = self.field[slices]
+        if cut:
+            d = -d
+            if blend:
+                h = np.maximum(blend - np.abs(old - d), 0) / blend
+                self.field[slices] = np.maximum(old, d) + h * h * blend * 0.25
+            else:
+                self.field[slices] = np.maximum(old, d)
+        elif blend:
+            h = np.maximum(blend - np.abs(old - d), 0) / blend
+            self.field[slices] = np.minimum(old, d) - h * h * blend * 0.25
+        else:
+            self.field[slices] = np.minimum(old, d)
+
+    def ellipsoid(self, c, r, blend=0.05, ry=0, basis=None, cut=False):
+        c, r = (np.array(c), np.array(r))
+        if basis is None:
+            co, si = (np.cos(ry), np.sin(ry))
+            basis = np.array([[co, 0, si], [0, 1, 0], [-si, 0, co]])
+        bounds = np.abs(basis) @ r + blend + 0.025
+        slices, xyz = self.region(c - bounds, c + bounds)
+        q = [xyz[i] - c[i] for i in range(3)]
+        local = [sum(basis[j, i] * q[j] for j in range(3)) for i in range(3)]
+        k0 = np.sqrt(sum((local[i] / r[i]) ** 2 for i in range(3)))
+        k1 = np.sqrt(sum((local[i] / r[i] ** 2) ** 2 for i in range(3)))
+        d = k0 * (k0 - 1) / np.maximum(k1, 1e-08)
+        d = np.where(k0 < 1e-05, -min(r), d)
+        self.combine(slices, d, blend, cut)
+
+    def segment(self, a, b, ra, rb, blend=0.025, cut=False):
+        a, b = (np.array(a), np.array(b))
+        pad = max(ra, rb) + blend + 0.02
+        slices, xyz = self.region(np.minimum(a, b) - pad, np.maximum(a, b) + pad)
+        v = b - a
+        q = [xyz[i] - a[i] for i in range(3)]
+        t = np.clip(sum(q[i] * v[i] for i in range(3)) / np.dot(v, v), 0, 1)
+        d = np.sqrt(sum((q[i] - t * v[i]) ** 2 for i in range(3))) - (
+            ra + (rb - ra) * t
+        )
+        self.combine(slices, d, blend, cut)
+
+    def curve(self, points, radii, blend=0.02, cut=False, samples=36):
+        t = np.linspace(0, 1, len(points))
+        u = np.linspace(0, 1, samples)
+        p = CubicSpline(t, points, axis=0)(u)
+        r = np.interp(u, t, radii)
+        for i in range(samples - 1):
+            self.segment(p[i], p[i + 1], r[i], r[i + 1], blend, cut)
+
+    def head_point(self, point):
+        p = np.array(point, dtype=float)
+        p[1] *= 1.18
+        p[2] -= 0.24
+        return p
+
+    def head_ellipsoid(self, c, r, *args, **kwargs):
+        r = np.array(r, dtype=float)
+        r[1] *= 1.18
+        self.ellipsoid(self.head_point(c), r, *args, **kwargs)
+
+    def head_curve(self, points, radii, *args, **kwargs):
+        self.curve([self.head_point(p) for p in points], radii, *args, **kwargs)
+
+
+@dataclass(frozen=True)
+class HoofConfig:
+    length: float = 0.25
+    width: float = 0.20
+    height: float = 0.155
+    top_setback: float = 0.043
+    toe_gap: float = 0.014
+    crown_blend: float = 0.020
+
+
+def hoof_claw(s, xh, yh, side, h):
+    """An oval, rearward-sloping claw with a flatter medial wall and rounded crown."""
+    slices, xyz = s.region(
+        (xh - h.length, yh - h.width, -0.045),
+        (xh + h.length, yh + h.width, h.height + 0.07),
+    )
+    x, y, z = xyz
+    t = np.clip(z / h.height, 0, 1)
+    # Ground footprint is oval. Each wall tapers and leans back towards the coronet.
+    center_x = xh + 0.008 - h.top_setback * t
+    rx = h.length * (0.50 - 0.145 * t)
+    ry = h.width * (0.267 - 0.046 * t)
+    center_y = yh + side * h.width * (0.233 - 0.032 * t)
+    ellipse = np.sqrt(((x - center_x) / rx) ** 2 + ((y - center_y) / ry) ** 2)
+    wall = (ellipse - 1) * ry
+    # A continuous interdigital cleft; it widens towards the toe.
+    front = np.clip((x - xh + h.length * 0.35) / (h.length * 0.8), 0, 1)
+    gap = h.toe_gap * (0.24 + 0.76 * front)
+    medial = gap / 2 - side * (y - yh)
+    wall = np.maximum(wall, medial)
+    # Smoothly round the coronet rather than making a horizontal box top.
+    roof = z - (h.height - 0.19 * (x - xh))
+    k = 0.035
+    blend = np.maximum(k - np.abs(wall - roof), 0) / k
+    d = np.maximum(wall, roof) + blend * blend * k * 0.25
+    s.combine(slices, d, 0.004, False)
+
+
+def add_foot(s, xh, yh, h, hind=False, lower_leg=True):
+    """Shared for isolated studies and all four feet of the assembled cow."""
+    for side in (-1, 1):
+        hoof_claw(s, xh, yh, side, h)
+        # A rounded heel bulb, tucked under the coronet at the back of each claw.
+        s.ellipsoid(
+            (xh - 0.067, yh + side * 0.040, 0.100), (0.053, 0.042, 0.064), 0.012
+        )
+    # Skin/coronet joins both claws above the split and receives the pastern.
+    s.ellipsoid((xh - 0.030, yh, 0.163), (0.071, 0.078, 0.042), h.crown_blend)
+    if lower_leg:
+        rear = -0.078 if hind else -0.068
+        ankle_z = 0.265 if hind else 0.275
+        s.ellipsoid((xh + rear, yh, ankle_z), (0.075, 0.070, 0.078), 0.025)
+        s.segment(
+            (xh + rear, yh, ankle_z), (xh - 0.020, yh, 0.165), 0.055, 0.064, 0.025
+        )
+        for side in (-1, 1):
+            s.ellipsoid(
+                (xh + rear - 0.026, yh + side * 0.042, 0.222),
+                (0.028, 0.021, 0.035),
+                0.013,
+            )
+
+
+def build_cow(surface, hoof):
+    """Populate the field with the cow anatomy and the shared hoof geometry."""
+    print("Sculpting torso, shoulders, neck and head", flush=True)
+    surface.ellipsoid((-0.12, 0, 1.57), (1.07, 0.485, 0.57), 0.15)
+    surface.ellipsoid((-0.37, 0, 1.4), (0.77, 0.48, 0.45), 0.16)
+    surface.ellipsoid((-0.8, 0, 1.7), (0.39, 0.425, 0.46), 0.13)
+    surface.ellipsoid((0.65, 0, 1.7), (0.39, 0.4, 0.48), 0.15)
+    surface.ellipsoid((-0.03, 0, 2.028), (0.83, 0.17, 0.13), 0.09)
+    surface.ellipsoid((0.97, 0, 1.82), (0.36, 0.29, 0.34), 0.15, ry=0.6)
+    surface.ellipsoid((1.15, 0, 1.94), (0.3, 0.28, 0.29), 0.12, ry=0.45)
+    surface.ellipsoid((0.79, 0, 1.4), (0.265, 0.28, 0.27), 0.12)
+    surface.ellipsoid((1.03, 0, 1.53), (0.21, 0.12, 0.18), 0.08, ry=0.65)
+    surface.head_ellipsoid((1.4, 0, 2.3), (0.275, 0.245, 0.285), 0.11, ry=-0.48)
+    surface.head_ellipsoid((1.59, 0, 2.12), (0.215, 0.205, 0.29), 0.1, ry=-0.65)
+    surface.head_ellipsoid((1.52, 0, 2.07), (0.245, 0.22, 0.23), 0.08)
+    surface.head_ellipsoid((1.78, 0, 1.938), (0.23, 0.26, 0.149), 0.065, ry=-0.08)
+    surface.head_ellipsoid((1.744, 0, 1.861), (0.215, 0.234, 0.075), 0.035)
+    for s in [-1, 1]:
+        surface.head_ellipsoid((1.38, s * 0.17, 2.15), (0.175, 0.105, 0.17), 0.07)
+    print("Sculpting four articulated legs and split hooves", flush=True)
+    for s in [-1, 1]:
+        y = s * 0.292
+        surface.ellipsoid((0.67, y, 1.6), (0.22, 0.16, 0.41), 0.11, ry=-0.1)
+        surface.segment((0.72, y, 1.36), (0.68, y * 1.04, 0.91), 0.127, 0.085, 0.06)
+        surface.ellipsoid((0.69, y * 1.04, 0.88), (0.105, 0.094, 0.135), 0.045)
+        surface.segment(
+            (0.69, y * 1.04, 0.87), (0.735, y * 1.06, 0.3), 0.078, 0.064, 0.04
+        )
+        surface.ellipsoid((-0.8, y, 1.57), (0.255, 0.177, 0.4), 0.12, ry=-0.23)
+        surface.segment((-0.78, y, 1.41), (-0.64, y * 1.08, 1.02), 0.16, 0.105, 0.075)
+        surface.ellipsoid((-0.64, y * 1.08, 1.035), (0.125, 0.1, 0.145), 0.045)
+        surface.segment(
+            (-0.65, y * 1.08, 1.02), (-0.9, y * 1.11, 0.68), 0.091, 0.06, 0.035
+        )
+        surface.ellipsoid((-0.9, y * 1.11, 0.67), (0.09, 0.077, 0.105), 0.035)
+        surface.segment(
+            (-0.9, y * 1.11, 0.66), (-0.86, y * 1.13, 0.28), 0.063, 0.056, 0.03
+        )
+        add_foot(surface, 0.815, y * 1.07, hoof, hind=False)
+        add_foot(surface, -0.776, y * 1.13, hoof, hind=True)
+    print("Adding udder, ears, horns, and tail", flush=True)
+    surface.ellipsoid((-0.51, 0, 1.025), (0.315, 0.273, 0.233), 0.1)
+    for xx in [-0.655, -0.37]:
+        for yy in [-0.137, 0.137]:
+            surface.ellipsoid((xx, yy, 0.9), (0.116, 0.108, 0.125), 0.045)
+            surface.segment(
+                (xx, yy, 0.887), (xx + 0.014, yy * 1.08, 0.733), 0.035, 0.025, 0.022
+            )
+    for s in [-1, 1]:
+        long = np.array([-0.15, s * 0.986, -0.07])
+        long /= np.linalg.norm(long)
+        short = np.array([1.0, s * 0.11, 0])
+        short /= np.linalg.norm(short)
+        normal = np.cross(short, long)
+        if normal[2] < 0:
+            normal *= -1
+        short = np.cross(long, normal)
+        basis = np.column_stack([short, long, normal])
+        center = surface.head_point([1.28, s * 0.385, 2.425])
+        surface.ellipsoid(center, (0.143, 0.27, 0.065), 0.045, basis=basis)
+        surface.ellipsoid(
+            center + normal * 0.047 + long * 0.014,
+            (0.101, 0.201, 0.042),
+            0.013,
+            basis=basis,
+            cut=True,
+        )
+        surface.head_curve(
+            [
+                (1.24, s * 0.177, 2.485),
+                (1.2, s * 0.295, 2.53),
+                (1.23, s * 0.392, 2.59),
+                (1.29, s * 0.426, 2.673),
+            ],
+            [0.068, 0.051, 0.028, 0.0045],
+            0.023,
+            samples=28,
+        )
+        surface.head_ellipsoid(
+            (1.47, s * 0.228, 2.328), (0.084, 0.049, 0.065), 0.013, cut=True
+        )
+        surface.head_ellipsoid((1.47, s * 0.238, 2.329), (0.061, 0.044, 0.044), 0.009)
+        surface.head_curve(
+            [
+                (1.397, s * 0.236, 2.33),
+                (1.436, s * 0.262, 2.375),
+                (1.497, s * 0.259, 2.377),
+                (1.535, s * 0.231, 2.339),
+            ],
+            [0.016, 0.019, 0.018, 0.014],
+            0.009,
+            samples=20,
+        )
+        surface.head_curve(
+            [
+                (1.409, s * 0.243, 2.314),
+                (1.47, s * 0.267, 2.286),
+                (1.526, s * 0.235, 2.316),
+            ],
+            [0.012, 0.013, 0.012],
+            0.006,
+            samples=16,
+        )
+        surface.head_ellipsoid(
+            (1.929, s * 0.157, 1.999), (0.064, 0.047, 0.039), 0.01, ry=-0.35, cut=True
+        )
+        surface.head_curve(
+            [
+                (1.57, s * 0.177, 1.864),
+                (1.72, s * 0.236, 1.858),
+                (1.88, s * 0.189, 1.87),
+                (1.989, s * 0.035, 1.872),
+            ],
+            [0.006, 0.009, 0.009, 0.007],
+            0.003,
+            cut=True,
+            samples=30,
+        )
+    surface.curve(
+        [
+            (-1.035, 0, 1.95),
+            (-1.23, 0.035, 1.87),
+            (-1.37, 0.065, 1.49),
+            (-1.44, 0.08, 1.05),
+            (-1.46, 0.1, 0.78),
+            (-1.46, 0.11, 0.64),
+        ],
+        [0.078, 0.056, 0.034, 0.026, 0.023, 0.023],
+        0.024,
+        samples=64,
+    )
+    surface.curve(
+        [
+            (-1.46, 0.11, 0.74),
+            (-1.463, 0.112, 0.63),
+            (-1.445, 0.115, 0.47),
+            (-1.411, 0.118, 0.31),
+            (-1.374, 0.12, 0.21),
+        ],
+        [0.023, 0.043, 0.047, 0.027, 0.006],
+        0.012,
+        samples=42,
+    )
+    for side, length in [(-1, 0.0), (1, 0.025)]:
+        surface.curve(
+            [
+                (-1.463, 0.11 + side * 0.012, 0.66),
+                (-1.452, 0.11 + side * 0.037, 0.49),
+                (-1.415, 0.11 + side * 0.047, 0.35),
+                (-1.385, 0.11 + side * 0.032, 0.235 + length),
+            ],
+            [0.024, 0.027, 0.021, 0.0045],
+            0.008,
+            samples=28,
+        )
+    surface.curve(
+        [
+            (-1.463, 0.1, 0.61),
+            (-1.482, 0.104, 0.45),
+            (-1.461, 0.109, 0.3),
+            (-1.427, 0.112, 0.232),
+        ],
+        [0.026, 0.023, 0.014, 0.0045],
+        0.008,
+        samples=24,
+    )
+
+
+def vertex_colors(vertices):
+    # Organic Holstein markings sampled in 3D, so the colors continue across the back.
+    v = vertices
+    x, y, z = v.T
+    pattern = (
+        np.sin(x * 5.4 + np.sin(z * 4.4) * 0.75 + np.cos(y * 5.1))
+        + 0.65 * np.cos(z * 6.9 - y * 4.3 + np.sin(x * 3.1))
+        + 0.28 * np.sin(x * 12.5 + y * 9.2 + z * 8.3)
+        + 0.12 * np.cos(x * 22.1 - y * 15.3 + z * 17.8)
+    )
+    black = pattern > 0.36
+    color = np.empty((len(v), 4), dtype=np.uint8)
+    color[:] = [235, 228, 210, 255]
+    color[black] = [36, 32, 29, 255]
+    # Slight coherent variation avoids a flat plastic appearance in the PLY.
+    tone = (
+        2 * np.sin(x * 75 + y * 64 + np.sin(z * 61)) * np.cos(z * 83 - y * 41)
+    ).astype(int)
+    color[:, :3] = np.clip(color[:, :3].astype(int) + tone[:, None], 0, 255)
+    # Dark head with a white forehead blaze.
+    hz = z + 0.24
+    hy = y / 1.18
+    head = (x > 1.21) & (hz > 1.91)
+    color[head] = [39, 34, 30, 255]
+    blaze = head & (np.abs(hy) < (0.078 + 0.018 * np.sin(hz * 19))) & (hz > 2.08)
+    color[blaze] = [237, 229, 209, 255]
+    muzzle = (x > 1.65) & (hz < 2.06) & (hz > 1.77)
+    color[muzzle] = [185, 125, 120, 255]
+    nostril = (
+        (x > 1.88)
+        & (np.abs(hy) > 0.11)
+        & (np.abs(hy) < 0.21)
+        & (hz > 1.965)
+        & (hz < 2.03)
+    )
+    color[nostril] = [66, 43, 41, 255]
+    udder = (
+        (((x + 0.51) / 0.36) ** 2 + (y / 0.31) ** 2 < 1.1) & (z < 1.025) & (z > 0.69)
+    )
+    color[udder] = [206, 153, 143, 255]
+    hooves = (z < (0.152 - 0.20 * np.where(x > 0, x - 0.815, x + 0.776))) & (z < 0.185)
+    color[hooves] = [58, 49, 41, 255]
+    horns = (hz > 2.51) & (x < 1.40) & (np.abs(hy) > 0.23)
+    color[horns] = [211, 191, 145, 255]
+    color[horns & (hz > 2.638)] = [83, 66, 45, 255]
+    ears = (np.abs(hy) > 0.282) & (x > 1.11) & (x < 1.46) & (hz > 2.33) & (hz < 2.49)
+    color[ears] = [155, 112, 103, 255]
+    for s in [-1, 1]:
+        eye = ((x - 1.47) / 0.057) ** 2 + ((hz - 2.329) / 0.043) ** 2 < 1
+        eye &= s * hy > 0.259
+        color[eye] = [68, 41, 23, 255]
+        pupil = eye & (((x - 1.477) / 0.039) ** 2 + ((hz - 2.329) / 0.019) ** 2 < 1)
+        color[pupil] = [10, 9, 8, 255]
+    tail_lower = (x < -1.29) & (z < 1.40)
+    color[tail_lower] = [224, 211, 181, 255]
+    switch = tail_lower & (z < 0.74)
+    # Warm pale hair with restrained variation, rendered as opaque solid geometry.
+    hair_tone = 7 * np.sin(95 * y + 12 * z + 9 * x)
+    color[switch, :3] = np.clip(
+        np.array([189, 166, 123]) + hair_tone[switch, None], 0, 255
+    ).astype(np.uint8)
+
+    return color
+
+
+def validate_mesh(mesh: pv.PolyData, triangles: int | None = None) -> None:
+    """Check closure, orientation, one component, triangle quality, and volume."""
+    if not mesh.is_all_triangles or (
+        triangles is not None and mesh.n_cells != triangles
+    ):
+        msg = f"Expected {triangles} triangles; got {mesh.n_cells} cells"
+        raise ValueError(msg)
+    faces = mesh.regular_faces
+    edges = np.concatenate((faces[:, [0, 1]], faces[:, [1, 2]], faces[:, [2, 0]]))
+    _, inverse, counts = np.unique(
+        np.sort(edges, axis=1), axis=0, return_inverse=True, return_counts=True
+    )
+    orientation = np.bincount(
+        inverse, weights=np.where(edges[:, 0] < edges[:, 1], 1, -1)
+    )
+    if not np.all(counts == 2) or np.any(orientation):
+        msg = "The surface must be watertight with consistently oriented faces"
+        raise ValueError(msg)
+    regions = mesh.connectivity(label_regions=True)
+    if np.max(regions.cell_data["RegionId"]) != 0:
+        msg = "The model contains disconnected anatomy"
+        raise ValueError(msg)
+    a, b, c = np.asarray(mesh.points, dtype=np.float64)[faces].transpose(1, 0, 2)
+    normals = np.cross(b - a, c - a)
+    if np.any(np.linalg.norm(normals, axis=1) <= 0):
+        msg = "The mesh contains degenerate triangles"
+        raise ValueError(msg)
+    signed_volume = float(np.einsum("ij,ij->", a, np.cross(b, c)) / 6)
+    if signed_volume <= 0:
+        msg = "The surface must have positive, outward-oriented volume"
+        raise ValueError(msg)
+
+
+def extract_surface(surface: ImplicitSurface) -> pv.PolyData:
+    """Extract a clean, oriented surface, removing only subvoxel specks."""
+    gaussian_filter(
+        surface.field, sigma=0.65, output=surface.field, mode="nearest", truncate=2
+    )
+    np.maximum(surface.field, -surface.axes[2][None, None, :], out=surface.field)
+    grid = pv.ImageData(
+        dimensions=surface.field.shape, spacing=(surface.step,) * 3, origin=surface.low
+    )
+    grid.point_data["distance"] = surface.field.ravel(order="F")
+    mesh = grid.contour([0], scalars="distance", method="flying_edges").triangulate()
+    mesh = mesh.clean(tolerance=1e-7).smooth_taubin(n_iter=12, pass_band=0.12)
+    # Cleaning may turn collapsed contour cells into lines or vertices. Keep
+    # only the triangular surface cells, as required for this dataset.
+    mesh = pv.PolyData(mesh.points, mesh.faces)
+    connected = mesh.connectivity(label_regions=True)
+    _, counts = np.unique(connected.cell_data["RegionId"], return_counts=True)
+    if len(counts) > 1:
+        if np.count_nonzero(counts > 100) != 1:
+            msg = "The sculpture has separate anatomical components"
+            raise ValueError(msg)
+        mesh = mesh.extract_largest()
+    mesh = mesh.compute_normals(
+        point_normals=False,
+        cell_normals=True,
+        auto_orient_normals=True,
+        consistent_normals=True,
+    )
+    mesh.clear_data()
+    validate_mesh(mesh)
+    return mesh
+
+
+def reduce_mesh(mesh: pv.PolyData, triangles: int) -> pv.PolyData:
+    """Reduce the surface and restore level soles without changing topology."""
+    if triangles > mesh.n_cells:
+        msg = "Triangle target exceeds source resolution; decrease --voxel-size"
+        raise ValueError(msg)
+    mesh = mesh.decimate(1 - triangles / mesh.n_cells, volume_preservation=True)
+    mesh = mesh.smooth_taubin(n_iter=12, pass_band=0.12)
+    mesh.points[mesh.points[:, 2] < 0.003, 2] = 0
+    mesh.clear_data()
+    validate_mesh(mesh, triangles)
+    return mesh
+
+
+def check_soles(mesh: pv.PolyData) -> list[float]:
+    """Require a broad flat contact patch on every hoof."""
+    triangles = mesh.points[mesh.regular_faces]
+    flat = np.all(np.abs(triangles[:, :, 2]) < 1e-7, axis=1)
+    centers = triangles[flat].mean(axis=1)
+    a, b, c = triangles[flat].transpose(1, 0, 2)
+    area = np.linalg.norm(np.cross(b - a, c - a), axis=1) / 2
+    result = []
+    for sx, sy in ((-1, -1), (-1, 1), (1, -1), (1, 1)):
+        selected = (sx * centers[:, 0] > 0) & (sy * centers[:, 1] > 0)
+        sole_area = float(area[selected].sum())
+        if sole_area < (mesh.bounds[1] - mesh.bounds[0]) ** 2 * 0.0005:
+            msg = "Every hoof needs a broad coplanar sole"
+            raise ValueError(msg)
+        result.append(sole_area)
+    return result
+
+
+def verify_round_trip(original: pv.PolyData, path: Path) -> pv.PolyData:
+    """Reopen the one-file asset and verify geometry AND embedded RGB colors."""
+    loaded = pv.read(path)
+    validate_mesh(loaded, original.n_cells)
+    check_soles(loaded)
+    for expected, actual in (
+        (original.points, loaded.points),
+        (original.regular_faces, loaded.regular_faces),
+        (original.point_data["RGB"], loaded.point_data["RGB"]),
+    ):
+        if not np.array_equal(expected, actual):
+            msg = "Geometry or embedded vertex colors changed during the .pv round trip"
+            raise ValueError(msg)
+    if (
+        loaded.point_data["RGB"].dtype != np.uint8
+        or loaded.active_scalars_name != "RGB"
+    ):
+        msg = "The RGB appearance must remain the active uint8 point array"
+        raise ValueError(msg)
+    return loaded
+
+
+def render_panels(meshes, cameras, labels, path, scales, colors=None, size=(1800, 700)):
+    pl = pv.Plotter(
+        off_screen=True,
+        shape=(1, len(meshes)),
+        window_size=size,
+        lighting="three lights",
+        border=False,
+    )
+    for i, (mesh, camera, label, scale) in enumerate(
+        zip(meshes, cameras, labels, scales)
+    ):
+        pl.subplot(0, i)
+        pl.set_background("#edf0f3")
+        poly = mesh.copy()
+        if colors is not None:
+            poly.point_data["RGB"] = colors[i]
+        pl.add_mesh(
+            poly,
+            scalars="RGB" if colors is not None else None,
+            rgb=colors is not None,
+            color="#a4a19a",
+            smooth_shading=True,
+            ambient=0.20,
+            diffuse=0.78,
+            specular=0.12,
+            specular_power=22,
+            show_scalar_bar=False,
+        )
+        pl.add_text(label, position="upper_left", font_size=14, color="#263346")
+        pl.camera_position = camera
+        pl.camera.parallel_projection = True
+        pl.camera.parallel_scale = scale
+    pl.enable_anti_aliasing("ssaa")
+    pl.show(screenshot=str(path))
+
+
+def hoof_studies(h, out):
+    print("Building and rendering isolated hoof studies", flush=True)
+    isolated_s = ImplicitSurface((-0.22, -0.16, -0.035), (0.19, 0.16, 0.24), 0.0018)
+    add_foot(isolated_s, 0, 0, h, lower_leg=False)
+    isolated = extract_surface(isolated_s)
+    isolated.points[isolated.points[:, 2] < 0.0015, 2] = 0
+    validate_mesh(isolated)
+    joined_s = ImplicitSurface((-0.22, -0.16, -0.035), (0.19, 0.16, 0.57), 0.0018)
+    add_foot(joined_s, 0, 0, h)
+    joined_s.segment((-0.068, 0, 0.275), (-0.078, 0, 0.46), 0.062, 0.057, 0.022)
+    joined = extract_surface(joined_s)
+    joined.points[joined.points[:, 2] < 0.0015, 2] = 0
+    validate_mesh(joined)
+    render_panels(
+        [isolated] * 3,
+        [
+            [(0.60, -0.70, 0.40), (0, 0, 0.09), (0, 0, 1)],
+            [(0, -0.8, 0.11), (0, 0, 0.09), (0, 0, 1)],
+            [(0.65, 0, 0.09), (0, 0, 0.09), (0, 0, 1)],
+        ],
+        ["Hoof — three-quarter", "Hoof — side", "Hoof — front"],
+        out / "hoof_isolation.png",
+        [0.18] * 3,
+    )
+    render_panels(
+        [isolated, joined, joined],
+        [
+            [(0, 0, -1), (0, 0, 0.08), (1, 0, 0)],
+            [(0.60, -0.70, 0.46), (0, 0, 0.245), (0, 0, 1)],
+            [(0, -0.8, 0.25), (0, 0, 0.245), (0, 0, 1)],
+        ],
+        [
+            "Soles and cleft — underside",
+            "Hoof + pastern — three-quarter",
+            "Hoof + pastern — side",
+        ],
+        out / "hoof_attachment.png",
+        [0.17, 0.34, 0.34],
+    )
+    print(f"Hoof studies saved to {out}", flush=True)
+
+
+def render_cow(mesh: pv.PolyData, out: Path, length_mm: float) -> None:
+    """Render the reloaded .pv, then show its four actual hoof connections."""
+    size = length_mm / 200
+    camera = [[(285 * size, -405 * size, 218 * size), (0, 0, 66 * size), (0, 0, 1)]]
+    render_panels(
+        [mesh],
+        camera,
+        [""],
+        out / "cow.png",
+        [87 * size],
+        colors=[mesh.point_data["RGB"]],
+        size=(1600, 1200),
+    )
+    render_panels(
+        [mesh], camera, [""], out / "cow_geometry.png", [87 * size], size=(1600, 1200)
+    )
+    feet, cameras, labels = [], [], []
+    # Work in exported coordinates; find each foot's center from its sole points.
+    ground = mesh.points[np.abs(mesh.points[:, 2]) < 1e-7]
+    for sx, sy in ((1, -1), (1, 1), (-1, -1), (-1, 1)):
+        points = ground[(sx * ground[:, 0] > 0) & (sy * ground[:, 1] > 0)]
+        cx, cy = points[:, :2].mean(axis=0)
+        box = (
+            cx - 13 * size,
+            cx + 12 * size,
+            cy - 9 * size,
+            cy + 9 * size,
+            0,
+            24 * size,
+        )
+        feet.append(
+            mesh.clip_box(box, invert=False).extract_surface(
+                algorithm="dataset_surface"
+            )
+        )
+        cameras.append(
+            [
+                (cx + 43 * size, cy - 46 * size, 29 * size),
+                (cx - 1.4 * size, cy, 11.7 * size),
+                (0, 0, 1),
+            ]
+        )
+        labels.append(
+            ("Front" if sx > 0 else "Rear") + (" left" if sy < 0 else " right")
+        )
+    render_panels(
+        feet,
+        cameras,
+        labels,
+        out / "hoof_connections.png",
+        [19.5 * size] * 4,
+        size=(2000, 900),
+    )
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("output", nargs="?", type=Path, default=ROOT / "cow.pv")
+    parser.add_argument("--triangles", type=int, default=300000)
+    parser.add_argument("--length-mm", type=float, default=200)
+    parser.add_argument("--voxel-size", type=float, default=0.0065)
+    parser.add_argument(
+        "--preview-dir",
+        type=Path,
+        help="Optionally render isolated hooves, joins, and the reloaded .pv",
+    )
+    args = parser.parse_args()
+    if args.output.suffix.lower() != ".pv":
+        parser.error("The output must use the .pv extension")
+    if args.triangles < 10000 or args.triangles % 2:
+        parser.error("--triangles must be even and at least 10000")
+    if not 0.002 <= args.voxel_size <= 0.012 or args.length_mm <= 0:
+        parser.error("Use a positive length and voxel spacing in [0.002, 0.012]")
+    started = time.perf_counter()
+    hoof = HoofConfig()
+    if args.preview_dir:
+        args.preview_dir.mkdir(parents=True, exist_ok=True)
+        hoof_studies(hoof, args.preview_dir)
+    surface = ImplicitSurface(
+        (-1.60, -0.80, -0.045), (2.055, 0.80, 2.51), args.voxel_size
+    )
+    build_cow(surface, hoof)
+    mesh = reduce_mesh(extract_surface(surface), args.triangles)
+    del surface
+    colors = vertex_colors(mesh.points)[:, :3]
+    scale = args.length_mm / (mesh.bounds[1] - mesh.bounds[0])
+    points = mesh.points.astype(np.float64) * scale
+    points[:, :2] -= (points[:, :2].min(axis=0) + points[:, :2].max(axis=0)) / 2
+    points[:, 2] -= points[:, 2].min()
+    mesh.points = points.astype(np.float32)
+    mesh.point_data["RGB"] = colors
+    mesh.set_active_scalars("RGB")
+    mesh.field_data["units"] = np.array(["mm"])
+    mesh.field_data["source"] = np.array(
+        ["Original procedural sculpture; generate_cow.py"]
+    )
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    mesh.save(args.output, level=10, n_threads=0)
+    reloaded = verify_round_trip(mesh, args.output)
+    if args.preview_dir:
+        render_cow(reloaded, args.preview_dir, args.length_mm)
+    print(
+        f"{args.output}: {mesh.n_cells:,} triangles, {args.output.stat().st_size / 1e6:.2f} MB; "
+        f"watertight, connected, four flat soles, embedded RGB verified "
+        f"({time.perf_counter() - started:.1f} s)",
+        flush=True,
+    )
+
+
+if __name__ == "__main__":
+    main()
