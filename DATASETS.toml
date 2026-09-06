@@ -238,7 +238,7 @@ Examples import, so both carry VTK Data's licence.
 [[dataset]]
 name = "aero_bracket"
 title = "Aircraft engine bearing bracket"
-description = "Static stress analysis of an aircraft engine bearing bracket under horizontal and vertical loading, solved with both linear and nonlinear material models."
+description = "Static stress analysis of an aircraft engine bearing bracket, carrying displacement, total nonlinear strain and von Mises stress on 187037 points."
 path = ["fea/aero_bracket/**"]
 SPDX-License-Identifier = "LicenseRef-SimScale-PublicProject"
 provenance = "verified"
@@ -247,7 +247,7 @@ source_title = "SimScale public project library"
 collection = "simscale"
 modified = true
 modification = "Coordinates and point data cast to float32 and cell data dropped to reduce the file size."
-notes = "The bracket geometry originates from the GrabCAD Airplane Bearing Bracket Challenge, https://grabcad.com/challenges/airplane-bearing-bracket-challenge/entries. The simulation result redistributed here is the SimScale project output."
+notes = "The bracket geometry originates from the GrabCAD Airplane Bearing Bracket Challenge, https://grabcad.com/challenges/airplane-bearing-bracket-challenge/entries. The simulation result redistributed here is the SimScale project output. The upstream project analyses three bracket models under horizontal and vertical loading with linear and nonlinear material definitions; the single result redistributed here is one of those runs."
 
 [[dataset]]
 name = "alpha_channel"
@@ -477,7 +477,7 @@ provenance = "inferred"
 source_url = "https://github.com/JiaweiZhuang/vtk_experiments"
 source_title = "JiaweiZhuang/vtk_experiments"
 authors = ["Jiawei Zhuang"]
-notes = "Shared by the author for https://github.com/vtkiorg/vtki/issues/175. The upstream repository publishes no LICENSE file, so the terms are undetermined."
+notes = "Shared by the author for https://github.com/pyvista/pyvista/issues/175. The upstream repository publishes no LICENSE file, so the terms are undetermined."
 
 [[dataset]]
 name = "blow"
@@ -2398,11 +2398,13 @@ source_url = "https://alloversky.com/puzzlepieces/the-other-nefertiti"
 source_title = "The Other Nefertiti"
 authors = ["Nora Al-Badri", "Jan Nikolai Nelles"]
 attribution = "Nora Al-Badri and Jan Nikolai Nelles, The Other Nefertiti (2016), CC BY-SA 4.0."
-redistributed_from = "https://nefertitihack.alloversky.com/"
+modified = true
+modification = "`nefertiti.ply.zip` is a VTK conversion of the published OBJ; its PLY header reads \"VTK generated PLY File\"."
+redistributed_from = "https://alloversky.com/nefertitihack/downloads/Nefertiti.obj.zip"
 notes = """
 The artists state "The 3d data is licensed under a Creative Commons
-Attribution-ShareAlike 4.0 International License", linking
-creativecommons.org/licenses/by-sa/4.0. There is no NonCommercial clause.
+Attribution-ShareAlike 4.0 International License". There is no NonCommercial
+clause.
 
 ShareAlike propagates: a downstream work derived from this scan must be shared
 under the same licence. The original `nefertitihack.alloversky.com` host no
@@ -2516,15 +2518,15 @@ established here.
 [[dataset]]
 name = "openfoam_cavity"
 title = "OpenFOAM lid-driven cavity"
-description = "The OpenFOAM lid-driven cavity tutorial case, as a zipped case directory."
+description = "Two zipped OpenFOAM cases: the lid-driven cavity tutorial solved with icoFoam, and a 64-bit-float Xoodles case."
 path = ["OpenFOAM.zip"]
 SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-FileCopyrightText = ["1993-2015 Ken Martin, Will Schroeder, Bill Lorensen"]
 provenance = "inferred"
 source_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7/folder/5afd932e8d777f15ebe1b183"
 source_title = "Kitware VTK Data on data.kitware.com"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2015 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
@@ -2620,7 +2622,7 @@ provenance = "verified"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
+attribution = "VTK Data. Copyright (c) 1993-2015 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 
 [[dataset]]
 name = "paraview_pvd"
