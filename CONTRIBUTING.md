@@ -41,7 +41,7 @@ title = "Grey nurse shark"
 description = "Triangulated surface mesh of a grey nurse shark, in STL format."
 path = ["grey_nurse_shark/**"]
 SPDX-License-Identifier = "CC-BY-SA-3.0"
-provenance = "inferred"
+provenance = "verified"
 source_url = "https://www.thingiverse.com/thing:137954"
 source_title = "Thingiverse thing:137954"
 collection = "thingiverse"
@@ -61,7 +61,7 @@ description = "High dynamic range equirectangular environment maps of a night sk
 path = ["dikhololo_night_4k.hdr", "parched_canal_4k.hdr"]
 SPDX-License-Identifier = "CC0-1.0"
 provenance = "verified"
-source_url = "https://polyhaven.com/"
+source_url = "https://polyhaven.com/a/dikhololo_night"
 source_title = "Poly Haven"
 attribution = "Poly Haven, https://polyhaven.com/. Attribution is a courtesy, not a requirement under CC0."
 ```
@@ -135,7 +135,7 @@ rules, so they are part of the format rather than an implementation detail:
 | `bunny.ply` | that one file |
 | `skybox/*.jpg` | the `.jpg` files directly in `skybox/`, not in subdirectories |
 | `skybox/**` | everything under `skybox/`, at any depth |
-| `sim_?.vtu` | one character, and never `/` |
+| `sim_?.vtu` | `sim_1.vtu` but not `sim_12.vtu`, and never across a `/` |
 
 `*` and `?` stop at a separator; only `**` crosses one. Prefer an explicit file
 list when a dataset has a handful of files, and `dir/**` when it owns a whole
@@ -144,8 +144,9 @@ validator will report them as uncovered.
 
 ## Licence requirements
 
-A new dataset needs a licence that permits redistribution from this repository,
-which is Apache-2.0, and from PyVista, which is MIT. It normally also needs to
+A new dataset needs a licence that permits redistribution from this repository
+and from PyVista, which is MIT. The root `LICENSE` here is Apache-2.0 and
+covers the tooling and the imported VTK Examples material, not `Data/`. It normally also needs to
 permit commercial use. Non-commercial licences
 (CC BY-NC and its variants, "research use only", "personal use only") are
 accepted only with explicit maintainer approval, and their `[license.*]` table
