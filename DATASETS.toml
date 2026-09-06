@@ -952,11 +952,21 @@ they follow into this derivative and are recorded here instead.
 [[dataset]]
 name = "crater"
 title = "Mount Ruapehu crater"
-description = "Fifteen-metre digital elevation model of the Mount Ruapehu crater in New Zealand Transverse Mercator, with a matching GeoTIFF orthophoto."
-path = ["Ruapehu_mag_dem_15m_NZTM.vtk", "BJ34_GeoTifv1-04_crater_clip.tif"]
+description = "Fifteen-metre digital elevation model of the Mount Ruapehu crater in New Zealand Transverse Mercator."
+path = ["Ruapehu_mag_dem_15m_NZTM.vtk"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "unknown"
-notes = "Added in October 2019 with the commit message \"add crater dataset\" and no recorded source. The file names suggest a New Zealand government survey product, much of which is published under CC BY 4.0, but the specific dataset was not identified, so the terms are undetermined."
+notes = """
+Added in October 2019 with the commit message "add crater dataset" and no
+recorded source. The grid is 1400 by 1200 at 15 metres, origin 1810000 by
+5640000 in NZTM2000, written by Golden Software Surfer. Its companion
+GeoTIFF was identified as a LINZ Topo50 clip and moved to the
+`ruapehu_topo50` entry; this elevation model was not, and no New Zealand
+product matching that grid was found.
+
+The PyVista pull request that introduced the example thanks @craigmillernz
+for it, so the contributor is known even though the data's origin is not.
+"""
 
 [[dataset]]
 name = "cubemap_debug"
@@ -3432,6 +3442,38 @@ origin_url = "https://github.com/sampotter"
 origin_title = "Sam Potter"
 authors = ["Sam Potter"]
 notes = "Contributed by Sam Potter for the PyVista documentation. No licence was stated at the time of contribution, so the terms are undetermined."
+
+[[dataset]]
+name = "ruapehu_topo50"
+title = "Ruapehu Topo50 map clip"
+description = "Clip of the LINZ Topo50 map sheet covering the Mount Ruapehu crater, 1535 by 1772 pixels at 4.2333 metres."
+path = ["BJ34_GeoTifv1-04_crater_clip.tif"]
+SPDX-License-Identifier = "CC-BY-4.0"
+SPDX-FileCopyrightText = ["Land Information New Zealand"]
+provenance = "inferred"
+origin_url = "https://data.linz.govt.nz/layer/50767-nz-topo50-maps/"
+origin_title = "LINZ, NZ Topo50 Maps"
+authors = ["Land Information New Zealand"]
+attribution = "Sourced from the LINZ Data Service and licensed for reuse under CC BY 4.0."
+modified = true
+modification = "Clipped from the full map sheet to the crater."
+notes = """
+The GeoTIFF names its projection as "New Zealand Transverse Mercator 2000;
+NZGD 2000", ties to easting 1817997.5 and northing 5652503.0 — beside
+Ruapehu's crater — and has a pixel scale of 4.2333 metres, which is exactly
+1:50,000 at 300 dpi, the resolution LINZ publishes Topo50 rasters at. The
+filename follows LINZ's `<sheet>_GeoTifv<version>` convention, and BJ34 is
+the Topo50 sheet covering Ruapehu.
+
+The LINZ Data Service reports the layer's licence through its API:
+
+    curl -s "https://data.linz.govt.nz/services/api/v1/layers/50767/"
+    # "license": {"title": "Creative Commons Attribution 4.0 International", ...}
+
+Inferred rather than verified: the identification rests on the projection,
+the tiepoint, the pixel scale and the filename together, not on a statement
+by whoever clipped it.
+"""
 
 [[dataset]]
 name = "sample_gif"
