@@ -558,7 +558,7 @@ a product for sale should contact Stanford or substitute another mesh.
 [[dataset]]
 name = "bunny_export"
 title = "Stanford Bunny (time series)"
-description = "Sixty-four-step animation of the Stanford Bunny, written as one VTK XML PolyData file per time step. Used to exercise time-series readers and exporters."
+description = "Actor and property export of the Stanford Bunny: a multi-block collection plus 64 VTK XML PolyData files that all carry the same mesh and differ only in their camera, actor and property field data. Used to exercise scene exporters."
 path = ["ExportBunny.vtp", "ExportBunny/**"]
 SPDX-License-Identifier = "LicenseRef-StanfordScanningRepository"
 SPDX-FileCopyrightText = ["Stanford University Computer Graphics Laboratory"]
@@ -569,7 +569,7 @@ collection = "stanford-3d-scanning"
 attribution = "Stanford Computer Graphics Laboratory."
 redistributed_from = "https://gitlab.kitware.com/vtk/vtk-examples"
 modified = true
-modification = "Derived from `bunny.ply` and exported as a 64-step time series."
+modification = "Exported from the mesh in `Bunny.vtp`, once per camera and property state."
 notes = """
 The Stanford conditions of use permit free redistribution and research use
 but exclude commercial use without permission from the Stanford Computer
