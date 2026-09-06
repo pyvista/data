@@ -2768,7 +2768,7 @@ references = [
 [[dataset]]
 name = "parallel_exodus_can"
 title = "Crushed can, parallel Exodus"
-description = "Four-partition parallel Exodus II result for a can being crushed, with matching Nemesis partition files."
+description = "Crushed can simulation written as four Exodus II files, one per partition, carrying the Nemesis I parallel-decomposition metadata."
 path = ["ParallelExodus/**"]
 SPDX-License-Identifier = "BSD-3-Clause"
 SPDX-FileCopyrightText = ["1993-2015 Ken Martin, Will Schroeder, Bill Lorensen"]
@@ -2777,6 +2777,7 @@ source_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 source_title = "VTK Data"
 collection = "vtk-data"
 attribution = "VTK Data. Copyright (c) 1993-2015 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
+notes = "The Nemesis variables — `num_processors`, `num_int_elem`, `num_bor_node`, the communication maps — are written into `can.e.4.0` through `can.e.4.3` themselves. There are no separate Nemesis files."
 
 [[dataset]]
 name = "paraview_pvd"
