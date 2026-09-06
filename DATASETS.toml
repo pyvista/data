@@ -235,12 +235,6 @@ Whether that boilerplate is meant to govern the sample downloads is arguable,
 but no grant of redistribution rights exists anywhere on the site, so the
 terms are recorded as undetermined. Downstream users, especially commercial
 ones, should contact Laser Design or substitute another mesh.
-
-This file is byte-identical to `cth.vtr`; the VTK Data copy predates the VTK
-Examples import, so both carry VTK Data's licence.
-
-This file is byte-identical to `multicomb_0.vts`; the VTK Data copy predates the VTK
-Examples import, so both carry VTK Data's licence.
 """
 
 [[dataset]]
@@ -2983,13 +2977,7 @@ source_title = "VTK Data"
 collection = "vtk-data"
 redistributed_from = "https://github.com/lorensen/VTKExamples"
 attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
-notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
-"""
+notes = "Byte-identical to `cth.vtr`, which came from the VTK Data collection and predates the VTK Examples import that brought this copy in. Both carry VTK Data's licence."
 
 [[dataset]]
 name = "reservoir"
@@ -3333,13 +3321,7 @@ source_title = "VTK Data"
 collection = "vtk-data"
 redistributed_from = "https://github.com/lorensen/VTKExamples"
 attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
-notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
-"""
+notes = "Byte-identical to `multicomb_0.vts`, which came from the VTK Data collection and predates the VTK Examples import that brought this copy in. Both carry VTK Data's licence."
 
 [[dataset]]
 name = "tango_icons"
