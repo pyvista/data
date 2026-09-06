@@ -27,7 +27,8 @@ DATASET_OPTIONAL = (
     'SPDX-FileCopyrightText', 'origin_url', 'origin_title', 'collection', 'authors',
     'attribution', 'redistributed_from', 'modified', 'modification', 'notes', 'references',
 )
-LICENSE_REQUIRED = ('title', 'url', 'file', 'commercial_use', 'attribution_required', 'share_alike')
+LICENSE_REQUIRED = ('title', 'url', 'file', 'text_source', 'commercial_use',
+                    'attribution_required', 'share_alike')
 COLLECTION_REQUIRED = ('title', 'url', 'description')
 
 FORBIDDEN_STEMS = {
@@ -259,6 +260,10 @@ def check_license_tables(doc: dict, problems: Problems) -> None:
                 problems.add(where, f'missing required key `{field}`',
                              f'Add `{field}` to the [license.{key}] table. See '
                              'an existing licence table for the shape.')
+        if 'text_source' in table and not str(table['text_source']).strip():
+            problems.add(where, '`text_source` is empty',
+                         'Say where the text in `file` came from: the URL you copied it\n'
+                         'from, or a sentence saying it was written for this repository.')
         path = table.get('file')
         if path and not (ROOT / path).is_file():
             problems.add(where, f'`file` points at {path}, which does not exist',

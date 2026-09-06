@@ -29,6 +29,7 @@ commercial_use = true
 attribution_required = true
 share_alike = false
 file = "LICENSES/Apache-2.0.txt"
+text_source = "https://spdx.org/licenses/Apache-2.0.json"
 
 [license."BSD-2-Clause"]
 title = "BSD 2-Clause \"Simplified\" License"
@@ -37,6 +38,7 @@ commercial_use = true
 attribution_required = true
 share_alike = false
 file = "LICENSES/BSD-2-Clause.txt"
+text_source = "https://spdx.org/licenses/BSD-2-Clause.json"
 
 [license."BSD-3-Clause"]
 title = "BSD 3-Clause \"New\" or \"Revised\" License"
@@ -45,6 +47,7 @@ commercial_use = true
 attribution_required = true
 share_alike = false
 file = "LICENSES/BSD-3-Clause.txt"
+text_source = "https://spdx.org/licenses/BSD-3-Clause.json"
 
 [license."CC-BY-3.0"]
 title = "Creative Commons Attribution 3.0 Unported"
@@ -53,6 +56,7 @@ commercial_use = true
 attribution_required = true
 share_alike = false
 file = "LICENSES/CC-BY-3.0.txt"
+text_source = "https://spdx.org/licenses/CC-BY-3.0.json"
 
 [license."CC-BY-4.0"]
 title = "Creative Commons Attribution 4.0 International"
@@ -61,6 +65,7 @@ commercial_use = true
 attribution_required = true
 share_alike = false
 file = "LICENSES/CC-BY-4.0.txt"
+text_source = "https://spdx.org/licenses/CC-BY-4.0.json"
 
 [license."CC-BY-SA-4.0"]
 title = "Creative Commons Attribution Share Alike 4.0 International"
@@ -69,6 +74,7 @@ commercial_use = true
 attribution_required = true
 share_alike = true
 file = "LICENSES/CC-BY-SA-4.0.txt"
+text_source = "https://spdx.org/licenses/CC-BY-SA-4.0.json"
 
 [license."CC-BY-SA-2.5"]
 title = "Creative Commons Attribution Share Alike 2.5 Generic"
@@ -77,6 +83,7 @@ commercial_use = true
 attribution_required = true
 share_alike = true
 file = "LICENSES/CC-BY-SA-2.5.txt"
+text_source = "https://spdx.org/licenses/CC-BY-SA-2.5.json"
 
 [license."CC-BY-SA-3.0"]
 title = "Creative Commons Attribution Share Alike 3.0 Unported"
@@ -85,6 +92,7 @@ commercial_use = true
 attribution_required = true
 share_alike = true
 file = "LICENSES/CC-BY-SA-3.0.txt"
+text_source = "https://spdx.org/licenses/CC-BY-SA-3.0.json"
 
 [license."CC0-1.0"]
 title = "Creative Commons Zero v1.0 Universal"
@@ -93,6 +101,7 @@ commercial_use = true
 attribution_required = false
 share_alike = false
 file = "LICENSES/CC0-1.0.txt"
+text_source = "https://spdx.org/licenses/CC0-1.0.json"
 
 [license."LicenseRef-DbCL-1.0"]
 title = "Open Data Commons Database Contents License v1.0"
@@ -101,6 +110,7 @@ commercial_use = true
 attribution_required = false
 share_alike = false
 file = "LICENSES/LicenseRef-DbCL-1.0.txt"
+text_source = "https://opendatacommons.org/licenses/dbcl/1-0/"
 
 [license."LicenseRef-NASA-Media"]
 title = "NASA media usage guidelines"
@@ -109,6 +119,7 @@ commercial_use = true
 attribution_required = true
 share_alike = false
 file = "LICENSES/LicenseRef-NASA-Media.txt"
+text_source = "https://www.nasa.gov/nasa-brand-center/images-and-media/"
 
 [license."LicenseRef-PublicDomain"]
 title = "Public domain"
@@ -117,6 +128,7 @@ commercial_use = true
 attribution_required = false
 share_alike = false
 file = "LICENSES/LicenseRef-PublicDomain.txt"
+text_source = "Written for this repository; the file states what it is based on."
 
 [license."LicenseRef-SimScale-PublicProject"]
 title = "SimScale public project data"
@@ -125,6 +137,7 @@ commercial_use = true
 attribution_required = false
 share_alike = false
 file = "LICENSES/LicenseRef-SimScale-PublicProject.txt"
+text_source = "https://www.simscale.com/terms-and-conditions/"
 
 [license."LicenseRef-StanfordScanningRepository"]
 title = "Stanford 3D Scanning Repository conditions of use"
@@ -133,6 +146,7 @@ commercial_use = false
 attribution_required = true
 share_alike = false
 file = "LICENSES/LicenseRef-StanfordScanningRepository.txt"
+text_source = "http://graphics.stanford.edu/data/3Dscanrep/"
 
 [license."LicenseRef-TrainingImagesLibrary"]
 title = "Training Images Library, research use only"
@@ -141,6 +155,7 @@ commercial_use = false
 attribution_required = false
 share_alike = false
 file = "LICENSES/LicenseRef-TrainingImagesLibrary.txt"
+text_source = "http://web.archive.org/web/20150509032421id_/http://www.trainingimages.org/training-images-library.html"
 
 [license."LicenseRef-Unknown"]
 title = "Undetermined license"
@@ -149,6 +164,7 @@ commercial_use = false
 attribution_required = false
 share_alike = false
 file = "LICENSES/LicenseRef-Unknown.txt"
+text_source = "Written for this repository; the file states what it is based on."
 
 [license."LicenseRef-UtahTeapot-PublicDomainByConvention"]
 title = "Utah Teapot, public domain by convention"
@@ -157,6 +173,7 @@ commercial_use = true
 attribution_required = false
 share_alike = false
 file = "LICENSES/LicenseRef-UtahTeapot-PublicDomainByConvention.txt"
+text_source = "https://en.wikipedia.org/wiki/Utah_teapot"
 
 [license."LicenseRef-Viewpoint-DataLabs"]
 title = "Viewpoint Animation Engineering dataset terms"
@@ -165,6 +182,7 @@ commercial_use = false
 attribution_required = true
 share_alike = false
 file = "LICENSES/LicenseRef-Viewpoint-DataLabs.txt"
+text_source = "Written for this repository; the file states what it is based on."
 
 [license."OFL-1.1"]
 title = "SIL Open Font License 1.1"
@@ -173,6 +191,7 @@ commercial_use = true
 attribution_required = true
 share_alike = true
 file = "LICENSES/OFL-1.1.txt"
+text_source = "https://spdx.org/licenses/OFL-1.1.json"
 
 [license."MIT"]
 title = "MIT License"
@@ -181,6 +200,7 @@ commercial_use = true
 attribution_required = true
 share_alike = false
 file = "LICENSES/MIT.txt"
+text_source = "https://spdx.org/licenses/MIT.json"
 
 [license."ODbL-1.0"]
 title = "Open Data Commons Open Database License v1.0"
@@ -189,6 +209,7 @@ commercial_use = true
 attribution_required = true
 share_alike = true
 file = "LICENSES/ODbL-1.0.txt"
+text_source = "https://spdx.org/licenses/ODbL-1.0.json"
 
 [collection."ggg-benchmark-sfm"]
 title = "GGG-BenchmarkSfM"

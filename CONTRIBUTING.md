@@ -351,6 +351,29 @@ places to look.
 
 ## Adding a licence
 
+Every `[license.*]` table records `text_source`: where the text in `file`
+came from. For a licence SPDX lists, that is its entry in the SPDX License
+List, and the text in `LICENSES/` is the canonical text unchanged. Anyone can
+check that for themselves:
+
+```bash
+python - <<'EOF'
+import json, pathlib, re, urllib.request
+ident = 'CC-BY-4.0'
+mine = pathlib.Path(f'LICENSES/{ident}.txt').read_text()
+with urllib.request.urlopen(f'https://spdx.org/licenses/{ident}.json') as r:
+    canon = json.load(r)['licenseText']
+norm = lambda t: re.sub(r'\s+', ' ', t).strip().lower()
+print('identical' if norm(mine) == norm(canon) else 'DIFFERS')
+EOF
+```
+
+All twelve SPDX-listed texts here pass that check. The nine `LicenseRef-`
+files are not licence texts: SPDX does not list those terms, so each one
+states the terms in its own words, names its source at the top, and quotes
+the wording it is based on. `text_source` points at that source.
+
+
 If your dataset's licence is not already in `DATASETS.toml`:
 
 ```toml
