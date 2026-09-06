@@ -21,7 +21,7 @@ This assumes the file has been uploaded to the `Data` directory as
 [`DATASETS.toml`](DATASETS.toml) describes every file under `Data/`: what it
 is, where it came from, who made it, what licence it carries and what changed
 between the source and the copy here. PyVista reads it and publishes it in the
-[Dataset Gallery](https://docs.pyvista.org/api/examples/dataset-gallery)
+[Dataset Gallery](https://docs.pyvista.org/api/examples/dataset_gallery)
 alongside each dataset.
 
 Read a single dataset's record with:

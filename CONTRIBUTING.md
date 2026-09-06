@@ -3,7 +3,7 @@
 Every file under `Data/` is described by exactly one `[[dataset]]` block in
 [`DATASETS.toml`](DATASETS.toml). That file is the single source of truth for
 what each dataset is, where it came from and how it may be used. PyVista reads
-it and publishes it in the [Dataset Gallery](https://docs.pyvista.org/api/examples/dataset-gallery),
+it and publishes it in the [Dataset Gallery](https://docs.pyvista.org/api/examples/dataset_gallery),
 so anything you record here is shown to everyone who downloads the data.
 
 `tools/validate_datasets.py` checks the file on every pull request. Run it
