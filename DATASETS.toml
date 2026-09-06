@@ -3358,13 +3358,26 @@ path = [
     "skybox2-posy.jpg",
     "skybox2-posz.jpg",
 ]
-SPDX-License-Identifier = "Apache-2.0"
-provenance = "inferred"
-source_url = "https://github.com/lorensen/VTKExamples"
-source_title = "lorensen/VTKExamples"
-collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
-notes = "Added in July 2020 with the commit message \"add skybox2\" and no recorded source, but all six files are byte-identical to `src/Testing/Data/Skyboxes/skybox2/` in the VTK Examples repository, which is where `skybox_lorensen` and `skybox_nz` also come from. They carry that collection's licence."
+SPDX-License-Identifier = "CC-BY-3.0"
+provenance = "verified"
+source_url = "http://www.humus.name/index.php?page=Textures"
+source_title = "Humus texture library"
+authors = ["Emil Persson"]
+attribution = "Emil Persson (Humus), http://www.humus.name, licensed under Creative Commons Attribution 3.0 Unported."
+redistributed_from = "https://gitlab.kitware.com/vtk/vtk-examples/-/tree/master/src/Testing/Data/Skyboxes/skybox2"
+notes = """
+Added in July 2020 with the commit message "add skybox2" and no recorded
+source. All six faces are byte-identical to VTK's `Testing/Data/skybox/`,
+where VTK ships a `readme.txt` alongside them naming the author and the
+licence: "This is the work of Emil Persson, aka Humus. http://www.humus.name
+... This work is licensed under a Creative Commons Attribution 3.0 Unported
+License."
+
+The route into this repository was the VTK Examples import, but a collection
+cannot relicense a third party's work, so the CC BY 3.0 and the credit to
+Persson are what bind. The `cubemap_park` entry carries the same author and
+licence, read out of a `readme.txt` inside its own archive.
+"""
 
 [[dataset]]
 name = "skybox_lorensen"
@@ -3377,6 +3390,12 @@ source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
+notes = """
+This is the `skybox1` set, which has no `readme` beside it anywhere upstream.
+The unrelated `skybox2` set turned out to be Emil Persson's under CC BY 3.0,
+so treat the Apache-2.0 here as the redistributor's licence rather than as
+evidence about who made the images.
+"""
 
 [[dataset]]
 name = "skybox_nz"
@@ -3395,6 +3414,11 @@ repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
 author of the data itself could not be established.
+
+This is the `skybox1` set, which has no `readme` beside it anywhere upstream.
+The unrelated `skybox2` set turned out to be Emil Persson's under CC BY 3.0,
+so treat the Apache-2.0 here as the redistributor's licence rather than as
+evidence about who made the images.
 """
 
 [[dataset]]
