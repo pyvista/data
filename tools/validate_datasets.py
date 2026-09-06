@@ -24,7 +24,7 @@ UNKNOWN_LICENSE = 'LicenseRef-Unknown'
 
 DATASET_REQUIRED = ('name', 'title', 'description', 'path', 'SPDX-License-Identifier', 'provenance')
 DATASET_OPTIONAL = (
-    'SPDX-FileCopyrightText', 'source_url', 'source_title', 'collection', 'authors',
+    'SPDX-FileCopyrightText', 'origin_url', 'origin_title', 'collection', 'authors',
     'attribution', 'redistributed_from', 'modified', 'modification', 'notes', 'references',
 )
 LICENSE_REQUIRED = ('title', 'url', 'file', 'commercial_use', 'attribution_required', 'share_alike')
@@ -154,7 +154,7 @@ def check_forbidden_files(files: list[str], problems: Problems) -> None:
                 f'Data/{path}',
                 'per-dataset metadata files are not allowed under Data/',
                 'Delete this file and put its content in the dataset\'s [[dataset]] block\n'
-                'in DATASETS.toml instead: the source in `source_url`, the licence in\n'
+                'in DATASETS.toml instead: the source in `origin_url`, the licence in\n'
                 '`SPDX-License-Identifier`, the required credit in `attribution`, any\n'
                 'processing in `modification`, and everything else in `notes`.',
             )
@@ -214,7 +214,7 @@ def check_shape(doc: dict, problems: Problems) -> bool:
         if not isinstance(entry, dict):
             continue
         for field in ('name', 'title', 'description', 'SPDX-License-Identifier',
-                      'provenance', 'collection', 'source_url', 'attribution'):
+                      'provenance', 'collection', 'origin_url', 'attribution'):
             value = entry.get(field)
             if value is not None and not isinstance(value, str):
                 problems.add(f'DATASETS.toml [[dataset]] #{entry.get("name") or "?"}',
@@ -325,10 +325,10 @@ def check_dataset(entry: dict, index: int, doc: dict, problems: Problems) -> Non
                      f'{UNKNOWN_LICENSE}, must say in `notes` what was established, what\n'
                      'was not, and what a downstream user should do about it.')
 
-    if provenance != 'unknown' and not entry.get('source_url'):
-        problems.add(where, '`source_url` is missing',
+    if provenance != 'unknown' and not entry.get('origin_url'):
+        problems.add(where, '`origin_url` is missing',
                      'Record where the data came from. Only a dataset with\n'
-                     '`provenance = "unknown"` may omit `source_url`.')
+                     '`provenance = "unknown"` may omit `origin_url`.')
 
     requires_credit = any(known.get(t, {}).get('attribution_required') for t in terms)
     if requires_credit and not entry.get('attribution'):
@@ -394,7 +394,7 @@ def check_coverage(doc: dict, files: list[str], problems: Problems) -> None:
             f'  path = {suggested_path(parent, members)}\n'
             '  SPDX-License-Identifier = "CC-BY-4.0"\n'
             '  provenance = "verified"\n'
-            '  source_url = "https://example.org/where-you-got-it"\n'
+            '  origin_url = "https://example.org/where-you-got-it"\n'
             '  attribution = "Credit line the licence requires."\n'
             '\n'
             'Keep the blocks sorted by `name`.',

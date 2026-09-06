@@ -30,7 +30,7 @@ It needs Python 3.11 or newer and nothing else.
 
 Do **not** add a `LICENSE`, `README`, `CITATION` or `.license` file under
 `Data/`. Those are rejected by CI. Everything they used to hold has a field in
-`DATASETS.toml`: the source goes in `source_url`, the credit line in
+`DATASETS.toml`: the source goes in `origin_url`, the credit line in
 `attribution`, the processing you applied in `modification`, the citation in
 `references`, and anything else in `notes`.
 
@@ -44,8 +44,8 @@ description = "Triangulated surface mesh of a grey nurse shark, in STL format."
 path = ["grey_nurse_shark/**"]
 SPDX-License-Identifier = "CC-BY-SA-3.0"
 provenance = "verified"
-source_url = "https://www.thingiverse.com/thing:137954"
-source_title = "Thingiverse thing:137954"
+origin_url = "https://www.thingiverse.com/thing:137954"
+origin_title = "Thingiverse thing:137954"
 collection = "thingiverse"
 authors = ["Autodesk"]
 attribution = "Grey Nurse Shark, uploaded by rogerpeng1 (https://www.thingiverse.com/thing:137954), licensed under CC BY-SA."
@@ -63,8 +63,8 @@ description = "High dynamic range equirectangular environment maps of a night sk
 path = ["dikhololo_night_4k.hdr", "parched_canal_4k.hdr"]
 SPDX-License-Identifier = "CC0-1.0"
 provenance = "verified"
-source_url = "https://polyhaven.com/a/dikhololo_night"
-source_title = "Poly Haven"
+origin_url = "https://polyhaven.com/a/dikhololo_night"
+origin_title = "Poly Haven"
 attribution = "Poly Haven, https://polyhaven.com/. Attribution is a courtesy, not a requirement under CC0."
 ```
 
@@ -85,7 +85,7 @@ attribution = "Poly Haven, https://polyhaven.com/. Attribution is a courtesy, no
 
 | Field | Required when |
 | --- | --- |
-| `source_url` | Always, unless `provenance = "unknown"`. |
+| `origin_url` | Always, unless `provenance = "unknown"`. |
 | `attribution` | The licence's `attribution_required` is `true`. |
 | `modification` | `modified = true`. |
 | `notes` | `provenance` is not `"verified"`, or the licence is `LicenseRef-Unknown`. |
@@ -95,12 +95,30 @@ attribution = "Poly Haven, https://polyhaven.com/. Attribution is a courtesy, no
 | Field | Type | Meaning |
 | --- | --- | --- |
 | `SPDX-FileCopyrightText` | array of strings | Copyright notices, in [REUSE](https://reuse.software) form. |
-| `source_title` | string | Human-readable name of the source, shown next to the link. |
+| `origin_title` | string | Human-readable name of the origin, shown next to the link. |
 | `collection` | string | Key into a `[collection.*]` table, for upstreams that several datasets share. |
 | `authors` | array of strings | Who made the data. |
-| `redistributed_from` | string | URL of an intermediate redistributor, when the file reached this repository through one. |
+| `redistributed_from` | string | URL this copy actually came through, when that is not `origin_url`. |
 | `modified` | boolean | Whether the file differs from what the source published. |
 | `references` | array of tables | Papers to cite: `{ citation = "...", doi = "...", url = "..." }`. `citation` is required, the rest optional. |
+
+### `origin_url` is not a download link
+
+`origin_url` is the furthest upstream point you could establish: the page
+that publishes the work and states its terms. It is not where this repository
+serves the file from, and it usually is not a link to a file at all — of the
+188 entries that have one, 186 point at a page about the work.
+
+When the copy here came through somewhere else, `redistributed_from` records
+that route and `origin_url` still names the origin. The Stanford bunny's
+origin is the Stanford scanning repository; it reached this repository
+through the VTK Examples import, and both are written down.
+
+Where the trail runs out at a redistributor, `origin_url` names the
+redistributor and `provenance` says `inferred`, because that is genuinely as
+far back as anyone got. 116 entries are in that position today, nearly all of
+them pointing at VTK Data or the VTK Examples. Do not dress one of those up
+as an originator.
 
 ## Choosing a `provenance` value
 
@@ -232,7 +250,7 @@ third party's work.
 ### Check a URL through an API, not a plain request
 
 Several hosts answer `403` to scripts, which looks like "blocked" and hides a
-genuine `404`. One dead `source_url` survived three review passes on 65
+genuine `404`. One dead `origin_url` survived three review passes on 65
 entries for exactly this reason:
 
 ```bash

@@ -37,7 +37,7 @@ with urllib.request.urlopen(url) as response:
 
 by_name = {entry['name']: entry for entry in metadata['dataset']}
 shark = by_name['grey_nurse_shark']
-print(shark['SPDX-License-Identifier'], shark['source_url'])
+print(shark['SPDX-License-Identifier'], shark['origin_url'])
 ```
 
 The licensing keys borrow their names and meaning from the
