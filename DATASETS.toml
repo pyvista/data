@@ -3341,13 +3341,26 @@ title = "Tango icon montage"
 description = "Montage of icons from the Tango Icon Library, used to exercise the icon glyph filter."
 path = ["Tango/**"]
 SPDX-License-Identifier = "CC-BY-SA-2.5"
-provenance = "verified"
-source_url = "https://web.archive.org/web/2018/http://tango.freedesktop.org/Tango_Icon_Library"
+provenance = "inferred"
+source_url = "https://web.archive.org/web/2010/http://tango.freedesktop.org/Tango_Desktop_Project"
 source_title = "Tango Desktop Project, Tango Icon Library 0.8.1"
 attribution = "Tango Icon Library, Tango Desktop Project, licensed under Creative Commons Attribution-ShareAlike 2.5."
 modified = true
 modification = "A subset of the icons was montaged into a single image."
-notes = "ShareAlike propagates: a downstream work derived from this image must be shared under the same licence."
+notes = """
+CC BY-SA 2.5 applied to the Tango Icon Library up to version 0.8.1, which is
+the version VTK's own README named when it montaged these icons; that README
+is the only record of which version the montage came from, so the licence is
+inferred rather than read from a page describing this artwork.
+
+From 0.8.90 the project released the base icon theme to the public domain:
+"The Tango base icon theme is released to the Public Domain ... we ask that
+you still please attribute the Tango Desktop Project." A downstream user who
+needs the same icons unencumbered should take them from a release after
+0.8.1 rather than from here.
+
+ShareAlike propagates from the 2.5 terms recorded here.
+"""
 
 [[dataset]]
 name = "teapot"
@@ -3675,14 +3688,14 @@ name = "victorian_goblet_face_illusion"
 title = "Victorian goblet face illusion"
 description = "Surface mesh of a goblet whose silhouette reads as two facing profiles, a solid model of the Rubin vase illusion."
 path = ["Victorian_Goblet_face_illusion/**"]
-SPDX-License-Identifier = "CC-BY-4.0"
-provenance = "inferred"
+SPDX-License-Identifier = "CC-BY-3.0"
+provenance = "verified"
 source_url = "https://www.thingiverse.com/thing:1541337"
 source_title = "Thingiverse thing:1541337"
 collection = "thingiverse"
 authors = ["Alzibiff"]
-attribution = "Victorian Goblet face illusion by Alzibiff, licensed under Creative Commons - Attribution."
-notes = "The Thingiverse page states \"Creative Commons - Attribution\" without a version. CC BY 4.0 is recorded here because the model was published on 5 May 2016, after CC 4.0 was finalised."
+attribution = "Victorian Goblet face illusion by Alzibiff, licensed under CC BY 3.0."
+notes = "The page labels the licence \"Creative Commons - Attribution\" without a version in its text, but its `rel=\"license\"` link names creativecommons.org/licenses/by/3.0/. Thingiverse mapped that label to 3.0 for 2016 uploads and to 4.0 by 2021, so the version is read from the link rather than inferred from the date."
 
 [[dataset]]
 name = "vtk_data_files"
