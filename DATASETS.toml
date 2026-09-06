@@ -2780,6 +2780,31 @@ established here.
 """
 
 [[dataset]]
+name = "omf_wolfpass"
+title = "OMF Wolfpass project"
+description = "Open Mining Format project file holding the Wolfpass block model, drillholes and topography."
+path = ["test_file.omf"]
+SPDX-License-Identifier = "MIT"
+SPDX-FileCopyrightText = ["2019 Global Mining Guidelines Group"]
+provenance = "verified"
+source_url = "https://github.com/gmggroup/omf"
+source_title = "Open Mining Format"
+authors = ["Global Mining Guidelines Group"]
+attribution = "OMF test file, Copyright (c) 2019 Global Mining Guidelines Group, MIT License."
+redistributed_from = "https://github.com/pyvista/omfvista/blob/main/assets/test_file.omf"
+notes = """
+The same file sits in `pyvista/omfvista` under `assets/`, with the same git
+blob hash `bac26dfb5e72da633390e216cc97565b42a8450e`, and that repository
+ships `assets/test_file_LICENSE.md` beside it: "This file is under the
+following MIT license from the Global Mining Guidelines Group ... Copyright
+(c) 2019 Global Mining Guidelines Group."
+
+The project inside names itself `Wolfpass`. VTK ships the same bytes as
+`Testing/Data/omf-test-file.omf`, but omfvista is the route this copy took
+and the only one that states terms.
+"""
+
+[[dataset]]
 name = "openfoam_cavity"
 title = "OpenFOAM lid-driven cavity"
 description = "Two zipped OpenFOAM cases: the lid-driven cavity tutorial solved with icoFoam, and a 64-bit-float Xoodles case."
@@ -2848,6 +2873,32 @@ source_title = "VTK Data"
 collection = "vtk-data"
 attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = "This is VTK's own reader test input: `Data/sphere_points.vdb`, named by `IO/OpenVDB/Testing/CMakeLists.txt` and read by `TestOpenVDBReader.cxx`. The file's own header records `creator: Houdini/SOP_OpenVDB_Write`."
+
+[[dataset]]
+name = "osmnx_street_graph"
+title = "Holzgerlingen street graph"
+description = "Pickled OSMnx street network of Holzgerlingen, Germany, within 500 metres of the town centre."
+path = ["osmnx_graph.p"]
+SPDX-License-Identifier = "ODbL-1.0"
+SPDX-FileCopyrightText = ["OpenStreetMap contributors"]
+provenance = "verified"
+source_url = "https://www.openstreetmap.org/copyright"
+source_title = "OpenStreetMap"
+attribution = "Map data (c) OpenStreetMap contributors, licensed under the Open Database License (ODbL)."
+notes = """
+The pickle records how it was made — `created_with: OSMnx 1.1.1`,
+`crs: epsg:4326`, `osmid` on every edge — and the PyVista pull request that
+added it published the exact call:
+
+    graph = ox.graph_from_address('Holzgerlingen DE', dist=500, network_type='drive')
+
+OSMnx queries OpenStreetMap, so the contents are OpenStreetMap's and carry
+the ODbL. Share-alike applies: a derived database must be offered under the
+same licence, and produced works must say where the data came from.
+
+The `download_osmnx_graph` loader this was made for has since been removed
+from PyVista, so nothing loads it today.
+"""
 
 [[dataset]]
 name = "owl"
@@ -3239,7 +3290,7 @@ notes = "Added in April 2019 with the commit message \"Add puppy\" and no record
 [[dataset]]
 name = "pvgeo_examples"
 title = "PVGeo example datasets"
-description = "Assorted geoscience example data added for PVGeo: a GPR line, an OMF project file, cleaned topography, an OSMnx street graph, a fault surface, GEBCO bathymetry surfaces, a Scripps pier time series, and elevation and RGB rasters."
+description = "Assorted geoscience example data added for PVGeo: a GPR line, cleaned topography, a fault surface, GEBCO bathymetry surfaces, a Scripps pier time series, and elevation and RGB rasters."
 path = [
     "Elevation.tif",
     "Sio020320.csv",
@@ -3252,10 +3303,8 @@ path = [
     "gravi.txt",
     "lsm_4x5.nc",
     "opal_mound_fault.vtk",
-    "osmnx_graph.p",
     "points3d.txt",
     "surf.txt",
-    "test_file.omf",
     "topo_clean.vtk",
     "esri_grid.dem.zip",
 ]
