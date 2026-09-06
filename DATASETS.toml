@@ -214,11 +214,19 @@ source_title = "Laser Design sample files"
 collection = "laser-design"
 notes = """
 Laser Design Inc. publishes these scans in its public sample-file archive to
-demonstrate its scanning services. The archive states no licence, copyright
-notice or terms of use, and no terms were found elsewhere on the site, so the
-terms under which the file may be redistributed are undetermined. Downstream
-users, especially commercial ones, should contact Laser Design or substitute
-another mesh.
+demonstrate its scanning services. The archive page states no licence of its
+own, and the site footer asserts "(c) 2026 CyberOptics Corporation. All Rights
+Reserved."
+
+The "Terms of Use" its footer links to, at cyberoptics.com, grants permission
+"to temporarily download one copy of the materials ... for personal,
+non-commercial transitory viewing only", and says that under that licence you
+may not "use the materials for any commercial purpose", or "transfer the
+materials to another person or 'mirror' the materials on any other server".
+Whether that boilerplate is meant to govern the sample downloads is arguable,
+but no grant of redistribution rights exists anywhere on the site, so the
+terms are recorded as undetermined. Downstream users, especially commercial
+ones, should contact Laser Design or substitute another mesh.
 """
 
 [[dataset]]
@@ -607,7 +615,7 @@ authors = ["downerhouse"]
 attribution = "PiBoy DMG Custom Rear Case With Ventilation by downerhouse (https://www.thingiverse.com/thing:4947746), licensed under CC BY 4.0."
 modified = true
 modification = "Converted to VTK XML PolyData."
-notes = "The Creative Commons variant recorded here was inherited from earlier PyVista documentation and has not been re-verified against the Thingiverse page, which labels licences by name rather than by version. Confirm the variant at the source before relying on it commercially."
+notes = "The Thingiverse page labels licences by name rather than by version, so CC BY 4.0 is read from the licence URL in the page's own structured data rather than from the label."
 
 [[dataset]]
 name = "caffeine"
@@ -684,11 +692,19 @@ source_title = "Laser Design sample files"
 collection = "laser-design"
 notes = """
 Laser Design Inc. publishes these scans in its public sample-file archive to
-demonstrate its scanning services. The archive states no licence, copyright
-notice or terms of use, and no terms were found elsewhere on the site, so the
-terms under which the file may be redistributed are undetermined. Downstream
-users, especially commercial ones, should contact Laser Design or substitute
-another mesh.
+demonstrate its scanning services. The archive page states no licence of its
+own, and the site footer asserts "(c) 2026 CyberOptics Corporation. All Rights
+Reserved."
+
+The "Terms of Use" its footer links to, at cyberoptics.com, grants permission
+"to temporarily download one copy of the materials ... for personal,
+non-commercial transitory viewing only", and says that under that licence you
+may not "use the materials for any commercial purpose", or "transfer the
+materials to another person or 'mirror' the materials on any other server".
+Whether that boilerplate is meant to govern the sample downloads is arguable,
+but no grant of redistribution rights exists anywhere on the site, so the
+terms are recorded as undetermined. Downstream users, especially commercial
+ones, should contact Laser Design or substitute another mesh.
 """
 
 [[dataset]]
@@ -1088,11 +1104,19 @@ source_title = "Laser Design sample files"
 collection = "laser-design"
 notes = """
 Laser Design Inc. publishes these scans in its public sample-file archive to
-demonstrate its scanning services. The archive states no licence, copyright
-notice or terms of use, and no terms were found elsewhere on the site, so the
-terms under which the file may be redistributed are undetermined. Downstream
-users, especially commercial ones, should contact Laser Design or substitute
-another mesh.
+demonstrate its scanning services. The archive page states no licence of its
+own, and the site footer asserts "(c) 2026 CyberOptics Corporation. All Rights
+Reserved."
+
+The "Terms of Use" its footer links to, at cyberoptics.com, grants permission
+"to temporarily download one copy of the materials ... for personal,
+non-commercial transitory viewing only", and says that under that licence you
+may not "use the materials for any commercial purpose", or "transfer the
+materials to another person or 'mirror' the materials on any other server".
+Whether that boilerplate is meant to govern the sample downloads is arguable,
+but no grant of redistribution rights exists anywhere on the site, so the
+terms are recorded as undetermined. Downstream users, especially commercial
+ones, should contact Laser Design or substitute another mesh.
 """
 
 [[dataset]]
@@ -2132,11 +2156,19 @@ source_title = "Laser Design sample files"
 collection = "laser-design"
 notes = """
 Laser Design Inc. publishes these scans in its public sample-file archive to
-demonstrate its scanning services. The archive states no licence, copyright
-notice or terms of use, and no terms were found elsewhere on the site, so the
-terms under which the file may be redistributed are undetermined. Downstream
-users, especially commercial ones, should contact Laser Design or substitute
-another mesh.
+demonstrate its scanning services. The archive page states no licence of its
+own, and the site footer asserts "(c) 2026 CyberOptics Corporation. All Rights
+Reserved."
+
+The "Terms of Use" its footer links to, at cyberoptics.com, grants permission
+"to temporarily download one copy of the materials ... for personal,
+non-commercial transitory viewing only", and says that under that licence you
+may not "use the materials for any commercial purpose", or "transfer the
+materials to another person or 'mirror' the materials on any other server".
+Whether that boilerplate is meant to govern the sample downloads is arguable,
+but no grant of redistribution rights exists anywhere on the site, so the
+terms are recorded as undetermined. Downstream users, especially commercial
+ones, should contact Laser Design or substitute another mesh.
 """
 
 [[dataset]]
@@ -2203,11 +2235,19 @@ source_title = "Laser Design sample files"
 collection = "laser-design"
 notes = """
 Laser Design Inc. publishes these scans in its public sample-file archive to
-demonstrate its scanning services. The archive states no licence, copyright
-notice or terms of use, and no terms were found elsewhere on the site, so the
-terms under which the file may be redistributed are undetermined. Downstream
-users, especially commercial ones, should contact Laser Design or substitute
-another mesh.
+demonstrate its scanning services. The archive page states no licence of its
+own, and the site footer asserts "(c) 2026 CyberOptics Corporation. All Rights
+Reserved."
+
+The "Terms of Use" its footer links to, at cyberoptics.com, grants permission
+"to temporarily download one copy of the materials ... for personal,
+non-commercial transitory viewing only", and says that under that licence you
+may not "use the materials for any commercial purpose", or "transfer the
+materials to another person or 'mirror' the materials on any other server".
+Whether that boilerplate is meant to govern the sample downloads is arguable,
+but no grant of redistribution rights exists anywhere on the site, so the
+terms are recorded as undetermined. Downstream users, especially commercial
+ones, should contact Laser Design or substitute another mesh.
 """
 
 [[dataset]]
@@ -2628,11 +2668,19 @@ source_title = "Laser Design sample files"
 collection = "laser-design"
 notes = """
 Laser Design Inc. publishes these scans in its public sample-file archive to
-demonstrate its scanning services. The archive states no licence, copyright
-notice or terms of use, and no terms were found elsewhere on the site, so the
-terms under which the file may be redistributed are undetermined. Downstream
-users, especially commercial ones, should contact Laser Design or substitute
-another mesh.
+demonstrate its scanning services. The archive page states no licence of its
+own, and the site footer asserts "(c) 2026 CyberOptics Corporation. All Rights
+Reserved."
+
+The "Terms of Use" its footer links to, at cyberoptics.com, grants permission
+"to temporarily download one copy of the materials ... for personal,
+non-commercial transitory viewing only", and says that under that licence you
+may not "use the materials for any commercial purpose", or "transfer the
+materials to another person or 'mirror' the materials on any other server".
+Whether that boilerplate is meant to govern the sample downloads is arguable,
+but no grant of redistribution rights exists anywhere on the site, so the
+terms are recorded as undetermined. Downstream users, especially commercial
+ones, should contact Laser Design or substitute another mesh.
 """
 
 [[dataset]]
@@ -3500,11 +3548,19 @@ source_title = "Laser Design sample files"
 collection = "laser-design"
 notes = """
 Laser Design Inc. publishes these scans in its public sample-file archive to
-demonstrate its scanning services. The archive states no licence, copyright
-notice or terms of use, and no terms were found elsewhere on the site, so the
-terms under which the file may be redistributed are undetermined. Downstream
-users, especially commercial ones, should contact Laser Design or substitute
-another mesh.
+demonstrate its scanning services. The archive page states no licence of its
+own, and the site footer asserts "(c) 2026 CyberOptics Corporation. All Rights
+Reserved."
+
+The "Terms of Use" its footer links to, at cyberoptics.com, grants permission
+"to temporarily download one copy of the materials ... for personal,
+non-commercial transitory viewing only", and says that under that licence you
+may not "use the materials for any commercial purpose", or "transfer the
+materials to another person or 'mirror' the materials on any other server".
+Whether that boilerplate is meant to govern the sample downloads is arguable,
+but no grant of redistribution rights exists anywhere on the site, so the
+terms are recorded as undetermined. Downstream users, especially commercial
+ones, should contact Laser Design or substitute another mesh.
 """
 
 [[dataset]]
@@ -3561,11 +3617,19 @@ source_title = "Laser Design sample files"
 collection = "laser-design"
 notes = """
 Laser Design Inc. publishes these scans in its public sample-file archive to
-demonstrate its scanning services. The archive states no licence, copyright
-notice or terms of use, and no terms were found elsewhere on the site, so the
-terms under which the file may be redistributed are undetermined. Downstream
-users, especially commercial ones, should contact Laser Design or substitute
-another mesh.
+demonstrate its scanning services. The archive page states no licence of its
+own, and the site footer asserts "(c) 2026 CyberOptics Corporation. All Rights
+Reserved."
+
+The "Terms of Use" its footer links to, at cyberoptics.com, grants permission
+"to temporarily download one copy of the materials ... for personal,
+non-commercial transitory viewing only", and says that under that licence you
+may not "use the materials for any commercial purpose", or "transfer the
+materials to another person or 'mirror' the materials on any other server".
+Whether that boilerplate is meant to govern the sample downloads is arguable,
+but no grant of redistribution rights exists anywhere on the site, so the
+terms are recorded as undetermined. Downstream users, especially commercial
+ones, should contact Laser Design or substitute another mesh.
 """
 
 [[dataset]]
@@ -3992,11 +4056,19 @@ source_title = "Laser Design sample files"
 collection = "laser-design"
 notes = """
 Laser Design Inc. publishes these scans in its public sample-file archive to
-demonstrate its scanning services. The archive states no licence, copyright
-notice or terms of use, and no terms were found elsewhere on the site, so the
-terms under which the file may be redistributed are undetermined. Downstream
-users, especially commercial ones, should contact Laser Design or substitute
-another mesh.
+demonstrate its scanning services. The archive page states no licence of its
+own, and the site footer asserts "(c) 2026 CyberOptics Corporation. All Rights
+Reserved."
+
+The "Terms of Use" its footer links to, at cyberoptics.com, grants permission
+"to temporarily download one copy of the materials ... for personal,
+non-commercial transitory viewing only", and says that under that licence you
+may not "use the materials for any commercial purpose", or "transfer the
+materials to another person or 'mirror' the materials on any other server".
+Whether that boilerplate is meant to govern the sample downloads is arguable,
+but no grant of redistribution rights exists anywhere on the site, so the
+terms are recorded as undetermined. Downstream users, especially commercial
+ones, should contact Laser Design or substitute another mesh.
 """
 
 [[dataset]]
