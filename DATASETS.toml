@@ -375,6 +375,39 @@ references = [
 ]
 
 [[dataset]]
+name = "auto_mpg"
+title = "Auto MPG"
+description = "Fuel consumption, cylinders, displacement, horsepower, weight, acceleration and model year for 398 cars, as two exports: 392 complete cases without names, and all 398 with them."
+path = ["cars.csv", "vehicle_data.csv"]
+SPDX-License-Identifier = "CC-BY-4.0"
+provenance = "verified"
+origin_url = "https://archive.ics.uci.edu/dataset/9/auto+mpg"
+origin_title = "UCI Machine Learning Repository, Auto MPG"
+authors = ["R. Quinlan"]
+attribution = "Auto MPG, UCI Machine Learning Repository, donated by R. Quinlan (1993), licensed under CC BY 4.0."
+references = [
+    { citation = "Quinlan, R. Auto MPG. UCI Machine Learning Repository, 1993.", url = "https://archive.ics.uci.edu/dataset/9/auto+mpg" },
+]
+notes = """
+One dataset that had ended up in two bulk entries under two different
+licences — `vehicle_data.csv` under the VTK Data BSD-3-Clause and `cars.csv`
+under the VTK Examples Apache-2.0 — while being neither collection's to
+license.
+
+Both are the Auto MPG data revised from the CMU StatLib library and used at
+the 1983 American Statistical Association Exposition. `vehicle_data.csv` is
+the 392 rows with complete horsepower, in the canonical order and starting
+with the 8-cylinder, 307-displacement, 130-horsepower, 3504-pound 1970 car
+that opens the dataset; `cars.csv` is all 398 rows sorted by name, with the
+`car_name` field the other export drops.
+
+The UCI Machine Learning Repository publishes it under CC BY 4.0 and credits
+R. Quinlan:
+
+    curl -s "https://archive.ics.uci.edu/api/dataset?id=9"
+"""
+
+[[dataset]]
 name = "avs_ucd"
 title = "AVS UCD sample"
 description = "Unstructured cell data sample in the AVS UCD ASCII format."
@@ -2732,20 +2765,51 @@ name = "nifti_brain"
 title = "NIfTI average brain"
 description = "MNI average T1 brain template in compressed NIfTI format."
 path = ["avg152T1_RL_nifti.nii.gz"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
-provenance = "inferred"
-origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
-origin_title = "VTK Data"
-collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
+SPDX-License-Identifier = "LicenseRef-Unknown"
+provenance = "verified"
+origin_url = "https://nifti.nimh.nih.gov/nifti-1/data"
+origin_title = "NIfTI-1 test data sets"
+authors = ["Montreal Neurological Institute"]
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Byte-identical to the file the NIfTI-1 project publishes as
+`avg152T1_RL_nifti.nii.gz`:
+
+    curl -sL "https://web.archive.org/web/2024id_/https://nifti.nimh.nih.gov/nifti-1/data/avg152T1_RL_nifti.nii.gz" | shasum -a 256
+    # 8a731128dac4de46ccb2cc60...  matches Data/avg152T1_RL_nifti.nii.gz
+
+Its header is 91 by 109 by 91 at 2 mm and carries `descrip = FSL3.2beta`, so
+this is the MNI152 average T1 template as FSL ships it — the entry's own
+title said as much while the notes claimed the author was unknown.
+
+The template is the Montreal Neurological Institute's, not Kitware's, and
+the NIfTI-1 page states no terms for the samples it hosts. The MNI templates
+carry their own copyright notice, which was not located, so the terms are
+undetermined rather than the collection's BSD-3-Clause.
+"""
+
+[[dataset]]
+name = "nifti_samples"
+title = "NIfTI-1 minimal samples"
+description = "Smallest valid NIfTI-1 files, as a single `.nii.gz` and as a separate header and image pair, used to exercise the reader."
+path = ["minimal.hdr.gz", "minimal.img.gz", "minimal.nii.gz"]
+SPDX-License-Identifier = "LicenseRef-PublicDomain"
+provenance = "verified"
+origin_url = "https://nifti.nimh.nih.gov/nifti-1/data"
+origin_title = "NIfTI-1 test data sets"
+authors = ["Neuroimaging Informatics Technology Initiative"]
+notes = """
+`minimal.nii.gz` is byte-identical to the file of that name on the NIfTI-1
+project's test data page, which also publishes the `.hdr.gz` and `.img.gz`
+pair:
+
+    curl -sL "https://web.archive.org/web/2024id_/https://nifti.nimh.nih.gov/nifti-1/data/minimal.nii.gz" | shasum -a 256
+    # 0715b03dd7116f17c9ab7071...  matches Data/minimal.nii.gz
+
+They hold no imaging: they are the smallest structurally valid NIfTI-1 files,
+written by the format's own working group to exercise readers. NIfTI-1 came
+out of a National Institutes of Health working group, so these are federal
+work and carry no copyright. They were recorded under Kitware's collection
+notice, which never applied.
 """
 
 [[dataset]]
@@ -4307,9 +4371,6 @@ path = [
     "matrix.vtk",
     "mbwavelet_ascii.q",
     "mbwavelet_ascii.xyz",
-    "minimal.hdr.gz",
-    "minimal.img.gz",
-    "minimal.nii.gz",
     "mni-surface-mesh.obj",
     "mr.001",
     "multi-ascii.q",
@@ -4358,7 +4419,6 @@ path = [
     "vase.vti",
     "vase_1comp.vti",
     "vase_4comp.vti",
-    "vehicle_data.csv",
     "vtk.vtk",
     "vwgt.coords",
     "vwgt.graph",
@@ -4409,7 +4469,6 @@ path = [
     "a.vtp",
     "binary.pgm",
     "bridge.wrl",
-    "cars.csv",
     "coarseGrid.e",
     "coords.txt",
     "fineGrid.e-s002",
