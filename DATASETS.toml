@@ -3152,9 +3152,13 @@ path = [
     "skybox2-posy.jpg",
     "skybox2-posz.jpg",
 ]
-SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "unknown"
-notes = "Added to this repository in July 2020 with the commit message \"add skybox2\" and no recorded source. No upstream page, author or terms of use could be identified, and the images carry no embedded metadata. Anyone who can identify the origin is asked to open an issue."
+SPDX-License-Identifier = "Apache-2.0"
+provenance = "inferred"
+source_url = "https://github.com/lorensen/VTKExamples"
+source_title = "lorensen/VTKExamples"
+collection = "vtk-examples"
+attribution = "VTK Examples, licensed under the Apache License 2.0."
+notes = "Added in July 2020 with the commit message \"add skybox2\" and no recorded source, but all six files are byte-identical to `src/Testing/Data/skyboxes/skybox2/` in the VTK Examples repository, which is where `skybox_lorensen` and `skybox_nz` also come from. They carry that collection's licence."
 
 [[dataset]]
 name = "skybox_lorensen"
