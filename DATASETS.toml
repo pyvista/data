@@ -905,7 +905,6 @@ geometry into the VTK conversions here, so it is recorded rather than the
 collection licence. `authors` and the copyright name Viewpoint, not Kitware.
 """
 
-
 [[dataset]]
 name = "cow_head"
 title = "Cow head"
@@ -1833,7 +1832,7 @@ maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
 author of the data itself could not be established.
 
-The repository carries two byte-identical copies of this file, one from the VTK Examples import and one from the earlier VTK Data tree.
+`grasshop.wrl` came in with the VTK Examples import; `grasshopper/grasshop.wrl` is a byte-identical second copy added in August 2024 with the commit message \"Add grasshopper (#47)\". Both carry the VTK Examples licence.
 """
 
 [[dataset]]
@@ -2512,6 +2511,20 @@ author of the data itself could not be established.
 """
 
 [[dataset]]
+name = "multiblock_display"
+title = "Multiblock display-properties test data"
+description = "Sixty-seven files exercising per-block display properties on a composite dataset."
+path = ["many_blocks/**"]
+SPDX-License-Identifier = "BSD-3-Clause"
+SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+provenance = "inferred"
+source_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
+source_title = "VTK Data"
+collection = "vtk-data"
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
+notes = "Added in May 2013 with the commit message \"Adding baseline and data for new test (TestMultiblockDisplayProperties)\", six years before this repository was forked from VTK Data, so it carries that collection's licence. The commit message previously recorded here, \"Add reactor partitioned mesh\", belongs to `reactor.zip`, which is a different file added in 2024."
+
+[[dataset]]
 name = "nefertiti"
 title = "Nefertiti bust"
 description = "Scan of the bust of Nefertiti, distributed as a zipped PLY mesh and a zipped OBJ mesh."
@@ -2682,15 +2695,6 @@ Kitware never published per-file provenance for this material, so the
 original author of the data itself is not recorded upstream and could not be
 established here.
 """
-
-[[dataset]]
-name = "openfoam_reactor"
-title = "Partitioned reactor mesh"
-description = "Partitioned reactor mesh used to exercise multi-block readers."
-path = ["many_blocks/**"]
-SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "unknown"
-notes = "Added with the commit message \"Add reactor partitioned mesh\" and no recorded source or terms."
 
 [[dataset]]
 name = "openfoam_tubes"
@@ -3306,7 +3310,7 @@ source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
-notes = "Added in July 2020 with the commit message \"add skybox2\" and no recorded source, but all six files are byte-identical to `src/Testing/Data/skyboxes/skybox2/` in the VTK Examples repository, which is where `skybox_lorensen` and `skybox_nz` also come from. They carry that collection's licence."
+notes = "Added in July 2020 with the commit message \"add skybox2\" and no recorded source, but all six files are byte-identical to `src/Testing/Data/Skyboxes/skybox2/` in the VTK Examples repository, which is where `skybox_lorensen` and `skybox_nz` also come from. They carry that collection's licence."
 
 [[dataset]]
 name = "skybox_lorensen"
@@ -3542,7 +3546,7 @@ source_title = "Utah Teapot"
 collection = "vtk-data"
 authors = ["Martin Newell", "Martin Isenburg"]
 attribution = "Utah Teapot, originally modeled by Martin Newell, University of Utah, 1975; tessellation by Martin Isenburg."
-notes = "No formal licence was ever issued for the Newell dataset. It has been redistributed freely in computer graphics software since the mid-1970s and is treated as public domain by convention rather than by an identified grant of rights. The repository carries two byte-identical copies of this file, one from the VTK Examples import and one from the earlier VTK Data tree."
+notes = "No formal licence was ever issued for the Newell dataset. It has been redistributed freely in computer graphics software since the mid-1970s and is treated as public domain by convention rather than by an identified grant of rights. `teapot.wrl` came in with the VTK Examples import; `vrml/teapot.wrl` is a byte-identical second copy added in August 2022 with the commit message \"add vrml files\". Both carry the VTK Examples licence."
 references = [
     { citation = "Isenburg, M. and Snoeyink, J. \"Face Fixer: Compressing Polygon Meshes with Properties.\" SIGGRAPH 2000.", doi = "10.1145/344779.344919" },
 ]
@@ -4222,4 +4226,4 @@ source_url = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/Test
 source_title = "VTK Examples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
-notes = "The repository carries two byte-identical copies of this file, one from the VTK Examples import and one from the earlier VTK Data tree."
+notes = "`Yinyang.png` came in with the VTK Examples import; `yinyang/Yinyang.png` is a byte-identical second copy added in July 2025 with the commit message \"Add yinyang binary image (#58)\". Both carry the VTK Examples licence."
