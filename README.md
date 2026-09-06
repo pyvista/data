@@ -39,9 +39,30 @@ shark = by_name['grey_nurse_shark']
 print(shark['SPDX-License-Identifier'], shark['source_url'])
 ```
 
-The licensing keys follow the [REUSE specification](https://reuse.software),
-so `SPDX-License-Identifier` and `SPDX-FileCopyrightText` mean exactly what
-they mean there. Full licence texts live in [`LICENSES/`](LICENSES).
+The licensing keys borrow their names and meaning from the
+[REUSE specification](https://reuse.software): `SPDX-License-Identifier` and
+`SPDX-FileCopyrightText` mean exactly what they mean there, and full licence
+texts live in [`LICENSES/`](LICENSES) named by SPDX identifier, as REUSE
+requires. The repository is not itself REUSE-covered, though: REUSE expects
+per-file comments or `.license` sidecars, and 1258 sidecars would be
+unreviewable next to one table you can read in a single diff. No REUSE tool
+reads `DATASETS.toml`.
+
+### What the files at the repository root cover
+
+`DATASETS.toml` is the authority for everything under `Data/`. The root files
+predate it and are narrower than they look:
+
+- `LICENSE` — the Apache License 2.0, added with the 2019 import from
+  `lorensen/VTKExamples`. It covers that imported material and this
+  repository's own tooling. It does **not** license the data as a whole:
+  `Data/` holds files under BSD-3-Clause, CC BY, CC BY-SA, non-commercial
+  terms, and terms that could not be established at all. Check
+  `DATASETS.toml` for any file you plan to use.
+- `Copyright.txt` — VTK's BSD-3-Clause notice for "Visualization Toolkit
+  (Data)", inherited from VTKData and cited by the datasets that came from it.
+- `VTKData.readme` and `VERSION` — VTK-era files kept for historical
+  continuity. Neither describes the current contents.
 
 ### Adding new datasets
 

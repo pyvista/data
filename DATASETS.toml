@@ -12,9 +12,12 @@
 #   * `SPDX-License-Identifier` must resolve to a `[license.*]` table below;
 #   * `LICENSE`, `README` and `.license` files are not allowed under `Data/`.
 #
-# The licensing keys follow the REUSE specification (https://reuse.software),
-# so `SPDX-License-Identifier` and `SPDX-FileCopyrightText` carry exactly the
-# meaning they carry there.
+# The licensing keys borrow their names and meaning from the REUSE
+# specification (https://reuse.software): `SPDX-License-Identifier` and
+# `SPDX-FileCopyrightText` carry exactly the meaning they carry there, and
+# LICENSES/ is named the way REUSE names it. No REUSE tool reads this file.
+#
+# The root `LICENSE` does not cover the data. See README.md.
 
 schema_version = 1
 
