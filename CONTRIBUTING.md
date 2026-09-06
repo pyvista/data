@@ -190,13 +190,11 @@ genuine `404`. One dead `source_url` survived three review passes on 65
 entries for exactly this reason:
 
 ```bash
-curl -sS -o /dev/null -w '%{http_code}
-' https://gitlab.kitware.com/vtk/vtk-data
-#   403 -- tells you nothing
-curl -sS -o /dev/null -w '%{http_code}
-' \
-  https://gitlab.kitware.com/api/v4/projects/vtk%2Fvtk-data
-#   404 -- the project does not exist
+curl -sSI https://gitlab.kitware.com/vtk/vtk-data | head -1
+#   HTTP/2 302 -- a redirect to a sign-in page, which tells you nothing
+
+curl -sS https://gitlab.kitware.com/api/v4/projects/vtk%2Fvtk-data
+#   {"message":"404 Project Not Found"} -- the project does not exist
 ```
 
 gitlab.kitware.com, codeberg, sketchfab, thingiverse, si.edu and zenodo all

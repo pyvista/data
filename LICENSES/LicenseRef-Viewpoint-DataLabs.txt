@@ -17,5 +17,5 @@ may not be resold in any form. A product that sells the model, or a dataset
 derived from it, is outside the grant; a product that merely uses it is not
 addressed either way.
 
-The deleted `Data/Viewpoint/README` recorded that these datasets came from
-Viewpoint DataLabs International, which sold a commercial model library.
+These datasets came from Viewpoint DataLabs International, which sold a
+commercial model library.
