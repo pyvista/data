@@ -1935,20 +1935,39 @@ title = "Great white shark"
 description = "Triangulated surface mesh of a great white shark, in STL format."
 path = ["great_white_shark/**"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "unknown"
+provenance = "inferred"
+origin_url = "https://www.cgtrader.com/free-3d-models/animals/fish-aquatic/great-white-shark--3"
+origin_title = "CGTrader, Great white shark by Cartoomotion"
+authors = ["Cartoomotion"]
 redistributed_from = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/Testing/Data/greatWhite.stl"
 notes = """
 Imported from the VTK Examples test data. The STL header records only that the
 mesh was reprocessed through netfabb and embeds no origin or licence, and the
 upstream commits reference neither.
 
-Thingiverse thing:425437, "Great White Shark" by shraska1, published in August
-2014, is a plausible origin and is currently labelled CC BY-SA. It does not
-settle the question: that uploader's own description disclaims authorship and
-names a CGTrader page as where the model came from, so the chain runs back at
-least one step further than any page that states terms. The licence is left
-undetermined. Downstream users, especially commercial ones, should substitute
-a shark model with documented licensing.
+The chain runs back through Thingiverse thing:425437, "Great White Shark" by
+shraska1 from August 2014, labelled CC BY-SA 3.0 in its `rel="license"`. That
+uploader disclaims authorship and names a CGTrader page as the origin, and
+that page is readable in the Wayback Machine:
+
+    curl -sL "https://web.archive.org/web/20150130013539id_/http://www.cgtrader.com:80/free-3d-models/animals/fish-aquatic/great-white-shark--3"
+
+It credits Cartoomotion, and it states terms: "License: General License —
+Content published with the General label may not be sold, given, or assigned
+to another person or entity in the form it is downloaded from the site."
+
+So the head of the chain does state terms, and they are a redistribution
+restriction rather than a grant. Whether shraska1 could apply CC BY-SA to a
+model published under that label is exactly the question, and it is not one
+this repository can answer. The licence stays undetermined, and the
+restriction is the reason: redistributing the mesh in the form it was
+downloaded is what the General License names. Downstream users, especially
+commercial ones, should substitute a shark model with documented licensing,
+and this repository should consider dropping the file.
+
+The geometry is consistent with that page, which reports 3,672 polygons: as
+2,592 quads and 1,080 triangles that triangulates to exactly the 6,264
+triangles here, over 3,155 unique vertices.
 """
 
 [[dataset]]
