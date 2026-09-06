@@ -333,6 +333,9 @@ The Stanford conditions of use permit free redistribution and research use
 but exclude commercial use without permission from the Stanford Computer
 Graphics Laboratory. This is not an open licence; downstream users shipping
 a product for sale should contact Stanford or substitute another mesh.
+
+Stanford exempts the armadillo, with the bunny, from its cultural-significance
+request: "You can do anything you want to the Stanford bunny or the armadillo."
 """
 references = [
     { citation = "Krishnamurthy, V. and Levoy, M. \"Fitting Smooth Surfaces to Dense Polygon Meshes.\" SIGGRAPH 1996.", doi = "10.1145/237170.237270" },
@@ -756,7 +759,7 @@ SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 source_url = "https://cgns.org/current/examples.html"
 source_title = "CGNS example files"
-notes = "Retrieved from the CGNS documentation example gallery, which states no terms of use for the sample files."
+notes = "Retrieved from the CGNS documentation example gallery. That page's footer reads \"Dedicated to the public domain with CC0 1.0\", but the dedication is site-wide and the example grids are linked binaries contributed to the standard, so whether it reaches them is unclear. The licence is left undetermined rather than read as CC0."
 
 [[dataset]]
 name = "chest_ct"
@@ -845,7 +848,7 @@ established here.
 [[dataset]]
 name = "cow"
 title = "Viewpoint cow"
-description = "Surface mesh of a cow from the Viewpoint DataLabs model collection, in BRL-CAD, OBJ and VTK XML form, together with a 3D Studio interior scene."
+description = "Surface mesh of a cow from the Viewpoint DataLabs model collection, in OBJ and VTK XML form and as an ASCII triangle mesh, together with a 3D Studio interior scene."
 path = ["Viewpoint/**", "cow.vtp"]
 SPDX-License-Identifier = "BSD-3-Clause"
 SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
@@ -1248,7 +1251,7 @@ description = "Static polygon mesh in EnSight Gold format with no time steps."
 path = ["simple_tetra/**"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "unknown"
-notes = "Added in December 2024 to give the EnSight reader a static, time-step-free case. No source or terms were recorded."
+notes = "Added in August 2025 to give the EnSight reader a static, time-step-free case. No source or terms were recorded."
 
 [[dataset]]
 name = "ensight_test_cases"
@@ -3193,7 +3196,7 @@ author of the data itself could not be established.
 [[dataset]]
 name = "solar_textures"
 title = "Solar system surface textures"
-description = "Equirectangular surface textures for the Sun, the eight planets, the Moon and Pluto, plus a transparent Saturn ring texture. Used by `pyvista.examples.planets`."
+description = "Equirectangular surface textures for the Sun, the Moon, Pluto and every planet except Earth, with Venus in surface and atmosphere variants, plus a transparent Saturn ring texture. Used by `pyvista.examples.planets`, whose Earth texture is built in rather than downloaded."
 path = ["mars.jpg", "solar_textures/**"]
 SPDX-License-Identifier = "CC-BY-4.0"
 SPDX-FileCopyrightText = ["Solar System Scope (INOVE)"]
