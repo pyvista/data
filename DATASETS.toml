@@ -2770,8 +2770,8 @@ attribution = "VTK Data. Copyright (c) 1993-2015 Ken Martin, Will Schroeder, Bil
 [[dataset]]
 name = "paraview_pvd"
 title = "ParaView PVD animations"
-description = "Single- and dual-sphere animations in ParaView PVD collection format, loose and zipped, plus a wavy surface animation."
-path = ["PVD/**"]
+description = "Single- and dual-sphere animations in ParaView PVD collection format, loose and zipped."
+path = ["PVD/paraview/**"]
 SPDX-License-Identifier = "BSD-3-Clause"
 SPDX-FileCopyrightText = ["2005-2008 Sandia Corporation, Kitware Inc."]
 provenance = "verified"
@@ -4156,22 +4156,18 @@ name = "vtu_series"
 title = "VTU time series"
 description = "Wave simulation adapted to the `.vtu.series` time series format."
 path = ["vtu_series/**"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
-provenance = "inferred"
-source_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
-source_title = "VTK Data"
-collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
+SPDX-License-Identifier = "MIT"
+SPDX-FileCopyrightText = ["PyVista Developers"]
+provenance = "verified"
+source_url = "https://github.com/pyvista/data/pull/61"
+source_title = "PyVista"
+attribution = "Generated with PyVista, MIT License."
 modified = true
-modification = "Derived from `PVD/wavy.zip` and rewritten in the `.series` format."
+modification = "Converted from `PVD/wavy.zip` to the `.vtu.series` format, the structured grids becoming unstructured ones."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+The pull request that added this states that it comes from `PVD/wavy.zip`,
+which is generated PyVista data rather than anything from VTK. See the
+`wavy_pvd` entry for how those frames were written.
 """
 
 [[dataset]]
@@ -4218,6 +4214,28 @@ source_title = "Smithsonian National Portrait Gallery (NPG.70.4)"
 collection = "smithsonian-open-access"
 attribution = "Bust of George Washington, Smithsonian National Portrait Gallery (NPG.70.4), 3D scan released under CC0 Public Domain. Attribution is a courtesy, not a requirement."
 notes = "The Smithsonian release states: \"This media file is in the public domain (free of copyright restrictions). You can copy, modify, and distribute this work without contacting the Smithsonian.\""
+
+[[dataset]]
+name = "wavy_pvd"
+title = "Wavy surface animation"
+description = "Fifteen-frame animation of a radial sine surface on an 80 by 80 structured grid, in ParaView PVD collection format."
+path = ["PVD/wavy.zip"]
+SPDX-License-Identifier = "MIT"
+SPDX-FileCopyrightText = ["PyVista Developers"]
+provenance = "verified"
+source_url = "https://github.com/pyvista/data/pull/3"
+source_title = "PyVista"
+attribution = "Generated with PyVista, MIT License."
+notes = """
+Generated data, not ParaView's. The pull request that added it publishes the
+PyVista script that wrote the frames: a `pv.StructuredGrid` over
+`numpy.arange(-10, 10, 0.25)` in x and y, with `z = sin(r + phase)` sampled
+at fifteen phases. The grids here are 80 by 80 with a single `z` point array
+ranging over -1 to 1, which is what that script produces.
+
+It sat under `PVD/` beside the files taken from ParaView and was covered by
+their entry until the two were separated.
+"""
 
 [[dataset]]
 name = "whole_body_ct"
