@@ -910,20 +910,27 @@ collection licence. `authors` and the copyright name Viewpoint, not Kitware.
 [[dataset]]
 name = "cow_head"
 title = "Cow head"
-description = "Surface mesh of a cow's head, extracted from the Viewpoint cow model."
+description = "Subdivided surface mesh of the head of the Viewpoint cow, carrying a Gauss curvature array."
 path = ["cowHead.vtp"]
-SPDX-License-Identifier = "Apache-2.0"
-provenance = "inferred"
+SPDX-License-Identifier = "LicenseRef-Viewpoint-DataLabs"
+SPDX-FileCopyrightText = ["1992 Viewpoint Animation Engineering Inc."]
+provenance = "verified"
 source_url = "https://github.com/lorensen/VTKExamples"
 source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
+authors = ["Viewpoint Animation Engineering Inc."]
+attribution = "(c) Copyright 1992 Viewpoint Animation Engineering Inc. Redistributed by Bill Lorensen in lorensen/VTKExamples."
+modified = true
+modification = "The head was cut from the Viewpoint cow, subdivided, and a `Gauss_Curvature` point array added."
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+This is the Viewpoint cow's head, not separate data. Its 4074 points occupy
+x from 3.18 to 5.98, the front of the cow's x range, and every one of them
+lies within 0.17 of a vertex of `Viewpoint/cow.obj` in that region, on a
+model ten units long. See the `cow` entry for the terms the header carries.
+
+Lorensen published `lorensen/VTKExamples` under the Apache License 2.0, but
+the Viewpoint terms cover the geometry "in existing or modified form", so
+they follow into this derivative and are recorded here instead.
 """
 
 [[dataset]]
