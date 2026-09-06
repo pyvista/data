@@ -560,7 +560,7 @@ collection = "stanford-3d-scanning"
 attribution = "Stanford Computer Graphics Laboratory."
 redistributed_from = "https://gitlab.kitware.com/vtk/vtk-examples"
 modified = true
-modification = "Decimated and converted from the original `bunny.ply` to VTK XML PolyData."
+modification = "Decimated from 35947 points to 872, scaled by a factor of two and recentred, and converted from the original `bunny.ply` to VTK XML PolyData."
 notes = """
 The Stanford conditions of use permit free redistribution and research use
 but exclude commercial use without permission from the Stanford Computer
@@ -826,7 +826,7 @@ established here.
 [[dataset]]
 name = "cow"
 title = "Viewpoint cow"
-description = "Surface mesh of a cow from the Viewpoint DataLabs model collection, in BRL-CAD, OBJ and VTK XML form, together with a 3D Studio interior scene and the collection README."
+description = "Surface mesh of a cow from the Viewpoint DataLabs model collection, in BRL-CAD, OBJ and VTK XML form, together with a 3D Studio interior scene."
 path = ["Viewpoint/**", "cow.vtp"]
 SPDX-License-Identifier = "BSD-3-Clause"
 SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
@@ -1748,7 +1748,7 @@ collection = "thingiverse"
 authors = ["rogerpeng1"]
 attribution = "Grey Nurse Shark by rogerpeng1 (https://www.thingiverse.com/thing:137954), licensed under CC BY-SA."
 redistributed_from = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/Testing/Data/thingiverse/Grey_Nurse_Shark.stl"
-notes = "The Thingiverse page states \"Creative Commons - Attribution - Share Alike\" without a version. CC BY-SA 3.0 is recorded here because the model was uploaded in June 2013, before CC 4.0 was published. ShareAlike propagates: a downstream work derived from this mesh must be shared under the same licence."
+notes = "The Thingiverse page states \"Creative Commons - Attribution - Share Alike\" without a version. CC BY-SA 3.0 is recorded here because the model was published on 22 August 2013, before CC 4.0 was finalised in November. ShareAlike propagates: a downstream work derived from this mesh must be shared under the same licence."
 
 [[dataset]]
 name = "hdr_textures"

@@ -47,7 +47,7 @@ collection = "thingiverse"
 authors = ["rogerpeng1"]
 attribution = "Grey Nurse Shark by rogerpeng1 (https://www.thingiverse.com/thing:137954), licensed under CC BY-SA."
 redistributed_from = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/Testing/Data/thingiverse/Grey_Nurse_Shark.stl"
-notes = "The Thingiverse page states \"Creative Commons - Attribution - Share Alike\" without a version. CC BY-SA 3.0 is recorded here because the model was uploaded in June 2013, before CC 4.0 was published."
+notes = "The Thingiverse page states \"Creative Commons - Attribution - Share Alike\" without a version. CC BY-SA 3.0 is recorded here because the model was published on 22 August 2013, before CC 4.0 was finalised."
 ```
 
 A simple one is much shorter:
