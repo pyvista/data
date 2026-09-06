@@ -3652,7 +3652,7 @@ evidence about who made the images.
 [[dataset]]
 name = "solar_textures"
 title = "Solar system surface textures"
-description = "Equirectangular surface textures for the Sun, the Moon, Pluto and every planet except Earth, with Venus in surface and atmosphere variants, plus a transparent Saturn ring texture. Used by `pyvista.examples.planets`, whose Earth texture is built in rather than downloaded."
+description = "Equirectangular surface textures for the Sun, the Moon and every planet except Earth, with Venus in surface and atmosphere variants, plus a transparent Saturn ring texture. Used by `pyvista.examples.planets`, whose Earth texture is built in rather than downloaded and whose Pluto texture has a separate entry."
 path = [
     "mars.jpg",
     "solar_textures/jupiter.jpg",
@@ -4329,7 +4329,7 @@ established here.
 [[dataset]]
 name = "vtk_examples_files"
 title = "VTK Examples data files"
-description = "Files imported from the VTK Examples collection that are not loaded by `pyvista.examples`: cell type samples, fonts, textures, small meshes, molecular structures and reader test inputs."
+description = "Files imported from the VTK Examples collection that are not loaded by `pyvista.examples`: cell type samples, fonts, textures, small meshes, molecular structures, reader test inputs, and a git-lfs probe marker."
 path = [
     "AttenuationArtifact.pgm",
     "ColorCells.tif",
