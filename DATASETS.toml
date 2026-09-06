@@ -1122,25 +1122,41 @@ notes = "Added in February 2020 with the commit message \"add delaunay points\".
 [[dataset]]
 name = "dicom_directory"
 title = "DICOM directory sample"
-description = "Single MR slice in a DICOM directory, used to exercise directory-based DICOM reading."
+description = "Single sagittal spine MR slice from 1994, used to exercise directory-based DICOM reading. Carries an unredacted patient identity in its header: see the notes before using it."
 path = ["DICOMDirectory/**", "mr.001"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "verified"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
 redistributed_from = "https://gitlab.kitware.com/vtk/vtk-examples/-/tree/master/src/Testing/Data/DICOMDirectory"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-The slice is byte-identical to the file VTK ships as `Testing/Data/mr.001`,
-whose SHA-512 content link is in the VTK source tree, so Kitware's blanket
-`Copyright.txt` notice covers it. Kitware never published per-file
-provenance for this material, so the original author is not recorded
-upstream and could not be established here.
+This file carries an identifiable patient's data and should not be used or
+redistributed until that is resolved.
 
-The copy here arrived in April 2019 with the files taken from
-`lorensen/VTKExamples`, not with the fork of the VTK Data repository.
+It is a 1994 sagittal spine MR from a Siemens MAGNETOM VISION. It has the
+128-byte preamble but no `DICM` magic and no file-meta group, starting
+straight into an implicit-VR dataset, which is likely why nobody had parsed
+it. Reading the tags directly shows `PatientName` populated with a
+caret-separated personal name rather than a study code, `PatientBirthDate`
+populated with a full date, `PatientID` embedding that same date,
+`PatientSex`, `PatientAge` and `PatientWeight` populated, `AccessionNumber`
+populated, `StudyDate` and `StudyTime` giving the acquisition to the
+millisecond, `DeviceSerialNumber` populated, and `InstitutionName` and
+`StationName` both naming a university hospital radiology department. A
+Siemens private tag `(0051,1010)` repeats the name, the identifier, the date
+of birth and the institution as burned-in display text, so removing the
+standard tags alone would not de-identify it. The values are internally
+consistent, which argues they are real rather than placeholders.
+
+The identifiers are not reproduced here. They can be read from the file with
+a short parser; see `Establishing where a dataset came from` in
+CONTRIBUTING.md.
+
+No licence is recorded because none can be: Kitware's collection notice
+cannot license a hospital's patient study, and no consent or release was
+found. The same bytes are distributed by VTK as `Testing/Data/mr.001`
+(SHA-512 `c0f3a78e...`), so this is not only this repository's to fix.
 """
 
 [[dataset]]
@@ -1838,22 +1854,30 @@ established here.
 [[dataset]]
 name = "ge_signa"
 title = "GE Signa MR slice"
-description = "Single MR slice in the GE Signa format."
+description = "Single sagittal T2 cervical-spine MR slice, 256 by 256, in the GE Signa 5.x format."
 path = ["E07733S002I009.MR"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Human patient imaging, which the entry previously described only as a format
+sample. The GE Signa `IMGF` exam header names the acquiring institution — a
+hospital — and the series header records a sagittal T2 fast spin-echo of the
+cervical spine on a quadrature spine coil, dated 2001-05-23 by a control
+header whose year field is Y2K-broken.
+
+The patient fields are populated but read as placeholders rather than an
+identity, and the referring physician, radiologist, operator, age and sex
+fields are all empty. That is better than `dicom_directory`, where the
+identity is real, but the institution still identifies where the scan was
+taken.
+
+Inherited from the VTK Data collection at the March 2019 fork, and recorded
+under Kitware's blanket `Copyright.txt` notice until now. That notice cannot
+license a hospital's patient imaging, and no consent or release was found,
+so the terms are undetermined.
 """
 
 [[dataset]]
