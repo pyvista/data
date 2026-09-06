@@ -1778,7 +1778,7 @@ title = "Grey nurse shark"
 description = "Triangulated surface mesh of a grey nurse shark, in STL format."
 path = ["grey_nurse_shark/**"]
 SPDX-License-Identifier = "CC-BY-SA-3.0"
-provenance = "inferred"
+provenance = "verified"
 source_url = "https://www.thingiverse.com/thing:137954"
 source_title = "Thingiverse thing:137954"
 collection = "thingiverse"
@@ -1786,9 +1786,9 @@ authors = ["Autodesk"]
 attribution = "Grey Nurse Shark, uploaded by rogerpeng1 (https://www.thingiverse.com/thing:137954), licensed under CC BY-SA."
 redistributed_from = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/Testing/Data/thingiverse/Grey_Nurse_Shark.stl"
 notes = """
-The Thingiverse page states "Creative Commons - Attribution - Share Alike"
-without a version. CC BY-SA 3.0 is recorded here because the model was
-published on 22 August 2013, before CC 4.0 was finalised in November.
+The page labels the licence "Creative Commons - Attribution - Share Alike"
+without a version in its text, but its `rel="license"` link names
+creativecommons.org/licenses/by-sa/3.0/. It was published on 22 August 2013.
 ShareAlike propagates: a downstream work derived from this mesh must be shared
 under the same licence.
 
@@ -1805,7 +1805,7 @@ description = "High dynamic range equirectangular environment maps of a night sk
 path = ["dikhololo_night_4k.hdr", "parched_canal_4k.hdr"]
 SPDX-License-Identifier = "CC0-1.0"
 provenance = "verified"
-source_url = "https://polyhaven.com/"
+source_url = "https://polyhaven.com/a/dikhololo_night"
 source_title = "Poly Haven"
 attribution = "Poly Haven, https://polyhaven.com/. Attribution is a courtesy, not a requirement under CC0."
 
@@ -2081,7 +2081,7 @@ SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 source_url = "https://github.com/chaos-polymtl/lethe"
 source_title = "chaos-polymtl/lethe"
-notes = "Generated with Lethe, which is itself LGPL-2.1 licensed, and contributed through https://github.com/pyvista/pyvista/discussions/1984. Simulation output is not a derivative of the solver source, and the contributor did not state terms for the result file, so its licence is undetermined."
+notes = "Generated with Lethe, which relicensed in 2024 to Apache-2.0 WITH LLVM-exception OR LGPL-2.1-or-later, and contributed through https://github.com/pyvista/pyvista/discussions/1984. Simulation output is not a derivative of the solver source, and the contributor did not state terms for the result file, so its licence is undetermined."
 
 [[dataset]]
 name = "letter_a"
@@ -2330,7 +2330,7 @@ description = "Noisy grayscale photograph of the Apollo Moon landing, used to de
 path = ["moonlanding.png"]
 SPDX-License-Identifier = "CC-BY-4.0"
 provenance = "verified"
-source_url = "https://scipy-lectures.org/"
+source_url = "https://github.com/scipy-lectures/scientific-python-lectures/blob/main/data/moonlanding.png"
 source_title = "Scipy Lecture Notes"
 attribution = "Scipy Lecture Notes, licensed under CC BY 4.0."
 notes = "The Scipy Lecture Notes state that all code and material are licensed under a Creative Commons Attribution 4.0 International License. The underlying NASA photograph is a US federal work and so is separately in the public domain."
@@ -2897,7 +2897,7 @@ description = "Colour photograph of a puppy, used as a texture and as image filt
 path = ["puppy.jpg"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "unknown"
-notes = "Added in April 2019 with the commit message \"Add puppy\" and no recorded source, photographer or terms."
+notes = "Added in April 2019 with the commit message \"Add puppy\" and no recorded source, photographer or terms. The file's EXIF records a Nikon E2200 and a capture date of 2010-02-07, which is the only surviving lead."
 
 [[dataset]]
 name = "pvgeo_examples"
