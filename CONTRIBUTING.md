@@ -210,9 +210,24 @@ shasum -a 512 Data/DICOMDirectory/mr.001
 cat /path/to/VTK/Testing/Data/mr.001.sha512
 ```
 
-A match proves Kitware distributes that exact file, so the collection's
-notice covers it. No match, for a file no upstream has, is a reason to
-suspect the recorded source.
+A match proves Kitware distributes that exact file. It does **not** prove the
+file is Kitware's to license, and no match, for a file no upstream has, is a
+reason to suspect the recorded source.
+
+Before you conclude that a collection's notice covers a file, look for a
+`readme` next to it upstream, because that is where the exception is written:
+
+```bash
+ls /path/to/VTK/Testing/Data/skybox/          # readme.txt sits beside the six faces
+cat /path/to/VTK/Testing/Data/skybox/readme.txt
+```
+
+That readme names Emil Persson and CC BY 3.0, and the six faces are
+byte-identical to `skybox2-*.jpg` here — which was recorded as Apache-2.0
+under the collection's licence for years. VTK carries at least three such
+exceptions in sibling files: the Viewpoint cow, the Tango icons and this
+skybox. A collection licence is the redistributor's, and it cannot reach a
+third party's work.
 
 ### Check a URL through an API, not a plain request
 
