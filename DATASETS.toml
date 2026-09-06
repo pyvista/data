@@ -426,7 +426,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -526,7 +526,7 @@ established here.
 [[dataset]]
 name = "brain"
 title = "Brain surface"
-description = "Surface mesh of a human brain with a scalar field."
+description = "Volume of a human brain, 181 by 217 by 181 voxels at 1 mm spacing."
 path = ["brain.vtk"]
 SPDX-License-Identifier = "Apache-2.0"
 provenance = "inferred"
@@ -535,7 +535,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -659,7 +659,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -718,7 +718,7 @@ ones, should contact Laser Design or substitute another mesh.
 [[dataset]]
 name = "carotid"
 title = "Carotid artery flow"
-description = "Structured grid of blood flow velocity and vector magnitude through a carotid artery."
+description = "Volume of blood flow velocity and vector magnitude through a carotid artery."
 path = ["carotid.vtk"]
 SPDX-License-Identifier = "Apache-2.0"
 provenance = "inferred"
@@ -727,7 +727,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -746,7 +746,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -886,7 +886,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -1066,7 +1066,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -1198,7 +1198,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -1477,7 +1477,7 @@ established here.
 [[dataset]]
 name = "faults"
 title = "Geological faults"
-description = "Unstructured grid of geological fault surfaces."
+description = "Geological fault surfaces, as 78 polygons over 1933 points."
 path = ["faults.vtk"]
 SPDX-License-Identifier = "BSD-3-Clause"
 SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
@@ -1556,7 +1556,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -1619,7 +1619,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -1680,7 +1680,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -1720,7 +1720,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -1748,7 +1748,7 @@ source_title = "VTK Examples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -1884,7 +1884,7 @@ notes = "Recorded as generated with OnScale Solve, but no source page, upload or
 [[dataset]]
 name = "honolulu"
 title = "Honolulu terrain"
-description = "Structured grid of the terrain around Honolulu."
+description = "Surface mesh of the terrain around Honolulu."
 path = ["honolulu.vtk"]
 SPDX-License-Identifier = "Apache-2.0"
 provenance = "inferred"
@@ -1893,7 +1893,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -1912,7 +1912,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -1931,7 +1931,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -2005,7 +2005,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -2072,7 +2072,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -2102,7 +2102,7 @@ notes = "Added in May 2019 with the commit message \"add a letter\". No source, 
 [[dataset]]
 name = "letter_k"
 title = "Letter K"
-description = "Volume of the letter K, used to demonstrate volume rendering."
+description = "Outline of the letter K as a 166-point surface, used to demonstrate extrusion."
 path = ["k.vtk"]
 SPDX-License-Identifier = "Apache-2.0"
 provenance = "inferred"
@@ -2111,7 +2111,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -2315,11 +2315,11 @@ established here.
 [[dataset]]
 name = "misc_pyvista_era"
 title = "Assorted PyVista-era files"
-description = "Assorted files added during PyVista development that are not loaded by `pyvista.examples`: a duplicate of the earlier notch stress result, a tree point cloud, and a partitioned reactor archive."
+description = "Assorted files added during PyVista development that are not loaded by `pyvista.examples`: the original notch stress result, a tree point cloud, and a partitioned reactor archive."
 path = ["notch_stress.vtk", "tree.ply", "reactor.zip"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "unknown"
-notes = "These files record no source, author or terms, and none could be established."
+notes = "These files record no source, author or terms, and none could be established. `notch_stress.vtk` is the earlier of the two notch results: `notch_stress_fixed.vtk`, which `download_notch_stress` loads, is the same 2192 cells with coincident points merged, 3537 rather than 12717."
 
 [[dataset]]
 name = "model_with_variance"
@@ -2387,7 +2387,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -2494,7 +2494,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -2725,7 +2725,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -2765,7 +2765,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -2816,7 +2816,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -2856,7 +2856,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -2957,7 +2957,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -3127,7 +3127,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -3178,7 +3178,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -3211,7 +3211,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -3251,7 +3251,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -3426,7 +3426,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -3468,7 +3468,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -3500,7 +3500,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -3519,7 +3519,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -3890,7 +3890,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -3930,7 +3930,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
@@ -3972,7 +3972,7 @@ source_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in March 2019 from Bill Lorensen's `lorensen/VTKExamples`
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
 repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
