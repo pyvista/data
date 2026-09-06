@@ -3666,8 +3666,8 @@ provenance = "unknown"
 notes = "Added in October 2020 with the commit message \"add thermal probes\" and no recorded source or terms."
 
 [[dataset]]
-name = "three_ds_interior"
-title = "3D Studio interior scene"
+name = "three_ds_flamingo"
+title = "3D Studio flamingo"
 description = "Flamingo in the Autodesk 3D Studio format, thirty-three blocks named for its body, wings, legs and eyes, from the Viewpoint model library."
 path = ["iflamigm.3ds", "iflamingo.3ds"]
 SPDX-License-Identifier = "LicenseRef-Viewpoint-DataLabs"
