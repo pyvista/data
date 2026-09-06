@@ -1050,6 +1050,11 @@ The Stanford conditions of use permit free redistribution and research use
 but exclude commercial use without permission from the Stanford Computer
 Graphics Laboratory. This is not an open licence; downstream users shipping
 a product for sale should contact Stanford or substitute another mesh.
+
+Stanford additionally names this model as culturally significant and asks
+that it not be animated, morphed, subjected to Boolean operators, or shown
+having nasty things happen to it. Only the bunny and the armadillo are
+exempted from that request.
 """
 references = [
     { citation = "Curless, B. and Levoy, M. \"A Volumetric Method for Building Complex Models from Range Images.\" SIGGRAPH 1996.", doi = "10.1145/237170.237269" },
@@ -2137,6 +2142,11 @@ The Stanford conditions of use permit free redistribution and research use
 but exclude commercial use without permission from the Stanford Computer
 Graphics Laboratory. This is not an open licence; downstream users shipping
 a product for sale should contact Stanford or substitute another mesh.
+
+Stanford additionally names this model as culturally significant and asks
+that it not be animated, morphed, subjected to Boolean operators, or shown
+having nasty things happen to it. Only the bunny and the armadillo are
+exempted from that request.
 """
 
 [[dataset]]
