@@ -2237,11 +2237,11 @@ established here.
 [[dataset]]
 name = "misc_pyvista_era"
 title = "Assorted PyVista-era files"
-description = "Assorted files added during PyVista development that are not loaded by `pyvista.examples`: a duplicate of the earlier notch stress result, a tree point cloud, a partitioned reactor archive, and top-level copies of two planetary textures."
-path = ["notch_stress.vtk", "tree.ply", "reactor.zip", "mars.jpg", "stars.jpg"]
+description = "Assorted files added during PyVista development that are not loaded by `pyvista.examples`: a duplicate of the earlier notch stress result, a tree point cloud, and a partitioned reactor archive."
+path = ["notch_stress.vtk", "tree.ply", "reactor.zip"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "unknown"
-notes = "`mars.jpg` and `stars.jpg` are top-level duplicates of files under `solar_textures/` and `planet3d-matlab/`; if they are the same images they carry those licences, but that was not confirmed byte for byte. The remaining files record no source or terms."
+notes = "These files record no source, author or terms, and none could be established."
 
 [[dataset]]
 name = "model_with_variance"
@@ -2669,7 +2669,7 @@ author of the data itself could not be established.
 name = "planet3d_matlab_backgrounds"
 title = "Milky Way and star field backgrounds"
 description = "Equirectangular Milky Way and star field images used as the sky background behind the `pyvista.examples.planets` solar system scene."
-path = ["planet3d-matlab/**"]
+path = ["planet3d-matlab/**", "stars.jpg"]
 SPDX-License-Identifier = "MIT"
 SPDX-FileCopyrightText = ["2021 Tamas Kis"]
 provenance = "verified"
@@ -2677,6 +2677,7 @@ source_url = "https://github.com/tamaskis/planet3D-MATLAB"
 source_title = "tamaskis/planet3D-MATLAB"
 authors = ["Tamas Kis"]
 attribution = "Copyright (c) 2021 Tamas Kis, MIT License."
+notes = "`stars.jpg` is a byte-identical duplicate of `planet3d-matlab/stars.jpg`, kept at the top level for an older download path."
 
 [[dataset]]
 name = "plastic_vase"
@@ -3083,7 +3084,7 @@ author of the data itself could not be established.
 name = "solar_textures"
 title = "Solar system surface textures"
 description = "Equirectangular surface textures for the Sun, the eight planets, the Moon and Pluto, plus a transparent Saturn ring texture. Used by `pyvista.examples.planets`."
-path = ["solar_textures/**"]
+path = ["mars.jpg", "solar_textures/**"]
 SPDX-License-Identifier = "CC-BY-4.0"
 SPDX-FileCopyrightText = ["Solar System Scope (INOVE)"]
 provenance = "verified"
@@ -3091,6 +3092,7 @@ source_url = "https://www.solarsystemscope.com/textures/"
 source_title = "Solar System Scope Textures"
 collection = "solar-system-scope"
 attribution = "Textures by Solar System Scope, https://www.solarsystemscope.com/textures/, licensed under CC BY 4.0."
+notes = "`mars.jpg` is a byte-identical duplicate of `solar_textures/mars.jpg`, kept at the top level for an older download path."
 
 [[dataset]]
 name = "sparse_points"
