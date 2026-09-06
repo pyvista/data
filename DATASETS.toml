@@ -102,13 +102,13 @@ attribution_required = false
 share_alike = false
 file = "LICENSES/LicenseRef-DbCL-1.0.txt"
 
-[license."LicenseRef-NASA-SVS"]
-title = "NASA Scientific Visualization Studio media usage guidelines"
+[license."LicenseRef-NASA-Media"]
+title = "NASA media usage guidelines"
 url = "https://www.nasa.gov/nasa-brand-center/images-and-media/"
 commercial_use = true
 attribution_required = true
 share_alike = false
-file = "LICENSES/LicenseRef-NASA-SVS.txt"
+file = "LICENSES/LicenseRef-NASA-Media.txt"
 
 [license."LicenseRef-PublicDomain"]
 title = "Public domain"
@@ -982,7 +982,7 @@ name = "cubemap_space"
 title = "Deep space cube map"
 description = "Star field cube maps at 4k and 16k resolution, built from the NASA Scientific Visualization Studio Gaia DR2 all-sky starmap."
 path = ["cubemap_space/**"]
-SPDX-License-Identifier = "LicenseRef-NASA-SVS"
+SPDX-License-Identifier = "LicenseRef-NASA-Media"
 provenance = "verified"
 origin_url = "https://svs.gsfc.nasa.gov/4851"
 origin_title = "NASA/Goddard Scientific Visualization Studio"
@@ -3164,12 +3164,35 @@ references = [
 [[dataset]]
 name = "pluto_texture"
 title = "Pluto surface texture"
-description = "Equirectangular surface texture of Pluto at 5926 by 2963."
+description = "Global colour map of Pluto from New Horizons, equirectangular at 5926 by 2963."
 path = ["solar_textures/pluto.jpg"]
-SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "unknown"
+SPDX-License-Identifier = "LicenseRef-NASA-Media"
+provenance = "verified"
+origin_url = "https://www.nasa.gov/image-feature/pluto-global-color-map"
+origin_title = "NASA, Pluto global color map"
+authors = [
+    "NASA",
+    "Johns Hopkins University Applied Physics Laboratory",
+    "Southwest Research Institute",
+]
+attribution = "NASA / Johns Hopkins University Applied Physics Laboratory / Southwest Research Institute."
 redistributed_from = "https://github.com/tamaskis/planet3D-MATLAB"
-notes = "Byte-identical to `planet3D/pluto.png` in tamaskis/planet3D-MATLAB, and added here separately from the Solar System Scope batch. It cannot have come from Solar System Scope, which publishes no Pluto texture, and the MATLAB repository credits no source for its textures, so the origin is undetermined. 5926 by 2963 is a distinctive size worth searching on."
+notes = """
+The New Horizons global colour mosaic, released by NASA as an image feature
+and mirrored on Wikimedia Commons as `Pluto color mapmosaic.jpg`. That file
+is 5926 by 2963, the same unusual size as ours, and the two are the same
+picture: decoded to greyscale and reduced to 64 by 32, they differ by 0.03
+out of 255 on average and by 1 at most, which is JPEG re-encoding and
+nothing else. Commons records the artist as "NASA / Johns Hopkins University
+Applied Physics Laboratory / Southwest Research Institute" and the status as
+public domain.
+
+    curl -s "https://commons.wikimedia.org/w/api.php?action=query&titles=File:Pluto%20color%20mapmosaic.jpg&prop=imageinfo&iiprop=size|extmetadata&format=json"
+
+It reached this repository through tamaskis/planet3D-MATLAB, which credits no
+source for its textures, and was added separately from the Solar System Scope
+batch — correctly, since Solar System Scope publishes no Pluto texture.
+"""
 
 [[dataset]]
 name = "polyline"

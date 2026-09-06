@@ -1,9 +1,10 @@
-NASA Scientific Visualization Studio Media Usage
+NASA Media Usage Guidelines
 
-Source: https://svs.gsfc.nasa.gov/
+Source: https://www.nasa.gov/nasa-brand-center/images-and-media/
 
-NASA content — images, video and audio produced by the Scientific
-Visualization Studio — is generally not copyrighted and may be used for
+NASA content — images, video and audio, including that produced by the
+Scientific Visualization Studio and by mission teams — is generally not
+copyrighted and may be used for
 educational or informational purposes, including photo collections,
 textbooks, public exhibits, computer graphical simulations and internet
 web pages, without prior permission.
@@ -17,7 +18,7 @@ NASA's media usage guidelines require that:
   - Third-party material incorporated into a NASA product remains subject
     to the rights of its owner.
 
-Datasets in this repository derived from NASA SVS releases carry the
+Datasets in this repository derived from NASA releases carry the
 acknowledgement required by the specific release, recorded in the
 `attribution` field of the dataset's entry in DATASETS.toml.
 
