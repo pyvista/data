@@ -183,6 +183,37 @@ That is how `skybox2` was traced to the VTK Examples import, and how twelve
 groups of byte-identical files were found carrying two different licences.
 `tools/validate_datasets.py` now checks the last case on every pull request.
 
+### Ask when the file arrived, not when the repository was forked
+
+This repository is a fork of VTKData, but the tree it forked has 756 files in
+it, and there are now 1258. A file being here is no evidence at all that it
+came with the fork, and nine entries carried a VTK Data licence for exactly
+that reason.
+
+```bash
+git ls-tree -r --name-only 8f60d72 | grep froggy   # the fork point, July 2013
+git log --diff-filter=A --follow --format='%ad %an %s' --date=short -- Data/froggy/frog.mhd
+```
+
+The second command dates `froggy` to April 2019 and names the commit that
+brought it, "merge data files from lorensen/VTKExamples" — a different
+upstream with a different licence.
+
+### Hash against VTK's own content links
+
+VTK does not store its test data in git; it stores a `.sha512` file naming
+each object. Those files are the authority on whether something really is VTK
+test data, and they are cheap to check in bulk:
+
+```bash
+shasum -a 512 Data/DICOMDirectory/mr.001
+cat /path/to/VTK/Testing/Data/mr.001.sha512
+```
+
+A match proves Kitware distributes that exact file, so the collection's
+notice covers it. No match, for a file no upstream has, is a reason to
+suspect the recorded source.
+
 ### Check a URL through an API, not a plain request
 
 Several hosts answer `403` to scripts, which looks like "blocked" and hides a
@@ -218,6 +249,22 @@ the link gets it right.
 curl -sSL "http://web.archive.org/web/2017/https://www.thingiverse.com/thing:1541337" \
   | grep -o 'rel="license"[^>]*'
 ```
+
+### Read the whole discussion, not just the pull request body
+
+A file usually arrives through a pull request, and the sentence that says
+where it came from is as often in a comment as in the body. `EnSight.zip` was
+recorded as VTK data for years; the contributor had said plainly in the issue
+that he could find no EnSight sample under an open licence and so converted
+one of his own OpenFOAM runs.
+
+```bash
+gh api repos/pyvista/pyvista/issues/722/comments --jq '.[] | "\(.user.login): \(.body)"'
+```
+
+`wavy.zip` is the same story in the other direction: the pull request that
+added it publishes the PyVista script that generated it, which is why it is
+recorded as MIT rather than as ParaView's.
 
 ### When you cannot establish it
 
