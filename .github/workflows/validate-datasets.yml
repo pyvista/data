@@ -21,6 +21,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           filter: blob:none
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/Data/
 
       - uses: actions/setup-python@v5
         with:
