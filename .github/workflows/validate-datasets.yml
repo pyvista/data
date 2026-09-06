@@ -36,7 +36,7 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          python tools/validate_datasets.py | tee validation.log
+          python tools/validate_datasets.py 2>&1 | tee validation.log
 
       - name: Explain the failure
         if: failure() && steps.validate.conclusion == 'failure'
