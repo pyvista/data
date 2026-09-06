@@ -1,9 +1,9 @@
 # Dataset metadata for the PyVista example data repository.
 #
 # This file is the single source of truth for the provenance and licensing of
-# every file under `Data/`. PyVista reads it through `Example.metadata` and
-# publishes it in the Dataset Gallery; this repository checks it on every pull
-# request with `tools/validate_datasets.py`.
+# every file under `Data/`. PyVista will read it through `Example` and publish
+# it in the Dataset Gallery once pyvista/pyvista#9118 merges; this repository
+# checks it on every pull request with `tools/validate_datasets.py`.
 #
 # Read `CONTRIBUTING.md` before editing — it documents how the provenance here
 # was established and how to check it. In short:
@@ -11,7 +11,7 @@
 #   * every file under `Data/` must be covered by exactly one `[[dataset]]`;
 #   * `[[dataset]]` blocks are sorted by `name`;
 #   * `SPDX-License-Identifier` must resolve to a `[license.*]` table below;
-#   * `LICENSE`, `README` and `.license` files are not allowed under `Data/`.
+#   * `LICENSE`, `README` and `.license` files are not tracked under `Data/`.
 #
 # The licensing keys borrow their names and meaning from the REUSE
 # specification (https://reuse.software): `SPDX-License-Identifier` and

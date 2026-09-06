@@ -20,10 +20,10 @@ This assumes the file has been uploaded to the `Data` directory as
 
 [`DATASETS.toml`](DATASETS.toml) describes every file under `Data/`: what it
 is, where it came from, who made it, what licence it carries and what changed
-between the source and the copy here. PyVista reads it through
-`examples.get_example(...).metadata` and publishes it in the
+between the source and the copy here. PyVista will read it through
+`examples.get_example(...)` and publish it in the
 [Dataset Gallery](https://docs.pyvista.org/api/examples/dataset_gallery)
-alongside each dataset (pyvista/pyvista#9118).
+alongside each dataset once pyvista/pyvista#9118 merges.
 
 Read a single dataset's record with:
 
@@ -76,9 +76,13 @@ short: add the files under `Data/`, add a `[[dataset]]` block to
 python tools/validate_datasets.py
 ```
 
-`LICENSE`, `README`, `CITATION` and `.license` files are **not** accepted under
-`Data/`; that information belongs in `DATASETS.toml` where PyVista can read it.
-CI enforces both rules on every pull request.
+`LICENSE`, `README`, `CITATION` and `.license` files are **not** accepted as
+tracked files under `Data/`; that information belongs in `DATASETS.toml` where
+PyVista can read it. CI enforces both rules on every pull request.
+
+A licence or readme *inside* an archive is a different matter, and several
+archives here carry one. Leave those alone: they are the evidence for their
+dataset's entry, and CI does not look inside archives.
 
 ### Adding the Example to PyVista's Downloads
 
