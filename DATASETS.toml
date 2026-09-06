@@ -2872,23 +2872,14 @@ author of the data itself could not be established.
 [[dataset]]
 name = "protein_3gqp"
 title = "Protein 3GQP"
-description = "Protein structure 3GQP in Protein Data Bank format."
+description = "Crystal structure of cat haemoglobin at 2.0 angstrom, PDB accession 3GQP, in Protein Data Bank format."
 path = ["3GQP.pdb"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
-provenance = "inferred"
-source_url = "https://gitlab.kitware.com/vtk/vtk-data"
-source_title = "VTK Data"
-collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
-notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
-"""
+SPDX-License-Identifier = "CC0-1.0"
+provenance = "verified"
+source_url = "https://www.rcsb.org/structure/3GQP"
+source_title = "RCSB Protein Data Bank"
+redistributed_from = "https://gitlab.kitware.com/vtk/vtk-examples"
+notes = "The filename is the accession: every ATOM record is byte-identical to the file RCSB serves for 3GQP. The wwPDB usage policy releases the PDB archive under CC0, which requires no attribution, so the collection licence recorded here before was both wrong and more restrictive than the source."
 
 [[dataset]]
 name = "pump_bracket"
