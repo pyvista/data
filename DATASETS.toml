@@ -110,6 +110,14 @@ attribution_required = true
 share_alike = false
 file = "LICENSES/LicenseRef-NASA-SVS.txt"
 
+[license."LicenseRef-PublicDomain"]
+title = "Public domain"
+url = "https://github.com/pyvista/data/blob/master/LICENSES/LicenseRef-PublicDomain.txt"
+commercial_use = true
+attribution_required = false
+share_alike = false
+file = "LICENSES/LicenseRef-PublicDomain.txt"
+
 [license."LicenseRef-SimScale-PublicProject"]
 title = "SimScale public project data"
 url = "https://www.simscale.com/terms-and-conditions/"
@@ -1783,6 +1791,24 @@ author of the data itself could not be established.
 """
 
 [[dataset]]
+name = "gettysburg_address"
+title = "Gettysburg Address"
+description = "Plain text of Lincoln's Gettysburg Address, used to exercise text rendering and word-cloud layout."
+path = ["Gettysburg.txt"]
+SPDX-License-Identifier = "LicenseRef-PublicDomain"
+provenance = "verified"
+source_url = "https://github.com/lorensen/VTKExamples"
+source_title = "lorensen/VTKExamples"
+collection = "vtk-examples"
+authors = ["Abraham Lincoln"]
+notes = """
+The speech was delivered on 19 November 1863 and its copyright, if it ever
+had one, expired long ago. It reached this repository with the April 2019
+VTK Examples import and was covered by that entry's blanket Apache-2.0, which
+no redistributor can impose on a public-domain text.
+"""
+
+[[dataset]]
 name = "gis_countries"
 title = "Country boundary shapefile"
 description = "World country boundaries as an ESRI shapefile with its index, projection and attribute table."
@@ -2085,9 +2111,6 @@ path = [
     "Infovis/DimacsGraphs/iso_pattern.gr",
     "Infovis/DimacsGraphs/iso_target.gr",
     "Infovis/DimacsGraphs/maxflow.max",
-    "Infovis/Images/NE2_ps_bath.jpg",
-    "Infovis/Images/NE2_ps_bath.png",
-    "Infovis/Images/NE2_ps_bath_transparent.png",
     "Infovis/SQLite/SmallEmailTest.db",
     "Infovis/SQLite/SmallTestGraphs.db",
     "Infovis/SQLite/ports_protocols.db",
@@ -2559,6 +2582,40 @@ source_title = "VTK Data"
 collection = "vtk-data"
 attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = "Added in May 2013 with the commit message \"Adding baseline and data for new test (TestMultiblockDisplayProperties)\", six years before this repository was forked from VTK Data, so it carries that collection's licence. The commit message previously recorded here, \"Add reactor partitioned mesh\", belongs to `reactor.zip`, which is a different file added in 2024."
+
+[[dataset]]
+name = "natural_earth_ii"
+title = "Natural Earth II"
+description = "Tom Patterson's Natural Earth II world map with bathymetry, the 4000 by 2000 page-size raster, plus a transparent variant and a downsample."
+path = [
+    "Infovis/Images/NE2_ps_bath.jpg",
+    "Infovis/Images/NE2_ps_bath.png",
+    "Infovis/Images/NE2_ps_bath_transparent.png",
+    "NE2_ps_bath_small.jpg",
+]
+SPDX-License-Identifier = "LicenseRef-PublicDomain"
+provenance = "verified"
+source_url = "https://www.shadedrelief.com/natural2/"
+source_title = "Natural Earth II"
+authors = ["Tom Patterson"]
+notes = """
+The name is the giveaway: `NE2_ps_bath` is Natural Earth II, page size, with
+bathymetry, which is exactly how Patterson's download page labels the file it
+serves as `NE2_ps_bath.jpg`. Ours is 4000 by 2000, the page-size dimensions
+that page states, and it was written by Photoshop CS2 on 2 July 2007.
+
+The terms page says: "All versions of Natural Earth II found on this website
+are in the public domain. You may use the maps in any manner ... The author,
+Tom Patterson, renounces all financial claim to the maps and invites you to
+use them for personal, educational, and commercial purposes. No permission is
+needed ... Crediting the author is unnecessary."
+
+    curl -s "http://web.archive.org/web/20071021063918id_/http://www.shadedrelief.com:80/natural2/pages/use.html"
+
+The four files were covered by the `infovis` and `vtk_data_files` entries,
+which asserted Kitware's copyright over them. `NE2_ps_bath_small.jpg` is a
+GIMP downsample of the same map.
+"""
 
 [[dataset]]
 name = "nefertiti"
@@ -4002,7 +4059,6 @@ path = [
     "GreenCircle.png",
     "IncOctPntLocData.dat",
     "IncOctPntLocResult.dat",
-    "NE2_ps_bath_small.jpg",
     "PentaHexa.vtk",
     "RectGrid2.vtk",
     "RedCircle.png",
@@ -4143,7 +4199,6 @@ path = [
     "DelimitedData.txt",
     "GE.vtk",
     "GM.vtk",
-    "Gettysburg.txt",
     "GitLfsInstalled",
     "Gourds.mha",
     "Hexahedron.vtu",
