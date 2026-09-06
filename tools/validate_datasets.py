@@ -103,12 +103,19 @@ def matches(pattern: str, path: str) -> bool:
 
 
 def license_terms(expression: str) -> list[str]:
-    """Split an SPDX license expression into the identifiers it names."""
-    return [
-        token
-        for token in re.split(r'[()\s]+', expression)
-        if token and token.upper() not in {'AND', 'OR', 'WITH'}
-    ]
+    """Split an SPDX license expression into the license identifiers it names."""
+    tokens = [token for token in re.split(r'[()\s]+', expression) if token]
+    terms, skip = [], False
+    for token in tokens:
+        if token.upper() == 'WITH':
+            skip = True
+        elif token.upper() in {'AND', 'OR'}:
+            skip = False
+        elif skip:
+            skip = False
+        else:
+            terms.append(token)
+    return terms
 
 
 def is_forbidden(path: str) -> bool:
