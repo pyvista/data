@@ -3615,24 +3615,27 @@ author of the data itself could not be established.
 [[dataset]]
 name = "st_helens"
 title = "Mount St. Helens elevation"
-description = "USGS digital elevation model of Mount St. Helens."
+description = "USGS digital elevation model of Mount St. Helens after the 1980 eruption, on a 30 metre grid."
 path = ["SainteHelens.dem"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
-provenance = "inferred"
+SPDX-License-Identifier = "LicenseRef-PublicDomain"
+provenance = "verified"
 source_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
+authors = ["United States Geological Survey"]
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+The file is a USGS digital elevation model in the standard Type A record
+format, and that record names itself. `head -c 160 Data/SainteHelens.dem`
+gives:
 
-USGS digital elevation models are US federal works and so are in the public domain in the United States, but the specific quadrangle and vintage were not recorded upstream.
+    MOUNT ST. HELENS, WASH. (POST-ERUPTION)  MSH-M80  3-176 09/06/80  B-8
+    N=2.00X1.00 S=2.00X1.00MM 9 PANEL FILES 30M X 30M INTERVAL
+
+So the quadrangle, the vintage and the grid spacing were in the bytes all
+along. A digital elevation model prepared by the USGS is a work of the United
+States federal government and carries no copyright under 17 U.S.C. Sec. 105.
+It was recorded here under Kitware's blanket collection notice, which cannot
+attach a copyright to a work that has none.
 """
 
 [[dataset]]
