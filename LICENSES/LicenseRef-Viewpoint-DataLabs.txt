@@ -1,0 +1,21 @@
+Viewpoint Animation Engineering / Viewpoint DataLabs dataset terms
+
+Source: the header of the dataset files themselves.
+
+The Viewpoint models redistributed in VTK's test data carry their terms in
+their own headers, quoted verbatim from `cow.obj`:
+
+    (c) Copyright 1992 Viewpoint Animation Engineering Inc.
+    Sun Microsystems has been authorized to freely distribute
+    these Datasets.  They are provided for unlimited use in
+    existing or modified form.  The actual Dataset (ie, geometry)
+    may not, however, be resold in existing or modified form.
+
+This is not an OSI-approved or Creative Commons license. It permits
+redistribution and modification without restriction, but the geometry itself
+may not be resold in any form. A product that sells the model, or a dataset
+derived from it, is outside the grant; a product that merely uses it is not
+addressed either way.
+
+The deleted `Data/Viewpoint/README` recorded that these datasets came from
+Viewpoint DataLabs International, which sold a commercial model library.

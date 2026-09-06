@@ -141,6 +141,14 @@ attribution_required = false
 share_alike = false
 file = "LICENSES/LicenseRef-UtahTeapot-PublicDomainByConvention.txt"
 
+[license."LicenseRef-Viewpoint-DataLabs"]
+title = "Viewpoint Animation Engineering dataset terms"
+url = "https://github.com/pyvista/data/blob/master/LICENSES/LicenseRef-Viewpoint-DataLabs.txt"
+commercial_use = false
+attribution_required = true
+share_alike = false
+file = "LICENSES/LicenseRef-Viewpoint-DataLabs.txt"
+
 [license."MIT"]
 title = "MIT License"
 url = "https://opensource.org/licenses/MIT"
@@ -851,21 +859,26 @@ name = "cow"
 title = "Viewpoint cow"
 description = "Surface mesh of a cow from the Viewpoint DataLabs model collection, in OBJ and VTK XML form and as an ASCII triangle mesh, together with a 3D Studio interior scene."
 path = ["Viewpoint/**", "cow.g", "cow.obj", "cow.vtp"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
-provenance = "inferred"
+SPDX-License-Identifier = "LicenseRef-Viewpoint-DataLabs"
+SPDX-FileCopyrightText = ["1992 Viewpoint Animation Engineering Inc."]
+provenance = "verified"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
+authors = ["Viewpoint Animation Engineering Inc."]
+attribution = "(c) Copyright 1992 Viewpoint Animation Engineering Inc."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+The files carry their own terms in their headers: "(c) Copyright 1992
+Viewpoint Animation Engineering Inc. Sun Microsystems has been authorized to
+freely distribute these Datasets. They are provided for unlimited use in
+existing or modified form. The actual Dataset (ie, geometry) may not, however,
+be resold in existing or modified form."
+
+That restriction is narrower than VTK Data's BSD-3-Clause and follows the
+geometry into the VTK conversions here, so it is recorded rather than the
+collection licence. `authors` and the copyright name Viewpoint, not Kitware.
 """
+
 
 [[dataset]]
 name = "cow_head"
@@ -3459,23 +3472,16 @@ notes = "Added in October 2020 with the commit message \"add thermal probes\" an
 [[dataset]]
 name = "three_ds_interior"
 title = "3D Studio interior scene"
-description = "Interior scene in the Autodesk 3D Studio format."
+description = "Thirty-three-block scene in the Autodesk 3D Studio format, from the Viewpoint model library."
 path = ["iflamigm.3ds", "iflamingo.3ds"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Viewpoint-DataLabs"
+SPDX-FileCopyrightText = ["1992 Viewpoint Animation Engineering Inc."]
 provenance = "inferred"
 source_url = "https://gitlab.kitware.com/vtk/vtk-data"
 source_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
-notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
-"""
+attribution = "(c) Copyright 1992 Viewpoint Animation Engineering Inc."
+notes = "Byte-identical to `Viewpoint/iflamigm.3ds`, so it carries the Viewpoint terms recorded on the `cow` entry: unlimited use and modification, but the geometry may not be resold."
 
 [[dataset]]
 name = "torso"
