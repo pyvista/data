@@ -31,9 +31,11 @@ LICENSE_REQUIRED = ('title', 'url', 'file', 'commercial_use', 'attribution_requi
 COLLECTION_REQUIRED = ('title', 'url', 'description')
 
 FORBIDDEN_STEMS = {
-    'license', 'licence', 'copying', 'copyright', 'notice', 'readme', 'citation',
+    'license', 'licence', 'licenses', 'licences', 'copying', 'copyright',
+    'notice', 'notices', 'readme', 'readmes', 'citation', 'citations',
 }
 FORBIDDEN_SUFFIXES = ('.license',)
+DOCUMENT_SUFFIXES = ('', '.txt', '.md', '.rst', '.cff', '.html', '.adoc')
 
 
 class Problems:
@@ -121,7 +123,10 @@ def license_terms(expression: str) -> list[str]:
 def is_forbidden(path: str) -> bool:
     """Say whether a path is a per-dataset metadata file that DATASETS.toml replaces."""
     name = Path(path).name.casefold()
-    return Path(name).stem in FORBIDDEN_STEMS or name.endswith(FORBIDDEN_SUFFIXES)
+    if name.endswith(FORBIDDEN_SUFFIXES):
+        return True
+    head = re.split(r'[.\-_]', name, maxsplit=1)[0]
+    return head in FORBIDDEN_STEMS and Path(name).suffix in DOCUMENT_SUFFIXES
 
 
 def slugify(text: str) -> str:
