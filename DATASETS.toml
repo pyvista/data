@@ -134,6 +134,14 @@ attribution_required = true
 share_alike = false
 file = "LICENSES/LicenseRef-StanfordScanningRepository.txt"
 
+[license."LicenseRef-TrainingImagesLibrary"]
+title = "Training Images Library, research use only"
+url = "http://www.trainingimages.org/training-images-library.html"
+commercial_use = false
+attribution_required = false
+share_alike = false
+file = "LICENSES/LicenseRef-TrainingImagesLibrary.txt"
+
 [license."LicenseRef-Unknown"]
 title = "Undetermined license"
 url = "https://github.com/pyvista/data/blob/master/LICENSES/LicenseRef-Unknown.txt"
@@ -3522,9 +3530,30 @@ path = [
     "sundarbans.SGEMS.zip",
     "ti.sgems.zip",
 ]
-SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "unknown"
-notes = "Added for PVGeo in 2019 with no recorded source. Files in the SGeMS format are usually redistributed from academic training-image collections, but neither the specific collection nor its terms could be identified."
+SPDX-License-Identifier = "LicenseRef-TrainingImagesLibrary"
+provenance = "verified"
+origin_url = "http://www.trainingimages.org/training-images-library.html"
+origin_title = "Training Images Library"
+authors = ["Gregoire Mariethoz", "Jef Caers"]
+references = [
+    { citation = "Mariethoz, G. and Caers, J. Multiple-point Geostatistics: Stochastic Modeling with Training Images. Wiley-Blackwell, 2014.", doi = "10.1002/9781118662953" },
+]
+notes = """
+PVGeo's own example scripts kept the original download URL as a comment
+beside the pyvista/data URL that replaced it, and all six files are named
+there:
+
+    # grid_url = 'http://www.trainingimages.org/uploads/3/4/7/0/34703305/a_wlreferencecat.zip'
+    url = ".../vtk-data/master/Data/A_WLreferenceCAT.sgems"
+
+with the same pairing for `maules_creek_3d`, `ti_horizons_continuous`, `ti`,
+`b_100sampledatawl` and `sundarbans` across `read-sgems-grid.py`,
+`read-point-set.py` and `read-table.py`.
+
+That library accompanies Mariethoz and Caers' book and grants research use
+only: "These images be used freely for research purposes." Commercial use is
+not granted, so this is a positive restriction rather than an unknown.
+"""
 
 [[dataset]]
 name = "shark"
