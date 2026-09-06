@@ -383,9 +383,14 @@ name = "biplane"
 title = "Biplane RMS pressure"
 description = "Exodus II result carrying root-mean-square surface pressure on a biplane."
 path = ["biplane_rms_pressure_bs.exo"]
-SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "unknown"
-notes = "Added in December 2024 with the commit message \"exodus biplane example\" and no recorded source or terms."
+SPDX-License-Identifier = "BSD-3-Clause"
+SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+provenance = "inferred"
+source_url = "https://gitlab.kitware.com/vtk/vtk-data"
+source_title = "VTK Data"
+collection = "vtk-data"
+attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+notes = "This is VTK's own reader test input: `Data/Exodus/biplane_rms_pressure_bs.exo`, named by `IO/IOSS/Testing/CMakeLists.txt` and read by `TestIOSSExodusSetArrays.cxx`. It sits on the same footing as the rest of the VTK Data collection."
 
 [[dataset]]
 name = "biquadratic_quads"
@@ -2355,13 +2360,22 @@ notes = "Added in December 2024 to exercise the Nek5000 reader. These are the st
 [[dataset]]
 name = "netcdf"
 title = "Network Common Data Form sample"
-description = "Sample file in the Network Common Data Form (NetCDF)."
+description = "Sea surface temperature from the IPSL-CM4_v1 coupled model, run for the IPCC Fourth Assessment SRES A2 experiment, distributed by Unidata as a NetCDF example file."
 path = ["tos_O1_2001-2002.nc"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
-source_url = "https://www.unidata.ucar.edu/software/netcdf/examples/files.html"
+source_url = "https://archive.unidata.ucar.edu/software/netcdf/examples/files.html"
 source_title = "Unidata NetCDF example files"
-notes = "This is the standard `tos_O1_2001-2002.nc` CMIP sea surface temperature sample distributed by Unidata as a NetCDF example file. Unidata states no terms for the example files, so the licence is undetermined."
+authors = ["Institut Pierre Simon Laplace"]
+notes = """
+The file's own global attributes identify it: `title` "IPSL model output
+prepared for IPCC Fourth Assessment SRES A2 experiment", `institution` "IPSL
+(Institut Pierre Simon Laplace, Paris, France)", `source` "IPSL-CM4_v1
+(2003)". It is CMIP3 model output redistributed by Unidata, not an
+unattributed Unidata sample, so any CMIP3 terms of use attach to it in
+addition to whatever Unidata's redistribution implies. Unidata states no
+terms for its example files, so the licence is undetermined.
+"""
 
 [[dataset]]
 name = "nifti_brain"
@@ -2503,9 +2517,14 @@ name = "openvdb_sphere_points"
 title = "OpenVDB sphere points"
 description = "Point cloud on a sphere in OpenVDB format, used to exercise the OpenVDB reader."
 path = ["sphere_points.vdb"]
-SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "unknown"
-notes = "Added in 2024 to give the OpenVDB reader a test file. No source or terms were recorded."
+SPDX-License-Identifier = "BSD-3-Clause"
+SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+provenance = "inferred"
+source_url = "https://gitlab.kitware.com/vtk/vtk-data"
+source_title = "VTK Data"
+collection = "vtk-data"
+attribution = "VTK Data, Kitware Inc., BSD 3-Clause."
+notes = "This is VTK's own reader test input: `Data/sphere_points.vdb`, named by `IO/OpenVDB/Testing/CMakeLists.txt` and read by `TestOpenVDBReader.cxx`. The file's own header records `creator: Houdini/SOP_OpenVDB_Write`."
 
 [[dataset]]
 name = "owl"
@@ -3215,11 +3234,12 @@ name = "step_model"
 title = "STEP solid model"
 description = "Red cube and blue cylinder in ISO 10303-21 STEP format, used to exercise the STEP reader."
 path = ["cadquery/**"]
-SPDX-License-Identifier = "LicenseRef-Unknown"
+SPDX-License-Identifier = "Apache-2.0"
 provenance = "inferred"
-source_url = "https://github.com/CadQuery/cadquery"
-source_title = "CadQuery"
-notes = "Generated with CadQuery to give the STEP reader a coloured test model. No terms were recorded for the generated file."
+source_url = "https://github.com/CadQuery/cadquery/blob/master/tests/testdata/red_cube_blue_cylinder.step"
+source_title = "CadQuery/cadquery test data"
+attribution = "CadQuery, licensed under the Apache License 2.0."
+notes = "The file is `tests/testdata/red_cube_blue_cylinder.step` in the CadQuery repository, referenced from `tests/test_importers.py`, so CadQuery's Apache-2.0 licence is recorded here. It was not generated with CadQuery: the STEP header names a translation-service export path dated 2018-05-02, so CadQuery may itself be a redistributor of a model produced elsewhere."
 
 [[dataset]]
 name = "structured_grid"
