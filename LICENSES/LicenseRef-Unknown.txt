@@ -1,0 +1,25 @@
+Undetermined License
+
+This identifier marks a dataset whose licensing could not be established.
+
+It is used when the origin of a file could not be traced to a source that
+states terms of use — typically a file inherited from an upstream test-data
+collection that carries no per-file provenance, or a mesh whose only
+recorded history is a redistribution by a third party.
+
+A dataset carrying this identifier:
+
+  - has a `notes` field describing what was and was not established, and
+  - MUST NOT be assumed to be freely licensed.
+
+It says nothing about `provenance`, which records confidence in the origin
+rather than in the licence. A dataset can have a certain source and
+undetermined terms: the Laser Design scans are `provenance = "verified"`
+because the archive they came from is known, and carry this identifier
+because that archive grants no rights.
+
+Downstream users redistributing these files, especially in a commercial
+product, should establish the terms independently or substitute a dataset
+with documented licensing. Anyone who can identify the origin of one of
+these files is asked to open an issue at
+https://github.com/pyvista/data/issues.

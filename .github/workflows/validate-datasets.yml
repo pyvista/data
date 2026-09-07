@@ -1,0 +1,67 @@
+name: Validate dataset metadata
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  validate:
+    name: DATASETS.toml
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/Data/
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate DATASETS.toml
+        id: validate
+        shell: bash
+        run: |
+          set -o pipefail
+          python tools/validate_datasets.py 2>&1 | tee validation.log
+
+      - name: Explain the failure
+        if: failure() && steps.validate.conclusion == 'failure'
+        shell: bash
+        run: |
+          {
+            echo '## Dataset metadata check failed'
+            echo
+            echo 'Every file under `Data/` must be described by a `[[dataset]]` block in'
+            echo '`DATASETS.toml`. Per-dataset `LICENSE`, `README` and `.license` files are'
+            echo 'not accepted -- that information belongs in `DATASETS.toml`, which is'
+            echo 'what PyVista reads to publish provenance in the Dataset Gallery.'
+            echo
+            echo 'Run the same check locally with:'
+            echo
+            echo '```bash'
+            echo 'python tools/validate_datasets.py'
+            echo '```'
+            echo
+            echo 'Full output:'
+            echo
+            echo '```'
+            cat validation.log
+            echo '```'
+            echo
+            echo 'See [CONTRIBUTING.md](https://github.com/pyvista/data/blob/master/CONTRIBUTING.md)'
+            echo 'for the field reference and worked examples.'
+          } >> "$GITHUB_STEP_SUMMARY"

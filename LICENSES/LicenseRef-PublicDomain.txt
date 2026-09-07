@@ -1,0 +1,25 @@
+Public Domain
+
+Used for work that is in the public domain, where the reason is recorded in
+the `notes` of each dataset that carries this identifier. The reason matters,
+because it decides who else the status binds:
+
+  - Copyright has expired. The work is old enough that no term still runs
+    anywhere the repository is used.
+
+  - It is a work of the United States federal government. 17 U.S.C. Sec. 105
+    denies copyright to works prepared by federal employees in the course of
+    their duties. This does not extend to contractor-produced work, nor to
+    the same work in other jurisdictions.
+
+  - The author dedicated it to the public domain in their own words, rather
+    than through CC0 or another instrument. Such a dedication is recorded
+    verbatim in the dataset's `notes` so a reader can judge it.
+
+No permission is needed, no credit is required, and there is no restriction
+on commercial use. Crediting the author is still good practice, and each
+entry records who that is where it is known.
+
+Do not reach for this identifier because a source is silent about its terms.
+Silence is `LicenseRef-Unknown`. This one is for a status that has been
+established and can be pointed at.
