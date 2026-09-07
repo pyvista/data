@@ -3466,6 +3466,33 @@ author of the data itself could not be established.
 """
 
 [[dataset]]
+name = "procedural_cow"
+title = "Procedural cow"
+description = "Cow generated from a signed-distance field, 300000 triangles as one watertight surface 200 mm long with Z up, carrying its colours as an embedded RGB point array rather than a texture."
+path = ["cow/**"]
+SPDX-License-Identifier = "CC0-1.0"
+provenance = "verified"
+origin_url = "https://github.com/pyvista/data/pull/71"
+origin_title = "PyVista"
+notes = """
+Original geometry rather than an import, and the generator that made it sits
+beside the data: `cow/generate_cow.py`, reproducible with `uv run --locked
+generate_cow.py`. Its defaults match what the mesh claims to be — 300000
+triangles, 200 mm long, 0.0065 voxel field. The mesh itself was not opened
+here because reading `.pv` needs `pyvista-zstd`.
+
+The `LICENSE` this directory carried states CC0-1.0 and "Required
+attribution: none", and records that it was written with assistance from
+OpenAI Codex on 2026-09-06. Its `README.md` adds that no downloaded geometry
+or texture is used in generation, and that the hoof outline was visually
+compared against a photograph on schaette.de without any photograph data
+entering the geometry or the colour array. Both files are recorded here
+instead, as this repository no longer keeps per-dataset sidecars.
+
+Not to be confused with `cow`, which is the Viewpoint scan.
+"""
+
+[[dataset]]
 name = "prostar"
 title = "ProSTAR mesh"
 description = "Vertex and cell files in the STAR-CD ProSTAR format."
