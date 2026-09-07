@@ -1,0 +1,14 @@
+SPDX-License-Identifier: CC0-1.0
+
+The original procedural cow dataset and accompanying generation code in this
+directory are made available under Creative Commons CC0 1.0 Universal.
+
+License statement and legal text:
+https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Original source: the accompanying generate_cow.py, created with assistance from
+OpenAI Codex on 2026-09-06 for https://github.com/pyvista/data.
+This is generated geometry with procedural vertex colors, not an imported mesh
+or a redistributed photograph or image texture.
+
+Required attribution: none.
