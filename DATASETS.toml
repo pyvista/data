@@ -361,13 +361,23 @@ established here.
 """
 
 [[dataset]]
+attribution = "Data from an output of Elmer/Ice (http://elmerice.elmerfem.org/), provided by Benoit Urruty."
+authors = ["Benoit Urruty"]
 name = "antarctica_velocity"
+origin_title = "PyVista support issue 83"
+origin_url = "https://github.com/pyvista/pyvista-support/issues/83"
 title = "Antarctica ice velocity"
 description = "Simulated ice surface velocity field over Antarctica."
 path = ["antarctica_velocity.vtp"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "unknown"
-notes = "Added in February 2020 with the commit message \"add antarctica_velocity.vtp\" and no recorded source or terms."
+provenance = "verified"
+notes = """
+Contributed by Benoit Urruty in pyvista-support#83 as an output of Elmer/Ice.
+He granted its use in the example gallery and asked that the data be described
+as coming from an Elmer/Ice output, which the attribution does. A grant for
+the gallery is not a general licence, so the terms for other uses are
+undetermined.
+"""
 
 [[dataset]]
 name = "armadillo"
@@ -570,7 +580,13 @@ provenance = "inferred"
 origin_url = "https://github.com/JiaweiZhuang/vtk_experiments"
 origin_title = "JiaweiZhuang/vtk_experiments"
 authors = ["Jiawei Zhuang"]
-notes = "Shared by the author for https://github.com/pyvista/pyvista/issues/175. The upstream repository publishes no LICENSE file, so the terms are undetermined."
+notes = """
+Shared by Jiawei Zhuang for https://github.com/pyvista/pyvista/issues/175. He
+was not the author: the data came from a course he took, and he relayed the
+instructor's permission for its use in PyVista. That relayed permission is
+recorded here rather than a licence, and the upstream repository publishes no
+LICENSE file, so the terms for other uses are undetermined.
+"""
 
 [[dataset]]
 name = "blow"
@@ -1077,15 +1093,24 @@ modification = "Converted from OpenEXR to JPEG with a brightness scale, then pro
 
 [[dataset]]
 name = "damavand_volcano"
+redistributed_from = "https://github.com/banesullivan/damavand-volcano"
 title = "Damavand volcano magnetotelluric volume"
 description = "Three-dimensional resistivity volume beneath Mount Damavand."
 path = ["damavand-volcano.vtk"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
-origin_url = "https://github.com/banesullivan/damavand-volcano"
-origin_title = "banesullivan/damavand-volcano"
-authors = ["Bane Sullivan"]
-notes = "The companion repository publishes no LICENSE file and the originating geophysical inversion is not identified, so the terms are undetermined."
+origin_url = "https://github.com/AlexeyPechnikov/ParaView-MoshaFault"
+origin_title = "AlexeyPechnikov/ParaView-MoshaFault"
+authors = ["Alexey Pechnikov"]
+notes = """
+Bane Sullivan's damavand-volcano repository publishes an MIT LICENSE (2020)
+and its data files are byte-identical to files in Alexey Pechnikov's ParaView-
+MoshaFault repository, also MIT, which is where the Damavand products were
+assembled. Both licences cover the repositories' own work; the geophysical
+survey behind the resistivity volume and the elevation data behind the area-
+of-interest surface are not identified in either, so the terms for the data
+itself are left undetermined.
+"""
 
 [[dataset]]
 name = "dark_matter_halo"
@@ -1198,13 +1223,17 @@ notes = "Added in December 2019 with the commit message \"add dolfin mesh\". The
 [[dataset]]
 name = "dolfinx_checkpoint"
 title = "DOLFINx checkpoint"
-description = "XDMF and HDF5 checkpoint files written by DOLFINx, with and without checkpoint metadata."
+description = "XDMF and HDF5 checkpoint files written by legacy FEniCS/DOLFIN, with and without checkpoint metadata."
 path = ["dolfinx/**"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
-origin_url = "https://github.com/FEniCS/dolfinx"
-origin_title = "FEniCS / DOLFINx"
-notes = "Written by DOLFINx to exercise the XDMF reader. No source page or terms were recorded for the specific files."
+origin_url = "https://fenicsproject.org/"
+origin_title = "FEniCS Project, legacy DOLFIN"
+notes = """
+Written with legacy DOLFIN rather than DOLFINx: the generating script the
+contributor published imports `fenics`. No source page or terms were recorded
+for the specific files.
+"""
 
 [[dataset]]
 name = "doorman"
@@ -1283,13 +1312,21 @@ ones, should contact Laser Design or substitute another mesh.
 [[dataset]]
 name = "earth_models"
 title = "Global topography and coastlines"
-description = "ETOPO ten-minute global ice-surface topography, a land-only variant, and world coastlines, projected to a sphere."
+description = "ETOPO1 global relief downsampled to ten arc-minutes, a land-only variant, and world coastlines, projected to a sphere."
 path = ["EarthModels/**"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://www.ncei.noaa.gov/products/etopo-global-relief-model"
 origin_title = "NOAA ETOPO global relief model"
-notes = "Added in March 2019 for PVGeo with the commit messages \"add global topo\" and \"add coastlines\". The file names say the ten-minute ETOPO product. The underlying ETOPO relief model and the Los Alamos coastlines are US federal works and so are very likely public domain, but the specific derivation redistributed here records no source URL, vintage or terms, so the licence is left undetermined."
+notes = """
+Added in March 2019 for PVGeo with the commit messages "add global topo" and
+"add coastlines". The grids are ETOPO1 downsampled to ten arc-minutes, and the
+directory name matches earthmodels.org, the LMU Munich geophysics site the
+files were most likely taken from. The underlying ETOPO relief model and the
+Los Alamos coastlines are US federal works and so are very likely public
+domain, but the specific derivation redistributed here records no source URL,
+vintage or terms, so the licence is left undetermined.
+"""
 
 [[dataset]]
 name = "electronics_cooling"
@@ -2254,7 +2291,12 @@ origin_url = "https://github.com/pyvista/pyvista/pull/3811"
 origin_title = "PyVista pull request 3811"
 modified = true
 modification = "Axes swapped so the orbital is aligned to z, and re-saved as VTK XML ImageData."
-notes = "Retrieved from an Uppsala University scientific visualisation course page, at it.uu.se/edu/course/homepage/vetvis/ht11/ComputerExercises/data/a1/hydrogen.vtk, which stated no terms of use and has since been taken down with no archived capture. The pull request that added it is the only surviving record."
+notes = """
+Retrieved from an Uppsala University scientific visualisation course page, at 
+it.uu.se/edu/course/homepage/vetvis/ht10/ComputerExercises/data/a1/hydrogen.vt
+k, which stated no terms of use and has since been taken down with no archived
+capture. The pull request that added it is the only surviving record.
+"""
 
 [[dataset]]
 name = "idgh_bracket"
@@ -2398,7 +2440,13 @@ description = "Interpolated surface from a lidar point cloud, used to demonstrat
 path = ["kafadar-lidar-interp.vtp"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "unknown"
-notes = "Added in March 2019 with the commit message \"add kafadar lidar data\" and no recorded source. The name points at a course dataset associated with Karen Kafadar, but neither the survey nor its terms could be identified."
+notes = """
+Added in March 2019 with the commit message "add kafadar lidar data" and no
+recorded source. The coordinates place the survey on the Colorado School of
+Mines campus around Kafadar Commons, where Bane Sullivan was studying when he
+added it, so the name is the place rather than a person; neither the survey
+nor its terms could be identified.
+"""
 
 [[dataset]]
 name = "kitchen"
@@ -2428,7 +2476,12 @@ SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://github.com/chaos-polymtl/lethe"
 origin_title = "chaos-polymtl/lethe"
-notes = "Generated with Lethe, which relicensed in 2024 to Apache-2.0 WITH LLVM-exception OR LGPL-2.1-or-later, and contributed through https://github.com/pyvista/pyvista/discussions/1984. Simulation output is not a derivative of the solver source, and the contributor did not state terms for the result file, so its licence is undetermined."
+notes = """
+Generated with Lethe, which relicensed in 2024 to Apache-2.0 WITH LLVM-exception OR LGPL-2.1-or-later, and contributed through https://github.com/pyvista/pyvista/discussions/1984. Simulation output is not a derivative of the solver source, and the contributor did not state terms for the result file, so its licence is undetermined.
+
+Its author, Victor Oliveira Ferreira, granted its use for PyVista in that
+discussion; the grant states no licence.
+"""
 
 [[dataset]]
 name = "letter_a"
@@ -2673,13 +2726,23 @@ provenance = "unknown"
 notes = "These files record no source, author or terms, and none could be established. `notch_stress.vtk` is the earlier of the two notch results: `notch_stress_fixed.vtk`, which `download_notch_stress` loads, is the same 2192 cells with coincident points merged, 3537 rather than 12717."
 
 [[dataset]]
+modification = "Kriging interpolation of the 245 probe points, carrying the kriging variance, made for PVGeo."
+modified = true
 name = "model_with_variance"
+origin_title = "Utah FORGE thermal probe data, GDR submission 1110"
+origin_url = "https://doi.org/10.15121/1495404"
 title = "Model with variance"
 description = "Unstructured grid carrying a scalar field and its per-point variance, used to demonstrate uncertainty visualisation."
 path = ["model_with_variance.vtu"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "unknown"
-notes = "Added in July 2019 with the commit message \"add model_with_variance.vtu\" and no recorded source or terms."
+provenance = "inferred"
+notes = """
+Added in July 2019 with the commit message "add model_with_variance.vtu" and
+no recorded source. It is a kriging interpolation of the Utah FORGE thermal
+probe set in Geothermal Data Repository submission 1110 (`probes.vtp` here);
+the licence the repository attaches to that submission was not checked, so the
+terms are left undetermined.
+"""
 
 [[dataset]]
 name = "moonlanding_image"
@@ -2716,15 +2779,24 @@ established here.
 
 [[dataset]]
 name = "mount_damavand"
+redistributed_from = "https://github.com/banesullivan/damavand-volcano"
 title = "Mount Damavand"
 description = "Area-of-interest surface for Mount Damavand, Iran, in UTM zone 39N."
 path = ["AOI.Damavand.32639.vtp"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
-origin_url = "https://github.com/banesullivan/damavand-volcano"
-origin_title = "banesullivan/damavand-volcano"
-authors = ["Bane Sullivan"]
-notes = "The companion repository publishes the notebooks that build this surface but no LICENSE file, and the underlying elevation source is not recorded, so the terms are undetermined."
+origin_url = "https://github.com/AlexeyPechnikov/ParaView-MoshaFault"
+origin_title = "AlexeyPechnikov/ParaView-MoshaFault"
+authors = ["Alexey Pechnikov"]
+notes = """
+Bane Sullivan's damavand-volcano repository publishes an MIT LICENSE (2020)
+and its data files are byte-identical to files in Alexey Pechnikov's ParaView-
+MoshaFault repository, also MIT, which is where the Damavand products were
+assembled. Both licences cover the repositories' own work; the geophysical
+survey behind the resistivity volume and the elevation data behind the area-
+of-interest surface are not identified in either, so the terms for the data
+itself are left undetermined.
+"""
 
 [[dataset]]
 name = "mug"
@@ -2892,6 +2964,10 @@ See the `iron_protein` entry, which the credit covers directly.
 
 A courtesy credit names the owner; it is not a licence, and it is not
 Kitware's to widen into the collection's BSD-3-Clause.
+
+The volume is the VolVis / Open SciVis 64 by 64 by 64 `neghip` dataset zero-
+padded to 66 cubed, verified byte-exact against that file through
+`vtkSLCReader`.
 """
 
 [[dataset]]
@@ -3325,6 +3401,7 @@ author of the data itself could not be established.
 """
 
 [[dataset]]
+authors = ["Janet MacFall"]
 name = "pine_root_volume"
 title = "Pine root volume"
 description = "MetaImage header and volume of a pine root system."
@@ -3346,9 +3423,13 @@ from: absent from the fork point and from VTK's own `Testing/Data` content
 links, so the repository licence Lorensen published under is what is
 recorded. Lorensen did not publish per-file provenance, so the original
 author of the data itself could not be established.
+
+The volume was acquired by Janet MacFall at the Center for In Vivo Microscopy,
+Duke University.
 """
 
 [[dataset]]
+authors = ["Janet MacFall"]
 name = "pine_roots"
 title = "Pine roots"
 description = "Triangle mesh of a pine root system, in the binary marching cubes triangle format."
@@ -3365,6 +3446,9 @@ repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
 author of the data itself could not be established.
+
+The volume was acquired by Janet MacFall at the Center for In Vivo Microscopy,
+Duke University.
 """
 
 [[dataset]]
@@ -3623,7 +3707,12 @@ path = [
 ]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "unknown"
-notes = "Added between 2019 and 2021 for the PVGeo example gallery. Individual source, author and terms were not recorded for any of these files and could not be established. None is loaded by pyvista.examples."
+notes = """
+Added between 2019 and 2021 for the PVGeo example gallery. Individual source, author and terms were not recorded for any of these files and could not be established. None is loaded by pyvista.examples.
+
+`topo_clean.vtk` and `opal_mound_fault.vtk` are from Utah FORGE Geothermal
+Data Repository submission 1107 (doi 10.15121/1495398).
+"""
 
 [[dataset]]
 name = "quadratic_cylinder"
@@ -4236,12 +4325,21 @@ author of the data itself could not be established.
 
 [[dataset]]
 name = "thermal_probes"
+origin_title = "Utah FORGE thermal probe data, GDR submission 1110"
+origin_url = "https://doi.org/10.15121/1495404"
+references = [{ citation = "Utah FORGE thermal probe data, Geothermal Data Repository submission 1110.", doi = "10.15121/1495404" }]
 title = "Thermal probe locations"
 description = "Point set of thermal probe locations with measured values."
 path = ["probes.vtp"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "unknown"
-notes = "Added in October 2020 with the commit message \"add thermal probes\" and no recorded source or terms."
+provenance = "inferred"
+notes = """
+Added in October 2020 with the commit message "add thermal probes" and no
+recorded source. The 245 probe locations and values match Utah FORGE
+Geothermal Data Repository submission 1110; the licence the repository
+attaches to that submission was not checked, so the terms are left
+undetermined.
+"""
 
 [[dataset]]
 name = "three_ds_flamingo"
@@ -4643,6 +4741,18 @@ collection as a whole, and is recorded here as the licence for this entry.
 Kitware never published per-file provenance for this material, so the
 original author of the data itself is not recorded upstream and could not be
 established here.
+
+Per-file origins established for files still inside this entry:
+`porphyrin.cml` is ChemSpider record 60231; `CityPopulationsUTF8.txt` is the
+World Gazetteer, copyright Stefan Helders; `vwgt.graph` and `vwgt.coords` are
+from Sandia's Zoltan/Chaco regression suite, committed by Lee Ann Fisk of
+Sandia with `vtkChacoReader`; `disk_out_ref.ex2` and `SurfaceVectors.vtk` are
+a Sandia CUBIT mesh (1996) with a Salsa reacting-flow solution (1997) of a
+GaAs MOCVD reactor; `cactus.3337.pts` is Hugues Hoppe's surface-reconstruction
+test data; `bolt.fac` is a Unigraphics facet file; `fran_cut.png` is a
+Cyberware scan; `financial.txt` and `financial.vtk` are simulated. None of
+these is covered by the collection licence in its own right, and each is a
+candidate for its own entry once its terms are established.
 """
 
 [[dataset]]
@@ -4699,6 +4809,10 @@ repository, which was published under the Apache License 2.0 and is now
 maintained by Kitware as `vtk/vtk-examples`. The repository licence is
 recorded here. Lorensen did not publish per-file provenance, so the original
 author of the data itself could not be established.
+
+`bridge.wrl` is byte-identical to the copy in John Burkardt's data collection
+at people.math.sc.edu/Burkardt/data/, which he publishes under the LGPL; it is
+a candidate for its own entry.
 """
 
 [[dataset]]
@@ -4786,6 +4900,11 @@ the NLM publishes, because the project distributes the full cryosection and
 CT series rather than this extracted knee volume.
 
 The subject consented to the use of her body for this purpose before death.
+
+It is absent from the 2013 VTK data tree and reached lorensen/VTKExamples in
+December 2018, contributed by Bharatesh Chakravarthi S B; `vw` follows VTK's
+naming for the Visible Woman, the Visible Human Project female dataset, which
+is the basis for the public-domain identification.
 """
 
 [[dataset]]
