@@ -81,7 +81,11 @@ attribution = "Poly Haven, https://polyhaven.com/. Attribution is a courtesy, no
 The file starts with `schema_version = 1`, the integer version of this format
 that `tools/validate_datasets.py` understands (`1.0`, `true` and `"1"` are
 rejected), followed by the `[license.*]` and `[collection.*]` tables and then
-the `[[dataset]]` blocks; those four are the only top-level keys. `name` is
+the `[[dataset]]` blocks; those four are the only top-level keys. Adding a
+key or a table does not change `schema_version`; renaming, removing or
+retyping one does, and because every installed PyVista reads this file from
+`master` and refuses a version it does not understand, such a bump is made
+together with a PyVista release that reads the new version. `name` is
 the first key of every block, and blocks are sorted by `name` in plain
 codepoint order. Every field has the type listed below, a key not listed here
 is rejected, and no string field or array entry may be blank. `origin_url`,
@@ -361,7 +365,8 @@ rules, so they are part of the format rather than an implementation detail:
 characters, not character classes. A pattern is a relative path with `/` as
 the separator (no leading, trailing or doubled `/`, no backslash); it may not
 be empty, listed twice in one block, or wildcards only (`**`, `*`, `?`,
-`*/**`), and a pattern that matches no tracked file is rejected. Prefer an
+`*/**`), and a pattern that matches no tracked file is rejected. `**` is only
+recognised as a whole segment; `sim**` is rejected. Prefer an
 explicit file list when a dataset has a handful of files, and `dir/**` when it
 owns a whole directory: `dir/*` will not claim files added in a subdirectory
 later, and the validator will report them as uncovered.

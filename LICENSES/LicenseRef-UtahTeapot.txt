@@ -28,10 +28,10 @@ verbatim:
 
 What this means for a downstream user: any use, including commercial use,
 is permitted. Credit is requested, not required, which is why
-`attribution_required = false`; the requested form is:
-
-    "Utah Teapot, originally modeled by Martin Newell, University of Utah,
-    1975."
+`attribution_required = false`. The page asks that the model be identified
+as a Utah Teapot (or Modified Utah Teapot) and its origin acknowledged as
+the University of Utah; the `attribution` field of each entry here is this
+repository's wording of that request, not a form the page prescribes.
 
 The page does not use the words "public domain", and no rights statement
 by Martin Newell was found, so this identifier is a stated permission plus
