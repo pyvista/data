@@ -162,7 +162,13 @@ def test_pattern_tokens():
         ('*', 'claims every file'),
         ('*/**', 'claims every file'),
         ('?', 'claims every file'),
+        ('foo**', 'whole path segment'),
+        ('**.vtk', 'whole path segment'),
+        ('a/**b', 'whole path segment'),
+        ('a***', 'whole path segment'),
         ('dir/**', None),
+        ('**/x.vtk', None),
+        ('a/**/b', None),
         ('a.vtk', None),
     ],
 )
@@ -710,6 +716,14 @@ def test_check_identical_files():
         'these files are byte-identical but carry different licences: CC0-1.0, MIT',
         'these files are byte-identical but carry different provenance: inferred, verified',
     ]
+
+
+def test_check_identical_files_skips_a_block_whose_name_is_not_a_string():
+    """A name of the wrong type is reported by the shape check, not by a crash here."""
+    doc = {'dataset': [{'name': ['a'], 'SPDX-License-Identifier': 'MIT', 'provenance': 'verified'}]}
+    problems = Problems()
+    check_identical_files(doc, {'x.vtk': 'b', 'y.vtk': 'b'}, {'x.vtk': ['a'], 'y.vtk': ['a']}, problems)
+    assert whats(problems) == []
 
 
 def test_check_identical_files_ignores_unowned_and_untracked():

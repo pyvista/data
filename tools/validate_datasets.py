@@ -190,6 +190,8 @@ def check_pattern(pattern: str) -> str | None:
         return 'is not a relative path: no leading, trailing or doubled `/`'
     if not pattern.strip('*?/'):
         return 'claims every file under Data/'
+    if any(segment != '**' and '**' in segment for segment in pattern.split('/')):
+        return 'uses `**` inside a name; `**` must stand alone as a whole path segment (`dir/**`, `**/x.vtk`)'
     return None
 
 
@@ -749,7 +751,7 @@ def check_identical_files(doc: dict, blobs: dict[str, str], owners: dict[str, li
     for path, blob in blobs.items():
         if path in owners:
             by_blob.setdefault(blob, []).append(path)
-    entries = {entry.get('name'): entry for entry in _datasets(doc)}
+    entries = {entry['name']: entry for entry in _datasets(doc) if isinstance(entry.get('name'), str)}
     for paths in by_blob.values():
         if len(paths) < 2:
             continue
