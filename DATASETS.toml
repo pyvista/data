@@ -5215,7 +5215,8 @@ attached by Rodrigo Mologni (rodrigomologni) at pyvista/pyvista-support#319
 on 2021-04-16, where he states it is the UNISIM-II-D reservoir model in VTU
 format; pyvista/data pull request 37 took it from that comment. The
 converter asked there that the UNISIM research group and SOLPE
-(https://www.solpe.com.br/) be referenced; pull request 37 omitted the
+(https://www.solpe.com.br/, now offline; archived at
+https://web.archive.org/web/20160704115130/https://www.solpe.com.br/) be referenced; pull request 37 omitted the
 SOLPE reference deliberately.
 """
 
@@ -6742,7 +6743,7 @@ description = "Scan of a standing figure of a woman."
 path = ["woman.stl"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
-origin_url = "https://www.laserdesign.com/sample-files/full-body-scan-with-texture/"
+origin_url = "http://web.archive.org/web/20190819171909/https://www.laserdesign.com/sample-files/full-body-scan-with-texture/"
 origin_title = "Laser Design sample files, Full Body Scan with Texture"
 collection = "laser-design"
 redistributed_from = ["http://3dgallery.gks.com/2012/bodyscan/bodyscan3.php"]
@@ -6755,9 +6756,9 @@ Services Corp. is a subsidiary of Laser Design Inc.
 pyvista's loader cited that page and fetched `woman.stl` from bodyscan3.php
 there until the gallery went offline; pyvista/pyvista#1226 (merged
 2021-03-09, "3dgallery.gks.com is down, probably for good") moved the file
-here the same day (commit 792cd84). The page now returns 404; the Wayback
-Machine holds it at
-http://web.archive.org/web/20190819171909/https://www.laserdesign.com/sample-files/full-body-scan-with-texture/.
+here the same day (commit 792cd84). The page,
+https://www.laserdesign.com/sample-files/full-body-scan-with-texture/, now
+returns 404, so the origin link is the Wayback Machine capture of it.
 The STL header reads "File exported by Artec Group 3D Scanning Solutions".
 No byte comparison is possible because the Wayback Machine has no capture of
 3dgallery.gks.com/2012/bodyscan/, so the origin is inferred from the loader's
