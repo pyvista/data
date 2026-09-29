@@ -1,0 +1,40 @@
+Utah Teapot terms of use
+
+Source: https://graphics.cs.utah.edu/teapot/, the University of Utah
+Graphics Lab's Utah Teapot page ("the official Utah Teapot page"), read on
+2026-09-28; the page's curly quotation marks are rendered straight here.
+Background: https://en.wikipedia.org/wiki/Utah_teapot. This is not an
+SPDX-listed licence; the wording it is based on is quoted here.
+
+Martin Newell created the dataset at the University of Utah in 1975. No
+formal licence was ever issued for the original data, and for decades the
+model circulated on that basis: Wikipedia records that versions of it "are
+distributed with or freely available for nearly every current rendering and
+modeling program and even many graphic APIs". The University of Utah's
+page now states terms, under the heading "Terms of Use and Attribution",
+verbatim:
+
+    "The Utah Teapot model files are freely available for any use,
+    including commercial use. To preserve the historical identity and
+    provenance of the model, users are requested to identify the model,
+    and any substantially derived version of it, as a Utah Teapot (or
+    Modified Utah Teapot) and to acknowledge its origin as the historic
+    Utah Teapot developed at the University of Utah. This request is
+    intended solely to preserve the historical identity of the Utah Teapot
+    and is not intended to restrict use of the model. The model files are
+    provided "as is," without warranty of any kind. The provider of these
+    files shall not be liable for any claims, damages, or other liability
+    arising from their use."
+
+What this means for a downstream user: any use, including commercial use,
+is permitted. Credit is requested, not required, which is why
+`attribution_required = false`; the requested form is:
+
+    "Utah Teapot, originally modeled by Martin Newell, University of Utah,
+    1975."
+
+The page does not use the words "public domain", and no rights statement
+by Martin Newell was found, so this identifier is a stated permission plus
+a convention, not a public-domain dedication. The copies here (`teapot.g`,
+`TeapotPoints.txt`, `teapot.wrl`) came through VTK and the VTK Examples,
+not from that page; their entries record the route.
