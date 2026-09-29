@@ -1,0 +1,23 @@
+Lawrence Berkeley National Laboratory, Whole Frog Project data terms
+
+Source: the `Copyright.Notice` file published beside the data at
+https://froggy.lbl.gov/images/whole.frog/data/ (Whole Frog Project,
+Information and Computing Sciences Division, Lawrence Berkeley National
+Laboratory, 1993-1995). This is not an SPDX-listed licence; the wording it
+is based on is quoted here.
+
+The notice states:
+
+    "These images and data were produced at Lawrence Berkeley Laboratory
+    by Bill Johnston and Wing Nip of the Information and Computing
+    Sciences Division ... This data is provided for the purpose of
+    scientific research and collaboration with Lawrence Berkeley
+    Laboratory. Any commercial use of these images and data require prior
+    agreement with Lawrence Berkeley Laboratory. The images and data are
+    Copyright Lawrence Berkeley Laboratory."
+
+What this means for a downstream user:
+
+  - the data may be used for scientific research;
+  - the copyright and the credit to Lawrence Berkeley Laboratory must be kept;
+  - any commercial use needs a prior agreement with the laboratory.
