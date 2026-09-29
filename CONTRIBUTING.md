@@ -1,9 +1,10 @@
 # Contributing a dataset
 
-Every file tracked under `Data/` is described by exactly one `[[dataset]]` block in
+Every file tracked under `Data/`, other than dotfiles, is described by exactly one `[[dataset]]` block in
 [`DATASETS.toml`](DATASETS.toml). That file is the single source of truth for
 what each dataset is, where it came from and how it may be used. PyVista will
-read it through `examples.get_example(...)` and publish it in the
+read it through `examples.get_example(...)`, which returns an `Example` whose
+`.metadata` is the dataset's record, and publish it in the
 [Dataset Gallery](https://docs.pyvista.org/api/examples/dataset_gallery) once
 pyvista/pyvista#9118 merges, so anything you record here is shown to everyone
 who downloads the data.
@@ -15,7 +16,9 @@ yourself before pushing:
 python tools/validate_datasets.py
 ```
 
-It needs Python 3.11 or newer and nothing else.
+It needs Python 3.11 or newer, `git` on `PATH` and a git checkout, because the
+list of tracked files comes from the git index; outside a checkout it prints
+`Could not list the files git tracks under Data/` and exits 1.
 
 ## Adding a dataset
 
@@ -23,14 +26,18 @@ It needs Python 3.11 or newer and nothing else.
    directory.
 2. Establish where the data came from and what its terms are, from the source
    itself. See [Establishing where a dataset came from](#establishing-where-a-dataset-came-from).
-3. Add a `[[dataset]]` block to `DATASETS.toml`, in alphabetical order by
-   `name`.
+3. Add a `[[dataset]]` block to `DATASETS.toml`, sorted by `name` in plain
+   codepoint order, with `name` as its first key.
 4. If the licence is not already declared in the file, add a `[license.*]`
    table for it and put the full licence text in `LICENSES/`.
 5. Run the validator.
 
-Do **not** add a `LICENSE`, `README`, `CITATION` or `.license` file under
-`Data/`. Those are rejected by CI. Everything they used to hold has a field in
+Do **not** add a `LICENSE`, `COPYING`, `COPYRIGHT`, `NOTICE`, `README` or
+`CITATION` file under `Data/`, in any letter case, singular or plural,
+`LICENCE` included, bare or with any extension (`LICENSE.MIT`, `CITATION.bib`),
+or with a `-` or `_` suffix and a document extension (`README-VTK`,
+`readme_notes.md`); nor a `.license` REUSE sidecar. CI rejects them.
+Everything they used to hold has a field in
 `DATASETS.toml`: the source goes in `origin_url`, the credit line in
 `attribution`, the processing you applied in `modification`, the citation in
 `references`, and anything else in `notes`.
@@ -50,8 +57,8 @@ origin_title = "Thingiverse thing:137954"
 collection = "thingiverse"
 authors = ["Autodesk"]
 attribution = "Grey Nurse Shark, uploaded by rogerpeng1 (https://www.thingiverse.com/thing:137954), licensed under CC BY-SA."
-redistributed_from = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/Testing/Data/thingiverse/Grey_Nurse_Shark.stl"
-notes = "The page's `rel=\"license\"` link names creativecommons.org/licenses/by-sa/3.0/. The uploader disclaims authorship: \"This is a scan by Autodesk obtained from the Autodesk 123D site\"."
+redistributed_from = ["https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/Testing/Data/thingiverse/Grey_Nurse_Shark.stl"]
+notes = "The page's `rel=\"license\"` link names creativecommons.org/licenses/by-sa/3.0/. ShareAlike propagates: a downstream work derived from this mesh must be shared under the same licence. The uploader disclaims authorship: \"This is a scan by Autodesk obtained from the Autodesk 123D site\"."
 ```
 
 A simple one is much shorter:
@@ -71,25 +78,35 @@ attribution = "Poly Haven, https://polyhaven.com/. Attribution is a courtesy, no
 
 ## Field reference
 
+The file starts with `schema_version = 1`, the integer version of this format
+that `tools/validate_datasets.py` understands (`1.0`, `true` and `"1"` are
+rejected), followed by the `[license.*]` and `[collection.*]` tables and then
+the `[[dataset]]` blocks; those four are the only top-level keys. `name` is
+the first key of every block, and blocks are sorted by `name` in plain
+codepoint order. Every field has the type listed below, a key not listed here
+is rejected, and no string field or array entry may be blank. `origin_url`,
+every `redistributed_from` entry and every `url` must be a full `http://` or
+`https://` URL.
+
 ### Required
 
 | Field | Type | Meaning |
 | --- | --- | --- |
-| `name` | string | Unique identifier, lowercase letters, digits and underscores. Downstream tools look datasets up by this. |
+| `name` | string | Unique identifier: lowercase letters, digits and underscores, starting with a letter or digit. The first key of the block. Downstream tools look datasets up by this. |
 | `title` | string | Short human-readable name, shown as the gallery card heading. |
 | `description` | string | One or two sentences about what the data *is*. Describe the data, not the PyVista function that loads it. |
-| `path` | array of strings | Paths relative to `Data/`. Every tracked file except dotfiles must be claimed by exactly one dataset. See [Path patterns](#path-patterns). |
-| `SPDX-License-Identifier` | string | An [SPDX expression](https://spdx.org/licenses/), or a `LicenseRef-*` identifier for terms SPDX does not list. Must resolve to a `[license.*]` table. |
+| `path` | array of strings | Paths relative to `Data/`, at least one. Every tracked file except dotfiles must be claimed by exactly one dataset, and two patterns of one block may not match the same file. See [Path patterns](#path-patterns). |
+| `SPDX-License-Identifier` | string | A well-formed [SPDX expression](https://spdx.org/licenses/): identifiers joined by `AND` or `OR`, optionally `WITH` an exception, in balanced parentheses (`MIT License` and `CC BY 4.0` are not expressions), or a `LicenseRef-*` identifier for terms SPDX does not list. Every identifier in it must resolve to a `[license.*]` table, spelled exactly as the table is. |
 | `provenance` | string | `"verified"`, `"inferred"` or `"unknown"`. See below. |
 
 ### Conditionally required
 
 | Field | Required when |
 | --- | --- |
-| `origin_url` | Always, unless `provenance = "unknown"`. |
+| `origin_url` | Always, unless `provenance = "unknown"`, which forbids it. |
 | `attribution` | The licence's `attribution_required` is `true`. |
-| `modification` | `modified = true`. |
-| `notes` | `provenance` is not `"verified"`, or the licence is `LicenseRef-Unknown`. |
+| `modification` | `modified = true`. The reverse holds too: `modification` may only be set when `modified = true`. |
+| `notes` | `provenance` is not `"verified"`, the licence is `LicenseRef-Unknown`, or any licence in the expression has `share_alike = true`. |
 
 ### Optional
 
@@ -99,9 +116,9 @@ attribution = "Poly Haven, https://polyhaven.com/. Attribution is a courtesy, no
 | `origin_title` | string | Human-readable name of the origin, shown next to the link. |
 | `collection` | string | Key into a `[collection.*]` table, for upstreams that several datasets share. |
 | `authors` | array of strings | Who made the data. |
-| `redistributed_from` | string | URL this copy actually came through, when that is not `origin_url`. |
-| `modified` | boolean | Whether the file differs from what the source published. |
-| `references` | array of tables | Papers to cite: `{ citation = "...", doi = "...", url = "..." }`. `citation` is required, the rest optional. |
+| `redistributed_from` | array of strings | The route this copy took when it did not come straight from `origin_url`: one URL per redistributor, ordered from the origin towards this repository, each naming where that redistributor's copy can be found. The last entry is where this repository took the file from. |
+| `modified` | boolean | Whether the file differs from what the source published. `true` requires `modification`. |
+| `references` | array of tables | Papers to cite: `{ citation = "...", doi = "...", url = "..." }`. `citation` is required, the rest optional, and no other keys are allowed. `doi` is the bare identifier (`10.1145/237170.237270`), not a `doi.org` link; `url` is `http(s)`. |
 
 ### `origin_url` is not a download link
 
@@ -112,8 +129,9 @@ link to a file.
 
 When the copy here came through somewhere else, `redistributed_from` records
 that route and `origin_url` still names the origin. The Stanford bunny's
-origin is the Stanford scanning repository; it reached this repository
-through the VTK Examples import, and both are written down.
+origin is the Stanford scanning repository; `bunny.ply` reached this
+repository through VTK Data and the decimated `Bunny.vtp` through the VTK
+Examples import, and each entry writes its route down.
 
 Where the trail runs out at a redistributor, `origin_url` names the
 redistributor and `provenance` says `inferred`, because that is genuinely as
@@ -126,20 +144,22 @@ originator.
 This field says how confident the record is about **where the data came from**.
 It says nothing about the licence: the licence's status is carried by
 `SPDX-License-Identifier`, and `LicenseRef-Unknown` is how a dataset says its
-terms could not be established. The two are independent — the Laser Design
-scans have `provenance = "verified"` and `SPDX-License-Identifier =
-"LicenseRef-Unknown"`, because the source is certain and publishes no terms.
+terms could not be established. The two are independent: most of the Laser
+Design scans have `provenance = "verified"` and `SPDX-License-Identifier =
+"LicenseRef-Unknown"`, because the source is certain and grants no
+redistribution rights.
 Anything rendering a badge from this file should take "can I use this?" from
 the licence, not from `provenance`.
 
-- **`"verified"`** — you opened the source page and it states where the data
-  came from. Most new contributions should be this.
-- **`"inferred"`** — the origin is a reasoned conclusion rather than something
+- **`"verified"`**: the source states where the data came from, or the bytes
+  prove it (a hash match against the upstream, an accession number in the
+  filename, a header the source wrote). Most new contributions should be this.
+- **`"inferred"`**: the origin is a reasoned conclusion rather than something
   the source states, so say what you inferred and why in `notes`.
-- **`"unknown"`** — the origin could not be established. Use
-  `SPDX-License-Identifier = "LicenseRef-Unknown"` with it, and say in `notes`
-  what you did establish, what you could not, and what a downstream user should
-  do.
+- **`"unknown"`**: the origin could not be established. Use
+  `SPDX-License-Identifier = "LicenseRef-Unknown"` with it, omit `origin_url`,
+  and say in `notes` what you did establish, what you could not, and what a
+  downstream user should do. The validator enforces all three.
 
 A new dataset should not normally be `"unknown"`. The existing `"unknown"`
 entries are historical: files inherited before this repository recorded
@@ -153,7 +173,7 @@ only this repository and a network connection. Record what you checked in
 
 **The source is the source.** A licence stated in a docstring, a README, a
 sidecar file or a previous version of this table is hearsay, not evidence.
-Several entries here were wrong for years because each of those was copied
+Several entries here started out wrong because each of those was copied
 forward without anyone opening the page: the Nefertiti scan was recorded
 non-commercial when its authors publish it under CC BY-SA 4.0, and the cow was
 recorded under the collection's BSD-3-Clause when the file itself carries a
@@ -183,10 +203,12 @@ recorded.
 ### Identify the file, not just the dataset
 
 A filename is often an accession or catalogue number that settles the licence
-outright — `3GQP.pdb` is a Protein Data Bank accession, and the whole archive
-is CC0. Distinctive dimensions, point counts or array names are searchable
-too: `froggy/frogtissue.mhd` was matched to its source by dimensions, spacing and
-array name together.
+outright: `3GQP.pdb` is a Protein Data Bank accession, and the whole archive
+is CC0. Distinctive dimensions and point counts are searchable too (a
+MetaImage header carries no array name): `froggy/frog.mhd` reads
+`DimSize = 500 470 136`, LBNL's `frog.hd` reads `470(r)x500(c)x136 unsigned
+byte`, and the decompressed bytes match, which is how the volume was matched
+to its owner.
 
 ### Compare bytes against the upstream
 
@@ -195,19 +217,25 @@ works across repositories without downloading either one in full:
 
 ```bash
 git hash-object Data/skybox2-negx.jpg
-git -C ../VTKExamples ls-tree -r HEAD src/Testing/Data/Skyboxes/ | grep negx
+git -C ../VTKExamples ls-tree -r HEAD src/Testing/Data/skyboxes/skybox2/ | grep negx
 ```
 
-That is how `skybox2` was traced to the VTK Examples import, and how twelve
-groups of byte-identical files were found carrying two different licences.
-`tools/validate_datasets.py` now checks the last case on every pull request.
+That is how the `skybox2` faces, added in July 2020 with no recorded source,
+were matched to `lorensen/VTKExamples`, and how fifteen groups of
+byte-identical files were found recorded under two different licences in the
+first version of this table. `tools/validate_datasets.py` rejects
+byte-identical files whose datasets disagree on licence or provenance on
+every pull request.
 
 ### Ask when the file arrived, not when the repository was forked
 
 This repository is a fork of VTKData, but the tree it forked has 756 files in
-it, and there are now 1258. A file being here is no evidence at all that it
-came with the fork, and nine entries carried a VTK Data licence for exactly
-that reason.
+it, and there are now 1261 under `Data/` (1263 tracked paths, two of them
+dotfiles). A file being here is no evidence at all that it came with the
+fork, and eight entries (`embryo`, `frog`, `openfoam_ensight_case`,
+`perlin_noise_shader`, `pine_root_volume`, `teapot_vrml`, `vector_animation`
+and `vtu_series`) were recorded under the VTK Data collection for exactly
+that reason until this table was reviewed.
 
 ```bash
 git ls-tree -r --name-only 8f60d72 | grep froggy   # the fork point, July 2013
@@ -215,7 +243,7 @@ git log --diff-filter=A --follow --format='%ad %an %s' --date=short -- Data/frog
 ```
 
 The second command dates `froggy` to April 2019 and names the commit that
-brought it, "merge data files from lorensen/VTKExamples" — a different
+brought it, "merge data files from lorensen/VTKExamples", a different
 upstream with a different licence.
 
 ### Hash against VTK's own content links
@@ -242,17 +270,18 @@ cat /path/to/VTK/Testing/Data/skybox/readme.txt
 ```
 
 That readme names Emil Persson and CC BY 3.0, and the six faces are
-byte-identical to `skybox2-*.jpg` here — which was recorded as Apache-2.0
-under the collection's licence for years. VTK carries at least three such
-exceptions in sibling files: the Viewpoint cow, the Tango icons and this
-skybox. A collection licence is the redistributor's, and it cannot reach a
-third party's work.
+byte-identical to `skybox2-*.jpg` here, which this table briefly recorded as
+Apache-2.0 under the collection's licence. VTK carries at least three such
+exceptions beside the files themselves: the Viewpoint cow (in the file
+headers), the Tango icons (`Tango/README.VTK.txt`) and this skybox
+(`skybox/readme.txt`). A collection licence is the redistributor's, and it
+cannot reach a third party's work.
 
 ### Check a URL through an API, not a plain request
 
-Several hosts answer `403` to scripts, which looks like "blocked" and hides a
-genuine `404`. One dead `origin_url` survived three review passes on 65
-entries for exactly this reason:
+Several hosts answer scripts differently from browsers, and the difference
+can hide a genuine `404`. One dead source URL survived review on 64 entries
+for exactly this reason:
 
 ```bash
 curl -sSI https://gitlab.kitware.com/vtk/vtk-data | head -1
@@ -262,12 +291,17 @@ curl -sS https://gitlab.kitware.com/api/v4/projects/vtk%2Fvtk-data
 #   {"message":"404 Project Not Found"} -- the project does not exist
 ```
 
-gitlab.kitware.com, codeberg, sketchfab, thingiverse, si.edu and zenodo all
-need either their API or a browser user-agent. When a page is gone, the
-Wayback Machine usually still has it:
+Where a host has an API, ask the API. Checked with `curl` on 28 September
+2026: gitlab.kitware.com and zenodo.org answer `200` to a plain `curl` and
+`403` to a browser user agent; 3d.si.edu answers `403` to both; thingiverse.com
+and sketchfab.com answer `200` to both. When a page is gone or empty, the
+Wayback Machine usually still has a capture:
 
 ```bash
-curl -sS "http://archive.org/wayback/available?url=thingiverse.com/thing:1541337"
+curl -sSL -o /dev/null -w '%{url_effective}\n' "http://web.archive.org/web/2017/https://www.thingiverse.com/thing:1541337"
+#   the redirect lands on the capture nearest to 2017; the availability API
+#   (archive.org/wayback/available?url=...) sometimes answers with no snapshots
+#   for a page that has hundreds, so do not take an empty answer as final
 ```
 
 ### Read the version out of the licence link
@@ -275,7 +309,7 @@ curl -sS "http://archive.org/wayback/available?url=thingiverse.com/thing:1541337
 A page that says "Creative Commons - Attribution" has not told you the
 version, and the version changes the terms. Thingiverse encodes it in
 `rel="license"` on older pages and in schema.org JSON-LD on newer ones, and
-the label-to-version mapping changed over time — the same wording meant 3.0 in
+the label-to-version mapping changed over time: the same wording meant 3.0 in
 2016 and 4.0 by 2021. Inferring from the upload date gets it wrong; reading
 the link gets it right.
 
@@ -288,7 +322,7 @@ curl -sSL "http://web.archive.org/web/2017/https://www.thingiverse.com/thing:154
 
 A file usually arrives through a pull request, and the sentence that says
 where it came from is as often in a comment as in the body. `EnSight.zip` was
-recorded as VTK data for years; the contributor had said plainly in the issue
+first recorded here as VTK data; the contributor had said plainly in the issue
 that he could find no EnSight sample under an open licence and so converted
 one of his own OpenFOAM runs.
 
@@ -319,11 +353,18 @@ rules, so they are part of the format rather than an implementation detail:
 | `skybox/*.jpg` | the `.jpg` files directly in `skybox/`, not in subdirectories |
 | `skybox/**` | everything under `skybox/`, at any depth |
 | `sim_?.vtu` | `sim_1.vtu` but not `sim_12.vtu`, and never across a `/` |
+| `dir/**/x.vtk` | `dir/x.vtk`, `dir/a/x.vtk` and deeper: an interior `**` also matches zero directories |
+| `**/x.vtk` | `x.vtk` at any depth, including directly under `Data/` |
+| `sim_?/**` | everything under `sim_1/`, `sim_2/` and so on: a wildcard before `/**` is honoured |
 
-`*` and `?` stop at a separator; only `**` crosses one. Prefer an explicit file
-list when a dataset has a handful of files, and `dir/**` when it owns a whole
-directory — `dir/*` will not claim files added in a subdirectory later, and the
-validator will report them as uncovered.
+`*` and `?` stop at a separator; only `**` crosses one. Brackets are literal
+characters, not character classes. A pattern is a relative path with `/` as
+the separator (no leading, trailing or doubled `/`, no backslash); it may not
+be empty, listed twice in one block, or wildcards only (`**`, `*`, `?`,
+`*/**`), and a pattern that matches no tracked file is rejected. Prefer an
+explicit file list when a dataset has a handful of files, and `dir/**` when it
+owns a whole directory: `dir/*` will not claim files added in a subdirectory
+later, and the validator will report them as uncovered.
 
 ## Licence requirements
 
@@ -336,13 +377,14 @@ accepted only with explicit maintainer approval, and their `[license.*]` table
 must record `commercial_use = false` so the gallery can flag them.
 
 ShareAlike licences (CC BY-SA, ODbL) are accepted, but record
-`share_alike = true` and say so in `notes`: a downstream user who derives new
-work from the dataset inherits the obligation.
+`share_alike = true` and say so in `notes`, which the validator requires on
+every dataset under such a licence: a downstream user who derives new work
+from the dataset inherits the obligation.
 
 Read the licence out of the page rather than off its label. A Thingiverse page
 shows a version-less "Creative Commons - Attribution", but names the version in
 its `rel="license"` link (2016-era pages) or its schema.org JSON-LD (2021 and
-later) — and the mapping changed over time, so the upload date is not a
+later), and the mapping changed over time, so the upload date is not a
 substitute. When the live page is a JavaScript shell, read an archived capture.
 
 Prefer CC0 and public-domain sources. [Smithsonian Open Access](https://3d.si.edu/cc0),
@@ -368,10 +410,15 @@ print('identical' if norm(mine) == norm(canon) else 'DIFFERS')
 EOF
 ```
 
-All twelve SPDX-listed texts here pass that check. The nine `LicenseRef-`
-files are not licence texts: SPDX does not list those terms, so each one
-states the terms in its own words, names its source at the top, and quotes
-the wording it is based on. `text_source` points at that source.
+All sixteen SPDX-listed texts here pass that check. The twelve `LicenseRef-`
+files cover terms SPDX does not list, and each opens with a `Source:` line
+naming what it rests on. The ones based on published wording (the NASA
+guidelines, the SimScale terms, the Stanford, Training Images and Utah
+teapot pages, the LBNL and MINC notices, Paul Bourke's site, the Viewpoint
+header) quote it verbatim and say what it means for a downstream user;
+`LicenseRef-DbCL-1.0.txt` reproduces the Open Data Commons text in full;
+`LicenseRef-PublicDomain.txt` and `LicenseRef-Unknown.txt` were written for
+this repository and say so. `text_source` points at where the text came from.
 
 
 If your dataset's licence is not already in `DATASETS.toml`:
@@ -386,6 +433,23 @@ share_alike = false
 file = "LICENSES/CC-BY-4.0.txt"
 text_source = "https://spdx.org/licenses/CC-BY-4.0.json"
 ```
+
+Every `[license.*]` table has exactly these keys, every table must be used by
+at least one dataset, and `LICENSES/` holds exactly the files the tables name:
+
+| Key | Type | Meaning |
+| --- | --- | --- |
+| `title` | string | Full licence name. |
+| `url` | string | Page where the licence is published, an `http(s)` URL. |
+| `commercial_use` | boolean | Whether the licence permits commercial use; `false` makes the gallery flag the dataset. |
+| `attribution_required` | boolean | Whether every dataset under it must carry `attribution`. |
+| `share_alike` | boolean | Whether derived work must carry the same licence; `true` requires `notes` on every dataset under it. |
+| `file` | string | Exactly `LICENSES/<key>.txt`, which must exist. |
+| `text_source` | string | Where the text in `file` came from; free text. |
+
+A `[collection.*]` table, for an upstream that several datasets share, has
+exactly `title`, `url` (an `http(s)` URL) and `description`, all strings, and
+must also be used by at least one dataset.
 
 Put the full text at the path `file` names. For an SPDX licence, copy it from
 the [SPDX license list](https://github.com/spdx/license-list-data/tree/main/text).

@@ -21,7 +21,8 @@ This assumes the file has been uploaded to the `Data` directory as
 [`DATASETS.toml`](DATASETS.toml) describes every file under `Data/`: what it
 is, where it came from, who made it, what licence it carries and what changed
 between the source and the copy here. PyVista will read it through
-`examples.get_example(...)` and publish it in the
+`examples.get_example(...)`, which returns an `Example` whose `.metadata` is
+the dataset's record, and publish it in the
 [Dataset Gallery](https://docs.pyvista.org/api/examples/dataset_gallery)
 alongside each dataset once pyvista/pyvista#9118 merges.
 
@@ -44,25 +45,27 @@ The licensing keys borrow their names and meaning from the
 [REUSE specification](https://reuse.software): `SPDX-License-Identifier` and
 `SPDX-FileCopyrightText` mean exactly what they mean there, and full licence
 texts live in [`LICENSES/`](LICENSES) named by SPDX identifier, as REUSE
-requires. The repository is not itself REUSE-covered, though: REUSE expects
-per-file comments or `.license` sidecars, and one sidecar per data file would
-be unreviewable next to one table you can read in a single diff. No REUSE tool
-reads `DATASETS.toml`.
+requires. The repository is not itself REUSE-compliant, though: REUSE 3.2 and
+later would accept a `REUSE.toml` whose globs cover every file, but no REUSE
+tool reads `DATASETS.toml`, and this table records more than REUSE's fields
+(origin, provenance, modification, references), so it is kept as the single
+source and `LICENSES/` follows REUSE's naming so the texts are where a REUSE
+user would look.
 
 ### What the files at the repository root cover
 
 `DATASETS.toml` is the authority for everything under `Data/`. The root files
 predate it and are narrower than they look:
 
-- `LICENSE` — the Apache License 2.0, added with the 2019 import from
+- `LICENSE`: the Apache License 2.0, added with the 2019 import from
   `lorensen/VTKExamples`. It covers that imported material and this
   repository's own tooling. It does **not** license the data as a whole:
   `Data/` holds files under BSD-3-Clause, CC BY, CC BY-SA, non-commercial
   terms, and terms that could not be established at all. Check
   `DATASETS.toml` for any file you plan to use.
-- `Copyright.txt` — VTK's BSD-3-Clause notice for "Visualization Toolkit
+- `Copyright.txt`: VTK's BSD-3-Clause notice for "Visualization Toolkit
   (Data)", inherited from VTKData and cited by the datasets that came from it.
-- `VTKData.readme` and `VERSION` — VTK-era files kept for historical
+- `VTKData.readme` and `VERSION`: VTK-era files kept for historical
   continuity. Neither describes the current contents.
 
 ### Adding new datasets
@@ -78,12 +81,17 @@ python tools/validate_datasets.py
 
 Every file tracked under `Data/` must be claimed by exactly one `[[dataset]]`
 block. Dotfiles are the one exception: `Data/.gitattributes` configures git
-rather than describing data, and the validator skips names beginning with a
-dot for that reason.
+and `Data/cow/.python-version` pins the Python version for the cow generator;
+neither describes data, and the validator skips names beginning with a dot
+for that reason.
 
-`LICENSE`, `README`, `CITATION` and `.license` files are **not** accepted as
-tracked files under `Data/`; that information belongs in `DATASETS.toml` where
-PyVista can read it. CI enforces both rules on every pull request.
+`LICENSE`, `COPYING`, `COPYRIGHT`, `NOTICE`, `README` and `CITATION` files (in any
+letter case, singular or plural, `LICENCE` included, bare or with any extension such
+as `LICENSE.MIT` or `CITATION.bib`; with a `-` or `_` suffix such as `README-VTK` or
+`readme_notes.md` only when the extension is a document type) and `.license` REUSE
+sidecars are **not** accepted as tracked files under `Data/`; that information
+belongs in `DATASETS.toml` where PyVista can read it. CI enforces both rules on
+every pull request.
 
 A licence or readme *inside* an archive is a different matter, and several
 archives here carry one. Leave those alone: they are the evidence for their

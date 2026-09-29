@@ -55,9 +55,10 @@ jobs:
             echo
             echo 'Every file under `Data/` must be described by a `[[dataset]]` block in'
             echo '`DATASETS.toml`. Per-dataset licence, copying, copyright, notice, readme'
-            echo 'and citation files (`LICENSE`, `LICENSE.MIT`, `COPYING`, `NOTICE`,'
-            echo '`README.md`, `CITATION.cff` and the like) and `.license` sidecars are not'
-            echo 'accepted under `Data/`: that information belongs in `DATASETS.toml`,'
+            echo 'and citation files (any letter case, singular or plural, bare or with any'
+            echo 'extension: `LICENSE`, `LICENSE.MIT`, `COPYING`, `NOTICE`, `README.md`,'
+            echo '`CITATION.cff` and the like) and `.license` sidecars are not accepted'
+            echo 'under `Data/`: that information belongs in `DATASETS.toml`,'
             echo 'which is what PyVista reads to publish provenance in the Dataset Gallery.'
             echo
             echo 'Run the same check locally with:'
