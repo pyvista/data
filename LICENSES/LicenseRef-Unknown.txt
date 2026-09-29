@@ -1,9 +1,13 @@
 Undetermined License
 
+Source: written for this repository. It is a statement that no terms could
+be established, not a licence text, and it rests on nothing beyond what
+each dataset's `notes` record.
+
 This identifier marks a dataset whose licensing could not be established.
 
 It is used when the origin of a file could not be traced to a source that
-states terms of use — typically a file inherited from an upstream test-data
+states terms of use: typically a file inherited from an upstream test-data
 collection that carries no per-file provenance, or a mesh whose only
 recorded history is a redistribution by a third party.
 

@@ -1,25 +1,58 @@
 NASA Media Usage Guidelines
 
-Source: https://www.nasa.gov/nasa-brand-center/images-and-media/
+Source: https://www.nasa.gov/nasa-brand-center/images-and-media/ (read on
+2026-09-28; the page's dashes and curly apostrophes are rendered as hyphens
+and straight apostrophes here). This is not an SPDX-listed licence; the
+wording it is based on is quoted here.
 
-NASA content — images, video and audio, including that produced by the
-Scientific Visualization Studio and by mission teams — is generally not
-copyrighted and may be used for
-educational or informational purposes, including photo collections,
-textbooks, public exhibits, computer graphical simulations and internet
-web pages, without prior permission.
+The page opens with:
 
-NASA's media usage guidelines require that:
+    "The NASA Insignia, Logotype, identifiers, and imagery are not in the
+    public domain. The use of the Insignia, Logotype and NASA identifiers
+    is protected by law, and imagery is made available for use consistent
+    with Media Usage Guidelines."
 
-  - NASA content may not be used to imply NASA endorsement of a product
-    or service.
-  - Content that includes identifiable people may not be used to imply
-    their endorsement.
-  - Third-party material incorporated into a NASA product remains subject
-    to the rights of its owner.
+The guidelines then state, verbatim:
+
+    "NASA content - images, audio, video, and media files used in the
+    rendition of 3-dimensional models, such as texture maps and polygon
+    data in any format - generally are not subject to copyright in the
+    United States. You may use this material for educational or
+    informational purposes, including photo collections, textbooks, public
+    exhibits, computer graphical simulations and Internet Web pages. This
+    general permission extends to personal Web pages."
+
+    "NASA content used in a factual manner that does not imply endorsement
+    may be used without needing explicit permission. NASA should be
+    acknowledged as the source of the material. NASA occasionally uses
+    copyright-protected material of third parties with permission on its
+    website. Those images will be marked identified as copyright protected
+    with the name of the copyright holder. NASA's use does not convey any
+    rights to others to use the same material. Those wishing to use
+    copyright protected material of third parties must contact the
+    copyright holder directly."
+
+    "If the NASA material is to be used for commercial purposes, including
+    advertisements, it must not explicitly or implicitly convey NASA's
+    endorsement of commercial goods or services."
+
+    "If a NASA image, audio, video or media includes an identifiable
+    person, using the media for commercial purposes may infringe that
+    person's right of privacy or publicity, and permission should be
+    obtained from the person."
+
+What this means for a downstream user:
+
+  - "generally" is the page's word. NASA content is generally, not always,
+    free of copyright, and the statement is limited to the United States.
+    Third-party material NASA publishes with permission stays its owner's
+    and is marked as such on NASA's pages; NASA insignia, logotype and
+    identifiers are not covered.
+  - NASA must be acknowledged as the source of the material, which is why
+    `attribution_required = true`.
+  - Commercial use is permitted as long as it does not convey NASA's
+    endorsement. Media showing an identifiable person needs that person's
+    permission for commercial use.
 
 Datasets in this repository derived from NASA releases carry the
-acknowledgement required by the specific release, recorded in the
-`attribution` field of the dataset's entry in DATASETS.toml.
-
-Full guidelines: https://www.nasa.gov/nasa-brand-center/images-and-media/
+acknowledgement in the `attribution` field of their entry in DATASETS.toml.

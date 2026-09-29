@@ -1,21 +1,61 @@
 Viewpoint Animation Engineering / Viewpoint DataLabs dataset terms
 
-Source: the header of the dataset files themselves.
+Source: the header of `Data/cow.obj` (the same bytes as
+`Data/Viewpoint/cow.obj`), the only file under this identifier that carries
+any text; `cow.g`, `cow.vtp`, `cowHead.vtp`, `iflamigm.3ds` and
+`iflamingo.3ds` carry none. VTKData commit
+e8098138988b98aac743429577f669454f57f7e8 (Jim Miller, 20 August 2001,
+"Files distributed with permission from Viewpoint") brought `cow.g`,
+`cow.obj` and `iflamigm.3ds` into VTK's data with a README beside them.
+This is not an SPDX-listed licence; the wording it is based on is quoted
+here.
 
-The Viewpoint models redistributed in VTK's test data carry their terms in
-their own headers, quoted verbatim from `cow.obj`:
+The `cow.obj` header reads, verbatim (tabs rendered as spaces):
 
-    (c) Copyright 1992 Viewpoint Animation Engineering Inc.
-    Sun Microsystems has been authorized to freely distribute
-    these Datasets.  They are provided for unlimited use in
-    existing or modified form.  The actual Dataset (ie, geometry)
-    may not, however, be resold in existing or modified form.
+    # Tue Oct 27 19:16:44 1992
+    #
+    #   Cow (moo)
+    #
+    # Courtesy of:
+    #
+    #   Viewpoint Animation Engineering
+    #   870 West Center
+    #   Orem, Utah 84057
+    #   (801)224-2222
+    #   1-800-DATASET
+    #
+    $ Contributed to the FTP site at avalon.chinalake.navy.mil (129.131.31.11)
+    # by Scott R. Nelson of Sun Microsystems (srnelson@eng.sun.com)
+    #
+    #   (c) Copyright 1992 Viewpoint Animation Engineering Inc.
+    #   Sun Microsystems has been authorized to freely distribute
+    #   these Datasets.  They are provided for unlimited use in
+    #   existing or modified form.  The actual Dataset (ie, geometry)
+    #   may not, however, be resold in existing or modified form.
+    #
 
-This is not an OSI-approved or Creative Commons license. It permits
-redistribution and modification without restriction, but the geometry itself
-may not be resold in any form. A product that sells the model, or a dataset
-derived from it, is outside the grant; a product that merely uses it is not
-addressed either way.
+The README that commit added beside the files, which this repository no
+longer carries, read in full:
 
-These datasets came from Viewpoint DataLabs International, which sold a
-commercial model library.
+    Datasets provided by Viewpoint DataLabs International, Inc.
+    625 South State Street
+    Orem, Utah 84058
+    1 801 229 3000
+
+    http://www.viewpoint.com
+
+    These folks have a massive collection of high quality datasets for sale.
+    They also host the avalon repository of free datasets.
+
+What this means for a downstream user:
+
+  - The header authorizes Sun Microsystems to distribute the datasets, and
+    VTK's commit message records that Kitware distributes them with
+    Viewpoint's permission. It does not grant redistribution to everyone.
+  - It grants unlimited use in existing or modified form.
+  - The geometry may not be resold in existing or modified form, which is
+    why `commercial_use = false`. A product that merely uses the model is
+    not addressed either way.
+  - No credit is asked for. The header names Viewpoint Animation
+    Engineering, Orem, Utah, as the source, and the Avalon archive as the
+    route by which Sun contributed the file.

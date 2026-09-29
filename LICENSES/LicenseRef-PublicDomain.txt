@@ -1,5 +1,9 @@
 Public Domain
 
+Source: written for this repository. It rests on no single text; the
+reason each dataset is in the public domain is recorded in that dataset's
+`notes`, as described below.
+
 Used for work that is in the public domain, where the reason is recorded in
 the `notes` of each dataset that carries this identifier. The reason matters,
 because it decides who else the status binds:
