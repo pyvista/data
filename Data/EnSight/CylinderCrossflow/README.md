@@ -1,1 +1,0 @@
-This dataset is from a 2D steady-state simulation of a cylinder in crossflow. The Reynolds number is 35, which exhibits two downstream vortices. Pressure, velocity, and vorticity magnitude are available.

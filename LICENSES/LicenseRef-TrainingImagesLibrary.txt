@@ -1,0 +1,19 @@
+Training Images Library terms
+
+Source: http://www.trainingimages.org/training-images-library.html
+
+The training images library accompanies the book "Multiple-point
+Geostatistics: Stochastic Modeling with Training Images" by Gregoire
+Mariethoz and Jef Caers. Its download page introduces the images with:
+
+    Below are some of the training images that are employed in the book.
+    They are presented both graphically and in ASCII format. These images
+    be used freely for research purposes. Enjoy!
+
+That grant is limited to research. Nothing on the page permits commercial
+use, and no other terms are published, so commercial use is treated as not
+granted. Redistribution for research purposes, which is what this repository
+does, is within the grant.
+
+Archived copy of the page:
+http://web.archive.org/web/20150509032421id_/http://www.trainingimages.org/training-images-library.html
