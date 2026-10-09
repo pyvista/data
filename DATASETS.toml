@@ -365,6 +365,19 @@ govern the sample downloads is arguable, but no grant of redistribution
 rights exists anywhere on the site, so the terms are recorded as
 undetermined. Downstream users, especially commercial ones, should contact
 Laser Design or substitute another mesh.
+
+A copy with the same vertex and face counts (314218 / 628432) is published on
+Sketchfab by CIMtech Inc., an Artec reseller, under CC BY 4.0:
+https://sketchfab.com/3d-models/tiger-fighter-3d-scan-artec-spider-8a7e15bbd267476e813e416d6d348f9a
+(uploaded 2015-04-30; its description says "The scan was performed by the
+Artec Spider 3D scanner"). Byte identity could not be checked because
+Sketchfab downloads require a login. CIMtech's 17 Sketchfab models are all
+Artec-branded demo scans uploaded 2015-04-29/30, an earlier upload of the same
+mesh (628432 faces) by an unrelated account dates from 2014-04-15
+(https://sketchfab.com/3d-models/a29c3c82bc6346b986c879ae1a078cae, no licence
+set), and Artec's own gallery (https://www.artec3d.com/3d-models) does not
+carry the model, so neither reseller is shown to be the rights holder and the
+CC BY grant is not relied on.
 """
 
 [[dataset]]
@@ -407,6 +420,38 @@ bracket geometry originates from the GrabCAD Airplane Bearing Bracket
 Challenge, https://grabcad.com/challenges/airplane-bearing-bracket-challenge/entries;
 which of the winning models this run used, and under what terms its author
 published it, was not recorded.
+
+The challenge was Alcoa's Airplane Bearing Bracket Challenge; its results
+page,
+https://grabcad.com/challenges/airplane-bearing-bracket-challenge/results,
+names three placed winners, so the three models are probably 1st "ALCOA
+BRACKET (BRCT 12a) correction" by igor.nikol-1
+(https://grabcad.com/library/alcoa-bracket-brct-12a-correction-1), 2nd
+"Bracket Concept A" by allar.ounsaar
+(https://grabcad.com/library/bracket-concept-a-1) and 3rd "Elephant Bracket
+V2.1" by krisztian.haasz-1
+(https://grabcad.com/library/elephant-bracket-v2-1-1); which is which is only
+visible to a logged-in SimScale user. The results page footer says the CAD
+files "are created, uploaded, managed and owned by third-party users".
+GrabCAD's Website Terms of Use (https://grabcad.com/terms, "Last updated: June
+28, 2016", so later than the 2013 uploads), section 6.2, grant other users
+only a "non-sublicensable, non-assignable, and non-transferable license ...
+for such user's own benefit and non-commercial, internal use (the 'Cross
+License')", and the Challenge Terms (https://grabcad.com/challenges/terms)
+license entries to "the Sponsors and GrabCAD and their respective affiliates,
+subsidiaries, parents, and licensees" only; neither gives a redistribution
+right, so the geometry stays undetermined.
+
+The same description and geometry names appear in two earlier projects by
+SimScale staff member ahmedhussain18: "FEM Analysis of Bearing Bracket of an
+Airplane Engine",
+https://www.simscale.com/projects/ahmedhussain18/aircraft_engine_bearing_bracket_analysis_-_original/
+(3 meshes, 6 simulation setups, 12 results, staff pick), and its platform copy
+https://www.simscale.com/projects/ahmedhussain18/aircraft_engine_bearing_bracket_analysis_3/
+(3 geometries, 0 meshes). The simscale-account project is not a platform copy
+(its page data has no parent project), it is the one pyvista/data#31
+downloaded from, and it is the only one of the three whose meshes could be
+tied to this record, so `origin_url` stays as it is.
 """
 
 [[dataset]]
@@ -680,6 +725,32 @@ and nothing in it identifies an author. VTK still distributes the same bytes
 """
 
 [[dataset]]
+name = "bahamas_rgb"
+title = "Bahamas RGB raster"
+description = "Three-band Landsat 7 ETM+ GeoTIFF of the Bahamas, rasterio's RGB.byte.tif test fixture."
+path = ["bahamas_rgb.tif"]
+SPDX-License-Identifier = "CC0-1.0"
+provenance = "verified"
+origin_url = "https://github.com/rasterio/rasterio/blob/main/tests/data/RGB.byte.tif"
+origin_title = "rasterio test data, RGB.byte.tif"
+authors = ["Sean Gillies"]
+notes = """
+Byte-identical (sha256
+d7cbe932c7ed74a627706a9e9df99f706df3e5abc7d45a49e9d00677a6b09eb4) to
+rasterio's test fixture `tests/data/RGB.byte.tif`, first committed by Sean
+Gillies on 2013-11-04 (https://github.com/rasterio/rasterio/commit/c84bbfb13).
+The README beside it, committed by Sean Gillies on 2014-11-13
+(https://github.com/rasterio/rasterio/commit/fd584bd86, "CC0 for test
+images"), says the file is derived from USGS Landsat 7 ETM+ imagery and
+dedicates all the test images to the public domain under CC0 1.0
+(https://github.com/rasterio/rasterio/blob/main/tests/data/README.rst);
+rasterio's LICENSE.txt at the time read "Copyright (c) 2013, MapBox". Added
+here in commit d84eae384 (https://github.com/pyvista/data/commit/d84eae384,
+2021-11-23, "add raster data") for Bane Sullivan's Transform 2021 notebooks;
+the files that arrived with it are in the `pvgeo_examples` entry.
+"""
+
+[[dataset]]
 name = "banes_heart"
 title = "Heart scan"
 description = "512 by 512 by 56 volume of a human heart at 0.78125 by 0.78125 by 2.5 mm spacing, with values from -2000 to 2658."
@@ -735,7 +806,7 @@ origin; anyone who can identify it is asked to open an issue.
 [[dataset]]
 name = "bibliography"
 title = "Bibliographic exports"
-description = "Reference-manager exports in RIS and ISI formats, used to exercise the bibliographic readers."
+description = "Scopus (RIS) and ISI Web of Science (ISI) reference exports, used to exercise the bibliographic readers."
 path = ["Infovis/eg1.ris", "Infovis/eg2.isi"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
@@ -743,12 +814,21 @@ origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7/fold
 origin_title = "VTK Data, Infovis folder"
 collection = "vtk-data"
 notes = """
-`eg2.isi` holds 500 ISI export records whose abstracts are marked "(C) 1996
-American Institute of Physics", "(C) 1997 Elsevier Science B.V." and "(C)
-1996 by John Wiley", among others; `eg1.ris` holds 14 RIS records with
-abstracts and no copyright line. Abstracts and bibliographic records belong
-to their publishers, so the terms are undetermined rather than the
-collection's, and the trail ends at VTK Data. Both files entered VTK Data in
+`eg2.isi` is an ISI (Web of Science) export ("FN ISI Export Format", "VR 1.0")
+of 500 records (498 `PT J`, 2 `PT S`), published 1996 to 2005, over 200 of
+whose abstracts end with a "(C) <year> <publisher>" line (Elsevier Science
+B.V., American Institute of Physics, Elsevier B.V., John Wiley & Sons,
+Elsevier Science Ltd and Wiley Periodicals, among others). `eg1.ris` is a
+Scopus RIS export (ISO-8859-1; every record carries `N1  - Source: Scopus` and
+`N1  - Export Date: 3 July 2007`, and 12 of the 14 carry scopus.com `UR`
+links) of 14 journal records from 2007 in Journal of Computational
+Electronics, Journal of Luminescence, Chaos Solitons and Fractals, Optics
+Communications and Physica A; every abstract ends with a publisher copyright
+line (6 Springer Science+Business Media LLC 2007, 5 Elsevier B.V. 2007, 2
+Elsevier Ltd 2006, 1 Elsevier B.V. 2006; the copyright sign is byte 0xA9,
+invisible to a UTF-8 read). Abstracts and bibliographic records belong to
+their publishers, so the terms are undetermined rather than the collection's,
+and the trail ends at VTK Data. Both files entered VTK Data in
 commit b49f93c (https://github.com/pyvista/data/commit/b49f93c) (2008-02-14, Timothy M. Shead, "Adding sample data for RIS
 and ISI readers"), which names no source; they are in the tree this
 repository was forked from and match the sha512 Girder records in the
@@ -1221,11 +1301,15 @@ name = "can_crushed_vtu"
 title = "Crushed can"
 description = "Unstructured grid of a can being crushed, in VTK XML and VTKHDF form."
 path = ["can.vtu", "hdf/can-vtu.hdf"]
-SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "inferred"
-origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
-origin_title = "VTK Data"
+SPDX-License-Identifier = "BSD-3-Clause"
+SPDX-FileCopyrightText = ["1988-2025 National Technology & Engineering Solutions of Sandia, LLC (NTESS)"]
+provenance = "verified"
+origin_url = "https://github.com/sandialabs/seacas/blob/b0ccdf4fd52e80188df914d708b71b2d59900c35/packages/seacas/libraries/ioss/src/main/test/can.ex2"
+origin_title = "SEACAS (Sandia National Laboratories) IOSS test data, can.ex2"
 collection = "vtk-data"
+authors = ["Sandia National Laboratories"]
+attribution = "Sandia National Laboratories, SEACAS test data can.ex2. Copyright (c) 1988-2025 National Technology & Engineering Solutions of Sandia, LLC (NTESS). BSD 3-Clause."
+redistributed_from = ["https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"]
 notes = """
 Both files are VTK test data. `can.vtu` matches VTK's content link
 `Testing/Data/can.vtu.sha512` (SHA-512 86ce9b2d...) and was added from
@@ -1246,10 +1330,23 @@ data is a Sandia simulation that Kitware redistributes.
 
     strings -n 6 can.vtu | grep -B2 -A6 PRONTO3D
 
-Sandia's terms for the simulation are not published, and the VTK Data BSD
-notice covers Kitware's redistribution rather than Sandia's work, so the
-terms are recorded as undetermined; a downstream user who needs more should
-ask Kitware or Sandia. The VTKHDF time series `hdf/can_0.hdf` to
+Sandia publishes the simulation itself: `can.ex2` in sandialabs/seacas
+(17629528 bytes, committed 2024-01-08 by Thomas J. Otahal of Sandia, "Catalyst
+API 2 / Added can.ex2 test file.") is byte-identical to VTK's and ParaView's
+`Testing/Data/can.ex2`, a PRONTO3D 7.0.1 run dated 1994-05-16 with 44 time
+steps and two element blocks (block 1: 4800 hex8 cells on 6724 nodes; block 2:
+2352 cells on 3364 nodes). `can.vtu` and `hdf/can-vtu.hdf` are element block 1
+at the final time step (index 43 of 44); the points and the DISPL, VEL, ACCL,
+EQPS and GlobalNodeId arrays match exactly, and the QA and Info records are
+carried over. The repository LICENSE is the BSD-3-Clause text with the NTESS
+copyright and the sentence "Under the terms of Contract DE-NA0003525 with
+NTESS, the U.S. Government retains certain rights in this software"; there is
+no per-file statement, and GitHub's licence detection reports NOASSERTION
+because of that preamble, so the identifier follows from the licence text.
+Because the data is Sandia's own simulation published in Sandia's own
+repository, this is the rights holder's licence, not a redistributor's.
+
+The VTKHDF time series `hdf/can_0.hdf` to
 `hdf/can_2.hdf`, which came from ParaView, has its own entry,
 `can_crushed_hdf_series`.
 """
@@ -1589,6 +1686,22 @@ one of these is confirmed.
 The PyVista pull request that introduced the example (pyvista/pyvista#407, https://github.com/pyvista/pyvista/pull/407)
 thanks @craigmillernz for it, so the contributor is known even though the
 data's origin is not.
+
+The NZSoSDEM v1.0 candidate would be sheet 09 Taumarunui
+(https://koordinates.com/layer/3736-09-taumarunui-15m-dem-nzsosdem-v10/),
+published on Koordinates by the University of Otago School of Surveying under
+CC BY-SA 3.0 in EPSG:2193 with the citation Columbus, Sirguey and Tenzer
+(2011), "A free, fully assessed 15-m DEM for New Zealand", Survey Quarterly
+66, 16-19. The sheet's extent (174.51 to 175.95 E, 39.87 to 38.22 S) contains
+this grid's footprint (175.44 to 175.67 E, 39.36 to 39.20 S), but the layer's
+export needs a Koordinates account, so the grid values were not compared and
+the match is untested. The data.govt.nz mirror of the sheet
+(https://web.archive.org/web/20190219075605/https://catalogue.data.govt.nz/dataset/09-taumarunui-15m-dem-nzsosdem-v1-0)
+lists its licence only as "Other licensing (check with source agency)". In
+pyvista-support#14 (https://github.com/pyvista/pyvista-support/issues/14, June
+2019) @craigmillernz asked about texturing "an unstructured grid of the
+topography DEM" (`topo_file.vtk`) with a GeoTIFF topo map (`topo_map.tif`),
+probably these two files, but the thread names no place and states no source.
 """
 
 [[dataset]]
@@ -1640,33 +1753,46 @@ modification = "Converted from OpenEXR to JPEG with a brightness scale, then pro
 
 [[dataset]]
 name = "damavand_volcano"
-title = "Damavand volcano magnetotelluric volume"
-description = "Three-dimensional resistivity volume beneath Mount Damavand, with the two STL surfaces plotted beside it in the same example."
+title = "Damavand density anomaly volume"
+description = "Density-anomaly model inverted from the GEBCO 2019 topography grid (15 to 20 km bandpass) over the Damavand volcano and Mosha fault area of the Alborz, Iran, with two STL bodies plotted beside it in the same example."
 path = ["damavand-volcano.vtk", "gebco7510_49cl.stl", "gebco7510_55cl.stl"]
-SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "inferred"
+SPDX-License-Identifier = "MIT"
+SPDX-FileCopyrightText = ["2020 Alexey Pechnikov"]
+provenance = "verified"
 origin_url = "https://github.com/AlexeyPechnikov/ParaView-MoshaFault"
 origin_title = "AlexeyPechnikov/ParaView-MoshaFault"
-authors = ["Alexey Pechnikov"]
+authors = ["Alexey Pechnikov", "A. V. Durandin"]
+attribution = "Alexey Pechnikov, ParaView-MoshaFault, MIT License. Derived from GEBCO Compilation Group (2019) GEBCO 2019 Grid (doi:10.5285/836f016a-33be-6ddc-e053-6c86abc0788e)."
 redistributed_from = ["https://github.com/banesullivan/damavand-volcano"]
+references = [
+    { citation = "GEBCO Compilation Group (2019) GEBCO 2019 Grid", doi = "10.5285/836f016a-33be-6ddc-e053-6c86abc0788e" },
+]
 notes = """
-Bane Sullivan's damavand-volcano repository publishes an MIT LICENSE (2020)
-and its data files are byte-identical to files in Alexey Pechnikov's ParaView-
-MoshaFault repository, also MIT, which is where the Damavand products were
-assembled. Both licences cover the repositories' own work; the geophysical
-survey behind the resistivity volume and the elevation data behind the area-
-of-interest surface are not identified in either, so the terms for the data
-itself are left undetermined.
+All three files are byte-identical to files in Alexey Pechnikov's
+ParaView-MoshaFault repository (blobs 5765722db246, 75631add1ba5 and
+7be04f33157a), committed there by Pechnikov himself (f998866a0b on 2019-12-16
+for the volume, 93ac1bf2a1 on 2020-01-25 for the STL surfaces;
+https://github.com/AlexeyPechnikov/ParaView-MoshaFault/commit/f998866a0b,
+https://github.com/AlexeyPechnikov/ParaView-MoshaFault/commit/93ac1bf2a1)
+beside the repository's MIT LICENSE, copyright 2020 Alexey Pechnikov. The
+volume is
+`data/GEBCO_2019.subset.32639.0.5km_b_gamma15.0km,20.0km.anomaly.vtk`, which
+the README describes among "our density anomaly models by inversion of
+GEBCO_2019 Bathymetry Grid ... with bandpass filters 7.5-10km, 15-20km", and
+the surfaces are `data/gebco7510_49cl.stl` and `data/gebco7510_55cl.stl`, "our
+3D STL models". The volume header names Golden Software's ioVtk.dll,
+STRUCTURED_POINTS of 280 by 233 by 171 points, spacing 1000 by 1000 by 353.5 m
+and origin UTM 39N 413032, 3864173, -54792.5 m, with a float scalar array
+named `None`. Nothing at either origin describes the volume as magnetotelluric
+or as resistivity.
 
-The two `gebco7510_*.stl` surfaces are byte-identical to
-`data/gebco7510_49cl.stl` and `data/gebco7510_55cl.stl` in damavand-volcano
-(blobs 75631add1ba5 and 7be04f33157a) and `gh search code gebco7510` finds
-them in no other repository; they are not in ParaView-MoshaFault, whose
-README describes its `GEBCO_2019.subset.*` files as density anomaly models
-inverted from the GEBCO 2019 grid with 7.5-10 km and 15-20 km bandpass
-filters. Bane Sullivan's `damavand.py` example plots the two surfaces in red
-beside the volume. Their terms are undetermined for the same reason as the
-volume's.
+The input GEBCO 2019 grid is placed in the public domain by GEBCO
+(https://www.gebco.net/data-products/gridded-bathymetry/terms-of-use) and may
+be adapted and commercially exploited provided the source is acknowledged in
+the form recorded in `attribution`. Bane Sullivan's damavand-volcano
+repository (MIT, 2020) redistributes the same three blobs and credits the work
+to Pechnikov and Durandin's ParaView-MoshaFault; his `damavand.py` example
+plots the two surfaces in red beside the volume.
 """
 
 [[dataset]]
@@ -1693,6 +1819,20 @@ and links the CSV files at https://cloud.lw1.at/s/ZHt9GBww8QDHPps.
 `halo_high_res.csv` once the header line is discounted. The simulation is
 not named and the contributor stated no terms, so the licence is
 undetermined; ask the contributor before redistributing outside PyVista.
+
+The contributor's repository Findus23/halo_comparison
+(https://github.com/Findus23/halo_comparison/blob/main/threed.py, first
+committed on 2022-05-10, the day the discussion was opened) plots PyVista
+point clouds of SWIFT-style HDF5 snapshots from monofonIC initial-condition
+test runs (waveforms DB2, DB4, DB8 and shannon at resolutions 128 to 1024) and
+carries, commented out, the recipe that selects the particles of one FOF group
+(`df.loc[df["FOFGroupIDs"] == HALO]`) and writes them to a CSV; its
+`readfiles.py` requires equal-mass particles, matching the contributor's
+description. The repository does not hold the CSVs themselves, and the shared
+`halo_low_res.csv` has the header `X,Y,Z` and no index, so it was written
+coordinates-only and the run it came from is not recorded. The contributor is
+Lukas Winkler of the University of Vienna (ORCID 0000-0002-6792-6743). The
+repository publishes no LICENSE or README, so the terms remain undetermined.
 """
 
 [[dataset]]
@@ -1702,7 +1842,30 @@ description = "Result of a direct-current resistivity inversion problem."
 path = ["dc-inversion.zip"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "unknown"
-notes = "Added in May 2019 with the commit message \"add dc inversion problem data\" and no recorded source or terms."
+notes = """
+Added in May 2019 with the commit message "add dc inversion problem data"
+(pyvista commit f89c9bd72,
+https://github.com/pyvista/pyvista/commit/f89c9bd72, "Add tetrahedral DC mesh
+example data") and no recorded source or terms.
+
+`mesh-inverse.vtu` carries exactly the cell-array set that BERT's `dcinv`
+writes to `dcinv.result.vtk` (Resistivity(log10), Resistivity/Ohmm,
+_Attribute, _Marker and coverage(log10); compare
+https://raw.githubusercontent.com/GarimaPrabhakar/bert-practice/master/testing-layers/dcinv.result.vtk),
+where `_Marker` and `_Attribute` are added by pyGIMLi's `Mesh::exportVTK`. The
+file was re-saved through VTK's XML writer, so BERT's header line naming the
+libgimli version and inversion parameters is lost. `mesh-forward.vtu` (2873313
+tetrahedra, `Material` 1 to 4, `Resistivity/Ohmm-fwd`) is a
+`vtkExtractSelection` output of the forward model (`vtkOriginalCellIds`,
+`vtkOriginalPointIds`), made in ParaView or in vtki itself. Both files passed
+through the Yoink drag-and-drop shelf on the committer's Mac on 2019-05-07
+(com.apple.quarantine stamp in the zip's `__MACOSX` resource forks), six
+minutes before the zip was built; no download URL survives. pyvista#239
+(https://github.com/pyvista/pyvista/issues/239, 2019-05-29) shows
+@craigmillernz (GNS Science) sending Bane Sullivan a pyBERT `result3d.vtk`
+three weeks later, which suggests the user community but is not evidence for
+this file.
+"""
 
 [[dataset]]
 name = "delaunay_example"
@@ -1747,8 +1910,16 @@ The identifiers are not reproduced here. They can be read from the file with
 a short parser; see `Establishing where a dataset came from` in
 CONTRIBUTING.md.
 
-The trail ends at VTK Data: `mr.001` entered VTKData on 2004-03-30 (commit
-79f41c7, https://github.com/pyvista/data/commit/79f41c7, "added sample dicom file") and came here with the March 2019 fork;
+The trail ends at VTK Data: `mr.001` entered VTKData on 2004-03-30 in commit
+79f41c7 (https://github.com/pyvista/data/commit/79f41c7) by Ken Martin of
+Kitware ("added sample dicom file"); 22 minutes later the same author switched
+an existing VTK test, `Imaging/Testing/Tcl/TestSobel2D.tcl`, from
+`fullhead15.png` to `vtkDICOMImageReader` on `$VTK_DATA_ROOT/Data/mr.001` (VTK
+commit b6c47250, https://gitlab.kitware.com/vtk/vtk/-/commit/b6c47250, "add
+coverage to dicom reader"). The Girder item holding the same bytes
+(VTK/ExternalData/Development/Testing/Data/mr.001, uploaded 2018-05-17) has an
+empty description and no metadata, so Kitware is the party to ask about the
+patient's release. The file came here with the March 2019 fork;
 `DICOMDirectory/mr.001` is the same bytes, copied in April 2019 from
 `src/Testing/Data/DICOMDirectory` in `lorensen/VTKExamples`. Nothing in VTK
 names the hospital or a release, and the Girder collection page states no
@@ -1883,6 +2054,18 @@ stating its terms was found, so the origin is inferred to lie beyond VTK
 Examples and the terms are recorded as undetermined; the repository licence
 does not establish the model's terms. Downstream users should not rely on
 Apache-2.0 for these files.
+
+The four OBJ groups (`rdmobj00` to `rdmobj03`) carry the default mesh names
+written by Noesis, a converter for video-game model formats: OBJ files on
+GitHub headed "# Noesis .obj export." use the same `g rdmobjNN` groups, and
+Blender re-exports of game rips keep them (a GitHub code search for `rdmobj02`
+returns 87 files, all game assets). The 1024 by 1024 diffuse atlas
+`t_doorMan_d.png` is a game character sheet (black tuxedo, bow tie, bare feet,
+shoe, eye and hairless head) with engine-style `m_doorMan_*` and
+`t_doorMan_{d,n,s}` naming, so the files are most likely a video-game asset
+converted through Noesis and Blender 2.66; the game and rights holder have not
+been identified (web searches for rdmobj, doorman.blend, m_doorMan and
+t_doorMan find no publishing page).
 """
 
 [[dataset]]
@@ -1982,9 +2165,27 @@ unknown." The archived coastlines file is byte-identical to the copy here:
     curl -sSL -o c.vtp 'http://web.archive.org/web/20180401164951id_/http://www.earthmodels.org/data-and-tools/coastlines/Coastlines_Los_Alamos.vtp'
     shasum -a 256 c.vtp Data/EarthModels/Coastlines_Los_Alamos.vtp   # both 5bd3bbff...
 
-The two ETOPO files were not archived, but the page names them exactly and
-`ETOPO_10min_Ice.vtp` has 2336041 points, a 2161 by 1081 ten arc-minute
-global grid. Added here in March 2019 for PVGeo ("add global topo", "add
+Both ETOPO files were archived, but only under the site's later path
+(`date-and-tools`, in use by September 2020); the old
+`data-and-tools/topography/ETOPO_*.vtp` URLs have only 301 and 404 captures.
+The Wayback Machine truncates the large files, so the comparison is
+prefix-only:
+https://web.archive.org/web/20220809100945id_/https://www.earthmodels.org/date-and-tools/topography/etopo/etopo_10min_ice.vtp
+and
+https://web.archive.org/web/20220809112508id_/https://www.earthmodels.org/date-and-tools/topography/etopo/etopo_10min_ice_only-land.vtp
+are each 1048576 bytes and identical to the first 1048576 bytes of
+`ETOPO_10min_Ice.vtp` (45156388 bytes, sha256 89fff963...) and
+`ETOPO_10min_Ice_only-land.vtp` (15225532 bytes, sha256 e59b7727...); the 2025
+capture
+https://web.archive.org/web/20250319052337id_/https://www.earthmodels.org/date-and-tools/topography/etopo/etopo_10min_ice.vtp
+is a 5242880-byte prefix that also matches. The captured headers read 2336041
+and 788273 points, as the repository files do. The archived page at
+https://web.archive.org/web/20200919080428/https://www.earthmodels.org/date-and-tools/topography/etopo
+states the same "License: public domain?" and file descriptions as the 2019
+capture; the live site is now WordPress, the data pages return 404, and its
+imprint (https://earthmodels.org/imprint-and-disclaimer/) names Hans-Peter
+Bunge, Department of Earth and Environmental Sciences, LMU München, as
+responsible for content. Added here in March 2019 for PVGeo ("add global topo", "add
 coastlines"). Neither page states terms for the derived files, so the
 licence is left undetermined; downstream users needing certainty should
 rebuild from NOAA ETOPO1, a US federal work, or ask LMU Munich geophysics.
@@ -2416,7 +2617,7 @@ SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "verified"
 origin_url = "https://github.com/pyvista/pyvista/issues/143#issuecomment-478156153"
 origin_title = "pyvista/pyvista issue #143"
-authors = ["Daniel Livingston"]
+authors = ["Terry A. Miller", "Daniel Livingston"]
 notes = """
 Attached by Daniel Livingston to pyvista/pyvista issue #143 on 2019-03-29 as
 `ExodusSampleMeshes.zip`
@@ -2429,8 +2630,31 @@ attribute reads "LaGriT to Exodus".
 
     curl -sSL -o z.zip https://github.com/vtkiorg/vtki/files/3024612/ExodusSampleMeshes.zip && unzip -o z.zip && shasum -a 512 ExodusSampleMeshes/mesh_fs8.exo
 
-The contributor stated no licence terms, so the terms are undetermined; ask
-the contributor through the issue before redistributing outside test use.
+`mesh_fs8.exo` was written by LaGriT (`write_exodus.lgi`) in Terry A. Miller's
+LaGriT/TINerator demo "Mesh Example: Stack Mesh with facesets from Boundary
+lines" on
+https://meshing.lanl.gov/proj/examples/stack_fs_from_bndry/method.html; its
+README (https://meshing.lanl.gov/proj/examples/stack_fs_from_bndry/README.txt)
+lists `mesh_fs8.exo` at 69732 bytes next to `mesh_fs3.exo` (3 facesets), the
+same pair Livingston, the TINerator author, attached to the issue. The site
+does not serve the `.exo` files (404, no Wayback capture), so byte identity is
+unverified, but the repository file's netCDF header matches the demo's
+`write_exodus.out.txt` log exactly: 1000 nodes, 1344 wedge elements, 3 element
+blocks (336, 336 and 672), 8 side sets of 336, 336, 72, 18, 96, 28, 28 and 6,
+CMO name `momesh`, title "LaGriT to Exodus". The generating decks and logs
+(dated 2018-11-06) are in `demo_stack_exo.tar.gz` on that page.
+
+The demo page states no licence of its own. The meshing.lanl.gov footer's
+Terms of Use (https://www.lanl.gov/lanl-resources/web-policies; formerly
+https://web.archive.org/web/20210111151357/https://www.lanl.gov/resources/web-policies/copyright-legal.php)
+say "The public may copy and use this information without charge, provided
+that this Notice and any statement of authorship are reproduced on all
+copies", but that notice is site-wide and the mesh file is not published on
+the site, so whether it covers this output is for LANL to state; LaGriT's
+BSD-3-Clause (LA-CC-15-069) covers the code only. The contributor stated no
+licence terms, so the terms are undetermined; ask LANL (lagrit-dev@lanl.gov)
+whether the lanl.gov notice or BSD-3-Clause applies to this demo mesh, or the
+contributor through the issue, before redistributing outside test use.
 """
 
 [[dataset]]
@@ -2597,8 +2821,10 @@ notes = """
 These arrived with the inherited collections but state their own terms, which
 are neither the collection's nor the same as each other:
 
-  Infovis/DaveDS_-_Sketchy.ttf   (c) 2009 David Brisbane, all rights
-                                 reserved, embedding and printing only
+  Infovis/DaveDS_-_Sketchy.ttf   (c) 2009 David Brisbane; the Windows name
+                                 records say "Sketchy", the Macintosh ones
+                                 "Handwritten" with generic embedding-only
+                                 boilerplate
   Infovis/PintassilgoPrints_-_Talvez_Assim.ttf
                                  PintassilgoPrints, marked "Free"
   Canterbury.ttf                 (c) Typographer Mediengestaltung, 2001,
@@ -2619,6 +2845,32 @@ grants redistribution, and three reserve all rights, so the set is recorded
 as undetermined; a downstream user should ask each font's named author. The
 fifth font that shipped with them, `Infovis/martyb_-_Ridiculous.ttf`, does
 grant it and has its own entry.
+
+`Canterbury.ttf` is byte-identical (sha256
+22476934b7fd7fbe26e47b6224d118e6c31d39bde23bab8bedbded2f88dd24af) to the
+author's own listing at https://www.1001fonts.com/canterbury-font.html
+(account "Typographer Mediengestaltung", Dieter Steffmann), distributed under
+the 1001Fonts Free For Commercial Use License with the EULA inside the zip;
+that licence permits personal and commercial use but says the font "may not be
+sold or published without written permission by its respective author", so it
+is not a redistribution grant. The author's own statements conflict: on
+http://www.steffmann.de/wordpress/ he replied on 2012-12-16 "The fonts are
+free for private use only" and on 2013-05-19 "all of the fonts are free for
+non commercial uses only ... i give the permission after single request", but
+on 2015-01-13 "Insofern sind die Schriften alle frei verwendbar", and his
+1001fonts profile (2015-01-21) says "I am giving out my fonts to everyone for
+free for commercial purposes without any restrictions"; he also states
+(2017-11-12) that he digitised Canterbury rather than designed it.
+Canterbury.ttf therefore has a verified origin even though the set's licence
+stays undetermined.
+
+FontSpace labels `CopyPaste.ttf` "Freeware, commercial use requires donation",
+a site label like dafont's Donationware; neither site's copy is byte-identical
+to the repository file. FontSpace labels Talvez Assim "SIL Open Font License
+(OFL)" and dafont "100% Free", both third-party site labels: the foundry site
+(pintassilgoprints.com, now The Type Founders) publishes only commercial
+licensing and does not list the font, fontlibrary.org has no such font, and
+the dafont copy differs from the repository blob.
 """
 
 [[dataset]]
@@ -2899,21 +3151,48 @@ title = "Ground-penetrating radar profile"
 description = "Ground-penetrating radar amplitude array with the survey path it was collected along."
 path = ["gpr-example/**"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "inferred"
-origin_url = "https://github.com/pyvista/pyvista-support/issues/135"
-origin_title = "pyvista-support issue 135, Creating a 2.5D image/section (example with GPR)"
+provenance = "verified"
+origin_url = "https://hdl.handle.net/11124/174124"
+origin_title = "Sullivan 2020 MS thesis supplemental data (supplemental.zip, MSH.zip, MSH.vtm block \"GPR Images\", dataset \"P2_5aSP\", file MSH/MSH_2.vts)"
+authors = ["Kristen Marberry", "C. Bane Sullivan"]
+redistributed_from = ["https://github.com/pyvista/pyvista-support/issues/135"]
+references = [
+    { citation = "Marberry, K. (2019). Ground-penetrating radar survey of the Spirit Lake debris blockage, Mount St. Helens, Washington. MS thesis, Colorado School of Mines.", url = "https://hdl.handle.net/11124/174138" },
+    { citation = "Sullivan, C. B. (2020). MS thesis, Colorado School of Mines, Appendix C supplemental data.", url = "https://hdl.handle.net/11124/174124" },
+]
 notes = """
 Both files are byte-identical to the contents of the `data.zip`
-(https://github.com/pyvista/pyvista-support/files/4258550/data.zip) that
-Bane Sullivan attached to pyvista-support issue 135 (https://github.com/pyvista/pyvista-support/issues/135) on 2020-02-26, and were
-added here in October 2020 with the commit message "add GPR example data".
-The issue presents them as example data whose coordinates were shifted and
-padded with NaN above the surface and remarks that sharable data of decent
-quality is hard to obtain; it does not name the survey, the instrument owner
-or any terms, so the survey is inferred to lie beyond the issue and the
-licence is undetermined. A downstream user should treat the arrays as an
-illustration of the data layout only and substitute their own survey, or
-ask the issue's author.
+(https://github.com/pyvista/pyvista-support/files/4258550/data.zip) that Bane
+Sullivan attached to pyvista-support issue 135
+(https://github.com/pyvista/pyvista-support/issues/135) on 2020-02-26, and
+were added here in October 2020 with the commit message "add GPR example
+data".
+
+They derive from GPR line P2-5a (named `P2_5aSP` in `MSH.vtm`) of Kristen
+Marberry's August 2018 survey of the Spirit Lake debris blockage at Mount St.
+Helens, Washington, for her Colorado School of Mines MS thesis (hdl
+11124/174138; Sensors & Software Spidar NIC-500x controller with 25 MHz
+antennas built at Mines; funded by the US Forest Service through the USDA).
+Sullivan gridded the lines for his own 2020 Mines MS thesis (hdl
+11124/174124), whose Appendix C deposits `supplemental.zip` (MD5
+295f64eb862c08c7cfa1d3510e8065e9); its member `MSH.zip` (652447576 bytes)
+holds `MSH/MSH_2.vts`, a 2342 by 1835 StructuredGrid with `gpr-data` and
+`mask` arrays. `data.npy` is the `gpr-data` array of that grid in Fortran
+order with the `mask == 0` points set to NaN (1111334 of 4297570 values; the
+remaining 3186236 are identical), and `path.txt` is the grid's surface row,
+value for value. The same archive is republished at
+https://github.com/banesullivan/thesis-notebooks (`data/MSH.zip`), which
+carries no LICENSE file.
+
+The Mines repository records only "Copyright of the original work is retained
+by the author." for both theses and publishes no data licence, so the licence
+stays undetermined; the issue's reply is permission to include, not a licence.
+No source states the coordinate reference system; the values are consistent
+with Washington State Plane South in US survey feet (an inverse projection on
+NAD83, EPSG:2286, puts the first path point at 46.2587 N, 122.1748 W, 1094 m,
+on the North Fork Toutle debris blockage west of Spirit Lake), and the
+elevation column is consistent with feet, so treat the CRS, datum and unit as
+inferred, not stated.
 """
 
 [[dataset]]
@@ -3129,6 +3408,23 @@ does not name the solver, no source page or upload was found, and
 onscale.com no longer resolves, so neither the origin nor the terms could be
 established. A downstream user should ask the contributor before
 redistributing it outside PyVista.
+
+OnScale's Software Services and Subscription Agreement (last updated
+2018-03-05;
+https://web.archive.org/web/20200808112600/https://onscale.com/software-services-agreement/)
+section 10(b) says "Customer possesses and retains all right, title, and
+interest in and to Project Data", where 10(a) defines Project Data as data
+collected from or supplied by the customer; the agreement does not name Solve,
+does not address ownership of solver output, and may not be the contract that
+governed a job run before March 2023, so it does not settle who holds the
+rights, though nothing in it claims results for OnScale. OnScale's own Solve
+material (tutorials as of June 2023,
+https://web.archive.org/web/20230616054831/https://onscale.com/help/solve/tutorials/;
+validation cases as of November 2023,
+https://web.archive.org/web/20231118102455/https://onscale.com/help/solve/validation)
+contains no Hertzian or cylinder-on-plate model, and no archived onscale.com
+URL mentions Hertz, so the dataset was not a published OnScale example. If the
+contributor ran the job as the customer, the terms are his to state.
 """
 
 [[dataset]]
@@ -3217,6 +3513,18 @@ range-scan toolchain, consistent with a Cyberware scan.
 
 It reached this repository through the VTK Examples import and was covered by
 that entry's blanket Apache-2.0, which is not Lorensen's to grant here.
+
+Cyberware published terms for its own sample scans
+(https://web.archive.org/web/20011221000000*/http://www.cyberware.com/samples/,
+2001-12-21 capture: "Unless otherwise marked datasets may be used for any
+purpose. Credit to Cyberware is appreciated where appropriate."; the
+2000-08-24 capture of samples/ftp.html says ftp `pub` files are "considered to
+be in the public domain"). Those terms are scoped to the sample directories
+that page lists (rabbit, dinosaur, teeth, igea, screwdriver, ballJoint, hip,
+santa, rockerArm, golfClub, isis, vase and the body scans); no capture of
+cyberware.com/samples from 2000 to 2018 lists a horse, and the file's header
+carries only Stanford plyop and flipply comments, so the grant cannot be shown
+to cover this file.
 """
 
 [[dataset]]
@@ -3392,7 +3700,7 @@ provenance = "verified"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-authors = ["Scripps Clinic"]
+authors = ["Louis Noodleman", "David Case", "Scripps Clinic"]
 redistributed_from = ["https://github.com/lorensen/VTKExamples/blob/master/src/Testing/Data/StructuredPoints.vtk"]
 notes = """
 The file header reads "Iron protein" and the VTK textbook credits the volume
@@ -3410,6 +3718,21 @@ Neither Kitware's blanket `Copyright.txt` notice nor the examples repository
 licence covers Scripps Clinic's data, and no terms from Scripps were found,
 so the licence is undetermined. Downstream users should credit Scripps Clinic
 and ask it for terms.
+
+The volume is most likely the HIPIP dataset of the UNC Chapel Hill Volume
+Rendering Test Dataset, Volume I (ftp://omicron.cs.unc.edu/pub/softlab/CHVRTD,
+server gone; the announcement survives at
+https://imagej.net/ij/nih-image/download/stacks/3D_Knee.txt), which describes
+it as a one-electron orbital of HIPIP, an iron protein, "Provided courtesy of
+Louis Noodleman and David Case, Scripps Clinic, La Jolla, CA.", the source of
+the two names in `authors`. The identification rests on the matching Scripps
+Clinic credit and on the file geometry (a 68 cubed grid whose outer two voxel
+shells are zero, that is a 64 cubed volume padded by two), not on byte
+identity: no copy of the UNC HIPIP file was found. UNC's announcement says
+only "We do not object to your further distributing these datasets, but we
+request that full acknowledgement of the source of the data accompany such
+distribution.", the distributor's request rather than terms from Noodleman,
+Case or Scripps, so the licence stays undetermined.
 """
 
 [[dataset]]
@@ -3501,6 +3824,23 @@ global attributes and the issue does not say where the mask came from, so
 its terms are undetermined. Added here on 2021-04-17 for Bane Sullivan's
 Transform 2021 `spherical` notebook. Downstream users should ask the issue's
 author before reusing it.
+
+The file is not the issue author's own work. Its variable attributes
+(`long_name: Land-sea mask`, `units: (0 - 1)`, `standard_name:
+land_binary_mask`) are exactly what ECMWF's grib_to_netcdf writes for IFS
+parameter 172 (compare the author's own ERA5 sample
+https://raw.githubusercontent.com/dennissergeev/octant/master/examples/sample_data/era5/lsm.nc,
+history "2018-03-25 13:01:22 GMT by grib_to_netcdf-2.7.0", int16 `lsm` with
+`scale_factor 1.525948758640685e-05`, `add_offset 0.4999923702562068` and the
+same three attributes), and every one of the file's 584 distinct values equals
+`float32(k) * float32(scale_factor) + float32(add_offset)` for an int16 k, the
+float32 decode of that same packing (a plain 2^-16 lattice fits only 68 of
+them), so the values are untouched ECMWF data selected onto the 4 by 5 degree
+grid, not averaged. The rights holder is therefore ECMWF (or Copernicus C3S if
+the product is ERA5), not the issue author. Which ECMWF product it is (ERA5
+and ERA-Interim are the likely candidates) cannot be told from the file, so
+its terms stay undetermined; downstream users should attribute ECMWF and ask
+the issue author which product it came from.
 """
 
 [[dataset]]
@@ -3616,12 +3956,12 @@ work without contacting the Smithsonian."
 [[dataset]]
 name = "lobster"
 title = "Lobster"
-description = "Scan of a lobster."
+description = "Scan of a live lobster captured with an Artec Space Spider scanner."
 path = ["lobster.ply"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "verified"
-origin_url = "https://www.laserdesign.com/sample-files/"
-origin_title = "Laser Design sample files"
+origin_url = "https://www.laserdesign.com/lobster-scan-artec-spider"
+origin_title = "Laser Design case study, Lobster Scanning with the Artec Space Spider (2016-06-21)"
 collection = "laser-design"
 notes = """
 Laser Design Inc. publishes these scans in its public sample-file archive to
@@ -3638,6 +3978,22 @@ Whether that boilerplate is meant to govern the sample downloads is arguable,
 but no grant of redistribution rights exists anywhere on the site, so the
 terms are recorded as undetermined. Downstream users, especially commercial
 ones, should contact Laser Design or substitute another mesh.
+
+The case study (2016-06-21, Andrew Larson;
+https://web.archive.org/web/20210118003200/https://www.laserdesign.com/lobster-scan-artec-spider)
+says the scan was made for "a research team on the East Coast" and offered
+STL, PLY and OBJ. The sample page
+https://www.laserdesign.com/lobster-scan-data/ listed .OBJ, .PLY and .STL with
+links to http://3dgallery.gks.com/2016/lobster/ in its 2019-12-15 capture
+(https://web.archive.org/web/20191215235938/https://www.laserdesign.com/lobster-scan-data/);
+by its 2021-11-03 revision it lists .OBJ only, through a ShareFile folder. The
+case study's own download link, scan.laserdesign.com/live-lobster-scan-data,
+no longer resolves, 3dgallery.gks.com no longer resolves and the Wayback
+Machine holds no capture of it, so byte identity with the once-offered PLY
+could not be checked. The repository file's header reads "File exported by
+Artec Group 3D Scanning Solutions". The scan was commissioned by a third
+party, so whether Laser Design alone can grant reuse is unclear; no reuse
+terms appear on any of these pages.
 """
 
 [[dataset]]
@@ -3717,6 +4073,22 @@ Whether that boilerplate is meant to govern the sample downloads is arguable,
 but no grant of redistribution rights exists anywhere on the site, so the
 terms are recorded as undetermined. Downstream users, especially commercial
 ones, should contact Laser Design or substitute another mesh.
+
+The scan was first offered from 2013 to 2015 at
+scan.laserdesign.com/mans-face-download
+(https://web.archive.org/web/20130205174001/http://scan.laserdesign.com/mans-face-download,
+captures 2013-01-23 to 2015-08-22), which read "Man's Face File Download
+(scanned using the Artec) Fill out the form below to download the OBJ, STL,
+and PLY files." over a form asking for email, name, industry and phone, under
+"(c) 2012 Laser Design. All rights reserved.", with no terms link. The current
+page (https://www.laserdesign.com/sample-files/mans-face/, "Artec Eva") serves
+the OBJ, PLY and STL through three ShareFile links that require JavaScript,
+and links to http://3dgallery.gks.com/2012/face/, a host that no longer
+resolves (gks.com is parked; the Wayback Machine holds only redirects and a
+cookie gate). The repository file (sha256 42f946a9..., 11199434 bytes, header
+"STL Output from geomagic Studio") could therefore not be byte-compared
+against the publisher's copy, and no licence has ever been published beside
+the file.
 """
 
 [[dataset]]
@@ -4069,7 +4441,7 @@ path = ["neghip.slc"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "http://klacansky.com/open-scivis-datasets/"
-origin_title = "Open SciVis Datasets, Neghip (VolVis distribution, SUNY Stony Brook)"
+origin_title = "Open SciVis Datasets, Neghip (from the VolVis 2.1 distribution, SUNY Stony Brook, data/SLC/tran/neghip.slc)"
 collection = "vtk-data"
 redistributed_from = [
     "https://gitlab.kitware.com/vtk/vtk/-/blob/master/Testing/Data/neghip.slc.sha512",
@@ -4099,6 +4471,32 @@ the origin here. Neither VolVis nor Open SciVis states terms for the volume,
 so the licence is undetermined; a downstream user should ask the originating
 group before redistributing it. lorensen/VTKExamples carries the same blob
 at `src/Testing/Data/neghip.slc`.
+
+A Stony Brook course page
+(http://www3.cs.stonybrook.edu/~ari/564/assign3.html) gives the path
+"f:\\VolVis\\VolVis.2.1\\data\\SLC\\tran\\neghip.slc", a local copy on a lab
+machine rather than the distribution itself, and the Erlangen Volume Library
+(https://web.archive.org/web/20130101172213id_/http://www9.informatik.uni-erlangen.de/External/vollib)
+credits "VolVis distribution of SUNY Stony Brook, NY, USA ... Neghip =
+Negative high potential protein molecule". The 1997 VolVis pages
+(https://web.archive.org/web/19970615095118id_/http://www.cs.sunysb.edu:80/~vislab/projects/volvis/obtaining.html
+and
+https://web.archive.org/web/19970615132855id_/http://www.cs.sunysb.edu/~vislab/projects/volvis/registration.html:
+"VolVis is available free for non-for-profit organizations and for government
+organizations ... There is a small licensing fee for all others", still stated
+at https://vislab.cs.stonybrook.edu/research-projects/volvis) are software
+terms from a redistributor and say nothing about the data. No VolVis 2.1
+archive can be opened: the 1997 Wayback `VolVis.zip` is a Windows installer
+referencing `bench.slc` and no neghip, the `.hqx` capture is a demo naming no
+neghip, the 2000 download directory capture is 401, and no VolVis source tree
+exists on GitHub, so the VolVis origin stays inferred. The UNC Chapel Hill
+Volume Rendering Test Dataset announcement
+(https://imagej.net/ij/nih-image/download/stacks/3D_Knee.txt) lists a HIPIP
+volume "Provided courtesy of Louis Noodleman and David Case, Scripps Clinic,
+La Jolla, CA.", consistent with the textbook's Scripps credit, but that file
+is ASCII and absent from the surviving mirrors, so neghip can at most be
+derived from it and UNC's "We do not object to your further distributing these
+files" statement is not applied.
 """
 
 [[dataset]]
@@ -4187,6 +4585,25 @@ above copyright notice appear in all copies". Whether this FSL 3.2
 `avg152T1` file is that template was not established, so the terms are
 recorded as undetermined rather than the collection's BSD-3-Clause; a
 downstream user who confirms it should keep that notice with any copy.
+
+SPM cannot vouch for this file either: SPM's current `canonical/avg152T1.nii`
+(https://raw.githubusercontent.com/spm/spm/main/canonical/avg152T1.nii, 902981
+bytes, little-endian uint8 91 by 109 by 91 at 2 mm, srow_x = -2) differs from
+this big-endian FSL3.2beta file (srow_x = +2) in 753136 of 902629 voxels
+directly and in 106317 voxels after a left-right flip, so the two are
+different 2 mm resamplings. The SPM99 templates help (copy at
+https://imaging.mrc-cbu.cam.ac.uk/imaging/Templates) says
+`canonical/avg152T1.img` was "derived from icbm_avg_152_t1_tal_lin.mnc ...
+which were originally supplied by Alan Evans, MNI, Canada", so the lineage is
+the ICBM 152 linear template; the live McGill page
+https://www.mcgill.ca/bic/node/685 carries the same Collins copyright and
+permission notice as the page cited above, though its download has not been
+compared to this file. FSL's licence page
+(https://fsl.fmrib.ox.ac.uk/fsl/docs/license.md) lists only the Cerebellum,
+Harvard-Oxford, JHU, Juelich, Striatum and Thalamus atlases as third-party
+material under its terms and says nothing about the MNI152 templates, so the
+FSL non-commercial licence is not claimed over this file. Byte identity with
+any MNI-distributed file remains unshown.
 """
 
 [[dataset]]
@@ -4212,8 +4629,12 @@ NIfTI-1 project's test data page:
 They hold no imaging: the page describes the "minimal" dataset as an example
 and test dataset with close to the minimum header fields and a ramp image
 increasing from 0 to 63 along Y, says "we wanted to provide a minimal
-dataset", and names Mark Jenkinson as the page's author; the site is the
-NIfTI Data Format Working Group's, which is the basis for `authors`. The
+dataset". The index page says "Created by Mark Jenkinson" (last modified
+2006-04-18) and the `minimal.hdr.gz` and `minimal.nii.gz` file pages and the
+minimal description page say "Created by Brian Pittman" (last modified
+2006-04-13); these are content-management upload bylines, not authorship or
+rights statements. The site is the NIfTI Data Format Working Group's, which is
+the basis for `authors`. The
 page publishes no licence, copyright or public-domain statement, so the
 terms could not be established; a downstream user who needs terms should
 ask the working group through that site. David Gobbi added the files to
@@ -4228,16 +4649,34 @@ title = "Notched beam stress and displacement"
 description = "Finite element stress and displacement results for a notched beam."
 path = ["notch_stress_fixed.vtk", "notch_disp.vtu"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "unknown"
+provenance = "verified"
+origin_url = "https://github.com/ansys/pymapdl/blob/f382d3d52f820dbc87b6f2326a35f45f966af764/examples/02-mapdl-examples/3d_notch.py"
+origin_title = "PyMAPDL example: 3D Stress Concentration Analysis for a Notched Plate"
+authors = ["Alex Kaszynski"]
 modified = true
 modification = "`notch_stress_fixed.vtk` keeps the 8 corner nodes of each 20-node hexahedron and the 6 of each 15-node wedge in `notch_stress.vtk`, whose cells were stored with linear cell types, and drops the unused midside points: 12717 points to 3537, 2192 cells unchanged (https://github.com/pyvista/pyvista/issues/8379#issuecomment-3999644105). `notch_disp.vtu` is as supplied."
 notes = """
 `notch_disp.vtu`, and the `notch_stress.vtk` that `notch_stress_fixed.vtk`
 derives from, were supplied by Alex Kaszynski on 2021-03-30 (commits e85b1fb
 and 92056ee) for the example in pyvista/pyvista#1237
-(https://github.com/pyvista/pyvista/pull/1237#issuecomment-810705675) with
-no statement of where the finite element results came from or under what
-terms, and the files record none. `notch_stress_fixed.vtk` was derived from
+(https://github.com/pyvista/pyvista/pull/1237#issuecomment-810705675). The
+results are those of the PyMAPDL (then pyansys) gallery example "3D Stress
+Concentration Analysis for a Notched Plate", written by Alex Kaszynski and
+first committed as `examples/02-mapdl-examples/3d_notch.py` in f382d3d5
+(https://github.com/ansys/pymapdl/commit/f382d3d52f820dbc87b6f2326a35f45f966af764,
+2020-08-19, "Major Refactor (#261)"), seven months before he supplied the
+files; it is now `examples/00-mapdl-examples/3d_notch.py`. The identification
+is geometric, since the example never publishes its output: the script's
+length 0.4, width 0.1, thickness 0.01 and notch depth 0.04 with notch radius
+0.01 at half length give exactly the files' bounds (0, 0.4) by (0, 0.1) by (0,
+0.01) and their y = 0.04 to 0.06 section at x = 0.2, and the SOLID186 swept
+mesh matches `notch_disp.vtu`'s 2188 quadratic hexahedra and 4 quadratic
+wedges. The array names `Nodal Stress-0` and `Nodal Stress-normed` are
+pyvista's own component-plotting arrays from that pull request, not the
+pymapdl-reader exporter's. The repository's MIT notice at that commit defines
+"Software" as "python module pyansys and all python and cython source code
+within", so it covers the script, not MAPDL result files, and no terms for the
+results are stated anywhere. `notch_stress_fixed.vtk` was derived from
 `notch_stress.vtk` in March 2026 by the script in
 https://github.com/pyvista/pyvista/issues/8379#issuecomment-3999644105 and
 added through pyvista/data#64 (https://github.com/pyvista/data/pull/64). A downstream user should treat both files as
@@ -4718,6 +5157,7 @@ origin_title = "Center for In Vivo Microscopy, Duke University"
 collection = "vtk-examples"
 authors = ["Janet MacFall"]
 redistributed_from = [
+    "https://vtk.org/files/VTKTextbook/PineRoot.tgz",
     "https://examples.vtk.org/site/VTKBook/09Chapter9/",
     "https://github.com/lorensen/VTKExamples/tree/master/src/Testing/Data/PineRoot",
 ]
@@ -4757,6 +5197,40 @@ should contact the Duke Center for In Vivo Microscopy before redistributing.
 `pine_root.mhd` is a seven-line header whose `ElementDataFile = pine_root.%d
 1 256 1` names slice files that are not shipped, padded to 935058 bytes with
 newlines; read `pine_root.mha`, which is self-contained.
+
+Kitware's VTK Textbook distribution at vtk.org
+(https://vtk.org/vtk-textbook-examples-and-data/, README
+https://vtk.org/files/VTKTextbook/README.txt) ships the raw data in
+https://vtk.org/files/VTKTextbook/PineRoot.tgz as `Data/pineRoot/pine_root.1`
+to `pine_root.256` (256 by 256 big-endian MET_USHORT slices, 131072 bytes
+each) plus `pine_root.lim` and `pine_root.tri`, all dated 2003-03-17 (tar
+member dates and server Last-Modified; earliest Wayback capture 2006-11-18).
+The shipped `pine_root.mhd` (`ElementDataFile = pine_root.%d 1 256 1`,
+`ElementByteOrderMSB = True`) describes exactly those slice files, and
+`pine_root.mha`'s zlib payload decompresses to 33554432 bytes equal to the 256
+slices concatenated and 16-bit byte-swapped (sha256 7a7f2f35... both ways), so
+the volume was publicly downloadable from vtk.org before Lorensen's 2017
+commit. The README says "Feel free to use this distribution under the
+conditions of the VTK Copyright shown below" (Copyright (c) 1993-2002 Ken
+Martin, Will Schroeder, Bill Lorensen, BSD-style); that is the VTK authors'
+redistributor notice, which the book itself points to (section 1.11, Legal
+Considerations: "Some of the data on the CD-ROM may be freely distributed or
+used (with appropriate acknowledgment). Refer to the local README files or
+other documentation for details."), not terms from Duke CIVM or Janet MacFall.
+
+CIVM's Shared Data Access page
+(https://civm.duhs.duke.edu/duke-CIVM-shared-code-access;
+https://web.archive.org/web/20260510093730/https://civm.duhs.duke.edu/duke-CIVM-shared-code-access)
+states that data from that web site is CC BY-NC-SA, with commercial licences
+available from G. Allan Johnson, and names VoxPort (CIVM publications before
+2022, registration required) as the archive for older data; the VoxPort login
+page (https://civmvoxport.vm.duke.edu/) states that all data on that site is
+CC BY-NC-SA 3.0 for academic use with credit. Both statements are scoped to
+data served from those sites; this volume came via the textbook CD-ROM,
+VoxPort has no anonymous search, and the pine root MRI was not confirmed to be
+held there. The identifier stays undetermined until CIVM confirms the scan is
+in its archive or states terms for it; if it does, the matching identifier
+would be CC-BY-NC-SA-3.0.
 """
 
 [[dataset]]
@@ -4769,7 +5243,10 @@ provenance = "verified"
 origin_url = "https://examples.vtk.org/site/VTKBook/09Chapter9/"
 origin_title = "The Visualization Toolkit textbook, chapter 9"
 authors = ["Janet MacFall"]
-redistributed_from = ["https://github.com/lorensen/VTKExamples/blob/master/src/Testing/Data/pine_root.tri"]
+redistributed_from = [
+    "https://vtk.org/files/VTKTextbook/PineRoot.tgz",
+    "https://github.com/lorensen/VTKExamples/blob/master/src/Testing/Data/pine_root.tri",
+]
 references = [
     { citation = "Schroeder, W., Martin, K. and Lorensen, B. The Visualization Toolkit, chapter 9, Connectivity.", url = "https://examples.vtk.org/site/VTKBook/09Chapter9/" },
 ]
@@ -4782,8 +5259,20 @@ and "Using the class vtkSliceCubes, an implementation of marching cubes for
 large volumes, we generate an initial isosurface represented by 351,118
 triangles. (We have placed the file pine_root.tri on CD-ROM. ...)". The file
 here holds 351,914 triangles (25,337,808 bytes at 72 bytes per triangle),
-close to but not the book's figure, so it may be a later regeneration of the
-same isosurface.
+close to but not the book's figure. The file is byte-identical (sha256
+1d0430fb...) to `Data/pineRoot/pine_root.tri` in Kitware's VTK Textbook
+examples distribution, https://vtk.org/files/VTKTextbook/PineRoot.tgz (listed
+at https://vtk.org/vtk-textbook-examples-and-data/, README
+https://vtk.org/files/VTKTextbook/README.txt), whose member is dated
+2003-03-17 and which the Wayback Machine holds unchanged since 2006-11-18
+(https://web.archive.org/web/20061118052238/http://www.vtk.org/files/VTKTextbook/PineRoot.tgz
+has the same digest as the live file); so the 351,914-triangle file is the one
+Kitware distributed with the third-edition textbook examples, fourteen years
+before Lorensen's repository, and the mismatch with the book's 351,118
+predates every known redistribution. The archive's README grants the VTK
+authors' BSD terms over the distribution (Copyright (c) 1993-2002 Ken Martin,
+Will Schroeder, Bill Lorensen); that is the redistributor's notice, not
+Duke's, so the terms stay undetermined.
 
     git -C vtk-examples grep -n 'pine_root.tri' HEAD -- src/VTKBook
 
@@ -4794,7 +5283,11 @@ and size. The permission the book records covers its CD-ROM. It is not a
 licence to redistribute, and the example repository's Apache-2.0 is
 Lorensen's, not Duke's, so the terms are recorded as undetermined. A
 downstream user should contact the Duke Center for In Vivo Microscopy
-(https://civm.duhs.duke.edu/) before redistributing.
+(https://civm.duhs.duke.edu/) before redistributing. The CIVM Shared Data page
+(https://civm.duhs.duke.edu/duke-CIVM-shared-code-access) states that data
+from that website is CC BY-NC-SA and that commercial licences are granted on
+request to G. Allan Johnson; this file is not shown to be hosted there, so
+that statement is a contact, not a licence for it.
 """
 
 [[dataset]]
@@ -5054,21 +5547,38 @@ notes = "The project page's title is \"Bracket by STR\" and its author metadata 
 [[dataset]]
 name = "puppy"
 title = "Puppy photograph"
-description = "Colour photograph of a puppy, used as a texture and as image filter input."
+description = "Colour photograph of a twelve-week-old golden retriever puppy, used as a texture and as image filter input."
 path = ["puppy.jpg"]
-SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "unknown"
-notes = "Added on 2019-04-06 with the commit message \"Add puppy\" (pyvista/data fdd9fbc) and the same-day vtki commit 7779e0ab1 \"Add puppy image example\" (https://github.com/pyvista/pyvista/commit/7779e0ab1), neither of which records a source, photographer or terms. The file's EXIF records a NIKON E2200 and a capture time of 2010-02-07 11:48:39, which is the only surviving lead. Until the photographer is identified, treat the file as all rights reserved and do not reuse it outside PyVista's own examples."
+SPDX-License-Identifier = "CC-BY-3.0"
+provenance = "verified"
+origin_url = "https://commons.wikimedia.org/wiki/File:Golden_Retriever_12weeks.JPG"
+origin_title = "Golden Retriever 12weeks.JPG (Wikimedia Commons)"
+authors = ["Beatrice Milek"]
+attribution = "Golden Retriever 12weeks.JPG by Beatrice Milek, Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Golden_Retriever_12weeks.JPG), licensed under CC BY 3.0."
+notes = """
+Byte-identical (sha1 56ce1d4ca4f2342447457d3d2b20bf7608a89c1f, sha256
+089ca521b2f0501c37bbb8fd8a384542c9eda41f85cef167216ffbffd539b135, 436572
+bytes) to the single revision of Wikimedia Commons
+`File:Golden_Retriever_12weeks.JPG`, uploaded on 2010-02-23 by Commons user
+DeaMortis as own work, author Beatrice Milek, and dual-licensed CC BY 3.0
+Unported or GFDL 1.2 or later at the licensee's choice
+(`{{self|GFDL|cc-by-3.0|migration=redundant}}`); the CC BY 3.0 option is the
+one recorded here. The file's EXIF records a NIKON E2200 and a capture time of
+2010-02-07 11:48:39. Added here on 2019-04-06 with the commit message "Add
+puppy" (pyvista/data fdd9fbc, https://github.com/pyvista/data/commit/fdd9fbc)
+and the same-day vtki commit 7779e0ab1 "Add puppy image example"
+(https://github.com/pyvista/pyvista/commit/7779e0ab1), neither of which
+records the source.
+"""
 
 [[dataset]]
 name = "pvgeo_examples"
 title = "Geoscience example datasets"
-description = "Assorted geoscience example data used in Bane Sullivan's Transform 2021 notebooks and the PyVista tutorial: a GPR line, a drone-survey point cloud of a mine pit, an ESRI grid DEM, elevation and RGB rasters, three small text tables and a cross-section image."
+description = "Assorted geoscience example data used in Bane Sullivan's Transform 2021 notebooks and the PyVista tutorial: a GPR line, a drone-survey point cloud of a mine pit, an ESRI grid DEM, an elevation raster, three small text tables and a cross-section image."
 path = [
     "Elevation.tif",
     "Sio020320.csv",
     "Sio020320.vtp",
-    "bahamas_rgb.tif",
     "geo-cross-section.png",
     "gpr-line.vtu",
     "gravi.txt",
@@ -5082,7 +5592,9 @@ notes = """
 `esri_grid.dem.zip` was added on 2019-04-20 as "Add ESRI DEM for PVGeo"; the
 rest arrived in 2021 as "add geo sample data" and "add raster data" for Bane
 Sullivan's Transform 2021 geoscience notebooks
-(https://github.com/banesullivan/transform-2021). Its `mine-pit` notebook
+(https://github.com/banesullivan/transform-2021); `bahamas_rgb.tif`, which
+arrived with them, was traced to rasterio and has its own entry,
+`bahamas_rgb`. Its `mine-pit` notebook
 ("Triangulate a surface from a point cloud of points and overlay imagery of
 a mine pit") says the `Sio020320` point cloud was first posted to
 https://github.com/pyvista/pyvista-support/issues/159, where the poster
@@ -5123,6 +5635,19 @@ states terms for the underlying sequencing data, and VTK Data's BSD notice
 cannot license Crawford et al.'s data, so the licence is undetermined.
 Downstream users should cite Crawford et al. 2009 and ask the QIIME
 developers about terms.
+
+Crawford et al. 2009 (PNAS 106:11276, doi:10.1073/pnas.0902366106, PMC2700149)
+state: "The 16S rRNA sequence data reported in this paper have been deposited
+in the GenBank database (accession no. SRA008712.2)" (GeneChip data as GEO
+GSE14929); the article is "Freely available online through the PNAS open
+access option", which covers the paper, not the deposited data. The tutorial
+archive linked from the 2013-12-06 capture
+(https://web.archive.org/web/20131206120900id_/http://qiime.org/tutorials/tutorial.html)
+is
+ftp://thebeast.colorado.edu/pub/QIIME-v1.5.0-dependencies/qiime_tutorial-v1.5.0.zip;
+the Wayback Machine holds no capture of that FTP host, so byte identity with
+the tutorial output cannot be checked. The tutorial page carries only the
+Sphinx site footer "(c) Copyright 2012, QIIME Team" and no data terms.
 """
 
 [[dataset]]
@@ -5229,6 +5754,8 @@ SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "verified"
 origin_url = "https://github.com/pyvista/pyvista/issues/547"
 origin_title = "pyvista/pyvista issue 547"
+authors = ["Sam Potter"]
+attribution = "Mesh provided by Sam Potter (https://github.com/sampotter) in pyvista/pyvista#547, who asked that the mesh be attributed to him."
 notes = """
 Sam Potter (https://github.com/sampotter) attached the file to
 pyvista/pyvista#547 (https://github.com/pyvista/pyvista/issues/547) on 2020-01-19 as "a mesh of a building" while reporting
@@ -5237,10 +5764,22 @@ a translucency rendering bug; this copy is byte-identical to that attachment
 SHA-256 1933cfaa63a9746b0799f869de3b11bb810ba5f1443da8f03e7f647d378226d9).
 Its header shows it was written by meshio 3.3.1 on 2020-01-17. Bane Sullivan
 copied it into this repository on 2020-02-04 (commit c0db94f, https://github.com/pyvista/data/commit/c0db94f) for the depth
-peeling work in pyvista/pyvista#584 (https://github.com/pyvista/pyvista/pull/584). The issue does not say where the
-building model came from, who made it, or on what terms it may be used, so
-the terms are undetermined; downstream users who need a licence should ask
-the contributor in that issue.
+peeling work in pyvista/pyvista#584
+(https://github.com/pyvista/pyvista/pull/584).
+
+Potter described the file as output of a CGAL function (comment of 2020-02-03)
+and, in the video he linked on 2020-04-13 (https://vimeo.com/406979024, "A
+propagating wavefront: problems with the gradient of the O(h) eikonal"), as
+the surface of a building "consisting of a small warren of rooms" that he
+tetrahedralised with CGAL for his eikonal-solver work. When Bane Sullivan
+asked on 2020-02-04 whether the mesh could be used in the example gallery,
+Potter replied "You're welcome to use it, but please attribute the mesh to me
+in some way", and agreed that a mention in the `download_room_surface_mesh`
+docstring and the depth peeling example would suffice; the docstring carries
+"This mesh is courtesy of Sam Potter". That is a grant for the gallery
+conditioned on attribution, not a licence, and the issue still does not say
+where the underlying room geometry came from, so the terms for other uses are
+undetermined.
 """
 
 [[dataset]]
@@ -5376,10 +5915,23 @@ notes = """
 Byte-identical (261509 bytes) to the sample file CAD Studio links from its
 VRMLout page as "VRML2: Sextant 3D-model from AutoCAD (260kB)",
 https://www.cadstudio.cz/dl/xoom/gc/sextant.wrl; the file's second line
-reads "Generated by VRMLout V2.0 (C) CAD Studio". The page states terms for
-the VRMLout software but none for the sample models, so the terms are
-undetermined; ask CAD Studio (now part of Arkance) before redistributing it
-outside test use. Bill Lorensen added it to `lorensen/VTKExamples` in July
+reads "Generated by VRMLout V2.0 (C) CAD Studio". The same file is also listed
+in the company's own download catalogue,
+https://www.cadforum.cz/cz/download.asp?fileID=100 ("VRML2 Sextant 3D-model
+from AutoCAD", category "Our shareware (trial)", type "model"), whose download
+link resolves to https://www.cadforum.cz/dl/xoom/gc/sextant.wrl,
+byte-identical (sha256 8d61c9dc...). The Czech catalogue page's footer says
+"Utility firmy ARKANCE (CAD Studio) není dovoleno publikovat na další web
+servery ani jiná média bez předchozího souhlasu" (ARKANCE (CAD Studio)
+utilities may not be published on other web servers or other media without
+prior consent); the English page
+https://www.cadforum.cz/en/download.asp?fileID=100 carries no such sentence.
+The sentence addresses utilities and the entry is tagged as a model, so
+whether it covers the sample is unresolved; neither page states a licence for
+the model. The cadstudio.cz URL has been archived since 2001-05-16
+(https://web.archive.org/web/20010516112941/http://www.cadstudio.cz/dl/xoom/gc/sextant.wrl).
+Ask CAD Studio (now ARKANCE CZ) before redistributing it outside test use.
+Bill Lorensen added it to `lorensen/VTKExamples` in July
 2017 (commit 8c1faeff1d, https://github.com/lorensen/VTKExamples/commit/8c1faeff1d) for his VRML importer example, and the April 2019
 import of that repository brought it here. `vrml/sextant.wrl` is a
 byte-identical second copy added in August 2022 for the VRML reader examples.
@@ -5605,6 +6157,16 @@ undetermined; a downstream user who needs more than the informal grant in
 the thread should ask the author through it. The companion
 `InterpolatingOnSTL_final.stl` from the same archive has its own entry,
 `interpolating_on_stl`.
+
+The VTK Discourse Terms of Service (https://discourse.vtk.org/tos, last
+updated 2018-01-01), section 3, say "User contributions are licensed under a
+Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License."
+Hosam's data was linked from Dropbox rather than attached, and the archive
+holds only `InterpolatingOnSTL_final.stl` and `points.txt` with no README or
+licence. Whether the platform terms reach an externally hosted file is not
+settled by the ToS (section 2 defines Content to include posted links; section
+7 disclaims linked sites), and a platform's terms are not a licence stated by
+the author beside the file, so the data's terms stay undetermined.
 """
 
 [[dataset]]
@@ -5745,6 +6307,19 @@ lorensen/VTKExamples import (commit 74bf994, https://github.com/pyvista/data/com
 Lorensen added to that repository on 2017-12-17 with the Stocks.cxx example
 (commit a152d24d, https://github.com/lorensen/VTKExamples/commit/a152d24d); vtk/vtk-examples now holds the same bytes in LFS (its
 pointers' sha256 match the four files).
+
+The textbook adds "(This Web site has closed down since publication of the
+first edition. The data for this example are available on the CD-ROM.)" and
+quotes the raw format "930830 49.375 48.812 49.250 1139.2 56.1056": date as
+yymmdd, high, low, close, volume in thousands of shares and volume in millions
+of dollars (`src/VTKBook/12Chapter12.md`, lines 596 to 605). A plausible but
+unverified candidate for the closed site is MIT StockMaster
+(www.ai.mit.edu/stocks, Mark C. Torrance, a free price and volume archive
+running from 1993); the only Wayback captures of it
+(https://web.archive.org/web/19961220181222/http://www.ai.mit.edu:80/stocks/
+and the same-day capture of stocks/graphs.html) are the shutdown notice, and
+every other archived stocks/ path redirects to it, so neither a data page nor
+a format description survives and the origin cannot be matched.
 """
 
 [[dataset]]
@@ -6142,9 +6717,15 @@ cited this page and fetched `urn.stl` from
 http://3dgallery.gks.com/2012/urn/urn3.php, Laser Design's former download
 gallery; when the gallery went offline the file was
 re-hosted here from contributors' caches
-(https://github.com/pyvista/pyvista/pull/1226, March 2021). The Wayback
-Machine holds no capture of that link, so the bytes could not be compared
-with what Laser Design served.
+(https://github.com/pyvista/pyvista/pull/1226, March 2021). Laser Design's
+live page now serves the STL through its ShareFile share
+https://laserdesign.sharefile.com/d-s0593681bd1af40b0aa85314cceaaf425 ("Bural
+Urn .STL.zip", 5899211 bytes, uploaded 2021-03-19; the download asks for a
+name, email and company). The zip contains "LDI - Bural Urn (STL).stl",
+12274384 bytes, 245486 triangles, zip timestamp 2015-02-17, whose sha256
+ce3a95b9b6be2de537d2f64eae27259d6addd743073b6c9d71858c9d79796027 is identical
+to `urn.stl` here, so the file is byte for byte what Laser Design distributes.
+The Wayback Machine holds no capture of the former gks.com link.
 
 The site footer asserts "(c) 2026 CyberOptics Corporation. All Rights
 Reserved." and the page states no licence of its own. The "Terms of Use" its
@@ -6241,6 +6822,18 @@ repository was forked from, and VTK ships a content link for each.
 `vase.vti` came with the April 2019 `lorensen/VTKExamples` import and is
 byte-identical to `vase_1comp.vti`; its four-component sibling names its
 array `Scalars_`.
+
+The `SLCImage` array name is `vtkSLCReader`'s output name; SLC is the VolVis
+file format from the same Stony Brook group (VolVis history page,
+https://web.archive.org/web/19970615095111/http://www.cs.sunysb.edu/~vislab/projects/volvis/history.html:
+developed by Rick Avila and Lisa Sobierajski under Arie Kaufman). The VolVis
+pages state terms for the VolVis software only
+(https://web.archive.org/web/20111013044702/http://www.cs.sunysb.edu/~vislab/projects/volvis/features.html:
+"VolVis is freely available as source code to not-for-profit organizations.
+There is a small fee for for-profit organizations."); no VolVis data page,
+README or download listing was ever archived, the 1997 `VolVis.zip` capture is
+a demo that loads `bench.slc`, and nothing shows a vase dataset shipped with
+VolVis. A software licence would not cover the data even if it had.
 """
 
 [[dataset]]
