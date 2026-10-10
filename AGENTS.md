@@ -18,9 +18,11 @@ so a change here is public the moment it merges.
 ## Skills
 
 Skills are task guides in the open Agent Skills format (`SKILL.md` with
-`name` and `description` frontmatter, references beside it). They live under
-`skills/` so any agent can read them; nothing in them is specific to one
-agent.
+`name` and `description` frontmatter, references beside it). The real files
+live under `skills/`; `.claude/skills` and `.agents/skills` are symlinks to
+that directory, so Claude Code and Codex each find the same skill in the
+place they scan, and any other agent can read it by path. Nothing in them is
+specific to one agent.
 
 | Task | Guide |
 | --- | --- |
