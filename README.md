@@ -67,8 +67,8 @@ predate it and are narrower than they look:
   (Data)", inherited from VTKData and cited by the datasets that came from it.
 - `VTKData.readme` and `VERSION`: VTK-era files kept for historical
   continuity. Neither describes the current contents.
-- `AGENTS.md`: the entry point for coding agents working in this repository;
-  `CLAUDE.md` does nothing but include it. The task guides it routes to live
+- `AGENTS.md`: the entry point for coding agents working in this repository.
+  The task guides it routes to live
   under `skills/`, with `.claude/skills` and `.agents/skills` as symlinks to
   that directory; `skills/dataset-provenance/` packages the method for
   establishing a file's origin and terms.
