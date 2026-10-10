@@ -37,8 +37,8 @@ with urllib.request.urlopen(url) as response:
     metadata = tomllib.loads(response.read().decode())
 
 by_name = {entry['name']: entry for entry in metadata['dataset']}
-shark = by_name['grey_nurse_shark']
-print(shark['SPDX-License-Identifier'], shark['origin_url'])
+case = by_name['cad_model_case']
+print(case['SPDX-License-Identifier'], case['origin_url'])
 ```
 
 The licensing keys borrow their names and meaning from the

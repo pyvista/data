@@ -46,19 +46,20 @@ Everything they used to hold has a field in
 
 ```toml
 [[dataset]]
-name = "grey_nurse_shark"
-title = "Grey nurse shark"
-description = "Triangulated surface mesh of a grey nurse shark, in STL format."
-path = ["grey_nurse_shark/**"]
-SPDX-License-Identifier = "CC-BY-SA-3.0"
+name = "cad_model_case"
+title = "PiBoy DMG vented rear case"
+description = "Surface mesh of a custom rear case for the PiBoy DMG handheld, with added ventilation over the stock case."
+path = ["cad/4947746/**"]
+SPDX-License-Identifier = "CC-BY-4.0"
 provenance = "verified"
-origin_url = "https://www.thingiverse.com/thing:137954"
-origin_title = "Thingiverse thing:137954"
+origin_url = "https://www.thingiverse.com/thing:4947746"
+origin_title = "Thingiverse thing:4947746"
 collection = "thingiverse"
-authors = ["Autodesk"]
-attribution = "Grey Nurse Shark, uploaded by rogerpeng1 (https://www.thingiverse.com/thing:137954), licensed under CC BY-SA."
-redistributed_from = ["https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/Testing/Data/thingiverse/Grey_Nurse_Shark.stl"]
-notes = "The page's `rel=\"license\"` link names creativecommons.org/licenses/by-sa/3.0/. ShareAlike propagates: a downstream work derived from this mesh must be shared under the same licence. The uploader disclaims authorship: \"This is a scan by Autodesk obtained from the Autodesk 123D site\"."
+authors = ["downerhouse"]
+attribution = "PiBoy DMG Custom Rear Case With Ventilation by downerhouse (https://www.thingiverse.com/thing:4947746), licensed under CC BY 4.0."
+modified = true
+modification = "Converted to VTK XML PolyData."
+notes = "The page's schema.org JSON-LD names the author (downerhouse), the publication date (2021-09-02) and the licence URL creativecommons.org/licenses/by/4.0/; the Wayback capture of 18 September 2025 carries the same JSON-LD. The visible \"Creative Commons - Attribution\" label carries no version; the version recorded is the one in the structured data."
 ```
 
 A simple one is much shorter:
