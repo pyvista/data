@@ -1,0 +1,19 @@
+MINC library notice
+
+Source: the `COPYING` file of the MINC library,
+https://github.com/BIC-MNI/minc/blob/master/COPYING, quoted in full. The
+notice is an MIT-style permission whose exact wording SPDX does not list.
+
+    Copyright the MINC developers, McConnell Brain Imaging Centre,
+    Montreal Neurological Institute, McGill University.
+
+    Permission to use, copy, modify, and distribute this software and its
+    documentation for any purpose and without fee is hereby granted,
+    provided that the above copyright notice appear in all copies.  The
+    author and McGill University make no representations about the
+    suitability of this software for any purpose.  It is provided "as is"
+    without express or implied warranty.
+
+What this means for a downstream user: use, copying, modification and
+distribution for any purpose are permitted, provided the copyright notice
+above appears in all copies.
