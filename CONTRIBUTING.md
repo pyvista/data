@@ -186,6 +186,10 @@ clause forbidding resale.
 These are the techniques that have actually resolved entries here, roughly in
 order of how often they work.
 
+A coding agent can run the whole procedure: `.claude/skills/dataset-provenance/`
+packages these techniques, the sources this repository's files have come
+from, and a research-and-refute workflow for a batch of records.
+
 ### Read the bytes
 
 More files carry their own provenance than you would expect, and it outranks
