@@ -639,45 +639,82 @@ content link is a different file.
 [[dataset]]
 name = "auto_mpg"
 title = "Auto MPG"
-description = "Fuel consumption, cylinders, displacement, horsepower, weight, acceleration and model year for 398 cars, as two exports: 392 complete cases without names, and all 398 with them."
-path = ["cars.csv", "vehicle_data.csv"]
+description = "Fuel consumption, cylinders, displacement, horsepower, weight, acceleration and model year for the 392 complete cases of the Auto MPG data, without car names."
+path = ["vehicle_data.csv"]
 SPDX-License-Identifier = "CC-BY-4.0"
 provenance = "verified"
 origin_url = "https://archive.ics.uci.edu/dataset/9/auto+mpg"
 origin_title = "UCI Machine Learning Repository, Auto MPG"
+collection = "vtk-data"
 authors = ["R. Quinlan"]
 attribution = "Auto MPG, UCI Machine Learning Repository, donated by R. Quinlan (1993), licensed under CC BY 4.0."
-redistributed_from = ["https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7", "https://github.com/lorensen/VTKExamples"]
+redistributed_from = ["https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"]
 modified = true
-modification = "`vehicle_data.csv` keeps the 392 rows with a horsepower value, in the repository's order, renames the columns, drops `car_name` and `origin`, and rounds one displacement (97.5 to 97, the 1972 Dodge Colt hardtop). `cars.csv` keeps all 398 rows reordered roughly by name, renames the columns (its `displacement (cc)` values are the repository's cubic inches), drops `origin`, capitalises and respells some names and writes `(sw)` as `(Wagon)`."
+modification = "Keeps the 392 rows with a horsepower value, in the repository's order, renames the columns, drops `car_name` and `origin`, and rounds one displacement (97.5 to 97, the 1972 Dodge Colt hardtop)."
 references = [
     { citation = "Quinlan, R. Auto MPG. UCI Machine Learning Repository, 1993.", doi = "10.24432/C5859H", url = "https://archive.ics.uci.edu/dataset/9/auto+mpg" },
 ]
 notes = """
-Both files are the Auto MPG data revised from the CMU StatLib library and
-used at the 1983 American Statistical Association Exposition. Compared with
-the repository's `data.csv` (https://archive.ics.uci.edu/static/public/9/data.csv):
+The Auto MPG data revised from the CMU StatLib library and used at the 1983
+American Statistical Association Exposition. Compared with the repository's
+`data.csv` (https://archive.ics.uci.edu/static/public/9/data.csv),
 `vehicle_data.csv` matches the 392 rows that have a horsepower value, in
-order, except for the one rounded displacement; the 398 rows of `cars.csv`
-match the repository's 398 rows as a multiset on every numeric column, and
-their names match, compared case-insensitively, after the repository's
-commas are read as spaces and `(sw)` as `(wagon)`, apart from 16 respelled
-names (for example the repository's `vw rabbit` is `volkswagen rabbit`,
-`maxda rx3` is `maxda rx-3` and `plymouth 'cuda 340` is `plymouth barracuda
-340`).
+order, except for the one rounded displacement. The 398-row export with car
+names is the `auto_mpg_cars` record.
 
 The dataset page states "This dataset is licensed under a Creative Commons
 Attribution 4.0 International (CC BY 4.0) license." and credits R. Quinlan
 as creator; the API record (https://archive.ics.uci.edu/api/dataset?id=9)
 gives the creator, the 1993 date and the DOI but not the licence.
 
-`vehicle_data.csv` reached this repository through the VTK Data fork (added
-by Marcus Hanwell on 2011-10-18, "Added vehicle data, useful for PC/scatter
-plot"; VTK's content link `Testing/Data/vehicle_data.csv.sha512` matches the
-same bytes) and `cars.csv` through the April 2019 import from
-lorensen/VTKExamples (blob 0fb6147e392c at `src/Testing/Data/cars.csv`).
-Neither collection's licence applies to third-party data, so the UCI terms
-are recorded.
+`vehicle_data.csv` reached this repository through the VTK Data fork (added by
+Marcus Hanwell on 2011-10-18, commit 1e9b572,
+https://github.com/pyvista/data/commit/1e9b572, "Added vehicle data, useful
+for PC/scatter plot"; VTK's content link
+`Testing/Data/vehicle_data.csv.sha512` matches the same bytes). The
+collection's licence does not apply to third-party data, so the UCI terms are
+recorded.
+"""
+
+[[dataset]]
+name = "auto_mpg_cars"
+title = "Auto MPG with car names"
+description = "Fuel consumption, cylinders, displacement, horsepower, weight, acceleration and model year for all 398 cars of the Auto MPG data, with car names."
+path = ["cars.csv"]
+SPDX-License-Identifier = "CC-BY-4.0"
+provenance = "verified"
+origin_url = "https://archive.ics.uci.edu/dataset/9/auto+mpg"
+origin_title = "UCI Machine Learning Repository, Auto MPG"
+collection = "vtk-examples"
+authors = ["R. Quinlan"]
+attribution = "Auto MPG, UCI Machine Learning Repository, donated by R. Quinlan (1993), licensed under CC BY 4.0."
+redistributed_from = ["https://github.com/lorensen/VTKExamples/blob/master/src/Testing/Data/cars.csv"]
+modified = true
+modification = "Keeps all 398 rows reordered roughly by name, renames the columns (its `displacement (cc)` values are the repository's cubic inches), drops `origin`, capitalises and respells some names and writes `(sw)` as `(Wagon)`."
+references = [
+    { citation = "Quinlan, R. Auto MPG. UCI Machine Learning Repository, 1993.", doi = "10.24432/C5859H", url = "https://archive.ics.uci.edu/dataset/9/auto+mpg" },
+]
+notes = """
+The Auto MPG data revised from the CMU StatLib library and used at the 1983
+American Statistical Association Exposition. Compared with the repository's
+`data.csv` (https://archive.ics.uci.edu/static/public/9/data.csv), the 398
+rows of `cars.csv` match the repository's 398 rows as a multiset on every
+numeric column, and their names match, compared case-insensitively, after the
+repository's commas are read as spaces and `(sw)` as `(wagon)`, apart from 16
+respelled names (for example the repository's `vw rabbit` is `volkswagen
+rabbit`, `maxda rx3` is `maxda rx-3` and `plymouth 'cuda 340` is `plymouth
+barracuda 340`). The 392-row export without names is the `auto_mpg` record.
+
+The dataset page states "This dataset is licensed under a Creative Commons
+Attribution 4.0 International (CC BY 4.0) license." and credits R. Quinlan as
+creator; the API record (https://archive.ics.uci.edu/api/dataset?id=9) gives
+the creator, the 1993 date and the DOI but not the licence.
+
+`cars.csv` reached this repository through the April 2019 import from
+lorensen/VTKExamples (commit 74bf994,
+https://github.com/pyvista/data/commit/74bf994; blob 0fb6147e392c at
+`src/Testing/Data/cars.csv`). The examples repository's Apache-2.0 does not
+apply to third-party data, so the UCI terms are recorded.
 """
 
 [[dataset]]
@@ -1228,19 +1265,20 @@ name = "cake_easy"
 title = "Cake photograph"
 description = "Colour photograph of a cake, used as a texture and as image filter input."
 path = ["cake_easy.jpg"]
-SPDX-License-Identifier = "Apache-2.0"
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://github.com/lorensen/VTKExamples"
 origin_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
+which was published under the Apache License 2.0 and is now maintained by
+Kitware as `vtk/vtk-examples`. Lorensen did not publish per-file provenance,
+so the original author of the photograph could not be established. The
+repository's Apache-2.0 covers Lorensen's examples, not a photograph he
+redistributed, so the licence is left undetermined.
 """
+
 
 [[dataset]]
 name = "calculix_frd"
@@ -1411,19 +1449,20 @@ name = "carotid"
 title = "Carotid artery flow"
 description = "Volume of blood flow velocity and vector magnitude through a carotid artery."
 path = ["carotid.vtk"]
-SPDX-License-Identifier = "Apache-2.0"
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://github.com/lorensen/VTKExamples"
 origin_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
+which was published under the Apache License 2.0 and is now maintained by
+Kitware as `vtk/vtk-examples`. Lorensen did not publish per-file provenance,
+so the original author of the scan could not be established. The repository's
+Apache-2.0 covers Lorensen's examples, not a scan he redistributed, so the
+licence is left undetermined. VTK itself ships no `Testing/Data/carotid.vtk`.
 """
+
 
 [[dataset]]
 name = "cells"
@@ -2345,19 +2384,20 @@ name = "emoji"
 title = "Emoji image"
 description = "Colour image of an emoji, used as a texture."
 path = ["emote.jpg"]
-SPDX-License-Identifier = "Apache-2.0"
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://github.com/lorensen/VTKExamples"
 origin_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
+which was published under the Apache License 2.0 and is now maintained by
+Kitware as `vtk/vtk-examples`. Lorensen did not publish per-file provenance,
+so the original author of the image could not be established. The repository's
+Apache-2.0 covers Lorensen's examples, not a image he redistributed, so the
+licence is left undetermined.
 """
+
 
 [[dataset]]
 name = "ensight_cylinder_crossflow"
@@ -3158,19 +3198,21 @@ name = "gears"
 title = "Interlocking gears"
 description = "Triangulated surface mesh of a set of interlocking gears."
 path = ["gears.stl"]
-SPDX-License-Identifier = "Apache-2.0"
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://github.com/lorensen/VTKExamples"
 origin_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
+which was published under the Apache License 2.0 and is now maintained by
+Kitware as `vtk/vtk-examples`. Lorensen did not publish per-file provenance,
+so the original author of the model could not be established. The repository's
+Apache-2.0 covers Lorensen's examples, not a model he redistributed, so the
+licence is left undetermined. The STL header reads `solid OpenSCAD_Model`, so
+it was exported from OpenSCAD; who modelled it is not stated.
 """
+
 
 [[dataset]]
 name = "gettysburg_address"
@@ -3232,19 +3274,20 @@ name = "gourds"
 title = "Gourds photograph"
 description = "Colour photograph of gourds in PNG, PNM and JPEG form, used as a texture and as image filter input."
 path = ["Gourds.png", "Gourds.pnm", "Gourds2.jpg"]
-SPDX-License-Identifier = "Apache-2.0"
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://github.com/lorensen/VTKExamples"
 origin_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
+which was published under the Apache License 2.0 and is now maintained by
+Kitware as `vtk/vtk-examples`. Lorensen did not publish per-file provenance,
+so the original author of the photograph could not be established. The
+repository's Apache-2.0 covers Lorensen's examples, not a photograph he
+redistributed, so the licence is left undetermined.
 """
+
 
 [[dataset]]
 name = "gpr"
@@ -3301,18 +3344,18 @@ name = "grasshopper"
 title = "Grasshopper"
 description = "VRML model of a grasshopper."
 path = ["grasshopper/**"]
-SPDX-License-Identifier = "Apache-2.0"
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/Testing/Data/grasshop.wrl"
 origin_title = "VTK Examples"
 collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
+which was published under the Apache License 2.0 and is now maintained by
+Kitware as `vtk/vtk-examples`. Lorensen did not publish per-file provenance,
+so the original author of the model could not be established. The repository's
+Apache-2.0 covers Lorensen's examples, not a model he redistributed, so the
+licence is left undetermined.
 
 `grasshop.wrl` came in with the VTK Examples import;
 `grasshopper/grasshop.wrl` is a byte-identical second copy added on 2024-08-10
@@ -3320,6 +3363,7 @@ author of the data itself could not be established.
 47, https://github.com/pyvista/data/pull/47) with the commit message "Add
 grasshopper (#47)". Both carry the VTK Examples licence.
 """
+
 
 [[dataset]]
 name = "great_white_shark"
@@ -3660,24 +3704,25 @@ name = "human"
 title = "Human figure"
 description = "Surface mesh of a standing human figure."
 path = ["Human.vtp"]
-SPDX-License-Identifier = "Apache-2.0"
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://github.com/lorensen/VTKExamples"
 origin_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
+which was published under the Apache License 2.0 and is now maintained by
+Kitware as `vtk/vtk-examples`. Lorensen did not publish per-file provenance,
+so the original author of the model could not be established. The repository's
+Apache-2.0 covers Lorensen's examples, not a model he redistributed, so the
+licence is left undetermined.
 
 Upstream, `src/Testing/Data/Human.vtp` was added by Andrew J. P. Maclean on
 2017-12-21 with the AnatomicalOrientation example (commit 6cd41057c7,
 https://github.com/lorensen/VTKExamples/commit/6cd41057c7); the example's page
 describes the figure but credits no source for the mesh.
 """
+
 
 [[dataset]]
 name = "hydrogen_orbital"
@@ -4036,12 +4081,14 @@ origin_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
+which was published under the Apache License 2.0 and is now maintained by
+Kitware as `vtk/vtk-examples`. Lorensen did not publish per-file provenance.
+The file is a hand-made outline of a letter, example input of the kind the
+example authors write themselves, so the repository licence is recorded as
+inferred.
 """
+
 
 [[dataset]]
 name = "libtiff_test"
@@ -4476,6 +4523,39 @@ attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bil
 notes = "Added in May 2013 with the commit message \"Adding baseline and data for new test (TestMultiblockDisplayProperties)\", six years before this repository was forked from VTK Data, so it carries that collection's licence. The commit message \"Add reactor partitioned mesh\" belongs to `reactor.zip`, a different file added in 2024."
 
 [[dataset]]
+name = "nasa_lox_post"
+title = "NASA LOx post PLOT3D case"
+description = "NASA Ames computational fluid dynamics case of flow around a liquid-oxygen post, in PLOT3D format as a grid and solution pair with an IBLANK array; not loaded by `pyvista.examples`."
+path = ["postq.bin", "postxyz.bin"]
+SPDX-License-Identifier = "LicenseRef-PublicDomain"
+provenance = "verified"
+origin_url = "https://ntrs.nasa.gov/citations/19900013774"
+origin_title = "NASA Ames Research Center, PLOT3D User's Manual"
+collection = "vtk-examples"
+authors = ["NASA Ames Research Center"]
+redistributed_from = ["https://github.com/lorensen/VTKExamples/blob/master/src/Testing/Data/postxyz.bin"]
+references = [
+    { citation = "S. E. Rogers, D. Kwak and U. K. Kaul, A Numerical Study of Three-Dimensional Incompressible Flow Around Multiple Posts, AIAA Aerospace Sciences Conference, Reno, 1986, AIAA Paper 86-0353", url = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/VTKBook/12Chapter12.md" },
+]
+notes = """
+`postxyz.bin` is 38 by 76 by 38 with an IBLANK array, the LOx post that
+chapter 12 of the VTK textbook introduces as "a dataset from NASA" citing
+[Rogers86], whose bibliography entry is the reference; `postq.bin` is its
+solution. The blunt-fin and combustor cases, which came through VTK Data, are
+the `nasa_plot3d_cfd` record.
+
+Both files are byte-identical to `src/Testing/Data/postq.bin` and
+`postxyz.bin` in `lorensen/VTKExamples` and arrived in the April 2019 import
+of that repository (commit 74bf994,
+https://github.com/pyvista/data/commit/74bf994); they are absent from the 2013
+VTK Data fork tree and have no VTK content link.
+
+Work produced by NASA employees carries no copyright under 17 U.S.C. Sec. 105.
+Lorensen's Apache-2.0 covers his examples and does not attach to this federal
+work.
+"""
+
+[[dataset]]
 name = "nasa_plot3d_cfd"
 title = "NASA PLOT3D CFD cases"
 description = "Two NASA Ames computational fluid dynamics cases in PLOT3D format, a blunt fin on a plate and a combustor, as grid and solution pairs, with the combustor also split into three structured blocks."
@@ -4484,25 +4564,19 @@ path = [
     "bluntfinxyz.bin",
     "combq.bin",
     "combxyz.bin",
-    "StructuredGrid.vts",
     "multicomb_0.vts",
     "multicomb_1.vts",
     "multicomb_2.vts",
-    "postq.bin",
-    "postxyz.bin",
 ]
 SPDX-License-Identifier = "LicenseRef-PublicDomain"
 provenance = "verified"
 origin_url = "https://ntrs.nasa.gov/citations/19900013774"
 origin_title = "NASA Ames Research Center, PLOT3D User's Manual"
+collection = "vtk-data"
 authors = ["NASA Ames Research Center"]
-redistributed_from = [
-    "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7",
-    "https://github.com/lorensen/VTKExamples/blob/master/src/Testing/Data/postxyz.bin",
-]
+redistributed_from = ["https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"]
 references = [
     { citation = "C. M. Hung and P. G. Buning, Simulation of blunt-fin-induced shock wave and turbulent boundary-layer interaction, AIAA 22nd Aerospace Sciences Meeting, Reno, 1984, AIAA Paper 84-0457", doi = "10.2514/6.1984-457" },
-    { citation = "S. E. Rogers, D. Kwak and U. K. Kaul, A Numerical Study of Three-Dimensional Incompressible Flow Around Multiple Posts, AIAA Aerospace Sciences Conference, Reno, 1986, AIAA Paper 86-0353", url = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/VTKBook/12Chapter12.md" },
 ]
 notes = """
 The grid headers decode to the published dimensions and the file sizes follow
@@ -4512,26 +4586,20 @@ exactly from them, which is what identifies each case:
     # (57, 33, 25), and 12 + 57*33*25*3*4 = 564312 = the file size
 
 `bluntfinxyz.bin` is 40 by 32 by 32, the NASA Ames blunt-fin case of Hung and
-Buning (the first reference, DOI resolvable through Crossref); `combxyz.bin`
-is 57 by 33 by 25, the Ames combustor, and both pairs are named together in
-`Data/test.p3d`. `StructuredGrid.vts` is byte-identical to `multicomb_0.vts`
-and had its own entry describing it as a "small structured grid".
-`postxyz.bin` is 38 by 76 by 38 with an IBLANK array, the LOx post that
-chapter 12 of the VTK textbook introduces as "a dataset from NASA" citing
-[Rogers86], whose bibliography entry is the second reference. The three
-`multicomb_*.vts` blocks read back through the PLOT3D reader with bounds and
-a density range identical to `combxyz.bin` and `combq.bin`, so they are that
-case re-blocked.
+Buning (the reference, DOI resolvable through Crossref); `combxyz.bin` is 57
+by 33 by 25, the Ames combustor, and both pairs are named together in
+`Data/test.p3d`. The three `multicomb_*.vts` blocks read back through the
+PLOT3D reader with bounds and a density range identical to `combxyz.bin` and
+`combq.bin`, so they are that case re-blocked. The LOx post case and the
+`StructuredGrid.vts` copy of the first combustor block took a different route
+and are the `nasa_lox_post` and `structured_grid_sample` records.
 
-Route: the blunt fin, combustor and `multicomb_*` files are in the 2013
-VTK Data fork tree and VTK still ships content links for them; `postq.bin`,
-`postxyz.bin` and `StructuredGrid.vts` are byte-identical to
-`lorensen/VTKExamples` and arrived in the April 2019 import of that
-repository.
+Route: all seven files are in the 2013 VTK Data fork tree and VTK still ships
+content links for them.
 
 Work produced by NASA employees carries no copyright under 17 U.S.C. Sec. 105.
-Kitware's VTK Data notice and Lorensen's Apache-2.0 cover their own
-collections and do not attach to this federal work.
+Kitware's VTK Data notice covers its own collection and does not attach to
+this federal work.
 
 `bluntfinq.bin` is 484 bytes longer than a single-grid solution file of these
 dimensions, so it carries something more than the plain record structure; the
@@ -4892,12 +4960,13 @@ origin_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
+which was published under the Apache License 2.0 and is now maintained by
+Kitware as `vtk/vtk-examples`. Lorensen did not publish per-file provenance.
+The file is a synthetic cone, example input of the kind the example authors
+write themselves, so the repository licence is recorded as inferred.
 """
+
 
 [[dataset]]
 name = "office"
@@ -5330,19 +5399,20 @@ name = "pileated_woodpecker"
 title = "Pileated woodpecker photograph"
 description = "Colour photograph of a pileated woodpecker, used as a texture."
 path = ["Pileated.jpg"]
-SPDX-License-Identifier = "Apache-2.0"
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://github.com/lorensen/VTKExamples"
 origin_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
+which was published under the Apache License 2.0 and is now maintained by
+Kitware as `vtk/vtk-examples`. Lorensen did not publish per-file provenance,
+so the original author of the photograph could not be established. The
+repository's Apache-2.0 covers Lorensen's examples, not a photograph he
+redistributed, so the licence is left undetermined.
 """
+
 
 [[dataset]]
 name = "pine_root_volume"
@@ -5588,12 +5658,13 @@ origin_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
+which was published under the Apache License 2.0 and is now maintained by
+Kitware as `vtk/vtk-examples`. Lorensen did not publish per-file provenance.
+The file is a hand-made polyline, example input of the kind the example
+authors write themselves, so the repository licence is recorded as inferred.
 """
+
 
 [[dataset]]
 name = "procedural_cow"
@@ -5913,14 +5984,16 @@ origin_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. Lorensen added the file on
-2017-11-08 (commit 002d2ea19d, https://github.com/lorensen/VTKExamples/commit/002d2ea19d, "ENH: Added ExtractFaces and data.") together
-with the ExtractFaces example that reads it. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
+which was published under the Apache License 2.0 and is now maintained by
+Kitware as `vtk/vtk-examples`. Lorensen added the file on 2017-11-08 (commit
+002d2ea19d, https://github.com/lorensen/VTKExamples/commit/002d2ea19d, "ENH:
+Added ExtractFaces and data.") together with the ExtractFaces example that
+reads it. Lorensen did not publish per-file provenance. The file is a
+synthetic single-cell-type grid that Lorensen committed with the example that
+reads it, so the repository licence is recorded as inferred.
 """
+
 
 [[dataset]]
 name = "rectilinear_grid"
@@ -6216,19 +6289,21 @@ name = "shark"
 title = "Shark"
 description = "Surface mesh of a shark, used to demonstrate surface reconstruction from points."
 path = ["shark.ply"]
-SPDX-License-Identifier = "Apache-2.0"
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://github.com/lorensen/VTKExamples"
 origin_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
+which was published under the Apache License 2.0 and is now maintained by
+Kitware as `vtk/vtk-examples`. Lorensen did not publish per-file provenance,
+so the original author of the model could not be established. The repository's
+Apache-2.0 covers Lorensen's examples, not a model he redistributed, so the
+licence is left undetermined. The PLY header comment is dated 1993-07-27, so
+the mesh predates the examples by two decades.
 """
+
 
 [[dataset]]
 name = "skybox2"
@@ -6431,19 +6506,20 @@ name = "spider"
 title = "Spider"
 description = "Surface mesh of a spider."
 path = ["spider.ply"]
-SPDX-License-Identifier = "Apache-2.0"
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://github.com/lorensen/VTKExamples"
 origin_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
+which was published under the Apache License 2.0 and is now maintained by
+Kitware as `vtk/vtk-examples`. Lorensen did not publish per-file provenance,
+so the original author of the model could not be established. The repository's
+Apache-2.0 covers Lorensen's examples, not a model he redistributed, so the
+licence is left undetermined.
 """
+
 
 [[dataset]]
 name = "st_helens"
@@ -6556,6 +6632,34 @@ a format description survives and the origin cannot be matched.
 """
 
 [[dataset]]
+name = "structured_grid_sample"
+title = "Small structured grid"
+description = "The first block of the NASA Ames combustor case as VTK XML structured grid, byte-identical to `multicomb_0.vts` but imported through the VTK Examples."
+path = ["StructuredGrid.vts"]
+SPDX-License-Identifier = "LicenseRef-PublicDomain"
+provenance = "verified"
+origin_url = "https://ntrs.nasa.gov/citations/19900013774"
+origin_title = "NASA Ames Research Center, PLOT3D User's Manual"
+collection = "vtk-examples"
+authors = ["NASA Ames Research Center"]
+redistributed_from = ["https://github.com/lorensen/VTKExamples/blob/master/src/Testing/Data/StructuredGrid.vts"]
+notes = """
+Byte-identical to `multicomb_0.vts` in the `nasa_plot3d_cfd` record, the first
+of the three blocks of the Ames combustor case, whose grid reads back with
+bounds and a density range identical to `combxyz.bin` and `combq.bin`. The VTK
+Examples describe it only as a "small structured grid".
+
+The file is byte-identical to `src/Testing/Data/StructuredGrid.vts` in
+`lorensen/VTKExamples` and arrived in the April 2019 import of that repository
+(commit 74bf994, https://github.com/pyvista/data/commit/74bf994), a different
+route from the VTK Data copy of the same bytes.
+
+Work produced by NASA employees carries no copyright under 17 U.S.C. Sec. 105.
+Lorensen's Apache-2.0 covers his examples and does not attach to this federal
+work.
+"""
+
+[[dataset]]
 name = "tango_icons"
 title = "Tango icon montage"
 description = "Montage of icons from the Tango Icon Library, used to exercise the icon glyph filter."
@@ -6599,8 +6703,8 @@ ShareAlike propagates from the 2.5 terms recorded here.
 [[dataset]]
 name = "teapot"
 title = "Utah Teapot"
-description = "The Newell teapot as an ASCII triangle mesh. Despite the `.g` extension this is not a BRL-CAD database; it carries the same coordinates as `TeapotPoints.txt`."
-path = ["teapot.g", "TeapotPoints.txt"]
+description = "The Newell teapot as an ASCII triangle mesh. Despite the `.g` extension this is not a BRL-CAD database."
+path = ["teapot.g"]
 SPDX-License-Identifier = "LicenseRef-UtahTeapot"
 provenance = "verified"
 origin_url = "https://graphics.cs.utah.edu/teapot/"
@@ -6608,8 +6712,46 @@ origin_title = "The Utah Teapot, University of Utah Graphics Lab"
 collection = "vtk-data"
 authors = ["Martin Newell"]
 attribution = "Utah Teapot, originally modeled by Martin Newell, University of Utah, 1975."
-redistributed_from = ["https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7", "https://github.com/lorensen/VTKExamples"]
-notes = "No formal licence was ever issued for the Newell dataset and it has been redistributed freely in computer graphics software since the mid-1970s; the University of Utah Graphics Lab's teapot page now states that the model files are freely available for any use, including commercial use, and requests credit. `teapot.g` came through the VTK Data fork (added by Ken Martin on 2001-07-19) and matches VTK's content link `Testing/Data/teapot.g.sha512`; `TeapotPoints.txt` came with the April 2019 import from lorensen/VTKExamples (blob 017dab3abd18 at `src/Testing/Data/TeapotPoints.txt`), is absent from the 2013 fork tree and has no VTK content link."
+redistributed_from = ["https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"]
+notes = """
+No formal licence was ever issued for the Newell dataset and it has been
+redistributed freely in computer graphics software since the mid-1970s; the
+University of Utah Graphics Lab's teapot page now states that the model files
+are freely available for any use, including commercial use, and requests
+credit.
+
+`teapot.g` came through the VTK Data fork (added by Ken Martin on 2001-07-19,
+commit 9c76af7, https://github.com/pyvista/data/commit/9c76af7) and matches
+VTK's content link `Testing/Data/teapot.g.sha512`. The same coordinates as a
+point list, which took a different route, are the `teapot_points` record.
+"""
+
+[[dataset]]
+name = "teapot_points"
+title = "Utah Teapot points"
+description = "The Newell teapot's vertices as a plain-text point list, the same coordinates as `teapot.g`; not loaded by `pyvista.examples`."
+path = ["TeapotPoints.txt"]
+SPDX-License-Identifier = "LicenseRef-UtahTeapot"
+provenance = "verified"
+origin_url = "https://graphics.cs.utah.edu/teapot/"
+origin_title = "The Utah Teapot, University of Utah Graphics Lab"
+collection = "vtk-examples"
+authors = ["Martin Newell"]
+attribution = "Utah Teapot, originally modeled by Martin Newell, University of Utah, 1975."
+redistributed_from = ["https://github.com/lorensen/VTKExamples/blob/master/src/Testing/Data/TeapotPoints.txt"]
+notes = """
+No formal licence was ever issued for the Newell dataset and it has been
+redistributed freely in computer graphics software since the mid-1970s; the
+University of Utah Graphics Lab's teapot page now states that the model files
+are freely available for any use, including commercial use, and requests
+credit.
+
+`TeapotPoints.txt` came with the April 2019 import from lorensen/VTKExamples
+(commit 74bf994, https://github.com/pyvista/data/commit/74bf994; blob
+017dab3abd18 at `src/Testing/Data/TeapotPoints.txt`), is absent from the 2013
+VTK Data fork tree and has no VTK content link. The triangle mesh of the same
+coordinates, which came through VTK Data, is the `teapot` record.
+"""
 
 [[dataset]]
 name = "teapot_vrml"
@@ -6711,15 +6853,19 @@ origin_title = "lorensen/VTKExamples, ExtractFaces example data"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Bill Lorensen added the file to `lorensen/VTKExamples` on 2017-11-08 in
-commit 002d2ea1 (https://github.com/lorensen/VTKExamples/commit/002d2ea1) ("ENH: Added ExtractFaces and data") together with seven
-other single-cell-type `.vtu` files, and it reached this repository with the
-April 2019 import of that repository (commit 74bf994, https://github.com/pyvista/data/commit/74bf994) as the same git blob.
-The repository was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`; that licence is recorded here.
-The commit does not say how the grid was generated, so the origin is
-inferred to be Lorensen's own test data for the example.
+Bill Lorensen added the file to `lorensen/VTKExamples` on 2017-11-08 in commit
+002d2ea1 (https://github.com/lorensen/VTKExamples/commit/002d2ea1) ("ENH:
+Added ExtractFaces and data") together with seven other single-cell-type
+`.vtu` files, and it reached this repository with the April 2019 import of
+that repository (commit 74bf994,
+https://github.com/pyvista/data/commit/74bf994) as the same git blob. The
+repository was published under the Apache License 2.0 and is now maintained by
+Kitware as `vtk/vtk-examples`; that licence is recorded here, the grid being
+synthetic example input of the kind Lorensen wrote himself. The commit does
+not say how the grid was generated, so the origin is inferred to be Lorensen's
+own test data for the example.
 """
+
 
 [[dataset]]
 name = "thermal_probes"
@@ -6769,19 +6915,20 @@ name = "torso"
 title = "Torso"
 description = "Surface mesh of a human torso."
 path = ["Torso.vtp"]
-SPDX-License-Identifier = "Apache-2.0"
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://github.com/lorensen/VTKExamples"
 origin_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
+which was published under the Apache License 2.0 and is now maintained by
+Kitware as `vtk/vtk-examples`. Lorensen did not publish per-file provenance,
+so the original author of the model could not be established. The repository's
+Apache-2.0 covers Lorensen's examples, not a model he redistributed, so the
+licence is left undetermined.
 """
+
 
 [[dataset]]
 name = "toy_plane_point_cloud"
@@ -6819,35 +6966,40 @@ origin_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
+which was published under the Apache License 2.0 and is now maintained by
+Kitware as `vtk/vtk-examples`. Lorensen did not publish per-file provenance.
+The file is a synthetic single-cell grid, example input of the kind the
+example authors write themselves, so the repository licence is recorded as
+inferred.
 """
+
 
 [[dataset]]
 name = "trumpet"
 title = "Trumpet"
 description = "Surface mesh of a trumpet, with the same mesh exported as a ten-block multiblock scene."
 path = ["trumpet.obj", "Exporttrumpet.vtp", "Exporttrumpet/**"]
-SPDX-License-Identifier = "Apache-2.0"
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://github.com/lorensen/VTKExamples"
 origin_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. `Exporttrumpet.vtp` is a
-`vtkMultiBlockDataSet` XML index listing `Exporttrumpet/Exporttrumpet_0.vtp`
-to `Exporttrumpet_9.vtp` as ten PolyData blocks with `MaterialNames` field
-data, written by the ExportPolyDataScene example (commit 4686693ac1, https://github.com/lorensen/VTKExamples/commit/4686693ac1,
-2018-02-28, "ENH: Improving import/export examples"). The repository licence
-is recorded here. Lorensen did not publish per-file provenance, so the
-original author of the data itself could not be established.
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
+which was published under the Apache License 2.0 and is now maintained by
+Kitware as `vtk/vtk-examples`. `Exporttrumpet.vtp` is a `vtkMultiBlockDataSet`
+XML index listing `Exporttrumpet/Exporttrumpet_0.vtp` to `Exporttrumpet_9.vtp`
+as ten PolyData blocks with `MaterialNames` field data, written by the
+ExportPolyDataScene example (commit 4686693ac1,
+https://github.com/lorensen/VTKExamples/commit/4686693ac1, 2018-02-28, "ENH:
+Improving import/export examples"). Lorensen did not publish per-file
+provenance, so the original author of the model could not be established. The
+repository's Apache-2.0 covers Lorensen's examples, not a model he
+redistributed, so the licence is left undetermined. `trumpet.obj` is headed
+with the date 1995-07-24, so the mesh predates the examples by two decades.
 """
+
 
 [[dataset]]
 name = "turbine_blade"
@@ -7030,14 +7182,15 @@ National Laboratory, as creator, says all data are georeferenced to UTM zone
 [[dataset]]
 name = "vase"
 title = "Vase"
-description = "Volume of a vase, 115 by 101 by 75, in one- and four-component variants; the one-component array is still named `SLCImage` from the format it was converted out of."
-path = ["vase.vti", "vase_1comp.vti", "vase_4comp.vti"]
+description = "Volume of a vase, 115 by 101 by 75, in one- and four-component variants from VTK Data; the one-component array is still named `SLCImage` from the format it was converted out of."
+path = ["vase_1comp.vti", "vase_4comp.vti"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "verified"
 origin_url = "https://www.cs.stonybrook.edu/"
 origin_title = "SUNY Stony Brook"
+collection = "vtk-data"
 authors = ["SUNY Stony Brook"]
-redistributed_from = ["https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7", "https://github.com/lorensen/VTKExamples"]
+redistributed_from = ["https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"]
 notes = """
 The VTK textbook, which ships inside `vtk/vtk-examples` at
 `src/VTKBook/07Chapter7.md`, credits this data in a figure caption:
@@ -7052,11 +7205,56 @@ A courtesy credit in a textbook names the owner; it is not a licence, and it
 is not the redistributor's to widen. The terms for use outside that book were
 not established.
 
-`vase_1comp.vti` and `vase_4comp.vti` are in the VTK Data tree this
-repository was forked from, and VTK ships a content link for each.
-`vase.vti` came with the April 2019 `lorensen/VTKExamples` import and is
-byte-identical to `vase_1comp.vti`; its four-component sibling names its
-array `Scalars_`.
+`vase_1comp.vti` and `vase_4comp.vti` are in the VTK Data tree this repository
+was forked from (added on 2010-02-18, commit 96d1c25,
+https://github.com/pyvista/data/commit/96d1c25), and VTK ships a content link
+for each; the four-component file names its array `Scalars_`. The
+byte-identical `vase.vti` that came through the VTK Examples is the
+`vase_examples_copy` record.
+
+The `SLCImage` array name is `vtkSLCReader`'s output name; SLC is the VolVis
+file format from the same Stony Brook group (VolVis history page,
+https://web.archive.org/web/19970615095111/http://www.cs.sunysb.edu/~vislab/projects/volvis/history.html:
+developed by Rick Avila and Lisa Sobierajski under Arie Kaufman). The VolVis
+pages state terms for the VolVis software only
+(https://web.archive.org/web/20111013044702/http://www.cs.sunysb.edu/~vislab/projects/volvis/features.html:
+"VolVis is freely available as source code to not-for-profit organizations.
+There is a small fee for for-profit organizations."); no VolVis data page,
+README or download listing was ever archived, the 1997 `VolVis.zip` capture is
+a demo that loads `bench.slc`, and nothing shows a vase dataset shipped with
+VolVis. A software licence would not cover the data even if it had.
+"""
+
+[[dataset]]
+name = "vase_examples_copy"
+title = "Vase, VTK Examples copy"
+description = "Volume of a vase, 115 by 101 by 75, byte-identical to `vase_1comp.vti` but imported through the VTK Examples; not loaded by `pyvista.examples`."
+path = ["vase.vti"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
+provenance = "verified"
+origin_url = "https://www.cs.stonybrook.edu/"
+origin_title = "SUNY Stony Brook"
+collection = "vtk-examples"
+authors = ["SUNY Stony Brook"]
+redistributed_from = ["https://github.com/lorensen/VTKExamples/blob/master/src/Testing/Data/vase.vti"]
+notes = """
+The VTK textbook, which ships inside `vtk/vtk-examples` at
+`src/VTKBook/07Chapter7.md`, credits this data in a figure caption:
+
+    Vase data courtesy of SUNY Stony Brook.
+
+Retrieve the chapter with:
+
+    curl -sS "https://gitlab.kitware.com/api/v4/projects/vtk%2Fvtk-examples/repository/files/src%2FVTKBook%2F07Chapter7%2Emd/raw?ref=master"
+
+`vase.vti` came with the April 2019 `lorensen/VTKExamples` import (commit
+74bf994, https://github.com/pyvista/data/commit/74bf994) and is byte-identical
+to `vase_1comp.vti` in the `vase` record, which carries the VTK Data copies;
+the textbook credit above is the only statement of ownership for either route.
+
+A courtesy credit in a textbook names the owner; it is not a licence, and it
+is not the redistributor's to widen. The terms for use outside that book were
+not established.
 
 The `SLCImage` array name is `vtkSLCReader`'s output name; SLC is the VolVis
 file format from the same Stony Brook group (VolVis history page,
@@ -7344,23 +7542,27 @@ path = [
     "v.vtk",
     "vtks.pgm",
 ]
-SPDX-License-Identifier = "Apache-2.0"
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://github.com/lorensen/VTKExamples"
 origin_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
+which was published under the Apache License 2.0 and is now maintained by
+Kitware as `vtk/vtk-examples`. Lorensen did not publish per-file provenance,
+so the original authors of the photographs (`Ox.jpg`, `stormy.jpg`), scans
+(`teeth.*.vtk`, `labels.*`) and molecular structure (`lys.pdb`) among these
+files could not be established. The repository's Apache-2.0 covers Lorensen's
+examples, not third-party files he redistributed, so the licence of the set is
+left undetermined. The synthetic cell-type samples and test patterns would
+take the repository licence on their own if split out.
 
 `bridge.wrl`, `sextant.wrl`, `wintersun.jpg` and `VTKCellTypes.vtk` were
 traced to sources outside the VTK Examples and have their own entries
 (`bridge`, `sextant`, `wintersun`, `vtk_cell_types`).
 """
+
 
 [[dataset]]
 name = "vtk_logo"
@@ -7395,12 +7597,13 @@ origin_title = "lorensen/VTKExamples"
 collection = "vtk-examples"
 attribution = "VTK Examples, licensed under the Apache License 2.0."
 notes = """
-Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples`
-repository, which was published under the Apache License 2.0 and is now
-maintained by Kitware as `vtk/vtk-examples`. The repository licence is
-recorded here. Lorensen did not publish per-file provenance, so the original
-author of the data itself could not be established.
+Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
+which was published under the Apache License 2.0 and is now maintained by
+Kitware as `vtk/vtk-examples`. Lorensen did not publish per-file provenance.
+The file is an extrusion of VTK's own logo made for the examples, so the
+repository licence is recorded as inferred.
 """
+
 
 [[dataset]]
 name = "vtu_series"
@@ -7660,6 +7863,7 @@ the commit message "Add yinyang binary image (#58)"
 lorensen/VTKExamples in his bulk "ENH: Move gh-pages to master" commit of
 2017-05-15 (9360a8b539,
 https://github.com/lorensen/VTKExamples/commit/9360a8b539) without stating who
-made it, so the repository licence is recorded and the original author could
-not be established.
+made it; a binary yin-yang symbol is example input of the kind the example
+authors draw themselves, so the repository licence is recorded as inferred.
 """
+

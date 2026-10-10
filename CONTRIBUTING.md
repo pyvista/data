@@ -121,7 +121,7 @@ every `redistributed_from` entry and every `url` must be a full `http://` or
 | `origin_title` | string | Human-readable name of the origin, shown next to the link. |
 | `collection` | string | Key into a `[collection.*]` table, for upstreams that several datasets share. |
 | `authors` | array of strings | Who made the data. |
-| `redistributed_from` | array of strings | The route this copy took when it did not come straight from `origin_url`: one URL per redistributor, ordered from the origin towards this repository, each naming where that redistributor's copy can be found. The last entry is where this repository took the file from. |
+| `redistributed_from` | array of strings | The route this copy took when it did not come straight from `origin_url`: one URL per redistributor, ordered from the origin towards this repository, each naming where that redistributor's copy can be found. The last entry is where this repository took the file from. Every file in the record must have taken this same route; files that arrived by different routes get separate records (`teapot` and `teapot_points`). |
 | `modified` | boolean | Whether the file differs from what the source published. `true` requires `modification`. |
 | `references` | array of tables | Papers to cite: `{ citation = "...", doi = "...", url = "..." }`. `citation` is required, the rest optional, and no other keys are allowed. `doi` is the bare identifier (`10.1145/237170.237270`), not a `doi.org` link; `url` is `http(s)`. |
 
@@ -143,6 +143,24 @@ redistributor and `provenance` says `inferred`, because that is genuinely as
 far back as anyone got. Many entries are in that position, most of them
 pointing at VTK Data or the VTK Examples. Do not dress one of those up as an
 originator.
+
+Reaching a redistributor settles the origin, not the licence. A collection's
+licence (Kitware's BSD notice for VTK Data, the Apache-2.0 of the VTK
+Examples) covers what the collection's authors made, and nothing upstream
+says who made most of its files, so decide by what the file is. Synthetic
+example input of the kind those authors write themselves (a single cell, a
+hand-drawn polyline, the letter K, a yin-yang bitmap, the VTK logo) keeps
+the collection licence as `provenance = "inferred"`, with a sentence in
+`notes` saying why. A photograph, a scanned or modelled object, a medical
+volume or a molecule is work they redistributed; the collection licence
+cannot reach it, so it takes `LicenseRef-Unknown`, keeps `provenance =
+"inferred"` and the `collection`, drops the attribution line, and says in
+`notes` that the licence covers the examples and not this file. `shark.ply`
+is the worked case: its PLY header is dated 1993, two decades before the
+examples repository, so nobody there made it. A record holding files on both
+sides takes `LicenseRef-Unknown` for the set and names which members would
+carry the licence on their own. This is a judgement about the file, so write
+the reason down either way.
 
 ## Choosing a `provenance` value
 

@@ -26,6 +26,23 @@ These were settled by the maintainer and do not get re-litigated.
    each covers what that party made. A file they merely host keeps its own
    terms. A repository LICENSE counts only when the file's author committed it
    there (check `git log --diff-filter=A` upstream).
+
+   When nothing upstream says who made the file, decide by what the file is,
+   not by where it sits. Ask: could the people who wrote the collection
+   plausibly have made this themselves? Synthetic test geometry (a single
+   cell, a hand-drawn polyline, an outline of a letter, a binary symbol, the
+   project's own logo, texture maps the project's own example reads) is
+   example input of the kind they write, so the collection licence stands as
+   `provenance = "inferred"` with a notes sentence saying why. A photograph,
+   a scanned or modelled object, a medical volume, a molecule or anything
+   with a date, tool banner or style that predates or sits outside the
+   collection is third-party work they redistributed: `LicenseRef-Unknown`,
+   `provenance = "inferred"`, no attribution line, and a notes sentence
+   saying the collection licence covers their examples and not this file. A
+   record whose files fall on both sides takes `LicenseRef-Unknown` for the
+   set and says which members would carry the licence on their own.
+   `provenance` cannot carry this distinction: it is about the origin only,
+   and a reader deciding "can I use this?" looks at the licence.
 3. **Only the rights holder's terms count.** A forum reply saying "sure, use
    it" is permission to include, not a licence. A platform's terms of service
    are not a licence stated by the author beside the file. A reseller's or

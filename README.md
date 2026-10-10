@@ -52,6 +52,15 @@ tool reads `DATASETS.toml`, and this table records more than REUSE's fields
 source and `LICENSES/` follows REUSE's naming so the texts are where a REUSE
 user would look.
 
+A licence recorded here is the rights holder's, never a redistributor's. Files
+inherited from VTK Data or the VTK Examples carry those collections' licences
+only when the collection's own authors plausibly made them (synthetic test
+geometry, the VTK logo); a photograph, a scanned object or a medical volume
+that arrived the same way is `LicenseRef-Unknown` even though its origin is
+recorded, because the collection licence cannot reach a third party's work.
+[CONTRIBUTING.md](CONTRIBUTING.md#establishing-where-a-dataset-came-from)
+explains how that call is made.
+
 ### What the files at the repository root cover
 
 `DATASETS.toml` is the authority for everything under `Data/`. The root files
