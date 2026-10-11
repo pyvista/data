@@ -1,0 +1,19 @@
+Gearbox Assy (Khronos glTF Sample Models)
+
+LICENSE NOT ESTABLISHED: the source names no author and states no terms.
+
+Files:
+    glTF-Binary/GearboxAssy.glb
+
+Source: https://github.com/KhronosGroupArchives/glTF-Sample-Models/tree/d7a3cc8e51d7c573771ae77a57f16b0662a905c6/2.0/GearboxAssy
+Unmodified copy of the file at that commit (git blob 78cdad623a80103336f801e0c2c89a7508e4363c).
+
+Verbatim from the README beside the model, which is its only licence section:
+    "Data conversion from original JT to COLLADA has been kindly performed by
+    Okino Computer Graphics, using Okino Polytrans Software."
+
+The successor repository, KhronosGroup/glTF-Sample-Assets, does not carry
+this model. Downstream users, especially commercial ones, should ask the
+Khronos Group about its terms or substitute another model.
+
+SPDX-License-Identifier: LicenseRef-unknown
