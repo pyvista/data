@@ -27,3 +27,8 @@ for key in mesh.point_data.keys():
 
 mout = pyvista.read('aero_bracket.vtu')
 ```
+
+
+#### Version 2
+
+All 117292 quadratic tetrahedra in `aero_bracket.vtu` have negative volume. `aero_bracket_v2.vtu` reorders the nodes of each cell with `[0, 2, 1, 3, 6, 5, 4, 7, 9, 8]`, which swaps two corners and their mid-edge nodes. Points, data and file format are unchanged.
