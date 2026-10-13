@@ -7,7 +7,19 @@ Files:
 Source: UNISIM-CEPETRO-Unicamp
 URL: https://www.unisim.cepetro.unicamp.br/benchmarks/br/unisim-ii/overview
 
-License: Database Contents License (DbCL) v1.0
-https://opendatacommons.org/licenses/dbcl/1-0/
+License (from the source page):
 
-SPDX-License-Identifier: DbCL-1.0
+    The reservoir simulation decks are made available under the Open
+    Database License: http://opendatacommons.org/licenses/odbl/1.0/ .
+    Any rights in individual contents of the database are licensed under
+    the Database Contents License:
+    http://opendatacommons.org/licenses/dbcl/1.0/
+
+ShareAlike: the Open Database License requires a derived database that is
+publicly used to be offered under the same license.
+
+Required attribution: the source page makes it mandatory to cite the
+UNISIM-II benchmark in publications, reports and other documents that use
+it, with the references given in its case description document.
+
+SPDX-License-Identifier: ODbL-1.0 AND LicenseRef-DbCL-1.0
