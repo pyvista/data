@@ -1,6 +1,8 @@
 # About
 
-The `UNISIM-II-D.vtu` file used in this example is an unstructured grid created from the UNISIM-II reservoir model. A contribution to the PyVista project.
+`UNISIM-II-D.vtu` is an unstructured grid created from the UNISIM-II reservoir model. A contribution to the PyVista project. The `BLOCK_I`, `BLOCK_J` and `BLOCK_K` cell arrays are the structured cell indices, and `vtkGhostType` hides the inactive cells.
+
+`UNISIM-II-D.zip` holds the same grid with conversion leftovers and is kept for PyVista releases that download it.
 
 ## UNISIM-II
 
