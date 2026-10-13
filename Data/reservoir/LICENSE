@@ -11,7 +11,9 @@ Redistributed from: https://github.com/pyvista/pyvista-support/issues/319#issuec
 UNISIM-II-D.zip is the attachment posted there by Rodrigo Mologni, who
 converted the UNISIM-II-D corner-point grid to a VTK unstructured grid.
 UNISIM-II-D.vtu is the same grid with the conversion field data and the
-vtkOriginalCellIds array removed, and no active scalars.
+vtkOriginalCellIds array removed, no active scalars, and the K index reversed
+to increase upward, with each hexahedron's node order flipped to match so that
+the cells have positive volume.
 
 License (from the source page):
 
