@@ -1,11 +1,17 @@
 UNISIM-II-D reservoir model
 
 Files:
-    UNISIM-II-D.vtu
     UNISIM-II-D.zip
+    UNISIM-II-D.vtu
 
 Source: UNISIM-CEPETRO-Unicamp
 URL: https://www.unisim.cepetro.unicamp.br/benchmarks/br/unisim-ii/overview
+
+Redistributed from: https://github.com/pyvista/pyvista-support/issues/319#issuecomment-821725156
+UNISIM-II-D.zip is the attachment posted there by Rodrigo Mologni, who
+converted the UNISIM-II-D corner-point grid to a VTK unstructured grid.
+UNISIM-II-D.vtu is the same grid with the conversion field data and the
+vtkOriginalCellIds array removed, and no active scalars.
 
 License (from the source page):
 
