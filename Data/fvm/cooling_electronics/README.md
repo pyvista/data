@@ -33,7 +33,7 @@ air.save('air.vtu')
 
 #### Version 2
 
-All 470659 wedges in `air.vtu` have negative volume. `datasets_v2.zip` holds the same two files, with the nodes of each wedge in `air.vtu` reordered with `[0, 2, 1, 3, 5, 4]`. `structure.vtp` is unchanged, as are the points, data and file format of `air.vtu`.
+VTK 9.7 corrected the wedge point ordering, so all 470659 wedges in `air.vtu` have negative volume from that version on. `datasets_v2.zip` holds the same two files, with the nodes of each wedge in `air.vtu` reordered with `[0, 2, 1, 3, 5, 4]`. `structure.vtp` is unchanged, as are the points, data and file format of `air.vtu`.
 
 
 #### License
