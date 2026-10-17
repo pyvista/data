@@ -1,0 +1,33 @@
+Damaged Helmet (Khronos glTF Sample Models)
+
+NOT CLEARED FOR COMMERCIAL USE: the model carries a CC BY-NC 4.0 term.
+
+Files:
+    glTF-Embedded/DamagedHelmet.gltf
+
+Source: https://github.com/KhronosGroupArchives/glTF-Sample-Models/tree/d7a3cc8e51d7c573771ae77a57f16b0662a905c6/2.0/DamagedHelmet
+Unmodified copy of the file at that commit (git blob 6dae76a5471495d36723470f4c457b431a3b76f4).
+The same bytes are in the successor repository:
+https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/DamagedHelmet
+
+Copyright:
+    2016 theblueturtle_ (original model, https://sketchfab.com/models/b81008d513954189a063ff901f7abfe4)
+    2018 ctxwing (rebuild and conversion to glTF 2.0)
+
+License: CC BY-NC 4.0 (original model) AND CC BY 4.0 (rebuild and conversion)
+URLs:
+    https://creativecommons.org/licenses/by-nc/4.0/
+    https://creativecommons.org/licenses/by/4.0/
+
+Verbatim from the README beside the model:
+    "Battle Damaged Sci-fi Helmet - PBR by theblueturtle_, published under a
+    Creative Commons Attribution-NonCommercial license"
+
+That README gives no licence version; the successor repository's LICENSE.md
+and metadata.json record CC-BY-NC-4.0 for theblueturtle_ and CC-BY-4.0 for
+ctxwing. The non-commercial term follows the model into any use.
+
+Required attribution: "Battle Damaged Sci-fi Helmet - PBR by theblueturtle_,
+CC BY-NC 4.0; rebuilt and converted to glTF by ctxwing, CC BY 4.0."
+
+SPDX-License-Identifier: CC-BY-4.0 AND CC-BY-NC-4.0

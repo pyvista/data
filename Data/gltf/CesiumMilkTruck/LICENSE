@@ -1,0 +1,26 @@
+Cesium Milk Truck (Khronos glTF Sample Models)
+
+Files:
+    glTF-Binary/CesiumMilkTruck.glb
+
+Source: https://github.com/KhronosGroupArchives/glTF-Sample-Models/tree/d7a3cc8e51d7c573771ae77a57f16b0662a905c6/2.0/CesiumMilkTruck
+Unmodified copy of the file at that commit (git blob 2f1a5b833f2c7185b6f7bfb590ecc345d221a1e0).
+
+Copyright: 2017 Cesium
+
+License: Creative Commons Attribution 4.0 International
+URL: https://creativecommons.org/licenses/by/4.0/
+
+Verbatim from the README beside the model:
+    "Donated by Cesium for glTF testing. Please follow the Cesium Trademark
+    Terms and Conditions. This model is licensed under a Creative Commons
+    Attribution 4.0 International License."
+
+The Cesium logo on the truck is a trademark and is not covered by the CC BY
+licence; the successor repository, KhronosGroup/glTF-Sample-Assets, lists it
+separately as LicenseRef-LegalMark-Cesium.
+
+Required attribution: "Cesium Milk Truck by Cesium, Khronos glTF Sample
+Models, CC BY 4.0."
+
+SPDX-License-Identifier: CC-BY-4.0
