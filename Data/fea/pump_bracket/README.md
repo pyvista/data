@@ -98,6 +98,11 @@ zip pump_bracket.zip pump_bracket.vtk
 ```
 
 
+#### Version 2
+
+All 124806 quadratic tetrahedra in `pump_bracket.vtk` have negative volume. `pump_bracket_v2.zip` holds the same `pump_bracket.vtk` with the nodes of each cell reordered with `[0, 2, 1, 3, 6, 5, 4, 7, 9, 8]`, which swaps two corners and their mid-edge nodes. Points, data and file format are unchanged.
+
+
 #### License
 
 Licensing for this dataset is granted to freely and without restriction
