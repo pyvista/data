@@ -316,7 +316,7 @@ origin_title = "Laser Design sample files, Action Figure"
 collection = "laser-design"
 redistributed_from = ["http://3dgallery.gks.com/2013/tigerfighter"]
 modified = true
-modification = "`tigerfighter.obj` is the file as served. `tigerfighter_decimated.obj` was made in pyvista/data#55 with `examples.download_action_figure().clean().decimate(0.95)` and written by meshio 5.3.5 on 2025-01-29; it has 15713 vertices and 31421 faces."
+modification = "`tigerfighter.obj` is the file as served. `tigerfighter_decimated.obj` was made in pyvista/data#55 (https://github.com/pyvista/data/pull/55) with `examples.download_action_figure().clean().decimate(0.95)` and written by meshio 5.3.5 on 2025-01-29; it has 15713 vertices and 31421 faces."
 notes = """
 Laser Design Inc. publishes this scan on the "Action Figure" page of its
 public sample-file archive, which says it was captured with the Artec Spider
@@ -326,8 +326,9 @@ Scanning Solutions", "# 314218 vertices", "# 628432 triangular faces".
 The 2019 capture of that page,
 http://web.archive.org/web/20191021081456/https://www.laserdesign.com/sample-files/action-figure/,
 links its Download button to http://3dgallery.gks.com/2013/tigerfighter, the
-URL pyvista's first loader fetched (pyvista commit 24cec36d3, July 2019). GKS
-Services Corp. is a subsidiary of Laser Design Inc.
+URL pyvista's first loader fetched (pyvista commit 24cec36d3,
+https://github.com/pyvista/pyvista/commit/24cec36d30a2bb3ddb54f61c13cd051e0d6b1bb5,
+July 2019). GKS Services Corp. is a subsidiary of Laser Design Inc.
 (https://www.laserdesign.com/30-years-of-scanning-excellence-with-gks-services-corp/).
 The Wayback Machine's capture of that download,
 http://web.archive.org/web/20191121170146id_/http://3dgallery.gks.com/2013/tigerfighter/,
@@ -512,10 +513,7 @@ origin_title = "yt test data, tests/DD0010"
 collection = "vtk-data"
 authors = ["Matthew Turk"]
 attribution = "moving7_0010 Enzo test data from the yt project (https://github.com/yt-project/yt), copyright (c) 2006-2013 Matthew Turk and 2013- yt Development Team, BSD 3-Clause."
-redistributed_from = [
-    "https://gitlab.kitware.com/vtk/vtk/-/blob/master/Testing/Data/AMR/Enzo/DD0010/moving7_0010.sha512",
-    "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7",
-]
+redistributed_from = ["https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"]
 notes = """
 These are the `DD0010/moving7_0010` files that the yt project ships in its
 repository and uses in its documentation ("the DD0010/moving7_0010 dataset
@@ -523,22 +521,24 @@ distributed in the yt git repository",
 https://github.com/yt-project/yt/blob/main/doc/source/reference/command-line.rst).
 The bytes prove it: `moving7_0010.cpu0000`, `moving7_0010.boundary.hdf` and
 `moving7_0010.procmap` have the same git blob ids as yt's current copies
-(416b69d2fe6e, f090446924d7, ea09cc5c9522; compare
-`gh api repos/yt-project/yt/contents/tests/DD0010` with
-`git ls-tree -r HEAD Data/AMR/Enzo/DD0010`), and `moving7_0010`,
-`moving7_0010.hierarchy` and `moving7_0010.boundary` are identical to yt's
-files at yt commit 5c5eef8 (Matthew Turk, 2008-05-03, "Supplemented the test
-data with Packed-HDF5 data"); yt's later copies differ only by a
-`CurrentTimeIdentifier` line added in 2011 and whitespace clean-ups in 2020.
-The `.boundary` and `.procmap` files name their original location as
-`/rmount/users08/stanford/mturk/data/DD0010/`. `moving7_0010.harrays` has no
-counterpart in yt.
+(416b69d2fe6e, f090446924d7, ea09cc5c9522; compare `gh api
+repos/yt-project/yt/contents/tests/DD0010` with `git ls-tree -r HEAD
+Data/AMR/Enzo/DD0010`), and `moving7_0010`, `moving7_0010.hierarchy` and
+`moving7_0010.boundary` are identical to yt's files at yt commit 5c5eef8
+(https://github.com/yt-project/yt/commit/5c5eef861c8c4a6a549273c86f790fb974454d10,
+Matthew Turk, 2008-05-03, "Supplemented the test data with Packed-HDF5 data");
+yt's later copies differ only by a `CurrentTimeIdentifier` line added in 2011
+and whitespace clean-ups in 2020. The `.boundary` and `.procmap` files name
+their original location as `/rmount/users08/stanford/mturk/data/DD0010/`.
+`moving7_0010.harrays` has no counterpart in yt.
 
 George Zagaris of Kitware added the files to VTKData on 2012-03-12 ("ENH:
-Adding Enzo AMR test cases", commit 4280128, https://github.com/pyvista/data/commit/4280128 in this repository's history)
-for VTK's Enzo reader tests; they reached this repository in the 2013
-VTKData tree it was created from, and VTK still distributes the same bytes
-through the content links in `Testing/Data/AMR/Enzo/DD0010/`.
+Adding Enzo AMR test cases", commit 4280128,
+https://github.com/pyvista/data/commit/4280128 in this repository's history)
+for VTK's Enzo reader tests; they reached this repository in the 2013 VTKData
+tree it was created from, and VTK still distributes the same bytes, as a
+parallel copy, through the content links in `Testing/Data/AMR/Enzo/DD0010/`
+(https://gitlab.kitware.com/vtk/vtk/-/blob/master/Testing/Data/AMR/Enzo/DD0010/moving7_0010.sha512).
 
 yt's `COPYING` file (https://github.com/yt-project/yt/blob/main/COPYING)
 licenses the repository under the Modified BSD licence, "Copyright (c)
@@ -730,9 +730,13 @@ origin_title = "VTK Data"
 collection = "vtk-data"
 attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. Nothing upstream names an author, so the licence is decided by
+what the file is: a 13-node, 12-cell toy mesh whose header comment is "foo",
+synthetic reader test input of the kind VTK's authors write, so Kitware's
+`Copyright.txt` terms stand as an inferred licence. If the sample came with
+the Supelec/CSCS reader contribution it would be theirs instead; neither VTK
+commit says so.
 
 The file was added to VTKData by Will Schroeder on 2003-12-16 ("ENH:AVS test
 files", commit 2069101, https://github.com/pyvista/data/commit/2069101 in this repository's history), the day after
@@ -900,11 +904,12 @@ collection = "vtk-data"
 attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 redistributed_from = ["https://gitlab.kitware.com/vtk/vtk/-/blob/master/Testing/Data/Disc_BiQuadraticQuads_0_0.vtu.sha512", "https://github.com/lorensen/VTKExamples"]
 notes = """
-VTK ships identical bytes (SHA-512 beginning c3d92eaa33948561) as its own
-test input `Testing/Data/Disc_BiQuadraticQuads_0_0.vtu`, whose content link
-was added in VTK commit fe3ff3b26a (https://gitlab.kitware.com/vtk/vtk/-/commit/fe3ff3b26a) (2014-10-02, Berk Geveci, "Fixed quadratic
-quad and biquadratic quad derivatives") as the input of
-`Common/DataModel/Testing/Python/quadraticQuadDeriv.py`, three years before
+VTK ships identical bytes (SHA-512 beginning c3d92eaa33948561) as its own test
+input `Testing/Data/Disc_BiQuadraticQuads_0_0.vtu`, whose content link was
+added in VTK commit fe3ff3b26a
+(https://gitlab.kitware.com/vtk/vtk/-/commit/fe3ff3b26a) (2014-10-02, Berk
+Geveci, "Fixed quadratic quad and biquadratic quad derivatives") as the input
+of `Common/DataModel/Testing/Python/quadraticQuadDeriv.py`, three years before
 lorensen/VTKExamples existed (its first commit is dated 2017-05-07 and the
 file is in its 2017-05-13 "First checkin", 4ddbd02afa). The copy here came
 through the April 2019 import from lorensen/VTKExamples (blob ed57c53c2dbb at
@@ -982,9 +987,9 @@ title = "Blood vessel flow"
 description = "Partitioned unstructured grid of flow through a network of blood vessels."
 path = ["pvtu_blood_vessels/**"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "inferred"
-origin_url = "https://github.com/JiaweiZhuang/vtk_experiments"
-origin_title = "JiaweiZhuang/vtk_experiments"
+provenance = "verified"
+origin_url = "https://github.com/JiaweiZhuang/vtk_experiments/tree/master/data_pvtu_corrected"
+origin_title = "JiaweiZhuang/vtk_experiments, data_pvtu_corrected"
 notes = """
 Shared by Jiawei Zhuang for https://github.com/pyvista/pyvista/issues/175. He
 was not the author: the data came from a course he took, and he relayed the
@@ -993,6 +998,12 @@ instructor's permission in a comment of 2019-04-19
 the instructor says that it is OK to share the files." That relayed permission
 is recorded here rather than a licence, and the upstream repository publishes
 no LICENSE file, so the terms for other uses are undetermined.
+
+The zip here holds `T0000000500.pvtu` (786 bytes) and four `.vtu` pieces, and
+every member is byte-identical (git blob hash) to the file of the same name in
+the `data_pvtu_corrected` folder of that repository, which the comment names.
+The zip arrived in commit a9a16a0 (2019-04-19, Bane Sullivan, "Add pvtu blood
+vessels file", https://github.com/pyvista/pyvista/commit/a9a16a0).
 """
 
 [[dataset]]
@@ -1000,25 +1011,26 @@ name = "blow"
 title = "Blow moulding"
 description = "Unstructured grid of a blow-moulding simulation with displacement and thickness fields."
 path = ["blow.vtk"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019: the file is in the 2013 fork tree and VTK ships
-`blow.vtk.sha512`. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019: the file is in the 2013 fork tree and VTK ships
+`blow.vtk.sha512`. Kitware's `Copyright.txt` covers the examples the VTK
+authors wrote, not this file: it is the result of a blow-moulding finite
+element analysis that no upstream page attributes to the VTK authors, so its
+terms are undetermined.
 
 The file's second line reads "Plastic blow molding of car bumper", and it is
 the input to the finite element case study in chapter 12 of the VTK textbook
-(Figure 12-17; `src/VTKBook/12Chapter12.md` in `vtk/vtk-examples`), which
-cites H. G. deLorenzi and C. A. Taylor, International Polymer Processing
-3(4):365-374, 1993, for the analysis. No upstream page names the author of
-the simulation itself.
+(Figure 12-17; `src/VTKBook/12Chapter12.md` in `vtk/vtk-examples`), whose
+bibliography lists H. G. deLorenzi and C. A. Taylor, International Polymer
+Processing 3(4):365-374, 1993; the case-study text describes "one such
+analysis" without citing that entry inline, so the file is not shown to be
+that paper's data. No upstream page names the author of the simulation itself.
 """
 
 [[dataset]]
@@ -1026,20 +1038,22 @@ name = "bolt_nut"
 title = "Bolt and nut volumes"
 description = "SLC volumes of a bolt and a nut."
 path = ["bolt.slc", "nut.slc"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. The volumes are SLC slice stacks (bolt 70 by 123 by 66, nut 68
+by 41 by 59 at unit spacing); SLC is the VolVis format of the SUNY Stony Brook
+group that also made the `vase` volume, and no upstream page says who
+voxelised the objects. A volume of a scanned or modelled object is not example
+geometry the collection's authors made themselves, so Kitware's
+`Copyright.txt` covers their examples and not these files, and the terms are
+left undetermined. Kitware never published per-file provenance for this
+material, so the original author of the data itself is not recorded upstream
+and could not be established here.
 """
 
 [[dataset]]
@@ -1049,7 +1063,7 @@ description = "Simulated T1 brain volume from the BrainWeb phantom, 181 by 217 b
 path = ["brain.vtk"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "verified"
-origin_url = "http://www.bic.mni.mcgill.ca/brainweb/"
+origin_url = "https://brainweb.bic.mni.mcgill.ca/brainweb/"
 origin_title = "BrainWeb: Simulated Brain Database"
 collection = "vtk-examples"
 redistributed_from = ["https://github.com/lorensen/VTKExamples/blob/d024e48f/src/Testing/Data/brain.vtk"]
@@ -1106,10 +1120,11 @@ missing since October 2026; Wayback capture
 https://web.archive.org/web/20260925193257/https://people.sc.fsu.edu/~jburkardt/txt/gnu_lgpl.txt)
 is LGPL version 3, which is the version recorded. The file's `WorldInfo` reads
 "VRML file generated by IVREAD", Burkardt's converter; the page does not say
-who modelled the bridge. Bill Lorensen added it to `lorensen/VTKExamples` in
-July 2017 (commit 8c1faeff1d,
-https://github.com/lorensen/VTKExamples/commit/8c1faeff1d) for his VRML
-importer example, and the April 2019 import of that repository brought it
+who modelled the bridge. The file is in the 2017-05-13 "First checkin" of
+`lorensen/VTKExamples` (commit 4ddbd02afa,
+https://github.com/lorensen/VTKExamples/commit/4ddbd02afa, at
+`Testing/Data/bridge.wrl`, same blob), where Bill Lorensen used it for his
+VRML importer example, and the April 2019 import of that repository brought it
 here.
 """
 
@@ -1244,20 +1259,26 @@ name = "caffeine"
 title = "Caffeine molecule"
 description = "Caffeine molecule in Protein Data Bank format, with a Gaussian Cube total-density volume."
 path = ["caffeine.pdb", "m4_TotalDensity.cube"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. Added to VTK Data on 2003-05-12 by Andy Cedilnik (commit
+cdc9c66, https://github.com/pyvista/data/commit/cdc9c66, "ENH: Add datasets
+for molecule readers") alongside `thio3xx.xyz` as test input for VTK's
+molecule readers; VTK credits the reader class itself, not the data, to Dr.
+Jean M. Favre (`IO/Chemistry/vtkMoleculeReaderBase.h`). `m4_TotalDensity.cube`
+opens with the banner `Cerius2 Density Calculation`, the output of a
+commercial molecular-modelling package, and `caffeine.pdb` is a bare ATOM list
+with the residue name `BENZ` and no header, not a Protein Data Bank entry.
+Both are third-party molecular data that Kitware redistributed rather than
+example geometry it wrote, so Kitware's `Copyright.txt` covers its own
+examples and not these files and the licence is left undetermined. Kitware
+never published per-file provenance for this material, so the original author
+of the data itself is not recorded upstream and could not be established here.
 """
 
 [[dataset]]
@@ -1395,13 +1416,16 @@ steps and two element blocks (block 1: 4800 hex8 cells on 6724 nodes; block 2:
 2352 cells on 3364 nodes). `can.vtu` and `hdf/can-vtu.hdf` are element block 1
 at the final time step (index 43 of 44); the points and the DISPL, VEL, ACCL,
 EQPS and GlobalNodeId arrays match exactly, and the QA and Info records are
-carried over. The repository LICENSE is the BSD-3-Clause text with the NTESS
-copyright and the sentence "Under the terms of Contract DE-NA0003525 with
-NTESS, the U.S. Government retains certain rights in this software"; there is
-no per-file statement, and GitHub's licence detection reports NOASSERTION
-because of that preamble, so the identifier follows from the licence text.
-Because the data is Sandia's own simulation published in Sandia's own
-repository, this is the rights holder's licence, not a redistributor's.
+carried over. The repository LICENSE
+(https://github.com/sandialabs/seacas/blob/master/LICENSE) is the BSD-3-Clause
+text with the NTESS copyright, whose years are read from the current file
+(1988-2025; the LICENSE at the pinned commit b0ccdf4 reads 1988-2017), and the
+sentence "Under the terms of Contract DE-NA0003525 with NTESS, the U.S.
+Government retains certain rights in this software"; there is no per-file
+statement, and GitHub's licence detection reports NOASSERTION because of that
+preamble, so the identifier follows from the licence text. Because the data is
+Sandia's own simulation published in Sandia's own repository, this is the
+rights holder's licence, not a redistributor's.
 
 The VTKHDF time series `hdf/can_0.hdf` to
 `hdf/can_2.hdf`, which came from ParaView, has its own entry,
@@ -1414,7 +1438,7 @@ title = "Carburetor"
 description = "Scan of a carburetor."
 path = ["carburetor.ply"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "verified"
+provenance = "inferred"
 origin_url = "https://www.laserdesign.com/sample-files/"
 origin_title = "Laser Design sample files"
 collection = "laser-design"
@@ -1442,6 +1466,9 @@ files behind a request form, so the bytes were not compared with the
 published PLY. The header of this copy carries the fixed strings VTK's PLY
 writer emits, so it was rewritten by VTK rather than exported by the scanner
 software.
+
+The match to Laser Design's carburetor sample rests on the name and the scan
+type; the bytes were not compared and no upstream statement names the file.
 """
 
 [[dataset]]
@@ -1522,20 +1549,29 @@ name = "chest_ct"
 title = "Chest CT volume"
 description = "Short-integer chest CT volume in MetaImage format."
 path = ["MetaIO/**"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+The single file `MetaIO/ChestCT-SHORT.mha` (6060126 bytes, compressed
+MetaImage, `NDims = 3`, `DimSize = 512 512 19`, `ElementSpacing = 0.46875
+0.46875 0.5`, `ElementType = MET_SHORT`, `AnatomicalOrientation = RAI`) was
+added to VTK Data by Karthik Krishnan of Kitware on 2008-10-05 in commit
+6590f99 (https://github.com/pyvista/data/commit/6590f99), whose message, "Add
+small 3D JPEG2000 image for JPEG2000 and JP3D testing", describes a different
+format from the file it adds. It reached this repository in the March 2019
+fork. VTK distributes the same bytes as
+`Testing/Data/MetaIO/ChestCT-SHORT.mha` (SHA-512 28ff43a7...,
+https://gitlab.kitware.com/vtk/vtk/-/raw/master/Testing/Data/MetaIO/ChestCT-SHORT.mha.sha512).
+
+It is a 19-slice human chest CT. The header carries no patient tags, and
+neither the file nor the commit names the acquiring institution, the subject's
+consent or the terms. Kitware's blanket `Copyright.txt` covers its own
+examples and not a medical volume it redistributed, so no licence is recorded;
+the origin is inferred from the redistribution record only. Kitware is the
+party to ask before using the file beyond test use.
 """
 
 [[dataset]]
@@ -1660,8 +1696,8 @@ stated upstream.
 [[dataset]]
 name = "cow"
 title = "Viewpoint cow"
-description = "Surface mesh of a cow from the Viewpoint DataLabs model collection, in OBJ and VTK XML form and as an ASCII triangle mesh, together with a 3D Studio flamingo."
-path = ["Viewpoint/**", "cow.g", "cow.obj", "cow.vtp"]
+description = "Surface mesh of a cow from the Viewpoint DataLabs model collection, as the original OBJ and ASCII triangle mesh and a VTK XML conversion, together with a 3D Studio flamingo."
+path = ["Viewpoint/**", "cow.vtp"]
 SPDX-License-Identifier = "LicenseRef-Viewpoint-DataLabs"
 SPDX-FileCopyrightText = ["1992 Viewpoint Animation Engineering Inc."]
 provenance = "verified"
@@ -1670,7 +1706,6 @@ origin_title = "VTK Data"
 collection = "vtk-data"
 authors = ["Viewpoint Animation Engineering Inc."]
 attribution = "(c) Copyright 1992 Viewpoint Animation Engineering Inc."
-redistributed_from = ["https://github.com/lorensen/VTKExamples/tree/master/src/Testing/Data"]
 notes = """
 The files carry their own terms in their headers: "(c) Copyright 1992
 Viewpoint Animation Engineering Inc. Sun Microsystems has been authorized to
@@ -1682,12 +1717,15 @@ be resold in existing or modified form."
 the FTP site at avalon.chinalake.navy.mil (129.131.31.11) by Scott R. Nelson
 of Sun Microsystems"; no copy of that archive survives (the Wayback Machine
 holds front pages of its successor avalon.viewpoint.com from 1997 but no cow
-file). Jim Miller added the three `Viewpoint/` files to VTK Data on
-2001-08-20 as "Files distributed with permission from Viewpoint", and Bill
-Lorensen converted `cow.g` to `cow.vtp` there in December 2009; all four are
-in the July 2013 tree this repository forked from. The root `cow.g` and
-`cow.obj` are the same blobs again, imported in April 2019 from
-`src/Testing/Data` in `lorensen/VTKExamples`.
+file). Ken Martin added `Viewpoint/iflamigm.3ds` to VTK Data on 2001-07-31
+(commit f9b0aa0, https://github.com/pyvista/data/commit/f9b0aa0), Jim Miller
+added `Viewpoint/cow.g` and `Viewpoint/cow.obj` on 2001-08-20 as "Files
+distributed with permission from Viewpoint" (commit e809813,
+https://github.com/pyvista/data/commit/e809813), and Bill Lorensen converted
+`cow.g` to `cow.vtp` there on 2009-12-20 (commit 8d01b15,
+https://github.com/pyvista/data/commit/8d01b15); all four are in the July 2013
+tree this repository forked from. The byte-identical root `cow.g` and
+`cow.obj` that came through the VTK Examples are the `cow_vtkexamples` record.
 
 That restriction is narrower than VTK Data's BSD-3-Clause and follows the
 geometry into the VTK conversions here, so it is recorded rather than the
@@ -1721,6 +1759,37 @@ they follow into this derivative and are recorded here instead.
 """
 
 [[dataset]]
+name = "cow_vtkexamples"
+title = "Viewpoint cow, VTK Examples copy"
+description = "Root-level copies of the Viewpoint cow as an ASCII triangle mesh and OBJ, byte-identical to the files under `Viewpoint/`."
+path = ["cow.g", "cow.obj"]
+SPDX-License-Identifier = "LicenseRef-Viewpoint-DataLabs"
+SPDX-FileCopyrightText = ["1992 Viewpoint Animation Engineering Inc."]
+provenance = "verified"
+origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
+origin_title = "VTK Data"
+collection = "vtk-examples"
+authors = ["Viewpoint Animation Engineering Inc."]
+attribution = "(c) Copyright 1992 Viewpoint Animation Engineering Inc."
+redistributed_from = ["https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7", "https://github.com/lorensen/VTKExamples/tree/master/src/Testing/Data"]
+notes = """
+The files carry their own terms in their headers: "(c) Copyright 1992
+Viewpoint Animation Engineering Inc. Sun Microsystems has been authorized to
+freely distribute these Datasets. They are provided for unlimited use in
+existing or modified form. The actual Dataset (ie, geometry) may not, however,
+be resold in existing or modified form."
+
+`cow.g` (blob 70eab2c3bf2d) and `cow.obj` (blob f005ae858fcf) are
+byte-identical to `Viewpoint/cow.g` and `Viewpoint/cow.obj` in the `cow`
+record and arrived with the April 2019 import from `src/Testing/Data` in
+`lorensen/VTKExamples` (commit 74bf994,
+https://github.com/pyvista/data/commit/74bf994), where the same blobs sit
+today; they are absent from the 2013 VTK Data fork tree. The Viewpoint
+restriction, not the Examples' Apache-2.0, is what applies, as for the `cow`
+record.
+"""
+
+[[dataset]]
 name = "crater"
 title = "Mount Ruapehu crater"
 description = "Fifteen-metre digital elevation model of the Mount Ruapehu crater in New Zealand Transverse Mercator."
@@ -1730,18 +1799,18 @@ provenance = "unknown"
 notes = """
 Added in October 2019 with the commit message "add crater dataset" and no
 recorded source. The grid is 1400 by 1200 at 15 metres, origin 1810000 by
-5640000 in NZTM2000, and its header says it was written by Golden
-Software's VTK exporter ("Created by Golden Software ioVtk.dll"), which does
-not say which Golden Software product wrote it. Its companion GeoTIFF was
-identified as a LINZ Topo50 clip and moved to the `ruapehu_topo50` entry;
-this elevation model was not identified. Two candidates were not tested
-against the grid values: the University of Otago's NZSoSDEM v1.0, a free
-nationwide 15 metre DEM interpolated from LINZ topographic vector data
+5640000 in NZTM2000, and its header says it was written by Golden Software's
+VTK exporter ("Created by Golden Software ioVtk.dll"), which does not say
+which Golden Software product wrote it. Its companion GeoTIFF is a LINZ Topo50
+clip and is recorded as the `ruapehu_topo50` entry; this elevation model has
+not been identified. Two candidates were not tested against the grid values:
+the University of Otago's NZSoSDEM v1.0, a free nationwide 15 metre DEM
+interpolated from LINZ topographic vector data
 (https://www.otago.ac.nz/surveying/research/geospatial/digital-elevation-model),
-and whatever DEM the aeromagnetic study of Mt Ruapehu by Miller et al.
-(2020, doi:10.1029/2019JB018247) used, which the `mag` in the filename
-suggests. A downstream user should treat the terms as undetermined until
-one of these is confirmed.
+and whatever DEM the aeromagnetic study of Mt Ruapehu by Miller et al. (2020,
+doi:10.1029/2019JB018247) used, which the `mag` in the filename suggests. A
+downstream user should treat the terms as undetermined until one of these is
+confirmed.
 
 The PyVista pull request that introduced the example (pyvista/pyvista#407, https://github.com/pyvista/pyvista/pull/407)
 thanks @craigmillernz for it, so the contributor is known even though the
@@ -1775,7 +1844,13 @@ provenance = "verified"
 origin_url = "https://github.com/BabylonJS/Babylon.js/tree/master/packages/tools/playground/public/textures/cubemapDebug"
 origin_title = "BabylonJS/Babylon.js"
 attribution = "Babylon.js, Copyright 2023 The Babylon.js team, licensed under the Apache License 2.0."
-notes = "The copyright line is the one Babylon.js publishes in `NOTICE.md` at the repository root (https://github.com/BabylonJS/Babylon.js/blob/master/NOTICE.md); `license.md` there is the Apache-2.0 text."
+notes = """
+The copyright line is the one Babylon.js publishes in `NOTICE.md` at the repository root (https://github.com/BabylonJS/Babylon.js/blob/master/NOTICE.md); `license.md` there is the Apache-2.0 text.
+
+The six JPEG faces are byte-identical to the files at that path on `master`
+(`_nx.jpg` is git blob a8f63261..., sha256 04c51d90..., on both sides; the
+`.ktx` compressed variants beside them upstream are not included here).
+"""
 
 [[dataset]]
 name = "cubemap_park"
@@ -1800,7 +1875,8 @@ the files served from the textbook directory recorded above.
 Persson's texture page states "These textures are licensed under a Creative
 Commons Attribution 3.0 Unported License" (Wayback capture of 2023-01-07,
 http://web.archive.org/web/20230107202458/http://www.humus.name/index.php?page=Textures);
-the live host answered "The website is currently not available" on 2026-10-09.
+the live page still carries the same sentence (fetched 2026-10-09), though the
+host answers some clients with "The website is currently not available".
 """
 
 [[dataset]]
@@ -1815,6 +1891,15 @@ origin_title = "NASA/Goddard Scientific Visualization Studio"
 attribution = "NASA/Goddard Space Flight Center Scientific Visualization Studio. Gaia DR2: ESA/Gaia/DPAC. Constellation figures based on those developed for the IAU by Alan MacRobert of Sky and Telescope magazine (Roger Sinnott and Rick Fienberg)."
 modified = true
 modification = "Converted from OpenEXR to JPEG with a brightness scale, then projected from equirectangular to a cube map with https://jaxry.github.io/panorama-to-cubemap/."
+notes = """
+The page is the Scientific Visualization Studio's "Deep Star Maps 2020" (Ernie
+Wright, USRA, published 2020-09-09) and its "Please give credit for this item
+to" line is the attribution recorded above, verbatim. The source files are the
+OpenEXR equirectangular maps served there (`starmap_2020_4k.exr`,
+`starmap_2020_16k.exr`); the cube map conversion was done by Alex Kaszynski
+when the zips were added to this repository (commit a2fab8f,
+https://github.com/pyvista/data/commit/a2fab8f, 2022-07-26).
+"""
 
 [[dataset]]
 name = "damavand_volcano"
@@ -1857,8 +1942,8 @@ The input GEBCO 2019 grid is placed in the public domain by GEBCO
 be adapted and commercially exploited provided the source is acknowledged in
 the form recorded in `attribution`. Bane Sullivan's damavand-volcano
 repository (MIT, 2020) redistributes the same three blobs and credits the work
-to Pechnikov and Durandin's ParaView-MoshaFault; his `damavand.py` example
-plots the two surfaces in red beside the volume.
+to Pechnikov and Durandin's ParaView-MoshaFault; his `Damavand_Volcano.ipynb`
+notebook plots the two surfaces in red (`color="#ff0000"`) beside the volume.
 """
 
 [[dataset]]
@@ -1952,7 +2037,6 @@ provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-redistributed_from = ["https://github.com/lorensen/VTKExamples/tree/master/src/Testing/Data/DICOMDirectory"]
 notes = """
 This file carries an identifiable patient's data and should not be used or
 redistributed until that is resolved.
@@ -2084,7 +2168,6 @@ provenance = "verified"
 origin_url = "https://github.com/pyvista/pyvista/pull/2839#issuecomment-1173408204"
 origin_title = "pyvista PR 2839, comment by Rémi Delaporte-Mathurin with xdmf_files.zip"
 authors = ["Rémi Delaporte-Mathurin", "Tetsuo Koyama"]
-redistributed_from = ["https://github.com/pyvista/data/pull/26"]
 notes = """
 `checkpoint.xdmf`, `checkpoint.h5`, `no_checkpoint.xdmf` and `no_checkpoint.h5`
 are byte-identical (sha256 f91fbeba..., d60dbfa4..., bfe6d83e..., 98958f6f...)
@@ -2393,9 +2476,15 @@ notes = """
 Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
 which was published under the Apache License 2.0 and is now maintained by
 Kitware as `vtk/vtk-examples`. Lorensen did not publish per-file provenance,
-so the original author of the image could not be established. The repository's
-Apache-2.0 covers Lorensen's examples, not a image he redistributed, so the
-licence is left undetermined.
+so the original author of the image could not be established. `emote.jpg` is
+byte-identical to `src/Testing/Data/emote.jpg` in that repository (blob
+95e00f0b, added on 2017-08-15 in commit cca62a43,
+https://github.com/lorensen/VTKExamples/commit/cca62a43, "ENH: New
+Glyph3DImage example") and reached this repository in the April 2019 import
+(commit 74bf994, https://github.com/pyvista/data/commit/74bf994). An emoji is
+a rendering of a vendor's glyph, not example input Lorensen would have drawn
+himself, so the repository's Apache-2.0 covers his examples and not this
+image; the licence is left undetermined.
 """
 
 
@@ -2464,27 +2553,29 @@ path = [
     "EnSight/naca.gold.bin.DENS_3",
     "EnSight/naca.gold.bin.geo",
 ]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. Kitware's `Copyright.txt` notice covers the examples Kitware
+wrote and not this case: `naca.bin.case` was written by CEI's EnSight 7.3.1 on
+2001-07-13 and `naca.gold.bin.geo` carries the banner `Output from EnSight
+7.3.0`, and a NACA airfoil flow solution is third-party work the collection
+redistributed, so the licence is undetermined. Kitware never published
+per-file provenance for this material, so the original author of the data
+itself is not recorded upstream and could not be established here.
 
 `naca.bin.case` opens with `# Fri Jul 13 10:44:32 2001`, `# EnSight 7.3.1
 ((e))` and `# Case File: naca.case`, so the case was written by CEI's EnSight,
-not VTK. Ken Martin added it to VTK Data on 2001-07-24 as "test files" (commit
-e32178f, https://github.com/pyvista/data/commit/e32178f) and Berk Geveci added
-the remaining files on 2002-06-26 (commit 1a19014,
-https://github.com/pyvista/data/commit/1a19014).
+not VTK. All four files arrive twice in the history, on parallel lines: Ken
+Martin's 2001-07-24 "test files" (commit e32178f,
+https://github.com/pyvista/data/commit/e32178f) and Berk Geveci's 2002-06-26
+"Adding new ensight files." (commit 1a19014,
+https://github.com/pyvista/data/commit/1a19014); `git show --stat` of each
+lists the same four paths and sizes.
 """
 
 [[dataset]]
@@ -2660,30 +2751,38 @@ path = [
     "EnSight/test_bin.pressure.0001",
     "EnSight/test_bin.velocity.0001",
 ]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from
 it in March 2019: all 143 files are in the 2013 fork tree and each has a VTK
 content link. Kitware's blanket `Copyright.txt` notice covers the collection
 as a whole, and is recorded here as the licence for this entry.
 
-The files record that VTK wrote them. The `blow*`, `RectGrid_ascii`,
+Most members record that VTK wrote them: the `blow*`, `RectGrid_ascii`,
 `ironProt_ascii`, `mandelbrot1`, `office_ascii` and `office6_bin` case files
 open with "#EnSight Gold file written by VTK" or "#EnSight 6 file written by
-VTK", `blow1_ascii.geo` with "Unstructured data file written by VTK.", and
-`elements.case` and `elements6.case` with "#EnSight Gold example to test
-vtkEnSightGoldReader" and "#EnSight6 example to test vtkEnSight6Reader"
-(`git cat-file -p HEAD:Data/EnSight/<file> | head -1`). The `blow*` cases
-carry displacement and thickness fields of the blow-moulding data whose VTK
-form is recorded as `blow`. Kitware published no per-file provenance beyond
-these headers, so the authors of the underlying simulations are not
-recorded upstream and could not be established here.
+VTK", `blow1_ascii.geo`, `ironProt_ascii.geo` and `office_ascii.geo` with
+"Unstructured data file written by VTK.", and `elements.case` and
+`elements6.case` with "#EnSight Gold example to test vtkEnSightGoldReader" and
+"#EnSight6 example to test vtkEnSight6Reader" (`git cat-file -p
+HEAD:Data/EnSight/<file> | head -1`). `TEST.case` and `TEST_bin.case` carry no
+header, and `test.geo` and `test_bin.geo` read "Output by FVM library version
+0.3.0-dvp", the banner of a third-party finite-volume code; the ten `test*`
+and `TEST*` files were added by Amy Squillacote on 2007-10-23 (commit 45b30ff,
+https://github.com/pyvista/data/commit/45b30ff) to test nfaced elements.
+Kitware's `Copyright.txt` notice covers the synthetic inputs its developers
+wrote, which would carry BSD-3-Clause on their own: `RectGrid_*`, `elements*`,
+`mandelbrot*`, and the `blow*` and `office*` exports of the datasets recorded
+as `blow` and `office`. It does not cover `ironProt_*`, VTK's EnSight export
+of the Scripps Clinic iron protein volume recorded as `iron_protein`, nor the
+`test*` and `TEST*` output of a third-party FVM code, so the licence of the
+set is undetermined. Kitware published no per-file provenance beyond these
+headers, so the authors of the underlying simulations are not recorded
+upstream and could not be established here.
 """
 
 [[dataset]]
@@ -2691,27 +2790,29 @@ name = "ex_blow_5"
 title = "Blow moulding multi-block pieces"
 description = "Blow-moulding finite element result split into sixteen unstructured-grid pieces under one multiblock index, carrying displacement and thickness with Exodus global and pedigree ids."
 path = ["ex-blow_5.vtm", "ex-blow_5/**"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Burlen Loring added the index and all sixteen pieces to VTK Data on 2013-03-13
-as "baselines and a small multiblockdataset for parallel surface lic tests"
-(commit 5f68d4b, https://github.com/pyvista/data/commit/5f68d4b in this repository's history), and VTK's
-`Rendering/LICOpenGL2` tests read `ex-blow_5.vtm`. There is no time series:
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. Kitware's `Copyright.txt` notice covers the examples its
+developers wrote and not this result: it carries the same blow-moulding
+displacement and thickness fields as `blow`, which the VTK textbook ties to
+deLorenzi and Taylor's 1993 car-bumper analysis, so the licence is
+undetermined. Burlen Loring added the index and all sixteen pieces to VTK Data
+on 2013-03-13 as "baselines and a small multiblockdataset for parallel surface
+lic tests" (commit 5f68d4b, https://github.com/pyvista/data/commit/5f68d4b in
+this repository's history), and VTK's
+`Rendering/LICOpenGL2/Testing/Cxx/CMakeLists.txt` passes
+`--data=Data/ex-blow_5.vtm` to its surface LIC tests. There is no time series:
 the index holds one block, "Element Blocks", whose sixteen pieces each carry
 one state with `DISPLACEMENT_` and `THICKNESS` point arrays and Exodus
-`GlobalNodeId`, `PedigreeNodeId` and `ObjectId` arrays, the same quantities
-as the `blow` entry's blow-moulding result. Kitware never published per-file
-provenance for this material, so the original author of the simulation is
-not recorded upstream and could not be established here.
+`GlobalNodeId`, `PedigreeNodeId` and `ObjectId` arrays, the same quantities as
+the `blow` entry's blow-moulding result. Kitware never published per-file
+provenance for this material, so the original author of the simulation is not
+recorded upstream and could not be established here.
 """
 
 [[dataset]]
@@ -2736,9 +2837,10 @@ attribute reads "LaGriT to Exodus".
 
     curl -sSL -o z.zip https://github.com/vtkiorg/vtki/files/3024612/ExodusSampleMeshes.zip && unzip -o z.zip && shasum -a 512 ExodusSampleMeshes/mesh_fs8.exo
 
-`mesh_fs8.exo` was written by LaGriT (`write_exodus.lgi`) in Terry A. Miller's
-LaGriT/TINerator demo "Mesh Example: Stack Mesh with facesets from Boundary
-lines" on
+`mesh_fs8.exo` was written by LaGriT (`write_exodus.lgi`) in the LaGriT demo
+owned by `tamiller` (Terry A. Miller of the LaGriT team, the expansion of the
+login in the README's directory listing) "Mesh Example: Stack Mesh with
+facesets from Boundary lines" on
 https://meshing.lanl.gov/proj/examples/stack_fs_from_bndry/method.html; its
 README (https://meshing.lanl.gov/proj/examples/stack_fs_from_bndry/README.txt)
 lists `mesh_fs8.exo` at 69732 bytes next to `mesh_fs3.exo` (3 facesets), the
@@ -2768,20 +2870,18 @@ name = "face"
 title = "Fran face scan"
 description = "Reduced-resolution laser scan of a human face."
 path = ["fran_cut.vtk"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. Kitware's `Copyright.txt` notice covers the examples its
+authors wrote, not a laser scan of a person they redistributed, so the terms
+are recorded as undetermined. Kitware never published per-file provenance for
+this material, so the original author of the data itself is not recorded
+upstream and could not be established here.
 
 Ken Martin added `fran_cut.vtk` to VTK Data on 2001-08-23 as a "lower
 resolution version of fran" (commit a18447a,
@@ -2797,20 +2897,22 @@ name = "faults"
 title = "Geological faults"
 description = "Geological fault surfaces, as 78 polygons over 1933 points."
 path = ["faults.vtk"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. The example that reads it,
+`Examples/Modelling/Tcl/faultLines.tcl` in VTK 5.10
+(https://gitlab.kitware.com/vtk/vtk/-/blob/v5.10.0/Examples/Modelling/Tcl/faultLines.tcl),
+says the points and constraint edges are "originally from a geologic horizon",
+so the file is third-party survey data that Kitware redistributed; Kitware's
+`Copyright.txt` notice covers its own examples and not this file, and the
+terms are recorded as undetermined. Kitware never published per-file
+provenance for this material, so the original author of the data itself is not
+recorded upstream and could not be established here.
 
 The file's header line reads `Binary 32-bit file. Works with
 VTK/Examples/Modelling/Tcl/faultLines.tcl`, and Will Schroeder added it to VTK
@@ -2898,6 +3000,71 @@ here in April 2024 through https://github.com/pyvista/data/pull/39.
 """
 
 [[dataset]]
+name = "font_canterbury"
+title = "Canterbury font"
+description = "Dieter Steffmann's digitisation of the Canterbury typeface, as a TrueType font, reserving all rights in its name table."
+path = ["Canterbury.ttf"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
+provenance = "verified"
+origin_url = "https://www.1001fonts.com/canterbury-font.html"
+origin_title = "1001Fonts, Canterbury"
+collection = "vtk-examples"
+authors = ["Dieter Steffmann"]
+redistributed_from = ["https://github.com/lorensen/VTKExamples/blob/master/src/Testing/Data/Canterbury.ttf"]
+notes = """
+The name table reads "(c) Typographer Mediengestaltung, 2001, all rights
+reserved". Arrived in the April 2019 import from lorensen/VTKExamples (commit
+74bf994, https://github.com/pyvista/data/commit/74bf994; blob f12fa3aa...
+matches its `src/Testing/Data/Canterbury.ttf`). VTK's
+`Testing/Data/Canterbury.ttf.sha512` content link is a parallel copy, not a
+hop.
+
+The file is byte-identical (sha256
+22476934b7fd7fbe26e47b6224d118e6c31d39bde23bab8bedbded2f88dd24af) to the
+author's own listing at https://www.1001fonts.com/canterbury-font.html
+(account "Typographer Mediengestaltung", Dieter Steffmann), distributed under
+the 1001Fonts Free For Commercial Use License with the EULA inside the zip;
+that licence permits personal and commercial use but says the font "may not be
+sold or published without written permission by its respective author", so it
+is not a redistribution grant and the licence is recorded as undetermined. The
+author's own statements conflict: on http://www.steffmann.de/wordpress/ he
+replied on 2012-12-16 "The fonts are free for private use only" and on
+2013-05-19 "all of the fonts are free for non commercial uses only ... i give
+the permission after single request", but on 2015-01-13 "Insofern sind die
+Schriften alle frei verwendbar", and his 1001fonts profile (2015-01-21) says
+"I am giving out my fonts to everyone for free for commercial purposes without
+any restrictions"; he also states (2017-11-12) that he digitised Canterbury
+rather than designed it.
+"""
+
+[[dataset]]
+name = "font_copy_paste"
+title = "Copy Paste font"
+description = "weknow's Copy Paste TrueType font, reserving all rights in its name table."
+path = ["CopyPaste.ttf"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
+provenance = "inferred"
+origin_url = "https://www.dafont.com/copy-paste.font"
+origin_title = "dafont, Copy Paste by weknow"
+collection = "vtk-examples"
+authors = ["weknow"]
+redistributed_from = ["https://github.com/lorensen/VTKExamples/blob/master/src/Testing/Data/CopyPaste.ttf"]
+notes = """
+The name table reads "weknow (weknow.deviantart.com), 2012, all rights
+reserved" and points at http://www.dafont.com/wino-s-kadir.d2209; dafont lists
+the font at https://www.dafont.com/copy-paste.font as "Donationware" by
+weknow, a category label rather than a grant of redistribution, and FontSpace
+labels it "Freeware, commercial use requires donation", another site label.
+Neither site's copy is byte-identical to the repository file, so the origin
+rests on the name table's own link and the licence is recorded as
+undetermined.
+
+Arrived in the April 2019 import from lorensen/VTKExamples (commit 74bf994,
+https://github.com/pyvista/data/commit/74bf994; blob 3fe813c6... matches its
+`src/Testing/Data/CopyPaste.ttf`); it has never had a VTK content link.
+"""
+
+[[dataset]]
 name = "font_ridiculous"
 title = "Ridiculous font"
 description = "TrueType display font used to exercise text rendering."
@@ -2915,31 +3082,26 @@ The font states its own terms in its name table (record 13): "Copyright (c)
 2008, Martin B. Brilliant, mbrilliant@alum.mit.edu with Reserved Font Name
 Ridiculous. This Font Software is licensed under the SIL Open Font License,
 Version 1.1." That name may not be used by a modified version, and OFL-1.1
-requires derivatives to stay under it, so the obligation is stronger than
-the collection licence of VTK Data, which only redistributes
-the font (added there on 2009-09-29 by Jason Shepherd, "Adding some sample
-true-type fonts to use in tests"); no page by the author was found, so the
-collection stays as the furthest point reached. Read the terms with a
-name-table dump (`fontTools`) or `strings`.
+requires derivatives to stay under it, so the obligation is stronger than the
+collection licence of VTK Data, which only redistributes the font (added there
+on 2009-09-29 by Jason Shepherd, "Adding some sample true-type fonts to use in
+tests", commit 5aabb4c, https://github.com/pyvista/data/commit/5aabb4c); no
+page by the author was found, so the collection stays as the furthest point
+reached. Read the terms with a name-table dump (`fontTools`) or `strings`.
 """
 
 [[dataset]]
 name = "fonts"
-title = "Test fonts"
-description = "Four TrueType fonts used to exercise text rendering, each reserving rights in its own name table."
-path = [
-    "Canterbury.ttf",
-    "CopyPaste.ttf",
-    "Infovis/DaveDS_-_Sketchy.ttf",
-    "Infovis/PintassilgoPrints_-_Talvez_Assim.ttf",
-]
+title = "Infovis test fonts"
+description = "Two TrueType fonts used to exercise text rendering, each reserving rights in its own name table."
+path = ["Infovis/DaveDS_-_Sketchy.ttf", "Infovis/PintassilgoPrints_-_Talvez_Assim.ttf"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
-redistributed_from = ["https://github.com/lorensen/VTKExamples"]
+collection = "vtk-data"
 notes = """
-These arrived with the inherited collections but state their own terms, which
+These arrived with the VTK Data collection but state their own terms, which
 are neither the collection's nor the same as each other:
 
   Infovis/DaveDS_-_Sketchy.ttf   (c) 2009 David Brisbane; the Windows name
@@ -2948,53 +3110,20 @@ are neither the collection's nor the same as each other:
                                  boilerplate
   Infovis/PintassilgoPrints_-_Talvez_Assim.ttf
                                  PintassilgoPrints, marked "Free"
-  Canterbury.ttf                 (c) Typographer Mediengestaltung, 2001,
-                                 all rights reserved
-  CopyPaste.ttf                  weknow (weknow.deviantart.com), 2012,
-                                 all rights reserved
 
-The two Infovis fonts are in the VTK Data tree this repository was forked
-from (added there in September 2009). `Canterbury.ttf` and `CopyPaste.ttf`
-came through the April 2019 import from `lorensen/VTKExamples` (blob match
-with its `src/Testing/Data/`); Canterbury.ttf also matches VTK's
-`Testing/Data/Canterbury.ttf.sha512`, while CopyPaste.ttf has never had a VTK
-content link. `redistributed_from` describes `Canterbury.ttf` and
-`CopyPaste.ttf` only; the two Infovis fonts came straight from VTK Data
-(commit 5aabb4c, https://github.com/pyvista/data/commit/5aabb4c, 2009-09-29)
-and took no VTKExamples hop. CopyPaste's name table points at
-http://www.dafont.com/wino-s-kadir.d2209, and dafont lists the font at
-https://www.dafont.com/copy-paste.font as "Donationware" by weknow, a
-category label rather than a grant of redistribution. None of the four
-grants redistribution, and three reserve all rights, so the set is recorded
-as undetermined; a downstream user should ask each font's named author. The
-fifth font that shipped with them, `Infovis/martyb_-_Ridiculous.ttf`, does
-grant it and has its own entry.
+Both are in the VTK Data tree this repository was forked from (added there on
+2009-09-29, commit 5aabb4c, https://github.com/pyvista/data/commit/5aabb4c).
+Neither grants redistribution, so the set is recorded as undetermined; a
+downstream user should ask each font's named author. The third font that
+shipped with them, `Infovis/martyb_-_Ridiculous.ttf`, does grant it and has
+its own entry. The two fonts that came through the VTK Examples are the
+`font_canterbury` and `font_copy_paste` records.
 
-`Canterbury.ttf` is byte-identical (sha256
-22476934b7fd7fbe26e47b6224d118e6c31d39bde23bab8bedbded2f88dd24af) to the
-author's own listing at https://www.1001fonts.com/canterbury-font.html
-(account "Typographer Mediengestaltung", Dieter Steffmann), distributed under
-the 1001Fonts Free For Commercial Use License with the EULA inside the zip;
-that licence permits personal and commercial use but says the font "may not be
-sold or published without written permission by its respective author", so it
-is not a redistribution grant. The author's own statements conflict: on
-http://www.steffmann.de/wordpress/ he replied on 2012-12-16 "The fonts are
-free for private use only" and on 2013-05-19 "all of the fonts are free for
-non commercial uses only ... i give the permission after single request", but
-on 2015-01-13 "Insofern sind die Schriften alle frei verwendbar", and his
-1001fonts profile (2015-01-21) says "I am giving out my fonts to everyone for
-free for commercial purposes without any restrictions"; he also states
-(2017-11-12) that he digitised Canterbury rather than designed it.
-Canterbury.ttf therefore has a verified origin even though the set's licence
-stays undetermined.
-
-FontSpace labels `CopyPaste.ttf` "Freeware, commercial use requires donation",
-a site label like dafont's Donationware; neither site's copy is byte-identical
-to the repository file. FontSpace labels Talvez Assim "SIL Open Font License
-(OFL)" and dafont "100% Free", both third-party site labels: the foundry site
-(pintassilgoprints.com, now The Type Founders) publishes only commercial
-licensing and does not list the font, fontlibrary.org has no such font, and
-the dafont copy differs from the repository blob.
+FontSpace labels Talvez Assim "SIL Open Font License (OFL)" and dafont "100%
+Free", both third-party site labels: the foundry site (pintassilgoprints.com,
+now The Type Founders) publishes only commercial licensing and does not list
+the font, fontlibrary.org has no such font, and the dafont copy differs from
+the repository blob.
 """
 
 [[dataset]]
@@ -3031,19 +3160,18 @@ modelled the objects.
 [[dataset]]
 name = "foot_volume"
 title = "Foot MetaImage slice"
-description = "MetaImage header and raw data of a single 256 by 256 8-bit sagittal slice through a human foot."
+description = "MetaImage header and raw data of a single 256 by 256 8-bit greyscale image of a foot."
 path = ["foot/**"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. Kitware's `Copyright.txt` covers the collection's own examples,
+not an image of a foot it redistributed; the image is a captured greyscale
+picture rather than synthetic test geometry, so its terms are undetermined.
 
 `foot.mha` declares `NDims = 2`, `DimSize = 256 256`, `ElementType =
 MET_UCHAR`, and `foot.raw` is 65536 bytes, so this is one 8-bit image, not a
@@ -3105,38 +3233,35 @@ name = "full_head"
 title = "Full head CT volume"
 description = "MetaImage header and gzip-compressed raw volume of a full-resolution human head CT study, 256 by 256 by 94 voxels of 0.9375 by 0.9375 by 1.5 mm, the study the VTK textbook's `headsq/quarter` slices were reduced from."
 path = ["FullHead.mhd", "FullHead.raw.gz"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://github.com/lorensen/VTKExamples/blob/9360a8b539/src/Testing/Data/FullHead.mhd"
 origin_title = "lorensen/VTKExamples, FullHead.mhd"
 collection = "vtk-examples"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 The full-resolution head study of the VTK textbook. Slice 15 of
 `FullHead.raw.gz` (index 14) is voxel-identical to VTK Data's
 `fullhead15.png`, which Ken Martin added on 23 July 2001 as "a sample CT
-slice" (commit 2b919af, https://github.com/pyvista/data/commit/2b919af in this repository's history), and averaging that
-slice over 4 by 4 blocks reproduces `headsq/quarter.15` (mean absolute
-difference 1.9 on a 0 to 2812 range, correlation 0.9998). Chapter 12 of the
-textbook (`src/VTKBook/12Chapter12.md` in `vtk/vtk-examples`) describes the
-study as CT data, 93 slices of 256 by 256 pixels 1.5 mm apart, reduced to
-64 by 64 for `headsq/quarter`. VTK Data never shipped the full volume. Its
-earliest known publication is `src/Testing/Data/FullHead.mhd` and
-`FullHead.raw.gz` in `lorensen/VTKExamples`, present from commit 9360a8b539 of
-2017-05-15 (https://github.com/lorensen/VTKExamples/commit/9360a8b539, the
-first commit on that path; both blobs match this repository's, ef200089... and
+slice" (commit 2b919af, https://github.com/pyvista/data/commit/2b919af in this
+repository's history), and averaging that slice over 4 by 4 blocks reproduces
+`headsq/quarter.15` (mean absolute difference 1.9 on a 0 to 2812 range,
+correlation 0.9998). Chapter 12 of the textbook (`src/VTKBook/12Chapter12.md`
+in `vtk/vtk-examples`) describes the study as CT data, 93 slices of 256 by 256
+pixels 1.5 mm apart, reduced to 64 by 64 for `headsq/quarter`. VTK Data never
+shipped the full volume. Its earliest known publication is
+`src/Testing/Data/FullHead.mhd` and `FullHead.raw.gz` in
+`lorensen/VTKExamples`, present from commit 9360a8b539 of 2017-05-15
+(https://github.com/lorensen/VTKExamples/commit/9360a8b539, the first commit
+on that path; both blobs match this repository's, ef200089... and
 230d671d...), and the April 2019 import of that repository (commit 74bf994,
 https://github.com/pyvista/data/commit/74bf994) brought them here. VTK Data
 (https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7) is cited for
-`fullhead15.png` and `headsq/quarter` only; its `Copyright.txt` notice is the
-licence and attribution recorded because the study is Kitware's textbook CT,
-and the Apache-2.0 licence of the examples repository is not applied to the
-data. Inferred because one slice is byte-matched to a VTK Data file and the
-rest rests on the downsampled comparison. Kitware's blanket `Copyright.txt`
-notice for VTK Data is recorded as the licence, as for `headsq`; the
-acquisition site, subject and consent status of the scan were never
-recorded upstream.
+`fullhead15.png` and `headsq/quarter` only. Neither VTK Data's `Copyright.txt`
+nor the examples repository's Apache-2.0 reaches a CT study of a human subject
+that the textbook authors redistributed, so the terms are undetermined.
+Inferred because one slice is byte-matched to a VTK Data file and the rest
+rests on the downsampled comparison. The acquisition site, subject and consent
+status of the scan were never recorded upstream.
 """
 
 [[dataset]]
@@ -3152,12 +3277,14 @@ origin_title = "VTK Data"
 collection = "vtk-data"
 attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. The mesh is ten nodes and four elements titled `Example`,
+synthetic reader test input of the kind the reader's authors write, so the
+collection licence is kept as inferred even though the file was written by
+GAMBIT 1.2.1 on 2000-01-04, four years before the commit, and VTK credits the
+reader to Jean M. Favre of CSCS. Kitware never published per-file provenance
+for this material, so the original author of the data itself is not recorded
+upstream and could not be established here.
 
 Mathieu Malaterre added the file to VTKData on 2004-03-23 (commit d3ca28c,
 https://github.com/pyvista/data/commit/d3ca28c) as test data for
@@ -3183,14 +3310,14 @@ header whose year field is Y2K-broken.
 
 The patient fields are populated but read as placeholders rather than an
 identity, and the referring physician, radiologist, operator, age and sex
-fields are all empty. That is better than `dicom_directory`, where the
-identity is real, but the institution still identifies where the scan was
-taken.
+fields are all empty. The institution field still identifies where the scan
+was taken.
 
-Inherited from the VTK Data collection at the March 2019 fork. Kitware's
-blanket `Copyright.txt` notice cannot
-license a hospital's patient imaging, and no consent or release was found,
-so the terms are undetermined.
+Ken Martin added the file to VTKData on 2001-11-02 as "sample signa data file"
+(commit 816dfde, https://github.com/pyvista/data/commit/816dfde) and it
+reached this repository through the March 2019 fork. Kitware's blanket
+`Copyright.txt` notice cannot license a hospital's patient imaging, and no
+consent or release was found, so the terms are undetermined.
 """
 
 [[dataset]]
@@ -3301,8 +3428,8 @@ origin_title = "Sullivan 2020 MS thesis supplemental data (supplemental.zip, MSH
 authors = ["Kristen Marberry", "C. Bane Sullivan"]
 redistributed_from = ["https://github.com/pyvista/pyvista-support/issues/135"]
 references = [
-    { citation = "Marberry, K. (2019). Ground-penetrating radar survey of the Spirit Lake debris blockage, Mount St. Helens, Washington. MS thesis, Colorado School of Mines.", url = "https://hdl.handle.net/11124/174138" },
-    { citation = "Sullivan, C. B. (2020). MS thesis, Colorado School of Mines, Appendix C supplemental data.", url = "https://hdl.handle.net/11124/174124" },
+    { citation = "Marberry, K. (2020). Subsurface characterization and liquefaction potential assessment of the Spirit Lake debris blockage at Mount St. Helens, Washington using multi-method geophysics. MS thesis, Colorado School of Mines.", url = "https://hdl.handle.net/11124/174138" },
+    { citation = "Sullivan, C. B. (2020). PyVista: managing & visualizing geospatial data using an open-source framework. MS thesis, Colorado School of Mines, Appendix C supplemental data.", url = "https://hdl.handle.net/11124/174124" },
 ]
 notes = """
 Both files are byte-identical to the contents of the `data.zip`
@@ -3361,7 +3488,8 @@ licence is left undetermined.
 `grasshopper/grasshop.wrl` is a byte-identical second copy added on 2024-08-10
 (commit 8146b44, https://github.com/pyvista/data/commit/8146b44, pull request
 47, https://github.com/pyvista/data/pull/47) with the commit message "Add
-grasshopper (#47)". Both carry the VTK Examples licence.
+grasshopper (#47)". Both copies are the same blob and carry the same
+undetermined licence; the root copy is listed under `vtk_examples_files`.
 """
 
 
@@ -3472,13 +3600,11 @@ name = "head_2"
 title = "Head CT volume"
 description = "Full-resolution CT volume of a human head, 256 by 256 by 94 voxels, in VTK XML ImageData format."
 path = ["head.vti"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://github.com/lorensen/VTKExamples/blob/9360a8b539/src/Testing/Data/FullHead.mhd"
 origin_title = "lorensen/VTKExamples, FullHead.mhd"
 collection = "vtk-examples"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 redistributed_from = ["https://github.com/lorensen/VTKExamples/blob/9360a8b539/src/Testing/Data/FullHead.mhd"]
 modified = true
 modification = "The `full_head` volume flipped along the y axis, retyped from int16 to uint16, with spacing set to 1 by 1 by 2 in place of 0.9375 by 0.9375 by 1.5, and saved as VTK XML ImageData."
@@ -3490,11 +3616,12 @@ lorensen/VTKExamples in April 2019) after a flip along the y axis:
 
     python3 -c "import numpy as np, pyvista as pv; a=pv.read('head.vti').active_scalars.reshape(94,256,256); b=pv.read('FullHead.mhd').active_scalars.reshape(94,256,256); print(np.array_equal(a, b[:, ::-1, :]))"
 
-so it carries that entry's origin, licence and provenance; the scan's
-acquiring institution is not recorded there either. Averaged 4 by 4 in the
-slice plane, its first 93 slices correlate 0.9995 with `headsq/quarter.*` (the
-`headsq` entry), the quarter-resolution CT head that chapter 12 of the VTK
-textbook says was reduced from the original 256 by 256 slices by averaging
+so it carries that entry's origin, provenance and undetermined licence:
+neither collection notice reaches a CT study of a human subject, and the
+scan's acquiring institution is not recorded there either. Averaged 4 by 4 in
+the slice plane, its first 93 slices correlate 0.9995 with `headsq/quarter.*`
+(the `headsq` entry), the quarter-resolution CT head that chapter 12 of the
+VTK textbook says was reduced from the original 256 by 256 slices by averaging
 neighbouring pixels twice, so this is the full-resolution volume of that CT
 study. This is human medical imaging whose subject and consent status were
 never recorded upstream.
@@ -3505,20 +3632,19 @@ name = "head_mr_volume"
 title = "Head MR volume"
 description = "MetaImage header and raw volume of a human head MR scan."
 path = ["HeadMRVolume.mhd", "HeadMRVolume.raw"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. Kitware's blanket `Copyright.txt` notice covers the
+collection's own examples and not a medical volume it redistributed, so no
+licence is recorded; the scan's acquisition site, subject and consent status
+are not recorded upstream. Kitware never published per-file provenance for
+this material, so the original author of the data itself is not recorded
+upstream and could not be established here.
 
 Stephen Aylward added both files to VTKData on 2007-05-11 (commit 07cec85,
 https://github.com/pyvista/data/commit/07cec85) for TestMetaIO; the header
@@ -3530,20 +3656,18 @@ name = "headsq"
 title = "Head CT slice stack"
 description = "Ninety-three quarter-resolution CT slices of a human head, with an NRRD header describing them as a 64 by 64 by 93 volume. One of the oldest datasets in the VTK test collection."
 path = ["headsq/**"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. Kitware's `Copyright.txt` notice covers the examples the VTK
+authors wrote, not a CT volume of a human subject they redistributed, so the
+licence is left undetermined. Kitware never published per-file provenance for
+this material, so the original author of the data itself is not recorded
+upstream and could not be established here.
 
 The VTK textbook (chapter 12, section 12.2 Medical Imaging,
 https://examples.vtk.org/site/VTKBook/12Chapter12/) says the authors "took the
@@ -3564,18 +3688,21 @@ path = ["fea/hertzian_contact_cylinder/**"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "unknown"
 notes = """
-Added by Alex Kaszynski in pyvista/data pull request 27 (https://github.com/pyvista/data/pull/27) (March 2023, commit
-80770e1, https://github.com/pyvista/data/commit/80770e1) for the PyVista Hertzian contact example, pyvista/pyvista#4124 (https://github.com/pyvista/pyvista/pull/4124). The
-README that came with it in that pull request
-(`git show 80770e1:Data/fea/hertzian_contact_cylinder/README.md`) says
-"This dataset was generated from OnScale Solve", and the sixteen `.vtu`
-partitions and their `.pvtu` header inside the archive are all named for
-the job UUID `bfac9fd1-e982-4825-9a95-9e5d8c5b4d3e`. Neither pull request
-nor the README says who ran the model or on what terms, the archive itself
-does not name the solver, no source page or upload was found, and
-onscale.com no longer resolves, so neither the origin nor the terms could be
-established. A downstream user should ask the contributor before
-redistributing it outside PyVista.
+Added by Alex Kaszynski in pyvista/data pull request 27
+(https://github.com/pyvista/data/pull/27) (March 2023, commit 80770e1,
+https://github.com/pyvista/data/commit/80770e1) for the PyVista Hertzian
+contact example, pyvista/pyvista#4124
+(https://github.com/pyvista/pyvista/pull/4124). The README that came with it
+in that pull request (`git show
+80770e1:Data/fea/hertzian_contact_cylinder/README.md`) says "This dataset was
+generated from OnScale Solve", and the sixteen `.vtu` partitions and their
+`.pvtu` header inside the archive are all named for the job UUID
+`bfac9fd1-e982-4825-9a95-9e5d8c5b4d3e`. Neither pull request nor the README
+says who ran the model or on what terms, the archive itself does not name the
+solver, no source page or upload was found, and onscale.com no longer
+resolves, so neither the origin nor the terms could be established. A
+downstream user should ask the contributor before redistributing it outside
+PyVista.
 
 OnScale's Software Services and Subscription Agreement (last updated
 2018-03-05;
@@ -3600,29 +3727,30 @@ name = "honolulu"
 title = "Honolulu terrain"
 description = "Surface mesh of the terrain around Honolulu."
 path = ["honolulu.vtk"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 redistributed_from = ["https://github.com/lorensen/VTKExamples/blob/master/src/Testing/Data/honolulu.vtk"]
 notes = """
 Byte-identical to `honolulu.vtk` in the December 1999 VTKData tree, an
-ancestor of this repository: `git ls-tree d5878f4 honolulu.vtk` and
-`git ls-tree HEAD Data/honolulu.vtk` both give blob 4b4c682374fa. VTKData
-dropped the file in its July 2001 tree reorganisation (commit 39a50dd, https://github.com/pyvista/data/commit/39a50dd, "New
-data tree layout"), so it is absent from the July 2013 tree this repository
-forked from. The copy here arrived through the April 2019 import from
-`lorensen/VTKExamples`, where Andrew Maclean added the same blob on
-2017-10-16 (UTC) for the Hawaii example (commit 84026685f1, https://github.com/lorensen/VTKExamples/commit/84026685f1; it was moved to git-lfs
-on 2017-12-01, which is why the current upstream blob is a pointer). The
-file's own header reads "Terrain data for Honolulu, Hawaii" and it is the
-terrain of VTK textbook Figures 6-12 and 9-27. Kitware's blanket
-`Copyright.txt` notice for the VTK Data collection is recorded as the
-licence; Kitware never published per-file provenance, so the original source
-of the terrain data could not be established.
+ancestor of this repository: `git ls-tree d5878f4 honolulu.vtk` and `git
+ls-tree HEAD Data/honolulu.vtk` both give blob 4b4c682374fa. VTKData dropped
+the file in its July 2001 tree reorganisation (commit 39a50dd,
+https://github.com/pyvista/data/commit/39a50dd, "New data tree layout"), so it
+is absent from the July 2013 tree this repository forked from. The copy here
+arrived through the April 2019 import from `lorensen/VTKExamples`, where
+Andrew Maclean added the same blob on 2017-10-16 (UTC) for the Hawaii example
+(commit 84026685f1, https://github.com/lorensen/VTKExamples/commit/84026685f1;
+it was moved to git-lfs on 2017-12-01, which is why the current upstream blob
+is a pointer). The file's own header reads "Terrain data for Honolulu, Hawaii"
+and it is the terrain of VTK textbook Figures 6-12 and 9-27. The textbook
+captions credit no source. Kitware's `Copyright.txt` notice covers the
+examples the VTK authors wrote, not a survey of a real place they
+redistributed, so the collection licence does not reach this file; Kitware
+never published per-file provenance, so the source of the terrain data and its
+terms could not be established.
 """
 
 [[dataset]]
@@ -3683,8 +3811,8 @@ anything onward, so no terms could be established for redistribution or for
 commercial use. The header's `plyop` and `flipply` comments are the Stanford
 range-scan toolchain, consistent with a Cyberware scan.
 
-It reached this repository through the VTK Examples import and was covered by
-that entry's blanket Apache-2.0, which is not Lorensen's to grant here.
+It reached this repository through the VTK Examples import; that repository's
+Apache-2.0 covers Lorensen's examples, not this scan.
 
 Cyberware published terms for its own sample scans
 (https://web.archive.org/web/20011221000000*/http://www.cyberware.com/samples/,
@@ -3788,11 +3916,8 @@ name = "infovis"
 title = "Information visualisation samples"
 description = "Graphs, trees, tables and delimited text files used to exercise the information visualisation readers and layouts."
 path = [
-    "Infovis-XML-vtkclasses.xml",
-    "Infovis-XML-vtklibrary.xml",
     "Infovis/DimacsGraphs/iso_pattern.gr",
     "Infovis/DimacsGraphs/iso_target.gr",
-    "Infovis/DimacsGraphs/maxflow.max",
     "Infovis/SQLite/SmallEmailTest.db",
     "Infovis/SQLite/SmallTestGraphs.db",
     "Infovis/SQLite/ports_protocols.db",
@@ -3819,7 +3944,6 @@ path = [
     "Infovis/small.graph",
     "Infovis/small.tlp",
     "Infovis/term-concept.csv",
-    "fsm.gml",
 ]
 SPDX-License-Identifier = "BSD-3-Clause"
 SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
@@ -3828,26 +3952,64 @@ origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
 attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
-redistributed_from = ["https://github.com/lorensen/VTKExamples/tree/master/src/Testing/Data"]
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019, except `Infovis-XML-vtkclasses.xml`,
-`Infovis-XML-vtklibrary.xml` and the top-level `fsm.gml`, which are
-byte-identical copies of `Infovis/XML/vtkclasses.xml`,
-`Infovis/XML/vtklibrary.xml` and `Infovis/fsm.gml` that arrived through the
-April 2019 import from `lorensen/VTKExamples` (commit 74bf994, https://github.com/pyvista/data/commit/74bf994). Kitware's
-blanket `Copyright.txt` notice covers the collection as a whole, and is
-recorded here as the licence for this entry. The commit messages of 2008 to
-2012 show most files were written by Sandia and Kitware staff as test
-input. Two carry further sources: `Infovis/DimacsGraphs/maxflow.max` states
-in its header "c source: http://lpsolve.sourceforge.net/5.5/DIMACS_maxf.htm"
-(the lp_solve documentation's DIMACS example; the page states no terms), and
-`Infovis/fsm.gml` was added on 2009-05-01 (commit eec6cba, https://github.com/pyvista/data/commit/eec6cba) as "the sample
-file" accompanying David Duke's `vtkSpanTreeLayoutStrategy` contribution,
-which VTK's header thanks "David Duke from the University of Leeds" for. No
-terms beyond the collection notice were found for either. The QIIME
-tutorial files `Infovis/otu_table.biom` and `Infovis/rep_set.tre` are
-recorded separately under `qiime_tutorial_otus`.
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. The commit messages of 2008 to 2012 show the files were written
+by Sandia and Kitware staff as test input, synthetic graphs, trees and tables
+of the kind the collection's authors write themselves, so Kitware's
+`Copyright.txt` notice is recorded as an inferred licence. `Infovis/fsm.gml`
+was added on 2009-05-01 (commit eec6cba,
+https://github.com/pyvista/data/commit/eec6cba) as "the sample file"
+accompanying David Duke's `vtkSpanTreeLayoutStrategy` contribution, which
+VTK's header thanks "David Duke from the University of Leeds" for; it arrived
+as the sample input of his own contribution, so the collection notice is taken
+to cover it. `Infovis/DimacsGraphs/maxflow.max`, which names a third-party
+source in its header, is the `infovis_maxflow` record, and the three
+byte-identical copies that came through the VTK Examples are the
+`infovis_examples_copies` record.
+"""
+
+[[dataset]]
+name = "infovis_examples_copies"
+title = "Information visualisation samples, VTK Examples copies"
+description = "Root-level copies of two Infovis XML samples and the `fsm.gml` graph, byte-identical to the files under `Infovis/`."
+path = ["Infovis-XML-vtkclasses.xml", "Infovis-XML-vtklibrary.xml", "fsm.gml"]
+SPDX-License-Identifier = "BSD-3-Clause"
+SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+provenance = "inferred"
+origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
+origin_title = "VTK Data"
+collection = "vtk-examples"
+attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
+redistributed_from = ["https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7", "https://github.com/lorensen/VTKExamples/tree/master/src/Testing/Data"]
+notes = """
+Byte-identical copies of `Infovis/XML/vtkclasses.xml`,
+`Infovis/XML/vtklibrary.xml` and `Infovis/fsm.gml` in the `infovis` record,
+which carry the same terms. They arrived through the April 2019 import from
+`lorensen/VTKExamples` (commit 74bf994,
+https://github.com/pyvista/data/commit/74bf994), which took them from VTK
+Data.
+"""
+
+[[dataset]]
+name = "infovis_maxflow"
+title = "DIMACS max-flow sample"
+description = "The DIMACS max-flow example graph from the lp_solve documentation."
+path = ["Infovis/DimacsGraphs/maxflow.max"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
+provenance = "verified"
+origin_url = "http://lpsolve.sourceforge.net/5.5/DIMACS_maxf.htm"
+origin_title = "lp_solve documentation, DIMACS maximum flow format"
+collection = "vtk-data"
+redistributed_from = ["https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"]
+notes = """
+The file's header reads "c source:
+http://lpsolve.sourceforge.net/5.5/DIMACS_maxf.htm" and "c This is a simple
+example file to demonstrate the DIMACS input file format", and that page still
+carries the example; it states no terms, so the licence is undetermined.
+Kitware's `Copyright.txt` notice covers its own test inputs and not a file
+copied from a third party's documentation. It reached this repository with the
+March 2019 fork of VTK Data.
 """
 
 [[dataset]]
@@ -3891,7 +4053,6 @@ origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
 authors = ["Louis Noodleman", "David Case", "Scripps Clinic"]
-redistributed_from = ["https://github.com/lorensen/VTKExamples/blob/master/src/Testing/Data/StructuredPoints.vtk"]
 notes = """
 The file header reads "Iron protein" and the VTK textbook credits the volume
 in the caption of Figure 7-4, "High potential iron protein data courtesy of
@@ -3899,15 +4060,19 @@ Scripps Clinic, La Jolla, CA.", which is the source of `authors`:
 
     git -C vtk-examples grep -n 'Scripps' HEAD -- src/VTKBook/07Chapter7.md
 
-`ironProt.vtk` was added to VTK Data on 2001-07-23 (commit 62035d9, https://github.com/pyvista/data/commit/62035d9), reached
-this repository in the March 2019 fork and matches VTK's
-`Testing/Data/ironProt.vtk.sha512` content link. `StructuredPoints.vtk` is
-the same blob (b4dcd4fe8d51) and arrived with the April 2019 import from
-`lorensen/VTKExamples`, which has carried both file names since May 2017.
+`ironProt.vtk` was added to VTK Data on 2001-07-23 (commit 62035d9,
+https://github.com/pyvista/data/commit/62035d9), reached this repository in
+the March 2019 fork and matches VTK's `Testing/Data/ironProt.vtk.sha512`
+content link. `StructuredPoints.vtk` is the same blob (b4dcd4fe8d51) and
+arrived with the April 2019 import (commit 74bf994,
+https://github.com/pyvista/data/commit/74bf994) from `lorensen/VTKExamples`
+(https://github.com/lorensen/VTKExamples/blob/master/src/Testing/Data/StructuredPoints.vtk),
+which has carried both file names since May 2017; `ironProt.vtk` came directly
+from VTK Data, so no single `redistributed_from` route applies to both files.
 Neither Kitware's blanket `Copyright.txt` notice nor the examples repository
-licence covers Scripps Clinic's data, and no terms from Scripps were found,
-so the licence is undetermined. Downstream users should credit Scripps Clinic
-and ask it for terms.
+licence covers Scripps Clinic's data, and no terms from Scripps were found, so
+the licence is undetermined. Downstream users should credit Scripps Clinic and
+ask it for terms.
 
 The volume is most likely the HIPIP dataset of the UNC Chapel Hill Volume
 Rendering Test Dataset, Volume I (ftp://omicron.cs.unc.edu/pub/softlab/CHVRTD,
@@ -4103,12 +4268,14 @@ origin_title = "VTK Data"
 collection = "vtk-data"
 attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. Kitware's `Copyright.txt` notice covers the collection's own
+examples. A 256 by 256 hue and saturation gradient, added by a Kitware
+developer as a simple image for a reader test, is synthetic example input of
+the kind the collection's authors write themselves, so the collection licence
+is recorded as inferred. Kitware never published per-file provenance for this
+material, so the original author of the data itself is not recorded upstream
+and could not be established here.
 
 The file was added by Andy Cedilnik on 2002-02-01 ("Add simple image for
 the tiff reader test", commit 9c8d06a, https://github.com/pyvista/data/commit/9c8d06a in this repository's history) and VTK
@@ -4143,6 +4310,13 @@ History.
 The Smithsonian release states: "This media file is in the public domain
 (free of copyright restrictions). You can copy, modify, and distribute this
 work without contacting the Smithsonian."
+
+The copy arrived through pull request 67
+(https://github.com/pyvista/data/pull/67, 2026-04-19), whose licence file
+quoted the release sentence and named the Smithsonian's Sketchfab upload
+(https://sketchfab.com/3d-models/abraham-lincoln-mills-life-mask-a888a9926abb4691a0b91d4eee24b61e)
+as a parallel copy. 3d.si.edu refuses scripted requests and has no Wayback
+capture, so the object page must be read in a browser.
 """
 
 [[dataset]]
@@ -4250,9 +4424,11 @@ attribution = "Generated by Alex Kaszynski for PyVista with magpylib (https://gi
 notes = """
 Generated by the contributor who added it in commit 9dfb9aa
 (https://github.com/pyvista/data/commit/9dfb9aa8e72119b5a1ea1656d004a6ba4091f91f,
-Alex Kaszynski, 2023-01-19), so it takes the repository licence. The script in
-`Data/magpylib/README.md`, adapted from the magpylib documentation example
-"Coil Field Lines", computes the field of sixteen current loops with magpylib
+Alex Kaszynski, 2023-01-19), so it takes the repository licence. The script
+recorded in the README that the same commit added beside the file (since
+removed in commit b91ceb8, https://github.com/pyvista/data/commit/b91ceb8),
+adapted from the magpylib documentation example "Coil Field Lines", computes
+the field of sixteen current loops with magpylib
 (https://github.com/magpylib/magpylib, BSD-2-Clause); that licence covers the
 program, not this output.
 """
@@ -4307,20 +4483,18 @@ name = "masonry"
 title = "Masonry texture"
 description = "Bitmap image of a masonry wall, used as a texture."
 path = ["masonry.bmp"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. Kitware's `Copyright.txt` notice covers the examples its
+authors wrote, not a photograph of a masonry wall they redistributed as a
+texture, so the terms are undetermined. Kitware never published per-file
+provenance for this material, so the original author of the data itself is not
+recorded upstream and could not be established here.
 """
 
 [[dataset]]
@@ -4337,13 +4511,15 @@ attribution = "Generated with meshio (https://github.com/nschloe/meshio) by Tets
 notes = """
 Reading the files back gives exactly what `test_time_series` in meshio's
 `tests/test_xdmf.py` writes: the file name `out.xdmf`, the four-point
-two-triangle `tri_mesh_2d` helper mesh, times 0 to 1 in five steps, point
-data `phi` and `u` equal to the time and cell data `a` of 3.0 and 4.2.
-Tetsuo Koyama posted that generating code in pyvista/pyvista#2839 (https://github.com/pyvista/pyvista/pull/2839), which
-added `pyvista.XdmfReader`, and submitted the files through pyvista/data
-pull requests 22 and 23 with no other terms, so they stay under this
-repository's Apache-2.0; that contributor basis is the licence recorded
-here. meshio itself is MIT-licensed and every value in the files is a
+two-triangle `tri_mesh_2d` helper mesh, times 0 to 1 in five steps, point data
+`phi` and `u` equal to the time and cell data `a` of 3.0 and 4.2. Tetsuo
+Koyama posted that generating code in pyvista/pyvista#2839
+(https://github.com/pyvista/pyvista/pull/2839), which added
+`pyvista.XdmfReader`, and submitted the files through pyvista/data pull
+requests 22 (https://github.com/pyvista/data/pull/22) and 23
+(https://github.com/pyvista/data/pull/23) with no other terms, so they stay
+under this repository's Apache-2.0; that contributor basis is the licence
+recorded here. meshio itself is MIT-licensed and every value in the files is a
 constant in that test.
 """
 
@@ -4383,7 +4559,16 @@ description = "Assorted files added during PyVista development that are not load
 path = ["tree.ply", "reactor.zip"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "unknown"
-notes = "These files record no source, author or terms, and none could be established. `notch_stress.vtk`, which arrived in the same period, is the file the `notch_stress` record derives from and is recorded there."
+notes = """
+`tree.ply` arrived on 2019-03-10 (commit 8102eda,
+https://github.com/pyvista/data/commit/8102eda, "add topo land only") and
+`reactor.zip` on 2024-07-08 (commit 62c8d91,
+https://github.com/pyvista/data/commit/62c8d91, "Add reactor partitioned
+mesh"); neither commit, the file headers nor issue searches in pyvista/pyvista
+and pyvista/data (reactor, partitioned, tree.ply) name a source, author or
+terms. `notch_stress.vtk`, which arrived in the same period, is the file the
+`notch_stress` record derives from and is recorded there.
+"""
 
 [[dataset]]
 name = "model_with_variance"
@@ -4432,20 +4617,20 @@ name = "motor"
 title = "Motor"
 description = "Surface geometry of an electric motor."
 path = ["motor.g"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. The file is a modelled five-part motor assembly in MOVIE.BYU
+format, used as textbook Figure 9-53
+(https://examples.vtk.org/site/VTKBook/09Chapter9/), whose caption credits no
+owner; Kitware's blanket `Copyright.txt` notice covers its own examples and
+not a modelled object it redistributed, so the terms are undetermined. Kitware
+never published per-file provenance for this material, so the original author
+of the data itself is not recorded upstream and could not be established here.
 """
 
 [[dataset]]
@@ -4520,7 +4705,14 @@ origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
 attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
-notes = "Added in May 2013 with the commit message \"Adding baseline and data for new test (TestMultiblockDisplayProperties)\", six years before this repository was forked from VTK Data, so it carries that collection's licence. The commit message \"Add reactor partitioned mesh\" belongs to `reactor.zip`, a different file added in 2024."
+notes = """
+All 67 files were added by Utkarsh Ayachit on 2013-05-01 (commit 813ab2c,
+https://github.com/pyvista/data/commit/813ab2c, "Adding baseline and data for
+new test (TestMultiblockDisplayProperties)"), six years before this repository
+was forked from VTK Data. They are synthetic test input written for that VTK
+test by a Kitware developer, the kind of example data the collection's authors
+make themselves, so the collection licence stands as inferred.
+"""
 
 [[dataset]]
 name = "nasa_lox_post"
@@ -4535,7 +4727,7 @@ collection = "vtk-examples"
 authors = ["NASA Ames Research Center"]
 redistributed_from = ["https://github.com/lorensen/VTKExamples/blob/master/src/Testing/Data/postxyz.bin"]
 references = [
-    { citation = "S. E. Rogers, D. Kwak and U. K. Kaul, A Numerical Study of Three-Dimensional Incompressible Flow Around Multiple Posts, AIAA Aerospace Sciences Conference, Reno, 1986, AIAA Paper 86-0353", url = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/VTKBook/12Chapter12.md" },
+    { citation = "S. E. Rogers, D. Kwak and U. K. Kaul, A Numerical Study of Three-Dimensional Incompressible Flow Around Multiple Posts, AIAA 24th Aerospace Sciences Meeting, Reno, 1986, AIAA Paper 86-0353", doi = "10.2514/6.1986-353", url = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/VTKBook/12Chapter12.md" },
 ]
 notes = """
 `postxyz.bin` is 38 by 76 by 38 with an IBLANK array, the LOx post that
@@ -4776,7 +4968,7 @@ title = "Network Common Data Form sample"
 description = "Sea surface temperature for 2001 to 2002 from the IPSL-CM4_v1 coupled model, run for the IPCC Fourth Assessment SRES A2 experiment, distributed by Unidata as a NetCDF example file."
 path = ["tos_O1_2001-2002.nc"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "inferred"
+provenance = "verified"
 origin_url = "https://archive.unidata.ucar.edu/software/netcdf/examples/files.html"
 origin_title = "Unidata NetCDF example files"
 collection = "vtk-data"
@@ -4784,20 +4976,26 @@ authors = ["Institut Pierre Simon Laplace"]
 redistributed_from = ["https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"]
 notes = """
 The file's own global attributes identify it: `title` "IPSL model output
-prepared for IPCC Fourth Assessment SRES A2 experiment", `institution`
-"IPSL (Institut Pierre Simon Laplace, Paris, France)", `source` "IPSL-CM4_v1
-(2003)", `contact` Sebastien Denvil (IPSL), `table_id` "Table O1 (13
-November 2004)" and `history` "At 16:37:23 on 01/11/2005, CMOR rewrote data
-to comply with CF standards and IPCC Fourth Assessment requirements". Its
-`comment` is "Test drive" and the history and references carry placeholder
-text, so it reads as a CMOR test output made at IPSL rather than a file
-taken from an archive; no IPSL page for it was found. Unidata's
-example-files page describes it as "Sea surface temperatures collected by
-PCMDI for use by the IPCC" and states no terms of its own (the ECMWF file on
-the same page does carry conditions of use). Ken Moreland added it to
-VTKData on 2009-03-17 naming that Unidata page (commit 7ed8239, https://github.com/pyvista/data/commit/7ed8239 in this
-repository's history), and VTK still distributes the same bytes
-(`Testing/Data/tos_O1_2001-2002.nc.sha512`).
+prepared for IPCC Fourth Assessment SRES A2 experiment", `institution` "IPSL
+(Institut Pierre Simon Laplace, Paris, France)", `source` "IPSL-CM4_v1
+(2003)", `contact` Sebastien Denvil (IPSL), `table_id` "Table O1 (13 November
+2004)" and `history` "At 16:37:23 on 01/11/2005, CMOR rewrote data to comply
+with CF standards and IPCC Fourth Assessment requirements". Its `comment` is
+"Test drive" and the history and references carry placeholder text, so it
+reads as a CMOR test output made at IPSL rather than a file taken from an
+archive; no IPSL page for it was found. Unidata's example-files page describes
+it as "Sea surface temperatures collected by PCMDI for use by the IPCC" and
+states no terms of its own (the ECMWF file on the same page does carry
+conditions of use). Ken Moreland added it to VTKData on 2009-03-17 naming that
+Unidata page (commit 7ed8239, https://github.com/pyvista/data/commit/7ed8239
+in this repository's history), and VTK still distributes the same bytes
+(`Testing/Data/tos_O1_2001-2002.nc.sha512`). The copy Unidata's archive still
+serves is byte-identical to this file: `curl -sL
+https://archive.unidata.ucar.edu/software/netcdf/examples/tos_O1_2001-2002.nc
+| shasum -a 256` gives
+ecd54cdd054cb6a529d47bd0af1cc8d6a45cb6e22f4f209562084b6b5af01ba8 (2949152
+bytes), the repository file's hash, so the Unidata page is the confirmed
+origin of the bytes; IPSL's own copy was not located.
 
 PCMDI's terms for the IPCC AR4 (CMIP3) archive,
 https://pcmdi.llnl.gov/ipcc/info_for_analysts.html#Terms_of_use, say the
@@ -4965,6 +5163,11 @@ which was published under the Apache License 2.0 and is now maintained by
 Kitware as `vtk/vtk-examples`. Lorensen did not publish per-file provenance.
 The file is a synthetic cone, example input of the kind the example authors
 write themselves, so the repository licence is recorded as inferred.
+
+Lorensen added the file himself in commit 130d278c97
+(https://github.com/lorensen/VTKExamples/commit/130d278c97, 2017-09-18, "ENH:
+Added new boolean example", with new data for BooleanOperationPolyDataFilter),
+so the repository licence is his own grant over it.
 """
 
 
@@ -4981,12 +5184,16 @@ origin_title = "VTK Data"
 collection = "vtk-data"
 attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. The VTK textbook (chapter 9, figure 9-47,
+https://examples.vtk.org/site/VTKBook/09Chapter9/) describes the file as "a
+CFD simulation of flow in a small office" and "our simulation data" and
+credits no outside source, and the file has been in the collection since 2001
+(commit c010a99, https://github.com/pyvista/data/commit/c010a99), so it is
+taken as example data the VTK authors made themselves and Kitware's
+`Copyright.txt` notice is recorded as the licence, inferred. Kitware never
+published per-file provenance for this material, so the original author of the
+data itself is not recorded upstream and could not be established here.
 """
 
 [[dataset]]
@@ -5031,7 +5238,7 @@ title = "OpenFOAM lid-driven cavity"
 description = "Two zipped OpenFOAM cases: the lid-driven cavity tutorial solved with icoFoam, and a 64-bit-float Xoodles case."
 path = ["OpenFOAM.zip"]
 SPDX-License-Identifier = "BSD-3-Clause AND GPL-3.0-or-later"
-SPDX-FileCopyrightText = ["1993-2015 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-FileCopyrightText = ["1993-2015 Ken Martin, Will Schroeder, Bill Lorensen", "2011 OpenFOAM Foundation"]
 provenance = "verified"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7/folder/5afd932c8d777f15ebe1b164"
 origin_title = "Kitware VTK Data on data.kitware.com, OpenFOAM folder"
@@ -5055,14 +5262,18 @@ The cavity case is the icoFoam lid-driven cavity tutorial: its
 the same vertices, single 20 by 20 by 1 block and `movingWall`, `fixedWalls`
 and `frontAndBack` patches as the tutorial file in
 https://github.com/OpenFOAM/OpenFOAM-2.0.x/blob/master/tutorials/incompressible/icoFoam/cavity/constant/polyMesh/blockMeshDict,
-differing only in the banner and the 2.0 boundary syntax (release 1.7.1 is
-not on GitHub). OpenFOAM distributes its tutorials under the GNU General
-Public License, version 3 or any later version
+differing only in the banner and the 2.0 boundary syntax (release 1.7.1 is not
+on GitHub). OpenFOAM distributes its tutorials under the GNU General Public
+License, version 3 or any later version
 (https://github.com/OpenFOAM/OpenFOAM-2.0.x/blob/master/COPYING), which
 Kitware's notice cannot replace, so that licence is recorded alongside
-Kitware's for the tutorial dictionaries; the solved fields are the output of
-running the solver. The `64BitFloats` case carries an OpenFOAM 1.3 banner
-and was not matched to any tutorial.
+Kitware's for the tutorial dictionaries; the OpenFOAM copyright line recorded
+here is the one in that COPYING file ("OpenFOAM(R) is Copyright (C) 2011
+OpenFOAM Foundation"); the 1.7.1 banner in the archive's blockMeshDict names
+www.OpenFOAM.com and carries no copyright line, so the 1.7.1-era holder was
+not confirmed from the bytes; the solved fields are the output of running the
+solver. The `64BitFloats` case carries an OpenFOAM 1.3 banner and was not
+matched to any tutorial.
 """
 
 [[dataset]]
@@ -5109,13 +5320,12 @@ name = "openvdb_sphere_points"
 title = "OpenVDB sphere points"
 description = "Point cloud on a sphere in OpenVDB format, used to exercise the OpenVDB reader."
 path = ["sphere_points.vdb"]
-SPDX-License-Identifier = "CC-BY-4.0"
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "verified"
 origin_url = "https://www.openvdb.org/download/"
 origin_title = "OpenVDB sample models"
 collection = "vtk-data"
 authors = ["OpenVDB project"]
-attribution = "sphere_points.vdb, OpenVDB sample models (https://www.openvdb.org/download/), Academy Software Foundation, CC BY 4.0."
 redistributed_from = ["https://gitlab.kitware.com/vtk/vtk/-/blob/master/Testing/Data/sphere_points.vdb.sha512", "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"]
 notes = """
 Byte-identical to the OpenVDB project's sample model `sphere_points.vdb` as
@@ -5131,14 +5341,20 @@ The file's own header records `creator: Houdini/SOP_OpenVDB_Write`. The
 download page states no terms for the models. It is built from
 https://github.com/AcademySoftwareFoundation/openvdb-website, whose
 `LICENSE.txt` (added 2019-02-06, "Add license info for website") is Creative
-Commons Attribution 4.0 International, and the page now serves the model
-from that repository's `download/models/` directory, where the current copy
-is a re-export whose header differs from these bytes. That repository
-licence is recorded as the model's terms; a downstream user who needs more
-should ask the OpenVDB project. VTK ships the same bytes as
-`Testing/Data/sphere_points.vdb` for `TestOpenVDBReader` (content link added
-2022-07-25, commit 4f1276ceef), which is the route this copy took; it was
-added here in April 2024 through https://github.com/pyvista/data/pull/40.
+Commons Attribution 4.0 International, and the page now serves the model from
+that repository's `download/models/` directory, where the current copy is a
+re-export whose header differs from these bytes. That licence is not recorded
+as the model's terms: when it was added the models directory held only an
+index page, these 2017 bytes have never been committed to the repository, and
+the copy added under Git LFS on 2026-03-10
+(https://github.com/AcademySoftwareFoundation/openvdb-website/commit/a55facfdbc,
+141336 bytes) is a different file; https://www.openvdb.org/license/ states
+terms for the software only (Mozilla Public License 2.0). A downstream user
+who needs terms for the model should ask the OpenVDB project. VTK ships the
+same bytes as `Testing/Data/sphere_points.vdb` for `TestOpenVDBReader`
+(content link added 2022-07-25, commit 4f1276ceef), which is the route this
+copy took; it was added here in April 2024 through
+https://github.com/pyvista/data/pull/40.
 """
 
 [[dataset]]
@@ -5203,24 +5419,30 @@ name = "parallel_exodus_can"
 title = "Crushed can, parallel Exodus"
 description = "Crushed can simulation written as four Exodus II files, one per partition, carrying the Nemesis I parallel-decomposition metadata."
 path = ["ParallelExodus/**"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2015 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2015 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
+authors = ["Sandia National Laboratories"]
 redistributed_from = ["https://gitlab.kitware.com/vtk/vtk/-/tree/master/Testing/Data/Exodus/can.e.4"]
 notes = """
 The four files are byte-identical to VTK's
 `Testing/Data/Exodus/can.e.4/can.e.4.0` to `can.e.4.3` content links
 (SHA-512), which VTK added in April 2020 with the IOSS reader (commit
-ab713e84c8, https://gitlab.kitware.com/vtk/vtk/-/commit/ab713e84c8) without naming a source; pull request 69 (https://github.com/pyvista/data/pull/69) here took them from
-that tree. Kitware's blanket `Copyright.txt` notice is recorded as the
-licence. The Exodus QA records inside the files name the Sandia SEACAS tools
-that produced them (FASTQ 2.3, Gen3D 1.7, GJoin 1.12 and PRONTO3D 7.0.1 on
-16 May 1994, then nem_spread 5.07 on 8 Sep 2008; `strings -n 3 can.e.4.0`),
-so the simulation predates VTK and its author is not recorded upstream.
+ab713e84c8, https://gitlab.kitware.com/vtk/vtk/-/commit/ab713e84c8) without
+naming a source; pull request 69 (https://github.com/pyvista/data/pull/69)
+here took them from that tree. Kitware's `Copyright.txt` covers VTK's own
+examples and not this file: the QA records below carry the same title ("self
+contact test problem"), toolchain and 16 May 1994 run date as Sandia's
+`can.ex2` recorded under `can_crushed_vtu`, so the simulation is Sandia's, and
+the nem_spread split of 8 Sep 2008 is not published by Sandia
+(sandialabs/seacas holds only the undecomposed `can.ex2`), so no terms are
+recorded; no byte comparison between these partitions and `can.ex2` has been
+made. The Exodus QA records inside the files name the Sandia SEACAS tools that
+produced them (FASTQ 2.3, Gen3D 1.7, GJoin 1.12 and PRONTO3D 7.0.1 on 16 May
+1994, then nem_spread 5.07 on 8 Sep 2008; `strings -n 3 can.e.4.0`), so the
+simulation predates VTK and its author is not recorded upstream.
 
 The Nemesis variables (`num_processors`, `num_int_elem`, `num_bor_node`, the
 communication maps) are written into `can.e.4.0` through `can.e.4.3`
@@ -5326,11 +5548,15 @@ origin_title = "VTK Data"
 collection = "vtk-data"
 attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. Berk Geveci committed the file on 2001-09-18 as "Data file for
+a new reader" (commit f4840e6, https://github.com/pyvista/data/commit/f4840e6;
+VTK keeps the content link `Testing/Data/Particles.raw.sha512`). It is 3152
+bytes of binary x, y, z, value records written as test input for Kitware's
+particle reader, the kind of example input the collection's authors write
+themselves, so Kitware's `Copyright.txt` BSD notice is taken to cover it.
+Kitware never published per-file provenance for this material, so the original
+author of the data itself is not recorded upstream and could not be
 established here.
 """
 
@@ -5421,8 +5647,8 @@ description = "MetaImage volume of a pine root system (`pine_root.mha`), with a 
 path = ["PineRoot/**"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "verified"
-origin_url = "https://civm.duhs.duke.edu/"
-origin_title = "Center for In Vivo Microscopy, Duke University"
+origin_url = "https://examples.vtk.org/site/VTKBook/09Chapter9/"
+origin_title = "The Visualization Toolkit textbook, chapter 9"
 collection = "vtk-examples"
 authors = ["Janet MacFall"]
 redistributed_from = [
@@ -5593,7 +5819,7 @@ title = "Plastic vase"
 description = "Photogrammetric surface reconstruction of the plastic vase from the GGG-BenchmarkSfM close-range structure-from-motion benchmark, distributed as a zipped mesh of over a million points and as a more heavily decimated VTK XML PolyData file."
 path = ["ivan-nikolov/plasticVase.zip", "ivan-nikolov/plasticVase_decimated.vtp"]
 SPDX-License-Identifier = "CC-BY-4.0"
-provenance = "verified"
+provenance = "inferred"
 origin_url = "https://data.mendeley.com/datasets/bzxk2n78s9/4"
 origin_title = "GGG-BenchmarkSfM, Mendeley Data"
 collection = "ggg-benchmark-sfm"
@@ -5641,9 +5867,11 @@ Research Institute" and the status as public domain.
 
     curl -s "https://commons.wikimedia.org/w/api.php?action=query&titles=File:Pluto%20color%20mapmosaic.jpg&prop=imageinfo&iiprop=size|extmetadata&format=json"
 
-It reached this repository through tamaskis/planet3D-MATLAB, which credits no
-source for its textures, and was added separately from the Solar System Scope
-batch, correctly, since Solar System Scope publishes no Pluto texture.
+It reached this repository through tamaskis/planet3D-MATLAB, whose
+`planet3D/pluto.png` (git blob 7907f3d6..., a JPEG despite the extension,
+added 2021-12-12) is byte-identical to this file; that repository credits no
+source for its textures. It is separate from the Solar System Scope batch,
+which publishes no Pluto texture.
 """
 
 [[dataset]]
@@ -5708,16 +5936,18 @@ origin_title = "VTK Data"
 collection = "vtk-data"
 attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Andy Bauer added both files on 2010-08-29 (commit 6338a72,
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. Kitware's blanket `Copyright.txt` notice covers the collection
+as a whole, and is recorded here as the licence for this entry. Andy Bauer
+added both files on 2010-08-29 (commit 6338a72,
 https://github.com/pyvista/data/commit/6338a72, "Files for vtkProStarReader
 test"); VTK's `IO/Geometry/vtkProStarReader.h` credits "Reader written by Mark
 Olesen", so the test pair most likely arrived with his contribution. Neither
 source names the author of the mesh itself, which is why provenance stays
-inferred. Both files match VTK's `Testing/Data/prostar.cel.sha512` and
-`prostar.vrt.sha512` content links.
+inferred. The mesh itself is a few cells on unit coordinates (4020 header,
+vertices at 0 and 1), synthetic reader test input of the kind a VTK
+contributor writes, so the collection licence applies. Both files match VTK's
+`Testing/Data/prostar.cel.sha512` and `prostar.vrt.sha512` content links.
 """
 
 [[dataset]]
@@ -5777,14 +6007,14 @@ origin_title = "RCSB Protein Data Bank"
 collection = "vtk-examples"
 redistributed_from = ["https://github.com/lorensen/VTKExamples/blob/master/src/Testing/Data/2j6g.pdb"]
 notes = """
-The filename is the accession, and the file carries the same 2130 atom records
-as the entry RCSB serves for 2J6G; they are not byte-identical because RCSB
-re-versions entries. The wwPDB usage policy releases the PDB archive under
-CC0, which is less restrictive than the Apache-2.0 of lorensen/VTKExamples,
-the repository this copy came through in April 2019 (its
-`src/Testing/Data/2j6g.pdb` blob 77837d58... is byte-identical to ours); that
-licence covers the examples, not this file. VTK itself ships no
-`Testing/Data/2j6g.pdb`.
+The filename is the accession, and the file carries the same number of atom
+records (2130, 1902 ATOM and 228 HETATM) as the entry RCSB serves for 2J6G;
+the records are not byte-identical because RCSB re-versions entries. The wwPDB
+usage policy releases the PDB archive under CC0, which is less restrictive
+than the Apache-2.0 of lorensen/VTKExamples, the repository this copy came
+through in April 2019 (its `src/Testing/Data/2j6g.pdb` blob 77837d58... is
+byte-identical to ours); that licence covers the examples, not this file. VTK
+itself ships no `Testing/Data/2j6g.pdb`.
 """
 
 [[dataset]]
@@ -5798,7 +6028,14 @@ origin_url = "https://www.rcsb.org/structure/2LYZ"
 origin_title = "RCSB Protein Data Bank"
 collection = "vtk-data"
 redistributed_from = ["https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"]
-notes = "The filename is the accession, and all 1102 atom records are byte-identical to the file RCSB serves for 2LYZ. The wwPDB usage policy releases the PDB archive under CC0. The copy came through VTK Data: Kyle Lutz added it to VTKData on 2012-09-12 (commit f31743f, https://github.com/pyvista/data/commit/f31743f, \"Add 2LYZ pdb file and protein ribbon baseline\"), it is in the 2013 fork tree, and its SHA-512 matches VTK's content link `Testing/Data/2LYZ.pdb.sha512`."
+notes = """
+The filename is the accession, and all 1102 atom records are byte-identical to
+the file RCSB serves for 2LYZ. The wwPDB usage policy releases the PDB archive
+under CC0. The copy came through VTK Data: Kyle Lutz added it to VTKData on
+2012-09-12 (commit f31743f, https://github.com/pyvista/data/commit/f31743f,
+"Add 2LYZ pdb file and protein ribbon baseline"), it is in the 2013 fork tree,
+and its SHA-512 matches VTK's content link `Testing/Data/2LYZ.pdb.sha512`.
+"""
 
 [[dataset]]
 name = "protein_3gqp"
@@ -5913,22 +6150,23 @@ origin_title = "QIIME 1 overview tutorial"
 collection = "vtk-data"
 redistributed_from = ["https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"]
 notes = """
-Added to VTK Data on 2012-08-23 by Zack Galbreath (commit b470249, https://github.com/pyvista/data/commit/b470249, "new
-testing data for three new Infovis classes") to test the BIOM and Newick
-readers, and inherited with the March 2019 fork. The BIOM file records
-`"generated_by": "QIIME 1.5.0"`, `"date": "2012-07-09..."`, `"shape": [419,
-9]` and the sample ids PC.354, PC.355, PC.356, PC.481, PC.593, PC.607,
-PC.634, PC.635 and PC.636; the QIIME 1 overview tutorial
+Added to VTK Data on 2012-08-23 by Zack Galbreath (commit b470249,
+https://github.com/pyvista/data/commit/b470249, "new testing data for three
+new Infovis classes") to test the BIOM and Newick readers, and inherited with
+the March 2019 fork. The BIOM file records `"generated_by": "QIIME 1.5.0"`,
+`"date": "2012-07-09..."`, `"shape": [419, 9]` and the sample ids PC.354,
+PC.355, PC.356, PC.481, PC.593, PC.607, PC.634, PC.635 and PC.636; the QIIME 1
+overview tutorial
 (http://web.archive.org/web/2013id_/http://qiime.org/tutorials/tutorial.html)
 uses exactly those samples, names `otu_table.biom` and `rep_set.tre` as its
 outputs, and says the data are from "a study of the effects of exercise and
 diet on mouse cardiac physiology (Crawford, et al, PNAS, 2009)". Whether
 Kitware copied the tutorial output or regenerated it was not established,
-which is why the origin is inferred. Neither the tutorial nor VTK Data
-states terms for the underlying sequencing data, and VTK Data's BSD notice
-cannot license Crawford et al.'s data, so the licence is undetermined.
-Downstream users should cite Crawford et al. 2009 and ask the QIIME
-developers about terms.
+which is why the origin is inferred. Neither the tutorial nor VTK Data states
+terms for the underlying sequencing data, and VTK Data's BSD notice cannot
+license Crawford et al.'s data, so the licence is undetermined. Downstream
+users should cite Crawford et al. 2009 and ask the QIIME developers about
+terms.
 
 Crawford et al. 2009 (PNAS 106:11276, doi:10.1073/pnas.0902366106, PMC2700149)
 state: "The 16S rRNA sequence data reported in this paper have been deposited
@@ -5997,18 +6235,31 @@ reads it, so the repository licence is recorded as inferred.
 
 [[dataset]]
 name = "rectilinear_grid"
-title = "Rectilinear grid sample"
-description = "Small rectilinear grid in VTK XML format."
+title = "CTH rectilinear grid"
+description = "CTH simulation result on a 128 by 64 by 64 rectilinear grid, in VTK XML format; a copy of VTK Data's `cth.vtr` imported through the VTK Examples."
 path = ["RectilinearGrid.vtr"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
-collection = "vtk-data"
-redistributed_from = ["https://github.com/lorensen/VTKExamples"]
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
-notes = "Byte-identical to `cth.vtr`, which came from the VTK Data collection and predates the VTK Examples import that brought this copy in. Both carry VTK Data's licence."
+collection = "vtk-examples"
+redistributed_from = ["https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7", "https://github.com/lorensen/VTKExamples/blob/master/src/Testing/Data/RectilinearGrid.vtr"]
+notes = """
+Byte-identical (blob dd9a7842, 1059393 bytes) to `cth.vtr` in the
+`vtk_data_files` record, which Andy Cedilnik added to VTK Data on 2004-07-28
+together with the TestExtractCTHPart baseline (commit b55186c,
+https://github.com/pyvista/data/commit/b55186c, "ENH: Add dataset and valid
+image for CTH test"). This copy arrived with the VTK Examples import (commit
+74bf994, https://github.com/pyvista/data/commit/74bf994) as
+`src/Testing/Data/RectilinearGrid.vtr` in lorensen/VTKExamples, which took it
+from VTK Data.
+
+The file is a 128 by 64 by 64 CTH shock-physics result (arrays Pressure, Void
+Volume Fraction, X, Y and Z Velocity, Volume Fraction and Mass for Armor Plate
+and for Body, Nose), a solver output from Sandia's CTH code rather than
+example geometry Kitware wrote, so the VTK Data notice covers Kitware's
+examples and not this file and the terms are undetermined.
+"""
 
 [[dataset]]
 name = "reservoir"
@@ -6044,7 +6295,7 @@ SOLPE reference deliberately.
 
 The overview page is archived at
 https://web.archive.org/web/20250123131827/https://www.unisim.cepetro.unicamp.br/benchmarks/br/unisim-ii/overview;
-the live host timed out on 2026-10-09.
+the live host does not answer requests.
 """
 
 [[dataset]]
@@ -6060,14 +6311,16 @@ authors = ["Sam Potter"]
 attribution = "Mesh provided by Sam Potter (https://github.com/sampotter) in pyvista/pyvista#547, who asked that the mesh be attributed to him."
 notes = """
 Sam Potter (https://github.com/sampotter) attached the file to
-pyvista/pyvista#547 (https://github.com/pyvista/pyvista/issues/547) on 2020-01-19 as "a mesh of a building" while reporting
-a translucency rendering bug; this copy is byte-identical to that attachment
-(https://github.com/pyvista/pyvista/files/4083597/room__surface_mesh.obj.zip,
-SHA-256 1933cfaa63a9746b0799f869de3b11bb810ba5f1443da8f03e7f647d378226d9).
-Its header shows it was written by meshio 3.3.1 on 2020-01-17. Bane Sullivan
-copied it into this repository on 2020-02-04 (commit c0db94f, https://github.com/pyvista/data/commit/c0db94f) for the depth
-peeling work in pyvista/pyvista#584
-(https://github.com/pyvista/pyvista/pull/584).
+pyvista/pyvista#547 (https://github.com/pyvista/pyvista/issues/547) on
+2020-01-19 as "a mesh of a building" while reporting a translucency rendering
+bug; this copy is byte-identical to the OBJ inside that attachment
+(https://github.com/pyvista/pyvista/files/4083597/room__surface_mesh.obj.zip;
+the extracted `room__surface_mesh.obj` has SHA-256
+1933cfaa63a9746b0799f869de3b11bb810ba5f1443da8f03e7f647d378226d9). Its header
+shows it was written by meshio 3.3.1 on 2020-01-17. Bane Sullivan copied it
+into this repository on 2020-02-04 (commit c0db94f,
+https://github.com/pyvista/data/commit/c0db94f) for the depth peeling work in
+pyvista/pyvista#584 (https://github.com/pyvista/pyvista/pull/584).
 
 Potter described the file as output of a CGAL function (comment of 2020-02-03)
 and, in the video he linked on 2020-04-13 (https://vimeo.com/406979024, "A
@@ -6142,12 +6395,16 @@ origin_title = "VTK Data"
 collection = "vtk-data"
 attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. Kitware's blanket `Copyright.txt` notice covers the collection
+as a whole, and is recorded here as the licence for this entry. The VTKData
+commit that added the file, 9d828bc of 2005-09-13
+(https://github.com/pyvista/data/commit/9d828bc, "ENH: New parallel filters
+and tests that will restrict disk I/O to the first node in a cluster"), is by
+Dave DeMarle of Kitware, and the file is a 20 by 30 by 40 grid written by
+VTK's legacy writer (header "vtk output") as input for those tests, so it is
+synthetic test geometry of the kind Kitware writes and the collection licence
+applies to it; the commit does not say how it was generated.
 """
 
 [[dataset]]
@@ -6331,18 +6588,18 @@ redistributed_from = [
 notes = """
 Added on 8 July 2020 with the commit message "add skybox2" and no recorded
 source, fifteen months after the VTK Examples import. All six faces are
-byte-identical to `src/Testing/Data/skyboxes/skybox2/` in
-lorensen/VTKExamples (same git blobs, 254410fc for negx.jpg, added by Andrew
-Maclean on 19 October 2019) and to VTK's `Testing/Data/skybox/` (all six
-`.sha512` content links match; the cube map was added by Ken Martin on 23
-May 2017), where VTK ships a `readme.txt` alongside them naming the author
-and the licence: "This is the work of Emil Persson, aka Humus.
-http://www.humus.name ... This work is licensed under a Creative Commons
-Attribution 3.0 Unported License." The VTK copy is the older of the two and
-the only one with the notice; which of them this repository's copy was
-taken from is not recorded. The copies under `Skyboxes/skybox2/` in
-vtk/vtk-examples on gitlab.kitware.com are different bytes (blob 27d38455
-for negx.jpg).
+byte-identical to `src/Testing/Data/skyboxes/skybox2/` in lorensen/VTKExamples
+(same git blobs, 254410fc for negx.jpg, added by Andrew Maclean on 19 October
+2019) and to VTK's `Testing/Data/skybox/` (all six `.sha512` content links
+match; the cube map was added by Ken Martin on 23 May 2017), where VTK ships a
+`readme.txt` alongside them naming the author and the licence: "This is the
+work of Emil Persson, aka Humus. http://www.humus.name ... This work is
+licensed under a Creative Commons Attribution 3.0 Unported License." The VTK
+copy is the older of the two and the only one with the notice; which of them
+this repository's copy was taken from is not recorded. The route recorded
+assumes the VTK Examples copy was itself taken from VTK, which is the older of
+the two. The copies under `Skyboxes/skybox2/` in vtk/vtk-examples on
+gitlab.kitware.com are different bytes (blob 27d38455 for negx.jpg).
 
 A collection cannot relicense a third party's work, so the CC BY 3.0 and the
 credit to Persson are what bind. The `cubemap_park` entry carries the same
@@ -6362,13 +6619,11 @@ path = [
     "skybox-pz.jpg",
     "skybox/**",
 ]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 redistributed_from = ["https://github.com/lorensen/VTKExamples/tree/master/src/Testing/Data/skyboxes/skybox1"]
 notes = """
 This is the `skybox1` set, which has no `readme` beside it anywhere upstream.
@@ -6379,18 +6634,24 @@ The six faces are byte-identical to VTK's
       shasum -a 512 Data/skybox-$f.jpg | cut -d' ' -f1 | diff - <(cut -d' ' -f1 VTK/Testing/Data/skybox-$f.jpg.sha512)
     done
 
-VTK added them on 2016-07-06 (commit 64017f58d9, https://gitlab.kitware.com/vtk/vtk/-/commit/64017f58d9, Joachim Pouderoux,
+VTK added them on 2016-07-06 (commit 64017f58d9,
+https://gitlab.kitware.com/vtk/vtk/-/commit/64017f58d9, Joachim Pouderoux,
 "Introduce cube map creation from raw images", for `TestCubeMap.cxx`), which
 names no source. Bill Lorensen added the same files to `lorensen/VTKExamples`
-on 2018-03-12 (commit cace6412d1, https://github.com/lorensen/VTKExamples/commit/cace6412d1, "ENH: Add CubeMap and SphereMap shader
-examples.") and they were moved into `skyboxes/skybox1` on 2019-10-19; the
-loose faces here came with the April 2019 import of that repository, and the
-`skybox/` copies and `skybox-lorensen.zip` (six faces renamed negx/posx and
-so on, same blobs) with the October 2022 "add skybox" commit, whose source
-is not recorded. VTK Data is therefore the furthest point established and
-its BSD-3-Clause collection licence is recorded. Neither VTK nor the VTK
-Examples says who made the images, so the origin is inferred. The unrelated
-`skybox2` set turned out to be Emil Persson's under CC BY 3.0.
+on 2018-03-12 (commit cace6412d1,
+https://github.com/lorensen/VTKExamples/commit/cace6412d1, "ENH: Add CubeMap
+and SphereMap shader examples.") and they were moved into `skyboxes/skybox1`
+on 2019-10-19; the loose faces here came with the April 2019 import of that
+repository, and the `skybox/` copies and `skybox-lorensen.zip` (six faces
+renamed negx/posx and so on, same blobs) with the October 2022 "add skybox"
+commit, whose source is not recorded. VTK Data is the furthest point
+established. The faces are a photorealistic rendered cloudscape, stock skybox
+artwork rather than synthetic test geometry or a texture the VTK authors would
+plausibly have made themselves, so Kitware's BSD-3-Clause collection licence
+covers VTK's tests and examples and not these images, and the licence is left
+undetermined. Neither VTK nor the VTK Examples says who made the images, so
+the origin is inferred. The unrelated `skybox2` set turned out to be Emil
+Persson's under CC BY 3.0.
 """
 
 [[dataset]]
@@ -6482,23 +6743,26 @@ name = "spcth_time_series"
 title = "CTH time series"
 description = "Spy plot CTH time series contributed by Dave Karelitz."
 path = ["Dave_Karelitz_Small/**"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from it
-in March 2019. Kitware's blanket `Copyright.txt` notice covers the collection
-as a whole, and is recorded here as the licence for this entry. The files are
-CTH "Spymaster output" files (the format's own header). The VTKData commit
-that added them, 7a18fb9 of 2011-11-04 by George Zagaris
+in March 2019. The simulation output files are a third party's work that
+Kitware redistributed; its blanket `Copyright.txt` notice covers the tests and
+examples Kitware wrote, not these files, so the licence is left undetermined.
+The files are CTH "Spymaster output" files (the format's own header). The
+VTKData commit that added them, 7a18fb9 of 2011-11-04 by George Zagaris
 (https://github.com/pyvista/data/commit/7a18fb9), is titled "Adding Dave's
 small SPCTH dataset to VTK", and the directory is named after Dave Karelitz;
 nothing upstream states who ran the simulation or under what terms it was
-contributed, so the collection licence is all that is recorded.
+contributed. The only member that could carry the collection licence on its
+own is `sample.spcth-timeseries`, a two-line index naming `spcth.0` and
+`spcth_a.0` that was written for the VTK test; the eight `spcth*` output files
+it points to carry the CTH tool banner and are not something the collection's
+authors made themselves.
 """
 
 [[dataset]]
@@ -6688,14 +6952,14 @@ or year is stated for 0.8.1, so none is recorded. `TangoIcons.png` is in the
 VTK Data tree this repository was forked from, and VTK ships
 `Tango/TangoIcons.png.sha512`.
 
-The project later released the base icon theme to the public domain: the
-page captured in 2010
-(https://web.archive.org/web/2010/http://tango.freedesktop.org/Tango_Desktop_Project)
+The project later released the base icon theme to the public domain: the page
+captured on 2011-01-01
+(https://web.archive.org/web/20110101023153/http://tango.freedesktop.org/Tango_Desktop_Project)
 reads "The Tango base icon theme is released to the Public Domain ... we ask
-that you still please attribute the Tango Desktop Project", and Debian
-records the 0.8.90 series as public-domain. A downstream user who needs the
-same icons unencumbered should take them from a release after 0.8.1 rather
-than from here.
+that you still please attribute the Tango Desktop Project", and Debian records
+the 0.8.90 series as public-domain. A downstream user who needs the same icons
+unencumbered should take them from a release after 0.8.1 rather than from
+here.
 
 ShareAlike propagates from the 2.5 terms recorded here.
 """
@@ -6784,8 +7048,8 @@ byte-identical to `src/Testing/Data/teapot.wrl` in lorensen/VTKExamples;
 the commit message "add vrml files". Neither was ever in the VTK Data
 collection: both are absent from the 2013 fork tree and from VTK's
 `Testing/Data` content links. The VTK Examples repository licence does not
-attach to Newell's geometry, which is recorded as public domain by
-convention.
+attach to Newell's geometry; the terms recorded are those stated on the
+University of Utah teapot page.
 """
 
 [[dataset]]
@@ -6813,6 +7077,11 @@ links the Tecplot user manual chapter `ascii_format.pdf.gz` for the format
 description; that 34-page chapter does not contain the sample (its text has
 no "Rampant" zone and no "X Velocity" variable). A downstream user should
 ask Paul Bourke before redistributing the file or using it commercially.
+
+The file arrived in pull request 13 (https://github.com/pyvista/data/pull/13),
+opened by mechajeff on 2022-06-26 and described there as "An ascii Tecplot
+.dat file of a 3D plus sign for testing purposes" without naming its source;
+the match to Bourke's sample is by sha256 (266e4df0...).
 """
 
 [[dataset]]
@@ -6900,15 +7169,49 @@ https://doi.org/10.15121/1495404 as the identifier.
 name = "three_ds_flamingo"
 title = "3D Studio flamingo"
 description = "Flamingo in the Autodesk 3D Studio format, thirty-three blocks named for its body, wings, legs and eyes, from the Viewpoint model library."
-path = ["iflamigm.3ds", "iflamingo.3ds"]
+path = ["iflamigm.3ds"]
 SPDX-License-Identifier = "LicenseRef-Viewpoint-DataLabs"
 SPDX-FileCopyrightText = ["1992 Viewpoint Animation Engineering Inc."]
 provenance = "verified"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
+authors = ["Viewpoint Animation Engineering Inc."]
 attribution = "(c) Copyright 1992 Viewpoint Animation Engineering Inc."
-notes = "Byte-identical to `Viewpoint/iflamigm.3ds`, so it carries the Viewpoint terms recorded on the `cow` entry: unlimited use and modification, but the geometry may not be resold."
+notes = """
+Byte-identical (blob f26d7c95...) to `Viewpoint/iflamigm.3ds`, which Jim
+Miller added to VTK Data on 2001-08-20 as "Files distributed with permission
+from Viewpoint" (https://github.com/pyvista/data/commit/e809813); this root
+copy was added by Ken Martin on 2001-07-31 ("added 3ds file",
+https://github.com/pyvista/data/commit/f9b0aa0) and both are in the July 2013
+tree this repository forked from. The 3DS binary carries no copyright or
+Viewpoint string, so the copyright line and the terms come from that commit
+and from the header of `cow.obj` recorded on the `cow` entry: unlimited use
+and modification, but the geometry may not be resold. The same bytes under the
+name `iflamingo.3ds`, which came through the VTK Examples, are the
+`three_ds_flamingo_examples` record.
+"""
+
+[[dataset]]
+name = "three_ds_flamingo_examples"
+title = "3D Studio flamingo, VTK Examples copy"
+description = "The Viewpoint flamingo in the Autodesk 3D Studio format, byte-identical to `iflamigm.3ds` but imported through the VTK Examples."
+path = ["iflamingo.3ds"]
+SPDX-License-Identifier = "LicenseRef-Viewpoint-DataLabs"
+SPDX-FileCopyrightText = ["1992 Viewpoint Animation Engineering Inc."]
+provenance = "verified"
+origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
+origin_title = "VTK Data"
+collection = "vtk-examples"
+authors = ["Viewpoint Animation Engineering Inc."]
+attribution = "(c) Copyright 1992 Viewpoint Animation Engineering Inc."
+redistributed_from = ["https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7", "https://github.com/lorensen/VTKExamples/blob/master/src/Testing/Data/iflamingo.3ds"]
+notes = """
+The same blob (f26d7c95...) as `iflamigm.3ds` and `Viewpoint/iflamigm.3ds`,
+imported on 2019-04-23 from `src/Testing/Data` in lorensen/VTKExamples
+(https://github.com/pyvista/data/commit/74bf994), where it sits under this
+name; see `three_ds_flamingo` for how the Viewpoint terms were established.
+"""
 
 [[dataset]]
 name = "torso"
@@ -6952,12 +7255,18 @@ and names no licence. The CC BY 4.0 in the README that pull request added
 maintainer in pull request 56 (https://github.com/pyvista/data/pull/56), not by the contributor, so the terms for
 other uses are undetermined until the contributor confirms them in that
 issue.
+
+The repository holds `toy-plane.zip`, containing a single `toy-plane.ply`
+(binary little-endian, 896000 vertices, `obj_info Photoneo PLY PointCloud`),
+and `toy-plane.png`, a render added by the maintainer in that pull request;
+the PLY has not been compared byte for byte with the Dropbox uploads in the
+issue.
 """
 
 [[dataset]]
 name = "triquadratic_hexahedron"
 title = "Triquadratic hexahedron"
-description = "Single triquadratic hexahedral cell."
+description = "Seven triquadratic hexahedral cells on a shared point set."
 path = ["TriQuadraticHexahedron.vtu"]
 SPDX-License-Identifier = "Apache-2.0"
 provenance = "inferred"
@@ -6969,9 +7278,9 @@ notes = """
 Imported in April 2019 from Bill Lorensen's `lorensen/VTKExamples` repository,
 which was published under the Apache License 2.0 and is now maintained by
 Kitware as `vtk/vtk-examples`. Lorensen did not publish per-file provenance.
-The file is a synthetic single-cell grid, example input of the kind the
-example authors write themselves, so the repository licence is recorded as
-inferred.
+The file is a synthetic seven-cell grid (117 points, every cell a triquadratic
+hexahedron), example input of the kind the example authors write themselves,
+so the repository licence is recorded as inferred.
 """
 
 
@@ -7045,20 +7354,23 @@ name = "ucd2d"
 title = "AVS UCD two-dimensional samples"
 description = "Two-dimensional unstructured cell data samples in the AVS UCD format."
 path = ["UCD2D/**"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. The eleven files are binary AVS UCD time steps of a
+two-dimensional multi-material simulation, added on 2012-01-31 by Philippe
+Pebay (commit b0d952d, https://github.com/pyvista/data/commit/b0d952d) as
+input for VTK's Youngs material interface example
+(https://gitlab.kitware.com/vtk/vtk/-/commit/4a878122). A simulation result is
+not example geometry the collection's authors made themselves, so Kitware's
+BSD notice covers their examples and not these files; the terms are left
+undetermined. Kitware never published per-file provenance for this material,
+so the original author of the data itself is not recorded upstream and could
+not be established here.
 """
 
 [[dataset]]
@@ -7080,6 +7392,13 @@ collection as a whole, and is recorded here as the licence for this entry.
 Kitware never published per-file provenance for this material, so the
 original author of the data itself is not recorded upstream and could not be
 established here.
+
+The file is a hand-written ASCII example ("Unstructured Grid Example", 27
+points on integer coordinates, one cell of each type) added on 2001-08-28 by
+Bill Lorensen (commit 429b90a,
+https://github.com/pyvista/data/commit/429b90a), synthetic test geometry of
+the kind the collection's authors write themselves, so the collection licence
+is recorded as inferred.
 """
 
 [[dataset]]
@@ -7132,20 +7451,26 @@ name = "usa"
 title = "United States state boundaries"
 description = "State boundary polygons of the United States, including Alaska and Hawaii, with a shaded-relief raster of the contiguous states."
 path = ["usa.vtk", "usa_image.jpg"]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. `usa.vtk` (3652 points of state outlines in longitude and
+latitude) was added on 2001-08-27 by Bill Lorensen (commit 4a1fbb2,
+https://github.com/pyvista/data/commit/4a1fbb2) and `usa_image.jpg` (a
+shaded-relief raster saved with Paint.NET 3.5.5) on 2010-11-03 by Aashish
+Chaudhary (commit 2222224, https://github.com/pyvista/data/commit/2222224) as
+the texture read by VTK's TestGlobeSource test, added the same day
+(https://gitlab.kitware.com/vtk/vtk/-/commit/8cb792c8). Both are geographic
+data from a source the collection does not name, not example geometry its
+authors made, so Kitware's blanket `Copyright.txt` notice covers their
+examples and not these files; neither member would carry the BSD licence on
+its own. Kitware never published per-file provenance for this material, so the
+original author and terms could not be established here and are left
+undetermined.
 """
 
 [[dataset]]
@@ -7274,12 +7599,13 @@ name = "vector_animation"
 title = "Vector field animation"
 description = "Nine one-dimensional texture maps used to animate a vector field by cycling textures."
 path = ["VectorAnimation/**"]
-SPDX-License-Identifier = "Apache-2.0"
+SPDX-License-Identifier = "BSD-3-Clause"
+SPDX-FileCopyrightText = ["1993-2015 Ken Martin, Will Schroeder, Bill Lorensen"]
 provenance = "inferred"
 origin_url = "https://gitlab.kitware.com/vtk/vtk/-/blob/da314198bb8fbdab6f59e8a69b2d97f1611a05bd/graphics/examplesTcl/animVectors.tcl"
 origin_title = "VTK animVectors example (vtkdata/vecTex)"
 collection = "vtk-examples"
-attribution = "VTK Examples, licensed under the Apache License 2.0."
+attribution = "VTK, Kitware. Copyright (c) 1993-2015 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 redistributed_from = ["https://github.com/lorensen/VTKExamples/tree/master/src/Testing/Data/VectorAnimation"]
 references = [
     { citation = "B. Yamrom and K. M. Martin. Vector Field Animation with Texture Maps. IEEE Computer Graphics and Applications 15(2):22-24, 1995.", doi = "10.1109/38.365001" },
@@ -7303,9 +7629,14 @@ for these bytes could not be checked.
 
 The copies here were imported in April 2019 from
 `src/Testing/Data/VectorAnimation` in `lorensen/VTKExamples` (all nine blobs
-match), which Lorensen, one of VTK's authors, published under the Apache
-License 2.0 and which Kitware now maintains as `vtk/vtk-examples`; that
-repository licence is what is recorded.
+match), which Kitware now maintains as `vtk/vtk-examples`. Lorensen added them
+on 2017-12-10 for his AnimateVectors example (commit ac927e2653,
+https://github.com/lorensen/VTKExamples/commit/ac927e2653); the VTK Examples'
+Apache-2.0 is that repository's licence and does not reach files that predate
+it. The maps are texture maps VTK's own example has read since 1996, example
+input of the kind the VTK project writes, so VTK's `Copyright.txt`
+(BSD-3-Clause) is recorded; without a byte match to the original `vtkdata` the
+provenance stays inferred.
 """
 
 [[dataset]]
@@ -7345,12 +7676,13 @@ collection = "vtk-examples"
 attribution = "VTK file format documentation, Kitware. Copyright (c) 1993-2015 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
 redistributed_from = ["https://github.com/lorensen/VTKExamples/blob/master/src/Testing/Data/VTKCellTypes.vtk"]
 notes = """
-Identical, apart from whitespace, to the "Unstructured Grid Example"
-listing in VTK's legacy file format documentation
+Identical, apart from whitespace, to the "Unstructured Grid Example" listing
+in VTK's legacy file format documentation
 (`Documentation/docs/vtk_file_formats/vtk_legacy_file_format.md` in the VTK
 repository; `diff -w` of the fenced block against the file is empty), which
 carries VTK's BSD-3-Clause `Copyright.txt` notice. Bill Lorensen added it to
-`lorensen/VTKExamples` on 14 February 2018 (commit 7046446f85, https://github.com/lorensen/VTKExamples/commit/7046446f85) for the
+`lorensen/VTKExamples` on 14 February 2018 (commit 7046446f85,
+https://github.com/lorensen/VTKExamples/commit/7046446f85) for the
 ReadLegacyUnstructuredGrid example, and the April 2019 import of that
 repository brought it here.
 """
@@ -7391,8 +7723,8 @@ path = [
     "cactus.3337.pts",
     "camscene.png",
     "cellcentered.tec",
-    "cellsnd.bin.inp",
     "cth.vtr",
+    "cellsnd.bin.inp",
     "delimited.txt",
     "delimited2.txt",
     "delimited2UTF16.txt",
@@ -7448,9 +7780,7 @@ path = [
     "sampleGenGrid3.nc",
     "sphere.slc",
     "test.p3d",
-    "tetra.vtu",
     "tetraMesh.vtk",
-    "texThres.vtk",
     "texThres2.vtk",
     "textureRGBA.png",
     "thio3xx.xyz",
@@ -7464,26 +7794,21 @@ path = [
     "vwgt.coords",
     "vwgt.graph",
 ]
-SPDX-License-Identifier = "BSD-3-Clause"
-SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "inferred"
 origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
-attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
-redistributed_from = ["https://github.com/lorensen/VTKExamples"]
 notes = """
-Inherited from the VTK Data collection when this repository was forked from
-it in March 2019. Kitware's blanket `Copyright.txt` notice covers the
-collection as a whole, and is recorded here as the licence for this entry.
-Kitware never published per-file provenance for this material, so the
-original author of the data itself is not recorded upstream and could not be
-established here.
-
-`tetra.vtu` and `texThres.vtk` are the exceptions to the route: they arrived
-with the April 2019 `lorensen/VTKExamples` import, but are byte-identical to
-the collection's `quadraticTetra01.vtu` and `texThres2.vtk` (blobs
-21ea8f00e758 and 8a5e1eddd0da), so the same licence applies.
+Inherited from the VTK Data collection when this repository was forked from it
+in March 2019. Kitware's blanket `Copyright.txt` notice (BSD-3-Clause) covers
+Kitware's own test inputs in this set (the synthetic cells, grids and
+polylines, the delimited-text, fixed-width and XML format samples, the wavelet
+Plot3D samples, the sample NetCDF grids and the test images and textures), not
+the third-party files listed below, so the licence of the set is left
+undetermined. Kitware never published per-file provenance for this material,
+so the original author of the data itself is not recorded upstream and could
+not be established here.
 
 Per-file origins established for files still inside this entry:
 `porphyrin.cml` is ChemSpider record 60231; `CityPopulationsUTF8.txt` is the
@@ -7499,9 +7824,34 @@ https://github.com/pyvista/data/commit/202fafd, 2004); `2h2o.aux` is a
 MOPAC2009 auxiliary output (header `MOPAC_VERSION=MOPAC2009.11.053L`, dated
 2011-07-02, added by Marcus Hanwell in commit 71c1ae0,
 https://github.com/pyvista/data/commit/71c1ae0) whose header carries no
-copyright banner. None of these is covered by the collection licence in its
-own right, and each is a candidate for its own entry once its terms are
-established.
+copyright banner. `cth.vtr` is a Sandia CTH shock-physics output (128 by 64 by
+64, Pressure, Void Volume Fraction, velocity, volume fraction and mass
+arrays), a solver output rather than example geometry; its byte-identical VTK
+Examples copy is the `rectilinear_grid` record. None of these is covered by
+the collection licence, which is why the set carries `LicenseRef-Unknown`;
+each is a candidate for its own entry once its terms are established.
+
+The byte-identical `tetra.vtu` and `texThres.vtk` that came through the VTK
+Examples are the `vtk_data_files_examples_copies` record.
+"""
+
+[[dataset]]
+name = "vtk_data_files_examples_copies"
+title = "VTK Data files, VTK Examples copies"
+description = "Two files byte-identical to members of the VTK Data collection but imported through the VTK Examples; not loaded by `pyvista.examples`."
+path = ["tetra.vtu", "texThres.vtk"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
+provenance = "inferred"
+origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
+origin_title = "VTK Data"
+collection = "vtk-examples"
+redistributed_from = ["https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7", "https://github.com/lorensen/VTKExamples/tree/master/src/Testing/Data"]
+notes = """
+Arrived with the April 2019 `lorensen/VTKExamples` import (commit 74bf994,
+https://github.com/pyvista/data/commit/74bf994) and are byte-identical to the
+VTK Data collection's `quadraticTetra01.vtu` and `texThres2.vtk` (blobs
+21ea8f00e758 and 8a5e1eddd0da), so they carry the same terms as
+`vtk_data_files`.
 """
 
 [[dataset]]
@@ -7639,13 +7989,12 @@ origin_title = "The Visible Human Project, U.S. National Library of Medicine"
 authors = ["U.S. National Library of Medicine"]
 redistributed_from = ["https://github.com/lorensen/VTKExamples"]
 notes = """
-The entry's own title and description name the source: the Visible Human
-Project female dataset, produced by the U.S. National Library of Medicine. It
-is a work of the United States federal government, and since 2019 the NLM has
-required no licence agreement to use it, having previously issued about four
-thousand. It arrived with the April 2019 VTK Examples import and was recorded
-under that repository's Apache-2.0, which is not Lorensen's to apply to
-federal work.
+The file is a knee volume from the Visible Human Project female dataset,
+produced by the U.S. National Library of Medicine. It is a work of the United
+States federal government, and since 2019 the NLM has required no licence
+agreement to use it, having previously issued about four thousand. It arrived
+with the April 2019 VTK Examples import; that repository's Apache-2.0 covers
+Lorensen's examples and not federal work, so it is not applied here.
 
 Inferred rather than verified: the identification rests on what this
 repository recorded when the file was added, not on a match against a file
@@ -7829,8 +8178,9 @@ No byte comparison is possible because the Wayback Machine has no capture of
 3dgallery.gks.com/2012/bodyscan/, so the origin is inferred from the loader's
 record rather than proven by bytes.
 
-The archive page states no licence of its own, and the site footer asserts
-"(c) 2026 CyberOptics Corporation. All Rights Reserved."
+The archived page states no licence of its own, and its footer asserts "(c)
+2019 CyberOptics Corporation. All Rights Reserved." (the live site's footer
+now reads 2026).
 
 The "Terms of Use" its footer links to, at cyberoptics.com, grants permission
 "to temporarily download one copy of the materials ... for personal,
