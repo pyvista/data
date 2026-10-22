@@ -61,6 +61,15 @@ share_alike = false
 file = "LICENSES/CC-BY-4.0.txt"
 text_source = "https://spdx.org/licenses/CC-BY-4.0.json"
 
+[license."CC-BY-NC-4.0"]
+title = "Creative Commons Attribution Non Commercial 4.0 International"
+url = "https://creativecommons.org/licenses/by-nc/4.0/"
+commercial_use = false
+attribution_required = true
+share_alike = false
+file = "LICENSES/CC-BY-NC-4.0.txt"
+text_source = "https://spdx.org/licenses/CC-BY-NC-4.0.json"
+
 [license."CC-BY-SA-4.0"]
 title = "Creative Commons Attribution Share Alike 4.0 International"
 url = "https://creativecommons.org/licenses/by-sa/4.0/"
@@ -264,6 +273,11 @@ title = "GGG-BenchmarkSfM"
 url = "https://data.mendeley.com/datasets/bzxk2n78s9/4"
 description = "Dataset for benchmarking close-range structure-from-motion software performance under varying capturing conditions, by Ivan Nikolov and Claus Madsen."
 
+[collection."khronos-gltf-sample-models"]
+title = "Khronos glTF Sample Models"
+url = "https://github.com/KhronosGroupArchives/glTF-Sample-Models"
+description = "Sample glTF 2.0 assets published by the Khronos Group, each with its own licence stated in a README beside the files. The repository was archived on 2023-12-22 and succeeded by KhronosGroup/glTF-Sample-Assets, which carries most but not all of the models."
+
 [collection."laser-design"]
 title = "Laser Design sample files"
 url = "https://www.laserdesign.com/sample-files/"
@@ -374,7 +388,7 @@ origin_url = "https://www.simscale.com/projects/simscale/aircraft_engine_bearing
 origin_title = "SimScale public project: Aircraft engine bearing bracket analysis"
 collection = "simscale"
 modified = true
-modification = "One run of the project (`sim_1/sim_1_0_0.vtu`) was read with PyVista, its coordinates and point data cast to float32 and its cell data cleared, to reduce the file size."
+modification = "One run of the project (`sim_1/sim_1_0_0.vtu`) was read with PyVista, its coordinates and point data cast to float32 and its cell data cleared, to reduce the file size. `aero_bracket_v2.vtu` reorders the nodes of every quadratic tetrahedron with `[0, 2, 1, 3, 6, 5, 4, 7, 9, 8]`, swapping two corners and their mid-edge nodes so that the cells have positive volume; points, data and file format are unchanged."
 notes = """
 The project page's description reads: "This project demonstrates the static
 stress analysis of three aircraft engine bearing bracket models considering
@@ -435,6 +449,11 @@ https://www.simscale.com/projects/ahmedhussain18/aircraft_engine_bearing_bracket
 (its page data has no parent project), it is the one pyvista/data#31
 downloaded from, and it is the only one of the three whose meshes could be
 tied to this record, so `origin_url` stays as it is.
+
+`aero_bracket_v2.vtu` was added by pyvista/data#74
+(https://github.com/pyvista/data/pull/74) on 2026-10-17 beside the original,
+which released PyVista keeps downloading: all 117292 quadratic tetrahedra in
+`aero_bracket.vtu` have negative volume.
 """
 
 [[dataset]]
@@ -715,6 +734,30 @@ lorensen/VTKExamples (commit 74bf994,
 https://github.com/pyvista/data/commit/74bf994; blob 0fb6147e392c at
 `src/Testing/Data/cars.csv`). The examples repository's Apache-2.0 does not
 apply to third-party data, so the UCI terms are recorded.
+"""
+
+[[dataset]]
+name = "avocado"
+title = "Avocado"
+description = "Avocado with physically based textures, a glTF 2.0 binary file used to exercise the glTF importer."
+path = ["gltf/Avocado/**"]
+SPDX-License-Identifier = "CC0-1.0"
+provenance = "verified"
+origin_url = "https://github.com/KhronosGroupArchives/glTF-Sample-Models/tree/d7a3cc8e51d7c573771ae77a57f16b0662a905c6/2.0/Avocado"
+origin_title = "Khronos glTF Sample Models: Avocado"
+collection = "khronos-gltf-sample-models"
+authors = ["Microsoft"]
+notes = """
+Copied unmodified by pyvista/data#72 (https://github.com/pyvista/data/pull/72)
+on 2026-10-18 from `2.0/Avocado` of the
+KhronosGroupArchives/glTF-Sample-Models repository at its final commit
+d7a3cc8e
+(https://github.com/KhronosGroupArchives/glTF-Sample-Models/commit/d7a3cc8e51d7c573771ae77a57f16b0662a905c6,
+2023-12-22), under the same relative path; the file is git blob
+006b79c395eb297e2b309f358cecb2412de071bb, the blob the archive records for it.
+The README beside the model reads: "To the extent possible under law,
+Microsoft has waived all copyright and related or neighboring rights to this
+asset." under the CC0 1.0 badge, so no attribution is required.
 """
 
 [[dataset]]
@@ -1902,6 +1945,40 @@ https://github.com/pyvista/data/commit/a2fab8f, 2022-07-26).
 """
 
 [[dataset]]
+name = "damaged_helmet"
+title = "Damaged helmet"
+description = "Battle-damaged science fiction flight helmet with physically based textures, a glTF 2.0 file with embedded buffers used to exercise the glTF importer and physically based rendering."
+path = ["gltf/DamagedHelmet/**"]
+SPDX-License-Identifier = "CC-BY-4.0 AND CC-BY-NC-4.0"
+SPDX-FileCopyrightText = ["2016 theblueturtle_", "2018 ctxwing"]
+provenance = "verified"
+origin_url = "https://github.com/KhronosGroupArchives/glTF-Sample-Models/tree/d7a3cc8e51d7c573771ae77a57f16b0662a905c6/2.0/DamagedHelmet"
+origin_title = "Khronos glTF Sample Models: Damaged Helmet"
+collection = "khronos-gltf-sample-models"
+authors = ["theblueturtle_", "ctxwing"]
+attribution = "Battle Damaged Sci-fi Helmet - PBR by theblueturtle_ (https://sketchfab.com/models/b81008d513954189a063ff901f7abfe4), licensed under CC BY-NC 4.0; rebuilt and converted to glTF 2.0 by ctxwing, licensed under CC BY 4.0."
+notes = """
+Copied unmodified by pyvista/data#72 (https://github.com/pyvista/data/pull/72)
+on 2026-10-18 from `2.0/DamagedHelmet` of the
+KhronosGroupArchives/glTF-Sample-Models repository at its final commit
+d7a3cc8e
+(https://github.com/KhronosGroupArchives/glTF-Sample-Models/commit/d7a3cc8e51d7c573771ae77a57f16b0662a905c6,
+2023-12-22), under the same relative path; the file is git blob
+6dae76a5471495d36723470f4c457b431a3b76f4, the blob the archive records for it.
+The README beside the model reads: "Battle Damaged Sci-fi Helmet - PBR by
+theblueturtle_, published under a Creative Commons Attribution-NonCommercial
+license", linking
+https://sketchfab.com/models/b81008d513954189a063ff901f7abfe4, and says the
+model was imported and re-exported from Blender to match the final glTF 2.0
+specification. The README names no licence version; the successor repository's
+`Models/DamagedHelmet/metadata.json`
+(https://github.com/KhronosGroup/glTF-Sample-Assets/blob/main/Models/DamagedHelmet/metadata.json)
+records CC-BY-NC-4.0 for theblueturtle_'s 2016 model and CC-BY-4.0 for
+ctxwing's 2018 rebuild and conversion, and the same bytes are in that
+repository. The non-commercial term follows the model into any use.
+"""
+
+[[dataset]]
 name = "damavand_volcano"
 title = "Damavand density anomaly volume"
 description = "Density-anomaly model inverted from the GEBCO 2019 topography grid (15 to 20 km bandpass) over the Damavand volcano and Mosha fault area of the Alborz, Iran, with two STL bodies plotted beside it in the same example."
@@ -2380,7 +2457,7 @@ origin_url = "https://www.simscale.com/docs/tutorials/thermal-management-cht-ana
 origin_title = "SimScale thermal management tutorial"
 collection = "simscale"
 modified = true
-modification = "Read from the OpenFOAM case at t=1000, clipped, split into structure and air, and re-saved; roughly 400 MB zipped reduced to about 50 MB."
+modification = "Read from the OpenFOAM case at t=1000, clipped, split into structure and air, and re-saved; roughly 400 MB zipped reduced to about 50 MB. `datasets_v2.zip` holds the same two files with the nodes of every wedge in `air.vtu` reordered with `[0, 2, 1, 3, 5, 4]` so that the cells have positive volume; `structure.vtp` is byte-identical and the points, data and file format of `air.vtu` are unchanged."
 notes = """
 Read from the SimScale tutorial project. The tutorial page links an import
 copy (https://www.simscale.com/workbench/?publiclink=59f9c463-29b2-4589-b1b3-9103baaa6915)
@@ -2397,6 +2474,12 @@ over content uploaded or generated by a customer under a Free Plan, which
 this project is not, and neither the tutorial page nor the project states
 terms, so the terms are undetermined. A downstream user who needs terms
 should ask SimScale.
+
+`datasets_v2.zip` was added by pyvista/data#74
+(https://github.com/pyvista/data/pull/74) on 2026-10-17 beside the original,
+which released PyVista keeps downloading: VTK 9.7 corrected the wedge point
+ordering, so from that version on all 470659 wedges in the original `air.vtu`
+have negative volume.
 """
 
 [[dataset]]
@@ -3318,6 +3401,33 @@ Ken Martin added the file to VTKData on 2001-11-02 as "sample signa data file"
 reached this repository through the March 2019 fork. Kitware's blanket
 `Copyright.txt` notice cannot license a hospital's patient imaging, and no
 consent or release was found, so the terms are undetermined.
+"""
+
+[[dataset]]
+name = "gearbox"
+title = "Gearbox assembly"
+description = "Mechanical gearbox assembly converted from a CAD model, a glTF 2.0 binary file used to exercise the glTF importer on a multi-mesh scene."
+path = ["gltf/GearboxAssy/**"]
+SPDX-License-Identifier = "LicenseRef-Unknown"
+provenance = "verified"
+origin_url = "https://github.com/KhronosGroupArchives/glTF-Sample-Models/tree/d7a3cc8e51d7c573771ae77a57f16b0662a905c6/2.0/GearboxAssy"
+origin_title = "Khronos glTF Sample Models: Gearbox Assy"
+collection = "khronos-gltf-sample-models"
+notes = """
+Copied unmodified by pyvista/data#72 (https://github.com/pyvista/data/pull/72)
+on 2026-10-18 from `2.0/GearboxAssy` of the
+KhronosGroupArchives/glTF-Sample-Models repository at its final commit
+d7a3cc8e
+(https://github.com/KhronosGroupArchives/glTF-Sample-Models/commit/d7a3cc8e51d7c573771ae77a57f16b0662a905c6,
+2023-12-22), under the same relative path; the file is git blob
+78cdad623a80103336f801e0c2c89a7508e4363c, the blob the archive records for it.
+The README beside the model has one sentence under its licence heading: "Data
+conversion from original JT to COLLADA has been kindly performed by Okino
+Computer Graphics, using Okino Polytrans Software." It names no author and
+states no terms, the successor repository KhronosGroup/glTF-Sample-Assets does
+not carry the model, and the collection as a whole publishes no licence, so
+the terms are undetermined. A downstream user who needs terms should ask the
+Khronos Group.
 """
 
 [[dataset]]
@@ -4524,6 +4634,35 @@ constant in that test.
 """
 
 [[dataset]]
+name = "milk_truck"
+title = "Cesium milk truck"
+description = "Animated milk truck with a textured body, a glTF 2.0 binary file used to exercise the glTF importer."
+path = ["gltf/CesiumMilkTruck/**"]
+SPDX-License-Identifier = "CC-BY-4.0"
+SPDX-FileCopyrightText = ["Cesium"]
+provenance = "verified"
+origin_url = "https://github.com/KhronosGroupArchives/glTF-Sample-Models/tree/d7a3cc8e51d7c573771ae77a57f16b0662a905c6/2.0/CesiumMilkTruck"
+origin_title = "Khronos glTF Sample Models: Cesium Milk Truck"
+collection = "khronos-gltf-sample-models"
+authors = ["Cesium"]
+attribution = "Cesium Milk Truck by Cesium, Khronos glTF Sample Models (https://github.com/KhronosGroupArchives/glTF-Sample-Models/tree/d7a3cc8e51d7c573771ae77a57f16b0662a905c6/2.0/CesiumMilkTruck), licensed under CC BY 4.0."
+notes = """
+Copied unmodified by pyvista/data#72 (https://github.com/pyvista/data/pull/72)
+on 2026-10-18 from `2.0/CesiumMilkTruck` of the
+KhronosGroupArchives/glTF-Sample-Models repository at its final commit
+d7a3cc8e
+(https://github.com/KhronosGroupArchives/glTF-Sample-Models/commit/d7a3cc8e51d7c573771ae77a57f16b0662a905c6,
+2023-12-22), under the same relative path; the file is git blob
+2f1a5b833f2c7185b6f7bfb590ecc345d221a1e0, the blob the archive records for it.
+The README beside the model reads: "Donated by Cesium for glTF testing. Please
+follow the Cesium Trademark Terms and Conditions. This model is licensed under
+a Creative Commons Attribution 4.0 International License." The Cesium logo on
+the truck is a trademark that the CC BY licence does not cover; the successor
+repository, KhronosGroup/glTF-Sample-Assets, lists it separately as
+LicenseRef-LegalMark-Cesium.
+"""
+
+[[dataset]]
 name = "minc_image"
 title = "MINC image volume"
 description = "Displacement grid volume in the Medical Imaging NetCDF format, referenced as the `Displacement_Volume` of the MINC library's test transform `t3.xfm`."
@@ -5108,14 +5247,14 @@ the collection's root `Data` folder.
 name = "notch_stress"
 title = "Notched beam stress and displacement"
 description = "Finite element stress and displacement results for a notched beam, with the original result file whose cells carry quadratic point ids under linear cell types."
-path = ["notch_stress.vtk", "notch_stress_fixed.vtk", "notch_disp.vtu"]
+path = ["notch_stress.vtk", "notch_stress_fixed.vtk", "notch_stress_fixed_v2.vtk", "notch_disp.vtu", "notch_disp_v2.vtu"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "verified"
 origin_url = "https://github.com/ansys/pymapdl/blob/f382d3d52f820dbc87b6f2326a35f45f966af764/examples/02-mapdl-examples/3d_notch.py"
 origin_title = "PyMAPDL example: 3D Stress Concentration Analysis for a Notched Plate"
 authors = ["Alex Kaszynski"]
 modified = true
-modification = "`notch_stress_fixed.vtk` keeps the 8 corner nodes of each 20-node hexahedron and the 6 of each 15-node wedge in `notch_stress.vtk`, whose 2192 cells are stored with linear cell types but carry 20 and 15 point ids each, and drops the unused midside points: 12717 points to 3537, 2192 cells unchanged (https://github.com/pyvista/pyvista/issues/8379#issuecomment-3999644105). `notch_stress.vtk` and `notch_disp.vtu` are as supplied."
+modification = "`notch_stress_fixed.vtk` keeps the 8 corner nodes of each 20-node hexahedron and the 6 of each 15-node wedge in `notch_stress.vtk`, whose 2192 cells are stored with linear cell types but carry 20 and 15 point ids each, and drops the unused midside points: 12717 points to 3537, 2192 cells unchanged (https://github.com/pyvista/pyvista/issues/8379#issuecomment-3999644105). `notch_stress.vtk` and `notch_disp.vtu` are as supplied. `notch_stress_fixed_v2.vtk` and `notch_disp_v2.vtu` reorder the same 4 of 2192 cells in each file, the wedges with `[0, 2, 1, 3, 5, 4]` and the quadratic wedges with `[0, 2, 1, 3, 5, 4, 8, 7, 6, 11, 10, 9, 12, 14, 13]`, so that the cells have positive volume; points, data and file format are unchanged."
 notes = """
 `notch_disp.vtu`, and the `notch_stress.vtk` that `notch_stress_fixed.vtk`
 derives from, were supplied by Alex Kaszynski on 2021-03-30 (commits e85b1fb,
@@ -5144,6 +5283,12 @@ https://github.com/pyvista/pyvista/issues/8379#issuecomment-3999644105 and
 added through pyvista/data#64 (https://github.com/pyvista/data/pull/64);
 `download_notch_stress` loads the fixed file. A downstream user should treat
 all three files as unlicensed.
+
+The `_v2` files were added by pyvista/data#74
+(https://github.com/pyvista/data/pull/74) on 2026-10-17 beside the originals,
+which released PyVista keeps downloading: VTK 9.7 corrected the wedge point
+ordering, so from that version on the four wedges in each original have
+negative volume.
 """
 
 [[dataset]]
@@ -6072,8 +6217,15 @@ origin_title = "SimScale public project 'Bracket' by STR"
 collection = "simscale"
 authors = ["STR"]
 modified = true
-modification = "Ten per-run result files were merged onto one shared unstructured grid (250487 points, 124806 cells) as three-component float32 point arrays `disp_0` to `disp_9`; the 44.5 MB legacy VTK file is stored as a 32.3 MB zip."
-notes = "The project page's title is \"Bracket by STR\" and its author metadata names STR; the page states no per-project terms beyond SimScale's public project conditions."
+modification = "Ten per-run result files were merged onto one shared unstructured grid (250487 points, 124806 cells) as three-component float32 point arrays `disp_0` to `disp_9`; the 44.5 MB legacy VTK file is stored as a 32.3 MB zip. `pump_bracket_v2.zip` holds the same `pump_bracket.vtk` and reorders the nodes of every quadratic tetrahedron with `[0, 2, 1, 3, 6, 5, 4, 7, 9, 8]`, swapping two corners and their mid-edge nodes so that the cells have positive volume; points, data and file format are unchanged."
+notes = """
+The project page's title is "Bracket by STR" and its author metadata names STR; the page states no per-project terms beyond SimScale's public project conditions.
+
+`pump_bracket_v2.zip` was added by pyvista/data#74
+(https://github.com/pyvista/data/pull/74) on 2026-10-17 beside the original,
+which released PyVista keeps downloading: all 124806 quadratic tetrahedra in
+`pump_bracket.vtk` have negative volume.
+"""
 
 [[dataset]]
 name = "puppy"
@@ -6274,7 +6426,7 @@ origin_title = "UNISIM-CEPETRO, Unicamp"
 attribution = "UNISIM-II benchmark model, UNISIM-CEPETRO-Unicamp. Citing the benchmark by name is mandatory in any publication or report of a study that uses it."
 redistributed_from = ["https://github.com/pyvista/pyvista-support/issues/319#issuecomment-821725156"]
 modified = true
-modification = "Converted from the UNISIM-II-D corner-point grid to a VTK unstructured grid by Rodrigo Mologni, who posted the zip at pyvista/pyvista-support#319; this copy is byte-identical to that attachment."
+modification = "Converted from the UNISIM-II-D corner-point grid to a VTK unstructured grid by Rodrigo Mologni, who posted the zip at pyvista/pyvista-support#319; `UNISIM-II-D.zip` is byte-identical to that attachment. `UNISIM-II-D.vtu` is the same grid with the conversion field data and the `vtkOriginalCellIds` array dropped, no active scalars, and `BLOCK_K` reversed to increase upward with each hexahedron's node order flipped to match so that the cells have positive volume, written as LZMA-compressed appended XML."
 notes = """
 UNISIM licenses the database itself under the Open Database License and its
 contents under the Database Contents License. ShareAlike propagates from the
@@ -6296,6 +6448,12 @@ SOLPE reference deliberately.
 The overview page is archived at
 https://web.archive.org/web/20250123131827/https://www.unisim.cepetro.unicamp.br/benchmarks/br/unisim-ii/overview;
 the live host does not answer requests.
+
+`UNISIM-II-D.vtu` was added by pyvista/data#73
+(https://github.com/pyvista/data/pull/73) on 2026-10-17 beside the zip, which
+released PyVista keeps downloading and whose loader removes the field-data
+entries by name; in the zip `BLOCK_K` runs downward while z runs upward, so
+every active cell has negative volume.
 """
 
 [[dataset]]
@@ -6386,7 +6544,7 @@ notes = "Rendered with PyVista by the script in the `Data/gifs/README.md` that c
 name = "sample_struct_grid"
 title = "Sample structured grid"
 description = "Small structured grid used to exercise parallel filters."
-path = ["SampleStructGrid.vtk"]
+path = ["SampleStructGrid.vtk", "SampleStructGrid_v2.vtk"]
 SPDX-License-Identifier = "BSD-3-Clause"
 SPDX-FileCopyrightText = ["1993-2008 Ken Martin, Will Schroeder, Bill Lorensen"]
 provenance = "inferred"
@@ -6394,6 +6552,8 @@ origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
 origin_title = "VTK Data"
 collection = "vtk-data"
 attribution = "VTK Data. Copyright (c) 1993-2008 Ken Martin, Will Schroeder, Bill Lorensen. BSD 3-Clause."
+modified = true
+modification = "`SampleStructGrid_v2.vtk` swaps the i and k index axes of `SampleStructGrid.vtk` so that i, j and k run along x, y and z; the dimensions become (40, 30, 20), point 0 stays at the origin, and the points, data and file format are otherwise unchanged. `SampleStructGrid.vtk` is as inherited."
 notes = """
 Inherited from the VTK Data collection when this repository was forked from it
 in March 2019. Kitware's blanket `Copyright.txt` notice covers the collection
@@ -6405,6 +6565,11 @@ Dave DeMarle of Kitware, and the file is a 20 by 30 by 40 grid written by
 VTK's legacy writer (header "vtk output") as input for those tests, so it is
 synthetic test geometry of the kind Kitware writes and the collection licence
 applies to it; the commit does not say how it was generated.
+
+`SampleStructGrid_v2.vtk` was added by pyvista/data#74
+(https://github.com/pyvista/data/pull/74) on 2026-10-17 beside the original,
+which released PyVista keeps downloading: with i along z and k along x every
+hexahedron of the original has negative volume.
 """
 
 [[dataset]]

@@ -438,7 +438,7 @@ print('identical' if norm(mine) == norm(canon) else 'DIFFERS')
 EOF
 ```
 
-All sixteen SPDX-listed texts here pass that check. The twelve `LicenseRef-`
+All seventeen SPDX-listed texts here pass that check. The twelve `LicenseRef-`
 files cover terms SPDX does not list, and each opens with a `Source:` line
 naming what it rests on. The ones based on published wording (the NASA
 guidelines, the SimScale terms, the Stanford, Training Images and Utah

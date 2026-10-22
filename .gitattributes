@@ -18,3 +18,5 @@
 # Treat these files as binary
 *.geo binary
 *.pv binary
+*.glb binary
+*.gltf binary
