@@ -2629,18 +2629,22 @@ separate notice, so the repository licence is recorded.
 [[dataset]]
 name = "dolfinx_checkpoint"
 title = "DOLFINx checkpoint"
-description = "XDMF files for the XDMF reader: a meshio-written quadratic-triangle surface mesh, and two HDF5-backed time series written by legacy FEniCS/DOLFIN, with and without checkpoint (FiniteElementFunction) metadata."
-path = ["dolfinx/**"]
+description = "XDMF time series written by legacy FEniCS/DOLFIN for the XDMF reader, with and without checkpoint (FiniteElementFunction) metadata."
+path = ["dolfinx/checkpoint.h5", "dolfinx/checkpoint.xdmf", "dolfinx/no_checkpoint.h5", "dolfinx/no_checkpoint.xdmf"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
 provenance = "verified"
 origin_url = "https://github.com/pyvista/pyvista/pull/2839#issuecomment-1173408204"
 origin_title = "pyvista PR 2839, comment by Rémi Delaporte-Mathurin with xdmf_files.zip"
-authors = ["Rémi Delaporte-Mathurin", "Tetsuo Koyama"]
+authors = ["Rémi Delaporte-Mathurin"]
 notes = """
 `checkpoint.xdmf`, `checkpoint.h5`, `no_checkpoint.xdmf` and
-`no_checkpoint.h5` are byte-identical (sha256 f91fbeba..., d60dbfa4...,
-bfe6d83e..., 98958f6f...) to the four files in `xdmf_files.zip` that Rémi
-Delaporte-Mathurin posted on 2022-07-04 in pyvista PR 2839
+`no_checkpoint.h5` are byte-identical (sha256
+f91fbebade28830840212bd94c64e694c5e2610b1c40b72c7f64ee4462e40a5e,
+d60dbfa492a1e49df0b6cf13cf3ff907eb8d1e4897cd937358a5053f3b038591,
+bfe6d83e9762b69a046bdb604e54d86b50b0d88446929664bf330b2b752e0702 and
+98958f6f0ff021acd8c38d4d0bc516cc06316f9dcdf921d4b0139c9804504dc8) to the four
+files in `xdmf_files.zip` that Rémi Delaporte-Mathurin posted on 2022-07-04 in
+pyvista PR 2839
 (https://github.com/pyvista/pyvista/files/9037095/xdmf_files.zip), together
 with the script that generated them, which starts `import fenics as f` and
 writes a `UnitCubeMesh(8, 8, 8)` time series with `XDMFFile.write` and
@@ -2657,16 +2661,35 @@ byte-identical to the first (both 219901 bytes, sha256
 0818357cfe5109580490fa05d8d857bfe724a840c11885a1f36dba23ebeb4ed1), so only one
 version of the set exists, and the lower file id of the later link does not
 change that. Tetsuo Koyama added them to this repository in pull request #26
-(https://github.com/pyvista/data/pull/26, 2023-02-19). `mesh.xdmf` (970
-points, 484 `Triangle_6` cells, Format="XML") carries meshio's `<Information
-Name="Information" Value="0"><![CDATA[<main/>]]>` marker and was made by
-Tetsuo Koyama for pull request #12 (https://github.com/pyvista/data/pull/12,
-2022-06-22, "See pyvista/pyvista#2839,
-https://github.com/pyvista/pyvista/pull/2839"); as a contributor's own file
-submitted here with no other terms, its basis is this repository's Apache-2.0.
-The checkpoint files were made by Delaporte-Mathurin for the reader's tests
-and posted with no terms, so the licence of the set is recorded as
-undetermined; ask him before reusing them outside PyVista's tests.
+(https://github.com/pyvista/data/pull/26, 2023-02-19). Koyama's own
+`mesh.xdmf` from the same directory is the `dolfinx_mesh` record. The
+checkpoint files were made by Delaporte-Mathurin for the reader's tests and
+posted with no terms, so the licence of the set is recorded as undetermined.
+Ask him before reusing them outside PyVista's tests.
+"""
+
+[[dataset]]
+name = "dolfinx_mesh"
+title = "DOLFINx quadratic-triangle mesh"
+description = "A meshio-written quadratic-triangle surface mesh in XDMF for the XDMF reader."
+path = ["dolfinx/mesh.xdmf"]
+SPDX-License-Identifier = "Apache-2.0"
+provenance = "verified"
+origin_url = "https://github.com/pyvista/data/pull/12"
+origin_title = "pyvista/data pull request 12, See pyvista/pyvista#2839"
+authors = ["Tetsuo Koyama"]
+attribution = "DOLFINx mesh, made by Tetsuo Koyama for PyVista and contributed to pyvista/data under its Apache-2.0 licence."
+notes = """
+`mesh.xdmf` (970 points, 484 `Triangle_6` cells, Format="XML", sha256
+2c43a7437a0f897edcd1a01b8efc0da95cc2362e0ac4115bc0e9a066f3c9614e) carries
+meshio's `<Information Name="Information" Value="0"><![CDATA[<main/>]]>`
+marker and was made by Tetsuo Koyama for pull request #12
+(https://github.com/pyvista/data/pull/12, 2022-06-22, "See
+pyvista/pyvista#2839, https://github.com/pyvista/pyvista/pull/2839"). As a
+contributor's own file submitted here with no other terms, its basis is this
+repository's Apache-2.0. The legacy DOLFIN time series from the same
+directory, made by Rémi Delaporte-Mathurin, are the `dolfinx_checkpoint`
+record.
 """
 
 [[dataset]]
@@ -8505,14 +8528,16 @@ title = "CTH time series"
 description = "Spy plot CTH time series contributed by Dave Karelitz."
 path = ["Dave_Karelitz_Small/**"]
 SPDX-License-Identifier = "LicenseRef-Unknown"
-provenance = "inferred"
-origin_url = "https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"
-origin_title = "VTK Data"
+provenance = "verified"
+origin_url = "https://github.com/utkarshayachit/ParaViewData/commit/5f3afc169a6665602fad5c9c9c654aa345457a67"
+origin_title = "ParaViewData commit 5f3afc16, Restarted SPCTH data set (SAND 2008-3564P)"
 collection = "vtk-data"
+authors = ["Sandia National Laboratories"]
+redistributed_from = ["https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7"]
 notes = """
-Inherited from the VTK Data collection when this repository was forked from it
-in March 2019. The simulation output files are a third party's work that
-Kitware redistributed; its blanket `Copyright.txt` notice covers the tests and
+Reached this repository through the VTK Data collection it was forked from in
+March 2019. The simulation output files are Sandia's work that Kitware
+redistributed, and its blanket `Copyright.txt` notice covers the tests and
 examples Kitware wrote, not these files, so the licence is left undetermined.
 The files are CTH "Spymaster output" files (the format's own header). The
 VTKData commit that added them, 7a18fb9 of 2011-11-04 by George Zagaris
@@ -8547,10 +8572,11 @@ NTESS/DOE NNSA acknowledgement. Its exercises open a set named
 spcth_a.0.[0-3], a related naming pattern rather than these files. The
 ParaView 3 telecon of 2007-07-17
 (https://web.archive.org/web/20250110104950/https://www.paraview.org/ParaView/index.php/ParaView_3_Telecon_07/17/2007)
-names Dave Karelitz on the SPCTH reader work with Sandia staff. Sandia is the
-likely rights holder. A SAND release number is approval to release, not a
-licence, so the licence stays undetermined. The contact to ask is Sandia's
-ParaView team.
+names Dave Karelitz on the SPCTH reader work with Sandia staff. A Sandia staff
+member committing the files under a Sandia release number is a statement of
+origin, so the provenance is verified. A SAND release number is approval to
+release, not a licence, so the licence stays undetermined. The contact to ask
+is Sandia's ParaView team.
 """
 
 [[dataset]]
@@ -9888,25 +9914,9 @@ https://github.com/pyvista/data/commit/74bf9944c86a33b1aea09a0b69b3edd2da988f54)
 and are byte-identical to the VTK Data collection's `quadraticTetra01.vtu`
 (sha256 6bebfc84f0c342a867e6c50f849aa532f075d99b6ea980c0140966fb96d520ad) and
 `texThres2.vtk` (sha256
-fdb71e5442830fe0b83925de96c7bbec1026a9c079d9c78fa2df64e076d6752e), which are
-the `vtk_data_test_inputs` record. `texThres.vtk` is a 128 by 1 boolean
-structured-points texture map (header "Texture map for thresholding data (use
-boolean textures for 2D map)") and is byte-identical to
-`vtkdata/texThres2.vtk` in the VTK authors' 1997 data release
-(https://vtk.org/files/release/2.4/data/vtk20data.part1.tar.gz, owner
-`martink`, dated 1997-07-17). VTK's own textureThreshold test reads it.
-`tetra.vtu` is the same hand-written 22-point, 3-cell quadratic-cell grid as
-`quadraticTetra01.vtu`, which Francois Bertel of Kitware added to VTK Data on
-2004-09-15 as "First version, used for testing GenericFilering through the
-Bridge" (commit 4b5338be,
-https://github.com/pyvista/data/commit/4b5338be837b07061b691bccdc7c08db95fc00fd)
-and extended in commits 3221cd5c
-(https://github.com/pyvista/data/commit/3221cd5c7f24d446cea7bd5c35423f5f616599ce)
-and efe80f89
-(https://github.com/pyvista/data/commit/efe80f89550b1433c4f18a7c89fe6662313e7e30).
-Both are synthetic example input the VTK authors made themselves, so the
-collection's BSD-3-Clause notice in `Copyright.txt` is recorded as their
-licence with provenance inferred.
+fdb71e5442830fe0b83925de96c7bbec1026a9c079d9c78fa2df64e076d6752e). The
+`vtk_data_test_inputs` record traces both to the VTK authors, so they take the
+same licence and provenance here.
 """
 
 [[dataset]]
@@ -9969,7 +9979,6 @@ path = [
     "Triangle.vtu",
     "Triangles.txt",
     "Wedge.vtu",
-    "Yinyang.jpg",
     "a.vtp",
     "binary.pgm",
     "coarseGrid.e",
@@ -10405,8 +10414,8 @@ ones, should contact Laser Design or substitute another mesh.
 [[dataset]]
 name = "yinyang"
 title = "Yin-yang binary image"
-description = "Binary image of the yin-yang symbol, used to demonstrate image filters."
-path = ["Yinyang.png", "yinyang/**"]
+description = "Binary image of the yin-yang symbol, as a PNG and an RGB JPEG, used to demonstrate image filters."
+path = ["Yinyang.jpg", "Yinyang.png", "yinyang/**"]
 SPDX-License-Identifier = "Apache-2.0"
 provenance = "inferred"
 origin_url = "https://gitlab.kitware.com/vtk/vtk-examples/-/blob/master/src/Testing/Data/Yinyang.png"
@@ -10429,8 +10438,8 @@ The same blob d29c80f3e508 was already in the first commit of Bill Lorensen's
 earlier lorensen/VTKWikiExamples repository, 7e43fa5526 of 2015-04-16
 (https://github.com/lorensen/VTKWikiExamples/commit/7e43fa5526537baeaf9b8f26b87684c6c328838e),
 together with `Yinyang.jpg`, an RGB JPEG of the same 512x342 black-and-white
-drawing that is recorded under `vtk_examples_files`. That commit's test lists
-read the png in ImageDilateErode3D, ImageOpenClose3D and
+drawing, which this record covers under the same reading. That commit's test
+lists read the png in ImageDilateErode3D, ImageOpenClose3D and
 ImageSeparableConvolution and the jpg in TextureMapPlane, TextureMapQuad and
 ImageCityBlockDistance. Neither file carries metadata (the PNG has only sRGB
 and pHYs chunks, the JPEG a bare JFIF header with no EXIF), the Wikimedia
