@@ -1,0 +1,15 @@
+Paul Bourke website terms
+
+Source: the copyright notice on https://paulbourke.net/, which covers every
+page and file of the site unless a third-party contributor is indicated.
+This is not a licence SPDX lists; the wording it is based on is quoted here.
+
+The notice states:
+
+    "The contents of this web site are Copyright Paul Bourke or a third
+    party contributor where indicated. You may print or save an electronic
+    copy of parts of this web site for personal use, permission must be
+    sought for any other use."
+
+What this means for a downstream user: personal use only. Redistribution,
+commercial use and any other use need Paul Bourke's permission.
